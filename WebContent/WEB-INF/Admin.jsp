@@ -20,7 +20,7 @@
     	CAT-APP Administration</h1>
     	
     <br>	    <h4 style="text-align: center;" class="text-primary">
-    	For user authorization and password reset.</h4></br><br>
+    	For user authorization and password reset.</h4><br><br>
     
     
     
@@ -45,7 +45,7 @@
         <td>Supervisor-1</td>
         <td>Super Name</td>
         <td>Texas A&M University </td>
-        <td><button type="button" class="btn btn-primary">Manage</button></td>
+        <td><button type="button" class="btn btn-primary users">Manage</button></td>
       </tr>      
       <tr class="success">
       	<td>Test-ID-2</td>
@@ -54,7 +54,7 @@
         <td>Supervisor-1</td>
         <td>Super Name</td>
         <td>Texas A&M University </td>
-        <td><button type="button" class="btn btn-primary">Manage</button></td>
+        <td><button type="button" class="btn btn-primary users">Manage</button></td>
       </tr>
       <tr class="danger">
       	<td>Supervisor-1</td>
@@ -63,7 +63,7 @@
         <td>Supervisor-1</td>
         <td>Super Name</td>
         <td>Texas A&M University </td>
-        <td><button type="button" class="btn btn-primary">Manage</button></td>
+        <td><button type="button" class="btn btn-primary users">Manage</button></td>
       </tr>
       <tr class="info">
       	<td>Test-ID-3</td>
@@ -72,7 +72,7 @@
         <td>Supervisor-2</td>
         <td>Super Name2</td>
         <td>Public Health England </td>
-        <td><button type="button" class="btn btn-primary">Manage</button></td>
+        <td><button type="button" class="btn btn-primary users">Manage</button></td>
       </tr>
       <tr class="warning">
       	<td>Test-ID-4</td>
@@ -81,7 +81,7 @@
         <td>Supervisor-2</td>
         <td>Super Name2</td>
         <td>Public Health England </td>
-        <td><button type="button" class="btn btn-primary">Manage</button></td>
+        <td><button type="button" class="btn btn-primary users">Manage</button></td>
       </tr>
       <tr class="active">
       	<td>Supervisor-2</td>
@@ -90,7 +90,7 @@
         <td>Supervisor-2</td>
         <td>Super Name 2</td>
         <td>Public Health England  </td>
-        <td><button type="button" class="btn btn-primary">Manage</button></td>
+        <td><button type="button" class="btn btn-primary users" >Manage</button></td>
       </tr>
        <tr>
       	<td>Admin</td>
@@ -99,7 +99,7 @@
         <td>Admin</td>
         <td>Admin Name</td>
         <td>Texas A&M University </td>
-        <td><button type="button" class="btn btn-primary">Manage</button></td>
+        <td><button type="button" class="btn btn-primary users">Manage</button></td>
       </tr>      
     </tbody>
   </table>
@@ -107,29 +107,68 @@
     <br></br><br></br>
 </div>
 
+<div style="display: none;">
+<div id="New_Window_content" style="margin:auto;">
+	<div style="margin:auto; width:700px; background-color: AntiqueWhite; padding: 50px;
+		margin-top:50px;
+-webkit-box-shadow: 0 0 6px 4px black;
+   -moz-box-shadow: 0 0 6px 4px black;
+        box-shadow: 0 0 16px 4px black;">
+        <head>
+			<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+			<title>Authorization</title>
+
+			<!-- Bootstrap core CSS -->
+			<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+		</head>
+    	<h3 style="text-align: center;" class = "text-danger"><b>
+    	Authorization and Password Reset</b></h2><br>
+    	<form action="http://localhost:8080/CAT-APP-PROJECT/Admin">
+    		<b>Username: </b>Test-ID-4</b><p></p>
+    		<b>Name: Emily White</b><p></p>
+    		<div class="checkbox">
+  				<label><input type="checkbox" value=""><b>Authorization</b></label>
+			</div>
+    		<div class="checkbox">
+  				<label><input type="checkbox" value=""><b>Change Password</b></label>
+			</div>
+    		<b>New Password: </b><input></input> 
+    		<b>&nbsp; &nbsp; Repeat Password: </b><input></input><p></p>
+    		
+    		<b>Phone Number: </b>1-234-567-8901<p></p>
+    		<b>E-mail address: </b>Emily.White@Public.Health.England.org<p></p>
+    		<b>Supervisor Username: </b>Supervisor-2	<p></p>
+    		<b>Supervisor Name: </b>Super Name2	<p></p>
+    		<b>Supervisor Phone number: </b>1-234-567-8902<p></p>
+    		<b>Supervisor Email: </b>Super.Name2@Public.Health.England.org<p></p>
+    		<p style="margin:auto; text-align:center">
+    			<input type="submit" class="btn btn-primary" value ="Save"></input>
+    			<input type="submit" class="btn btn-danger" value ="Cancel"></input></p>
+    	</form>
+    </div>
+</div>
+</div> <!-- end of display none -->
+
 <script>
 
-$(".btn").click(function(){
-    alert("The paragraph was clicked.");
+$(".users").click(function(){
+    // alert("The paragraph was clicked.");
+    nWin();
 });
 
-function normalImg(x) {
-	$(".cas64741-43-1").css("font-size","20px");
-	$(".cas64741-43-1").css("background-color","white");
-    // x.style.width = "232px";
-}
-    
 
-// alert("here");
-$(".cas64741-43-1").hover(function(e) {
-	// alert("here");
-    $("#foo").css({
-        left: e.pageX + 1,
-        top: e.pageY + 1
-        }).stop().show(100);},
- 		// alert("here 2");}, 
-     function() {$("#foo").hide(100);}
-     );	// end of hover    
+
+
+function nWin() {
+	  var New_Window = window.open();
+	  var New_html = $("#New_Window_content").html();
+
+	    $(New_Window.document.body).html(New_html);
+	}
+
 </script>
 
 
