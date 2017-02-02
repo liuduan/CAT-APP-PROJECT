@@ -44,6 +44,13 @@
   <url-pattern>/Admin</url-pattern>
  </servlet-mapping>
  
+ <servlet>
+  <display-name>FileUploadServlet</display-name>
+  <servlet-name>FileUploadServlet</servlet-name>
+  <servlet-class>com.catapp.servlet.UploadServlet</servlet-class>
+  <enabled>true</enabled>
+ </servlet>
+ 
  
  
  
@@ -67,6 +74,11 @@
  <servlet-mapping>
   	<servlet-name>ViewDownloadServlet</servlet-name>
   	<url-pattern>/ViewDownload</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet-mapping>
+  	<servlet-name>FileUploadServlet</servlet-name>
+  	<url-pattern>/fileupload</url-pattern>
  </servlet-mapping>
  
  
