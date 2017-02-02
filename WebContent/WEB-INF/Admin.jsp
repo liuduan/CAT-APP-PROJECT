@@ -111,6 +111,7 @@
 <div id="New_Window_content" style="margin:auto;">
 	<div style="margin:auto; width:700px; background-color: AntiqueWhite; padding: 50px;
 		margin-top:50px;
+		margin-bottom:50px;
 -webkit-box-shadow: 0 0 6px 4px black;
    -moz-box-shadow: 0 0 6px 4px black;
         box-shadow: 0 0 16px 4px black;">
