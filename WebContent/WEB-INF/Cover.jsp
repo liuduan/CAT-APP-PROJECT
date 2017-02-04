@@ -12,12 +12,7 @@
 <link rel="stylesheet" 
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<<<<<<< HEAD
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-=======
-
-
->>>>>>> SS-Master/master
 </head>
 
 <body style="background-color: Azure">
@@ -84,5 +79,6 @@
         For questions about this site, please contact dliu@cvm.tamu.edu.
     </div>
 </div>
+
 </body>
 </html>
