@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="C:/Users/ssingh/Apache/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ssingh/Downloads/Microsoft JDBC Driver 6.0 for SQL Server/sqljdbc_6.0/enu/jre7/sqljdbc41.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ssingh/Desktop/assets/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ssingh/Desktop/assets/jstl.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

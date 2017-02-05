@@ -2,12 +2,17 @@ package com.catapp.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.catapp.action.ChemData;
 
 /**
  * Servlet implementation class AdminServlet
@@ -15,6 +20,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/UploadServlet")
 public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	
+	
 
     /**
      * Default constructor. 
@@ -41,8 +49,20 @@ public class UploadServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+		
+	
+	    HashMap<Integer,String>lPhenoMap =  new ChemData().getPhenoTypes();
+	    HashMap<Integer,String>lAssayMap =  new ChemData().getAssayNames();
+	    HashMap<Integer,String>lCellMap  =  new ChemData().getCellLines();
+	    HashMap<Integer,String>lTimMap   =  new ChemData().getTimePoints();
+	    request.setAttribute("pheno", lPhenoMap);
+	    request.setAttribute("assay", lAssayMap);
+	    request.setAttribute("cell", lCellMap);
+	    request.setAttribute("time", lTimMap);
+	  	RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp");
+	    rd.forward(request, response);
 	}
 
 	/**
