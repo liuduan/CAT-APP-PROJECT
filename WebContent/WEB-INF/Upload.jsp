@@ -66,7 +66,7 @@
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	
-                        	<form role="form" action="" method="post" class="registration-form">
+                        	<form role="form" action="SaveFileFormServlet" method="post" class="registration-form" enctype="multipart/form-data">
                         		
                         		<fieldset>
 		                        	<div class="form-top">
@@ -79,9 +79,10 @@
 		                            <div class="form-bottom">
 				                    	<div class="form-group">
 				                    		
-											  <input type="radio" name="form-CellType1" id="form-CellType1"  value="Macrophages" checked> Macrophages<br>
-											  <input type="radio" name="form-CellType1" id="form-CellType2"  value="Cardiomycytes"> Cardiomycytes<br>
-											  <input type="radio" name="form-CellType1" id="form-CellType3"  value="Hepatocytes"> Hepatocytes
+											  
+											  <c:forEach var="cellline" items="${cell}">
+    												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>><c:out value="${cellline.value}"/><br>
+											  </c:forEach>
 				                 
 				                        </div>
 				                        
@@ -101,7 +102,12 @@
 		                            <div class="form-bottom">
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-email">Assay Name</label>
-				                        	<input type="text" name="form-email" placeholder="Assay..." class="form-email form-control" id="form-email">
+				                        	<select name="assaydata" id="assay">
+    											<c:forEach var="assaynames" items="${assay}">
+										        <option value="${assaynames.key}"> ${assaynames.value}</option>
+										    	</c:forEach>
+												</select>
+
 				                        </div>
 				                      
 				                        <button type="button" class="btn btn-previous">Previous</button>
@@ -121,12 +127,11 @@
 		                            <div class="form-bottom">
 				                    	<div class="form-group">
 				                    		<label class="sr-only" for="form-facebook">Time-Point</label>
-				                        	<select id="tpdrop" name="timepoints">
-											  <option value="15 Min">15 Min</option>
-											  <option value="30 Min">30 Min</option>
-											  <option value="60 Min">60 Min</option>
-											  <option value="90 Min">90 Min</option>
-											</select>
+				                        	<select name="timepoint" id="tp">
+    											<c:forEach var="timepoints" items="${time}">
+										        <option value="${timepoints.key}"> ${timepoints.value}</option>
+										    	</c:forEach>
+												</select>
 				                        </div>
 				                       
 				                        <button type="button" class="btn btn-previous">Previous</button>
@@ -139,7 +144,7 @@
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
 		                        			<h3>Step 4 / 5</h3>
-		                            		<h4>Select Phenotype & Plate Id: </h4>
+		                            		<h4>Select Phenotype and Plate:</h4>
 		                            		<p>We are close &#x1f64c;</p>
 		                        		</div>
 		                        		
@@ -148,24 +153,20 @@
 		                            <div class="form-bottom">
 				                       <div class="form-group">
 				                    		<label class="sr-only" for="form-facebook">Phenotype</label>
-				                        	<select id="phetype" name="timepoints">
-											  <option value="Phenotype1">Peak Frequency</option>
-											  <option value="Phenotype2">Peak Width</option>
-											  <option value="Phenotype3">Peak Width at 10% Amplitude</option>
-											  <option value="Phenotype4">Peak Amplitude</option>
-											  <option value="Phenotype4">Peak Amplitude</option>
-											  <option value="Phenotype4">Peak Amplitude</option>
-											  <option value="Phenotype4">Peak Amplitude</option>
-											      <option value="Phenotype4">Peak Amplitude</option>
-											</select>
+				                        <select name="phenotypes" id="ph">
+    											<c:forEach var="phenotypes" items="${pheno}">
+										        <option value="${phenotypes.key}"> ${phenotypes.value}</option>
+										    	</c:forEach>
+												</select>
 				                        </div>
-										<div class="form-group">
+				                        <div class="form-group">
 											  <label class="sr-only" for="form-facebook">Select a Plate</label>
-											  <input type="radio" name="form-Plate1" id="form-Plate1"  value="Plate1" checked> Plate 1<br>
-											  <input type="radio" name="form-Plate1" id="form-Plate2"  value="Plate2"> Plate 2<br>
-											  <input type="radio" name="form-Plate1" id="form-Plate3"  value="Plate3"> Plate 3 <br>
-											  <input type="radio" name="form-Plate1" id="form-Plate3"  value="Plate3"> Plate 4 <br>
+											  <input type="radio" name="form-Plate1" id="1"  value="1" checked> Plate 1<br>
+											  <input type="radio" name="form-Plate1" id="2"  value="2"> Plate 2<br>
+											  <input type="radio" name="form-Plate1" id="3"  value="3"> Plate 3 <br>
+											  <input type="radio" name="form-Plate1" id="4"  value="4"> Plate 4 <br>
 				                        </div>
+										
 				                      
 				                        <button type="button" class="btn btn-previous">Previous</button>
 				                        <button type="button" class="btn btn-next">Next</button>
@@ -188,7 +189,7 @@
 				                        </div>
 										
 										<button type="button" class="btn btn-previous">Previous</button>
-				                        <button type="button" class="btn btn-submit" onclick="javascript:upload();">Upload</button>
+				                        <button type="submit"  class="btn btn-submit">Upload</button>
 				                        
 				                    </div>
 			                    </fieldset>

@@ -4,8 +4,7 @@ function upload(){
 	}else{
 		alert("Please upload a file before proceeding.");
 	}
-	var token = $("meta[name='_csrf']").attr("content");
-	var header = $("meta[name='_csrf_header']").attr("content");
+
 	
 	var formData = new FormData();
     formData.append('file', $('input[type=file]')[0].files[0]);
@@ -28,11 +27,11 @@ function upload(){
 		        },
 		        success: function (result) {
 		           alert("File Uploaded Successfully.");
-		           window.location.replace("http://localhost:8080/database_project/contact");
+		           window.location.replace("http://localhost:8080/CAT-APP-PROJECT/Upload");
 		        },
 		        error: function (result) {
 		        	alert("A file with the same name is already present in the system.");
-		        	window.location.replace("http://stackoverflow.com");
+		  
 		        },
 		        excess: function (result) {
 		        	alert("File is too large.");

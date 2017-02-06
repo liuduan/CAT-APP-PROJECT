@@ -34,29 +34,30 @@ public class UploadServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service() throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		PrintWriter out = response.getWriter();
+	/*	PrintWriter out = response.getWriter();
 		out.println("View and Download Page<br> From ViewDownloadServlet.java: Hello Java!");
 		
 		getServletContext().getRequestDispatcher("/WEB-INF/contact.jsp").forward(request, response);
 		// This line is go to "/WEB-INF/Adminpage.jsp" with all the parameters.
-		
+*/		
 	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
 		
 	
-	    HashMap<Integer,String>lPhenoMap =  new ChemData().getPhenoTypes();
-	    HashMap<Integer,String>lAssayMap =  new ChemData().getAssayNames();
-	    HashMap<Integer,String>lCellMap  =  new ChemData().getCellLines();
-	    HashMap<Integer,String>lTimMap   =  new ChemData().getTimePoints();
+	    HashMap<Long,String>lPhenoMap =  new ChemData().getPhenoTypes();
+	    HashMap<Long,String>lAssayMap =  new ChemData().getAssayNames();
+	    HashMap<Long,String>lCellMap  =  new ChemData().getCellLines();
+	    HashMap<Long,String>lTimMap   =  new ChemData().getTimePoints();
 	    request.setAttribute("pheno", lPhenoMap);
 	    request.setAttribute("assay", lAssayMap);
 	    request.setAttribute("cell", lCellMap);
@@ -68,6 +69,7 @@ public class UploadServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

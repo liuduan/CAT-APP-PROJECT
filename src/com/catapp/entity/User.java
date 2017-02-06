@@ -205,7 +205,12 @@ public class User extends BaseEntity{
 	public void fill(HttpServletRequest pRequest, String pRecordCount, String pPrefix)
 	{}
 	@Override
-	public void save(Connection pConnection, PreparedStatement pPreparedStatement, IUser pUser) {
+	public void save(Connection pConnection, PreparedStatement pPreparedStatement, User pUser) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void fillAuditColumns(IUser pUser) {
 		// TODO Auto-generated method stub
 		
 	}

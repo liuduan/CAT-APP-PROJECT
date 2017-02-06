@@ -61,7 +61,7 @@
   </form>
   			
   <h4 style="text-align: center;" class = "text-primary">
-  	<a href="${pageContext.request.contextPath}/NewUser">
+  	<a href="${pageContext.request.contextPath}/Upload">
          New user application. </a></h4>		
 
     
