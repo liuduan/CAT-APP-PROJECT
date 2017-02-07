@@ -25,7 +25,11 @@
 <body style="background-color: Azure">
 <jsp:directive.include file="Header.jsp" />
 
-
+<form action="${pageContext.request.contextPath}/UserManagement" Mehtod="post">
+Dog Name: <input type="text" name="dog_name" /><br></br>
+Cat Name: <input type="text" name="cat_name" /><br></br>
+<input type="submit" class="btn btn-primary" value ="User Management"></input>
+</form>
 
 
 
@@ -50,7 +54,7 @@ SELECT * from users;
     
 
     
-    <table class="table  table-bordered table-hover" 
+    <table class="table  table-bordered table-hover" id = "user-table"
     	style="width: auto; margin:auto; text-align: center;" >
     <thead>
       <tr>
@@ -74,13 +78,13 @@ SELECT * from users;
    				<c:set var="i" scope="session" value="${0}"/>
 			</c:if>
 			<tr class='<c:out value="${tr_color[i]}" />'>
-   				<td><c:out value="${row.User_ID}"/></td>
+   				<td class = "user_id"> <c:out value="${row.User_ID}"/> </td>
    				<td><c:out value="${row.Approved}"/></td>
    				<td><c:out value="${row.First_Name} ${row.Last_Name}" /></td>
    				<td><c:out value="${row.Supervisor_ID}"/></td>
    				<td><c:out value="${row.Supervisor_First_Name} ${row.Supervisor_Last_Name}" /></td>
    				<td><c:out value="${row.Institution}"/></td>
-   				<td><button type="button" class="btn btn-primary users">Manage</button></td>
+   				<td><button type="button" class="btn btn-primary manage">Manage</button></td>
 			</tr>
 			<c:set var="i" scope="session" value="${i +1}"/>
 		</c:forEach>    
@@ -136,9 +140,14 @@ SELECT * from users;
 </div>
 </div> <!-- end of display none -->
 
+
+
+
+
+
 <script>
 
-$(".users").click(function(){
+$(".users").click(function(){				// the manage button used to be called users.
     // alert("The paragraph was clicked.");
     nWin();
 });
@@ -150,11 +159,111 @@ function nWin() {
 	  var New_Window = window.open();
 	  var New_html = $("#New_Window_content").html();
 
-	    $(New_Window.document.body).html(New_html);
+	  $(New_Window.document.body).html(New_html);
 	}
 
 </script>
 
+
+<script>
+
+$("tr").click(function(e){
+    var cell = $(e.target).get(0); // This is the TD you clicked
+    var tr = $(this); // This is the TR you clicked
+	alert( $(this).find(".user_id").text() );
+	$.post("${pageContext.request.contextPath}/UserManagement", {
+		
+		},
+		{
+			})
+	nWin();
+});
+
+
+$('#Search-Data-and-Model').click(function() {
+    $('#result').hide();
+    $('#select_check').hide();
+    // alert("Start Search Now");
+	/*alert("This site is currently being tested.\n compoundName: "+ 	
+		"compoundName: "+ $('#compoundNamer').text() +
+        ", \n submitValue: " + $('#submission').text() +
+        "\n MolWeight.:  "+ $('#Molecularweight').text() +
+        "\n refDose:  "+ $('#Ref_dose').is(":checked") +
+        "\n refConc:  "+ $('#Ref_conc').is(":checked") +
+        "\n oralSlope:  "+ $('#Oral_slope').is(":checked") +
+        "\n ihalUnit:  "+ $('#Ihal_unit').is(":checked") +
+        "\n cancPot:  "+ $('#Canc_pot').is(":checked") +
+        "\n noael:  "+ $('#NOAEL').is(":checked") +
+        "\n onbd:  "+ $('#ONBD').is(":checked") +
+        "\n ocbd:  "+ $('#OCBD').is(":checked") +
+        "\n smilee:  "+ $('#smiles').text() +
+        "\n CompoundImage:  "+ $('#compoundImage').text() + "");*/
+		$('#spinner').show();
+		seconds_elapse();
+    // $.post("Search-php-v2.php", {
+	$.post("Search-php.php", {
+            compoundName: $('#compoundNamer').text(),
+            submitValue: $('#submission').text(),
+            MolWeight: $('#Molecularweight').text(),
+			
+			
+            refDose: $('#Ref_dose').is(":checked"),
+			noel: $('#NOEL').is(":checked"),
+            refConc: $('#Ref_conc').is(":checked"),
+			
+			onbd: $('#ONBD').is(":checked"),
+            onbdl: $('#ONBDL').is(":checked"),
+			
+            oralSlope: $('#Oral_slope').is(":checked"),
+            ihalUnit: $('#Ihal_unit').is(":checked"),
+            cancPot: $('#Canc_pot').is(":checked"),
+            
+			
+            smilee: $('#smiles').text(),
+            CompoundImage: $('#compoundImage').text()
+
+        },		// end of submitting data.
+		
+        function(newdata) {						// When search results received.
+			// alert("Search Results Received. " + newdata);
+			// var w = window.open();
+			// $(w.document.body).replaceWith(newdata);
+			
+            $('#spinner').hide(),
+            $('#result').show();
+            $('#reset_check').css("display", "block");
+            // $('#resultss').replaceWith(newdata);
+			// $('#just_a_test').replaceWith(newdata);
+			$('#step3').replaceWith(newdata);
+			
+			
+			// alert("hello 2345");
+			// $('#just_a_test').dialog();
+			// $('#just_a_test').dialog("open");
+			// alert("hello");
+			// alert($(window).width()*0.8);
+            // $('#results').dialog("open");
+			// $('#results').dialog({height: auto});
+
+			// $('#results').dialog({width: 400});
+			// $('#results').dialog( "option", "width", 300 );
+			// alert("hello");
+			// alert($(window).width()*0.8);
+			
+			
+
+			// $(w.document.body).replaceWith(newdata);
+		}
+    );
+
+});			// end of $('#Search-Data-and-Model').click(function() {}
+
+
+
+
+
+
+</script>
 
 </body>
 </html>
