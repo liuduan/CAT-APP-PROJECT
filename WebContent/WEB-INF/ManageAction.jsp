@@ -15,11 +15,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-		
-"${User_ID}"
-		"${Authorization}"<br></br>
-		"${Change_password}"<br></br>
-		"${Password_2}"<br></br>
+Variables received:
+User ID: 		"${User_ID}"<br></br>
+Authorization:	"${Authorization}"<br></br>
+Change_password:"${Change_password}"<br></br>
+Password_2: 	"${Password_2}"<br></br>
 		
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
@@ -49,7 +49,6 @@
 
 
 
-Yes, 
 
 Here is Manage Action.
 <form action="${pageContext.request.contextPath}/Admin" Mehtod="post">
