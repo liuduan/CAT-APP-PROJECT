@@ -25,13 +25,15 @@
 <body style="background-color: Azure">
 <jsp:directive.include file="Header.jsp" />
 
+<!-- 
 <form action="${pageContext.request.contextPath}/UserManagement" Mehtod="post">
 Dog Name: <input type="text" name="dog_name" /><br></br>
 Cat Name: <input type="text" name="cat_name" /><br></br>
+<input type="hidden" name="country" value="Norway">
 <input type="submit" class="btn btn-primary" value ="User Management"></input>
 </form>
-
-
+<div id="test">Here is test div</div>
+ -->
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"
@@ -84,7 +86,10 @@ SELECT * from users;
    				<td><c:out value="${row.Supervisor_ID}"/></td>
    				<td><c:out value="${row.Supervisor_First_Name} ${row.Supervisor_Last_Name}" /></td>
    				<td><c:out value="${row.Institution}"/></td>
-   				<td><button type="button" class="btn btn-primary manage">Manage</button></td>
+   				<td><form action="${pageContext.request.contextPath}/UserManagement" Mehtod="post">
+					<input type="hidden" name="User_ID" value="<c:out value="${row.User_ID}"/>">
+					<input type="submit" class="btn btn-primary" value ="Manage"></input>
+					</form></td>
 			</tr>
 			<c:set var="i" scope="session" value="${i +1}"/>
 		</c:forEach>    
@@ -157,7 +162,8 @@ $(".users").click(function(){				// the manage button used to be called users.
 
 function nWin() {
 	  var New_Window = window.open();
-	  var New_html = $("#New_Window_content").html();
+	  // var New_html = $("#New_Window_content").html();
+	  var New_html = $("#test").html();
 
 	  $(New_Window.document.body).html(New_html);
 	}
@@ -167,16 +173,31 @@ function nWin() {
 
 <script>
 
-$("tr").click(function(e){
+$("tr-2").click(function(e){						// stop for now.
     var cell = $(e.target).get(0); // This is the TD you clicked
     var tr = $(this); // This is the TR you clicked
 	alert( $(this).find(".user_id").text() );
+	
+	$.post("${pageContext.request.contextPath}/UserManagement", function (data) {
+	    var win=window.open("http://google.com");
+	    with(win.document)
+	    {
+	      open();
+	      write(data);
+	      close();
+	    }
+	});
+	
 	$.post("${pageContext.request.contextPath}/UserManagement", {
-		
+        User_ID: $(this).find(".user_id").text() 
 		},
-		{
+		function(newdata) {	
+			alert(newdata);
+			// $("#New_Window_content").replaceWith(newdata);
+			$("#test").replaceWith(newdata);
+			nWin();
 			})
-	nWin();
+	
 });
 
 
