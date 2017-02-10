@@ -103,7 +103,7 @@ public abstract class BaseEntity implements IBaseEntity
 	 * @,
 	 *             AccessRightsException, ExecutionException
 	 */
-	public void save(Connection pConnection, IUser pUser) 
+	public void save(Connection pConnection, User pUser) 
 	{
 		PreparedStatement lPreparedStatement = null;
 		try
@@ -118,7 +118,9 @@ public abstract class BaseEntity implements IBaseEntity
 				rowStateFound = true;
 				lPreparedStatement = prepareUpdateStatement(pConnection);
 			}
-			save(pConnection, lPreparedStatement, pUser);
+			savedata(pConnection, lPreparedStatement, pUser);
+		}catch(Exception e){
+			
 		}
 		finally
 		{
@@ -136,7 +138,7 @@ public abstract class BaseEntity implements IBaseEntity
 	}
 
 	
-	public void save(Connection pConnection, IUser pUser,int pAutoIncrement) 
+	public void save(Connection pConnection, User pUser,int pAutoIncrement) 
 	{
 		PreparedStatement lPreparedStatement = null;
 		ResultSet lResultSet=null;
@@ -311,14 +313,14 @@ public abstract class BaseEntity implements IBaseEntity
 	 * @,
 	 *             ExecutionException
 	 */
-	public void fillAuditColumns(IUser pUser)
+	public void fillAuditColumns(User pUser)
 	{
 		if (getRowstate() == null)
 		{
 			setLoggedDate(new Timestamp(System.currentTimeMillis()));
 			if (pUser != null)
 			{
-				//this.setLoggedBy(pUser.getId());
+				this.setLoggedBy(pUser.getEntityId());
 			}
 			else
 			{
@@ -896,6 +898,37 @@ public abstract class BaseEntity implements IBaseEntity
 		{
 			logger.log(Level.INFO,"Error in Method --> setRowstate", pException2);
 		}
+	}
+	
+	public void savedata(Connection pConnection,PreparedStatement pPreparedStatement, User pUser){
+		ResultSet lRes =null;
+		try{
+		if(this.getEntityId()!=null){
+			this.setUpdateValues(pPreparedStatement);
+		}else{
+			fillAuditColumns(pUser);
+			rowStateFound = false;
+			this.setEntityId(1l);
+			this.setRowstate(new Long(1));
+			//setPrimaryKeyValues(pPreparedStatement);
+			this.setInsertValues(pPreparedStatement);
+		}
+		
+			pPreparedStatement.execute();
+			lRes=pPreparedStatement.getGeneratedKeys();
+			if (lRes.next())
+			{
+				Long lReturnId = lRes.getLong(1);
+				setEntityId(lReturnId);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			commitTransactions(pConnection);
+		}
+		
 	}
 
 	public void organizationOwnsRecord(Connection pConnection, IUser pUser, Long pOrganizationID) 

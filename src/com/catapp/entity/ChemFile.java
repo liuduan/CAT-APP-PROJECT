@@ -13,9 +13,9 @@ import org.apache.log4j.Logger;
 import com.catapp.Interfaces.IUser;
 import com.catapp.connection.BaseEntity;
 
-public class File extends BaseEntity{
+public class ChemFile extends BaseEntity{
 	
-	private static final Logger LOGGER = Logger.getLogger(File	.class);
+	private static final Logger LOGGER = Logger.getLogger(ChemFile	.class);
 	public static final String TABLE_NAME = "File_info";
 	public static final String f_filename = "file_name";
 	public static final String f_filepath = "file_path";
@@ -29,7 +29,7 @@ public class File extends BaseEntity{
 	private String file_path;
 	private Long cell_line_id;
 	private Long phenotype_id;
-	private String assay_type;
+	private Long assay_type;
 	private String file_type;
 	private String is_active;
 	
@@ -57,10 +57,10 @@ public class File extends BaseEntity{
 	public void setPhenotype_id(Long phenotype_id) {
 		this.phenotype_id = phenotype_id;
 	}
-	public String getAssay_type() {
+	public Long getAssay_type() {
 		return assay_type;
 	}
-	public void setAssay_type(String assay_type) {
+	public void setAssay_type(Long assay_type) {
 		this.assay_type = assay_type;
 	}
 	public String getFile_type() {
@@ -77,50 +77,50 @@ public class File extends BaseEntity{
 	}
 	public String getInsertColumns()
 	{
-		return "(" + f_entityId + ","  + f_filename + "," + f_filepath + "," + f_cellline + "," + f_phenotype
+		return "(" /*+ f_entityId + ","*/  + f_filename + "," + f_filepath + "," + f_cellline + "," + f_phenotype
 			+ "," + f_assaytype + "," + f_filetype +"," + f_Active + ","+ f_loggedDate + ","
-			+ "," + f_lastUpdatedDate + "," + f_loggedBy + "," + f_lastUpdatedBy + "," + f_rowstate
-			+ ") VALUES(?, ?, ? ,? ,? ,? ,? ,? ,? ,? ,? ,?,?) ";
+			 + f_lastUpdatedDate + "," + f_loggedBy + "," + f_lastUpdatedBy + "," + f_rowstate
+			+ ") VALUES(?, ? ,? ,? ,? ,? ,? ,? ,? ,? ,?,?) ";
 	}
 	
 	public void setInsertValues(PreparedStatement pPreparedStatement)
 	{
 		try
 		{
-			if (getEntityId() == null)
+			/*if (getEntityId() == null)
 			{
 				pPreparedStatement.setNull(1, java.sql.Types.BIGINT);
 			}
 			else
 			{
 				pPreparedStatement.setLong(1, getEntityId());
-			}
-			pPreparedStatement.setString(2, getFile_name());
-			pPreparedStatement.setString(3, getFile_path());
-			pPreparedStatement.setLong(4, getCell_line_id());
-			pPreparedStatement.setLong(5, getPhenotype_id());
-			pPreparedStatement.setString(6, getAssay_type());
-			pPreparedStatement.setString(7,getFile_type());
-			pPreparedStatement.setString(8, getIs_active());
-			pPreparedStatement.setTimestamp(9, getLoggedDate());
+			}*/
+			pPreparedStatement.setString(1, getFile_name());
+			pPreparedStatement.setString(2, getFile_path());
+			pPreparedStatement.setLong(3, getCell_line_id());
+			pPreparedStatement.setLong(4, getPhenotype_id());
+			pPreparedStatement.setLong(5, getAssay_type());
+			pPreparedStatement.setString(6,getFile_type());
+			pPreparedStatement.setString(7, "Y");
+			pPreparedStatement.setTimestamp(8, getLoggedDate());
 			if (getLastUpdatedDate() == null)
 			{
-				pPreparedStatement.setNull(10, java.sql.Types.TIMESTAMP);
+				pPreparedStatement.setNull(9, java.sql.Types.TIMESTAMP);
 			}
 			else
 			{
-				pPreparedStatement.setTimestamp(10, getLastUpdatedDate());
+				pPreparedStatement.setTimestamp(9, getLastUpdatedDate());
 			}
-			pPreparedStatement.setLong(11, getLoggedBy());
+			pPreparedStatement.setLong(10, getLoggedBy());
 			if (getLastUpdatedBy() == null)
 			{
-				pPreparedStatement.setNull(12, java.sql.Types.BIGINT);
+				pPreparedStatement.setNull(11, java.sql.Types.BIGINT);
 			}
 			else
 			{
-				pPreparedStatement.setLong(13, getLastUpdatedBy());
+				pPreparedStatement.setLong(11, getLastUpdatedBy());
 			}
-			pPreparedStatement.setLong(14, getRowstate());
+			pPreparedStatement.setLong(12, getRowstate());
 		}
 		catch (SQLException pException1)
 		{
@@ -166,7 +166,12 @@ public class File extends BaseEntity{
 	public void fill(HttpServletRequest pRequest, String pRecordCount, String pPrefix)
 	{}
 	@Override
-	public void save(Connection pConnection, PreparedStatement pPreparedStatement, IUser pUser) {
+	public void save(Connection pConnection, PreparedStatement pPreparedStatement, User pUser) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void fillAuditColumns(IUser pUser) {
 		// TODO Auto-generated method stub
 		
 	}
