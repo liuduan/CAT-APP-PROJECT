@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
+import com.catapp.entity.User;
+
 
 /**
  * This interface will be implemented by all the classes that represent a main
@@ -363,7 +365,7 @@ public interface IBaseEntity extends Comparable<IBaseEntity>
 	 * @throws ,
 	 *             AccessRightsException, 
 	 */
-	void save(Connection pConnection, PreparedStatement pPreparedStatement, IUser pUser);
+	void save(Connection pConnection, PreparedStatement pPreparedStatement, User pUser);
 
 	/**
 	 * This method is used to specify the fields as a String Array on which
