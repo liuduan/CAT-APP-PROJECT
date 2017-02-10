@@ -9,9 +9,6 @@
 
 
 
-
-
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Administration</title>
@@ -24,7 +21,6 @@
 </head>
 <body style="background-color: Azure">
 <jsp:directive.include file="Header.jsp" />
-
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"
