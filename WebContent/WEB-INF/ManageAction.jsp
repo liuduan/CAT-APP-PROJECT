@@ -13,6 +13,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
 Variables received:
@@ -32,11 +33,11 @@ Password_2: 	"${Password_2}"<br></br>
   			update users SET Approved = 'Yes' where User_ID = "${User_ID}";
 		</sql:update>
     </c:when>    
-    <c:when test="${Authorization == ''}">
+    <c:otherwise> 
 		<sql:update dataSource="${snapshot}" var="count">
   			update users SET Approved = 'No' where User_ID = "${User_ID}";
 		</sql:update>
-    </c:when>  
+    </c:otherwise>  
 </c:choose>
 <c:if test="${Change_password == 'Change_password'}">
 	<sql:update dataSource="${snapshot}" var="count">
@@ -50,13 +51,16 @@ Password_2: 	"${Password_2}"<br></br>
 
 
 
-Here is Manage Action.
 <form action="${pageContext.request.contextPath}/Admin" Mehtod="post">
 					
-					<input type="submit" class="btn btn-primary" value ="Manage"></input>
-					</form>
+	<input type="submit" class="btn btn-primary" value ="Manage"></input>
+</form>
 					
-
+<script type="text/javascript">
+	$( document ).ready(function() {
+		window.location = "${pageContext.request.contextPath}/Admin";
+	});
+</script>
 		
 
 </body>

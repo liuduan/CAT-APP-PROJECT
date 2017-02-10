@@ -25,15 +25,6 @@
 <body style="background-color: Azure">
 <jsp:directive.include file="Header.jsp" />
 
-<!-- 
-<form action="${pageContext.request.contextPath}/UserManagement" Mehtod="post">
-Dog Name: <input type="text" name="dog_name" /><br></br>
-Cat Name: <input type="text" name="cat_name" /><br></br>
-<input type="hidden" name="country" value="Norway">
-<input type="submit" class="btn btn-primary" value ="User Management"></input>
-</form>
-<div id="test">Here is test div</div>
- -->
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"
@@ -46,12 +37,12 @@ SELECT * from users;
 <c:set var="tr_color" value="${['','success','danger','info', 'warning', 'active']}" scope="application" />
 
 <div class="container">
- 	<br></br>
+ 	<br>
  	
-    <h1 style="text-align: center;" class = "text-danger">
+    <h1 style="text-align: ;" class = "text-danger">
     	CAT-APP Administration</h1>
     	
-    <br>	    <h4 style="text-align: center;" class="text-primary">
+    <h4 style="text-indent: 50px;" class="text-primary">
     	For user authorization and password reset.</h4><br><br>
     
 
