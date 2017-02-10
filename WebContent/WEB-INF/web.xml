@@ -17,17 +17,13 @@
     <servlet-class>com.catapp.servlet.UploadServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-<<<<<<< HEAD
-=======
-  
+   
   <servlet>
     <display-name>SaveFileFormServlet</display-name>
     <servlet-name>FileSave</servlet-name>
     <servlet-class>com.catapp.servlet.SaveFileFormServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-  
->>>>>>> SS-Master/master
   <servlet>
     <display-name>UserHomeServlet</display-name>
     <servlet-name>UserHomeServlet</servlet-name>
@@ -40,7 +36,6 @@
     <servlet-class>com.catapp.servlet.ViewDownloadServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-<<<<<<< HEAD
   <servlet>
     <display-name>UserManagementServlet</display-name>
     <servlet-name>UserManagementServlet</servlet-name>
@@ -53,24 +48,19 @@
     <servlet-class>com.catapp.servlet.ManageActionServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-  
-  
-  
-=======
->>>>>>> SS-Master/master
-  <servlet-mapping>
-    <servlet-name>AdminServlet</servlet-name>
-    <url-pattern>/Admin</url-pattern>
-  </servlet-mapping>
-<<<<<<< HEAD
-  <servlet>
+    <servlet>
     <display-name>FileUploadServlet</display-name>
     <servlet-name>FileUploadServlet</servlet-name>
     <servlet-class>com.catapp.servlet.UploadServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-=======
->>>>>>> SS-Master/master
+  
+  
+  
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/Admin</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>NewUserServlet</servlet-name>
     <url-pattern>/NewUser</url-pattern>
@@ -83,18 +73,16 @@
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/Upload</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
-=======
+
    <servlet-mapping>
     <servlet-name>FileSave</servlet-name>
     <url-pattern>/FileSave</url-pattern>
   </servlet-mapping>
->>>>>>> SS-Master/master
+
   <servlet-mapping>
     <servlet-name>ViewDownloadServlet</servlet-name>
     <url-pattern>/ViewDownload</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
   <servlet-mapping>
     <servlet-name>FileUploadServlet</servlet-name>
     <url-pattern>/fileupload</url-pattern>
@@ -112,9 +100,5 @@
   
   <welcome-file-list>
     <welcome-file>/WEB-INF/Cover.jsp</welcome-file>
-=======
-  <welcome-file-list>
-    <welcome-file>\WEB-INF\Cover.jsp</welcome-file>
->>>>>>> SS-Master/master
   </welcome-file-list>
 </web-app>
