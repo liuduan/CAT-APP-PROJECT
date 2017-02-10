@@ -22,6 +22,7 @@
 <body style="background-color: Azure">
 <jsp:directive.include file="Header.jsp" />
 
+
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"
      user="root"  password="root"/>
