@@ -15,7 +15,7 @@ import com.catapp.connection.BaseEntity;
 
 public class ChemFile extends BaseEntity{
 	
-	private static final Logger LOGGER = Logger.getLogger(ChemFile	.class);
+	private static final Logger LOGGER = Logger.getLogger(ChemFile.class);
 	public static final String TABLE_NAME = "File_info";
 	public static final String f_filename = "file_name";
 	public static final String f_filepath = "file_path";

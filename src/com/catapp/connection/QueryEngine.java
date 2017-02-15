@@ -19,7 +19,7 @@ public String buildFindQuery(Connection pConnection, ArrayList<IBaseEntity> pEnt
 				for(int i=0;i<pEntities.size();i++){
 					lTableName= pEntities.get(i).getTableName()+" as "+ pTableAliases[i];
 				}
-				lReturnQuery = "select * from "+ lTableName +" where " + lWhereClause;
+				lReturnQuery = "select A.* from "+ lTableName +" where " + lWhereClause;
 				
 		   }
 		}catch (Exception e){

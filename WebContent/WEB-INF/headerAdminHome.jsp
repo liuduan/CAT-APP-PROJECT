@@ -18,25 +18,33 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                 <form action="BackToMainServlet" method="get">
-                 <a class="navbar-brand" href="">CAT-APP</a>
-            	</form>
+                 <a class="navbar-brand" href="#">CAT-APP</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float: right">
-                
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#login">Login</a>
+                        <a href="#">Home</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Account <b class="caret"></b></a>
+                    	<ul class="dropdown-menu">
+                    		<li><a href="#">User Profile</a></li>
+               				 <li><a href="#">Language Settings</a></li>
+               				 <li><a href="#">Change Password</a></li>
+               				 <li class="divider"></li>
+               				 <li><a href="#">Help Center</a></li>
+               				 
+                    	</ul>
                     </li>
                     <li>
-                        <a href="#about">About us</a>
+                        <a href="#">Admin Page</a>
                     </li>
                     <li>
-                        <a href="#contact">Contact</a>
+                        <a href="LogoutServlet">Logout</a>
                     </li>
                 </ul>
-                 
             </div>
             <!-- /.navbar-collapse -->
         </div>

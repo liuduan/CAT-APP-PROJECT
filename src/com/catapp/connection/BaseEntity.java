@@ -106,6 +106,7 @@ public abstract class BaseEntity implements IBaseEntity
 	public void save(Connection pConnection, User pUser) 
 	{
 		PreparedStatement lPreparedStatement = null;
+		
 		try
 		{
 			if (rowstate == null)
@@ -318,13 +319,13 @@ public abstract class BaseEntity implements IBaseEntity
 		if (getRowstate() == null)
 		{
 			setLoggedDate(new Timestamp(System.currentTimeMillis()));
-			if (pUser != null)
+			if (pUser.getEntityId() != null)
 			{
 				this.setLoggedBy(pUser.getEntityId());
 			}
 			else
 			{
-				//this.setLoggedBy(pOrganizationId);
+				this.setLoggedBy(1l);
 			}
 		}
 		else
@@ -904,6 +905,8 @@ public abstract class BaseEntity implements IBaseEntity
 		ResultSet lRes =null;
 		try{
 		if(this.getEntityId()!=null){
+			this.setRowstate(new Long(this.getRowstate().longValue() + 1));
+			this.setInsertValues(pPreparedStatement);
 			this.setUpdateValues(pPreparedStatement);
 		}else{
 			fillAuditColumns(pUser);
@@ -913,7 +916,7 @@ public abstract class BaseEntity implements IBaseEntity
 			//setPrimaryKeyValues(pPreparedStatement);
 			this.setInsertValues(pPreparedStatement);
 		}
-		
+		    //logger.info(pPreparedStatement.);
 			pPreparedStatement.execute();
 			lRes=pPreparedStatement.getGeneratedKeys();
 			if (lRes.next())

@@ -1,10 +1,14 @@
 package com.catapp.action;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
+
+import org.apache.log4j.Logger;
 
 public class ChemData {
 	
-	
+	public static final Logger logger = Logger.getLogger(ChemData.class.toString());
 	public HashMap<Long,String> getPhenoTypes(){
 		HashMap<Long,String> lPhenotypeMap =new HashMap<Long,String>();
 		lPhenotypeMap.put(1l, "PF");
@@ -50,6 +54,15 @@ public class ChemData {
 	
 		return lTPMap;
 	}
+	public String getTagNames(Long pCellLine){
+		String lReturnTag = null;
+		HashMap<Long,String>lTMap = new HashMap<Long,String>();
+		lTMap.put(2l, "CM");
+		lTMap.put(3l, "HP");
+		lReturnTag=lTMap.get(pCellLine);
+		
 	
+		return lReturnTag;
+	}
 
 }
