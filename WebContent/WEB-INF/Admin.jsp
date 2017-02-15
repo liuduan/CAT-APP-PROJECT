@@ -36,11 +36,11 @@ SELECT * from users;
 <div class="container">
  	<br>
  	
-    <h1 style="text-align: ;" class = "text-danger">
+    <h1 style="text-align: center;" class = "text-danger">
     	CAT-APP Administration</h1>
     	
-    <h4 style="text-indent: 50px;" class="text-primary">
-    	For user authorization and password reset.</h4><br><br>
+    <h4 style="text-align: center;" class="text-primary"><br></br>
+    	For user authorization and password reset</h4><br><br>
     
 
     
@@ -48,7 +48,7 @@ SELECT * from users;
     	style="width: auto; margin:auto; text-align: center;" >
     <thead>
       <tr>
-        <th>Username</th>
+        <th>User email</th>
         <th>Approved</th> 
         <th>Name</th>       
         <th>Supervisor UserID</th>
@@ -68,14 +68,14 @@ SELECT * from users;
    				<c:set var="i" scope="session" value="${0}"/>
 			</c:if>
 			<tr class='<c:out value="${tr_color[i]}" />'>
-   				<td class = "user_id"> <c:out value="${row.User_ID}"/> </td>
+   				<td class = "user_id"> <c:out value="${row.Email}"/> </td>
    				<td><c:out value="${row.Approved}"/></td>
    				<td><c:out value="${row.First_Name} ${row.Last_Name}" /></td>
    				<td><c:out value="${row.Supervisor_ID}"/></td>
    				<td><c:out value="${row.Supervisor_First_Name} ${row.Supervisor_Last_Name}" /></td>
    				<td><c:out value="${row.Institution}"/></td>
    				<td><form action="${pageContext.request.contextPath}/UserManagement" Mehtod="post">
-					<input type="hidden" name="User_ID" value="<c:out value="${row.User_ID}"/>">
+					<input type="hidden" name="Email" value="<c:out value="${row.Email}"/>">
 					<input type="submit" class="btn btn-primary" value ="Manage"></input>
 					</form></td>
 			</tr>

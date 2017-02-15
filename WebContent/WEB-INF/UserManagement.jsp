@@ -18,7 +18,7 @@
 <body>
 
 <%
-	String User_ID = (String) request.getAttribute("User_ID");	// receiving value from servlet
+	String Email = (String) request.getAttribute("Email");	// receiving value from servlet
 	
 	// out.print(" " + User_ID);
 		
@@ -29,7 +29,7 @@
      user="root"  password="root"/>
  
 <sql:query dataSource="${snapshot}" var="result">
-SELECT * from users where User_ID = "<%=User_ID%>";
+SELECT * from users where Email = "<%=Email%>";
 </sql:query>
 
 
@@ -52,11 +52,11 @@ SELECT * from users where User_ID = "<%=User_ID%>";
 		</head>
     	<h3 style="text-align: center;" class = "text-danger"><b>
     	Authorization and Password Reset</b></h2><br>
-    	Authorization: ${Authorization}
+    	
       <c:forEach var="row" items="${result.rows}">  
     	<form action="${pageContext.request.contextPath}/ManageAction" Mehtod="post">
-    		<b>Username: </b><c:out value="${row.User_ID}"/></b><p></p>
-    		<input type="hidden" name="User_ID" value="${row.User_ID}">
+    		<b>User email: </b><c:out value="${row.Email}"/></b><p></p>
+    		<input type="hidden" name="Email" value="${row.Email}">
     		<b>Name: Emily White</b><p></p>
     		<c:choose>
     			<c:when test="${row.Approved == 'Yes'}">

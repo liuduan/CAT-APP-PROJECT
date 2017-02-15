@@ -10,47 +10,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class UserManagementServlet
+ * Servlet implementation class CoverServlet
  */
-@WebServlet("/UserManagementServlet")
-public class UserManagementServlet extends HttpServlet {
+@WebServlet("/CoverServlet")
+public class CoverServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserManagementServlet() {
+    public CoverServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    
-    
-    
-    
-    
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		PrintWriter out = response.getWriter();
 		out.println("DogName_Servlet.java: Hello Java!");
 		
-		String received_value = request.getParameter("Email");	// receiving the post value
-		request.setAttribute("Email", received_value);			// submit vlue to following page:
+		String received_value = request.getParameter("Message");	// receiving the post value
+		request.setAttribute("Message", received_value);			// submit vlue to following page:
 		
-		getServletContext().getRequestDispatcher("/WEB-INF/UserManagement.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/WEB-INF/Cover.jsp").forward(request, response);
+		
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */

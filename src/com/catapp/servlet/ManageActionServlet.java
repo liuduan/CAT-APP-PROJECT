@@ -30,7 +30,7 @@ public class ManageActionServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String received_value = request.getParameter("User_ID");	// receiving the post value
+		String received_email = request.getParameter("Email");	// receiving the post value
 		String received_Authorization = request.getParameter("Authorization");		// receiving the post value
 		String received_Change_password = request.getParameter("Change_password");	// receiving the post value
 		String received_Password_2 = request.getParameter("Password_2");			// receiving the post value
@@ -39,7 +39,7 @@ public class ManageActionServlet extends HttpServlet {
 		out.println("DogName_Servlet.java: Hello Java!");
 		out.println(received_Authorization);
 		
-		request.setAttribute("User_ID", received_value);			// submit vlue to following page:
+		request.setAttribute("Email", received_email);			// submit vlue to following page:
 		request.setAttribute("Authorization", received_Authorization);			// submit vlue to following page:
 		request.setAttribute("Change_password", received_Change_password);		// submit vlue to following page:
 		request.setAttribute("Password_2", received_Password_2);				// submit vlue to following page:

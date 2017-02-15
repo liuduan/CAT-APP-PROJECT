@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,7 +23,18 @@
 </head>
 
 <body style="background-color: Azure">
+
+
+
+
+
+
+
+
+
+
 <jsp:directive.include file="Header.jsp" />
+
 
 
  <div class="container">
@@ -32,18 +50,23 @@
   		
 
   <form class="form-horizontal" action="${pageContext.request.contextPath}/UserHome"
-  	 method="get">
+  	 method="POST">
     <div class="form-group">
-      <label class="control-label col-sm-5" for="Username">Username:</label>
+
+      <label class="control-label col-sm-5" for="Username">User email:</label>
       <div class="col-sm-3">
-        <input type="email" class="form-control" id="email" placeholder="Enter username">
+      	
+        <input type="email" class="form-control" id="email" placeholder="Enter user email" name="Email" >
       </div>
     </div>
     
     <div class="form-group">
+    	<c:if test="${Message == 'IncorrectPassword'}">
+   			<h5 class="text-danger" style="text-align: center;"><b>Incorrect password or user email.</b></h5>
+		</c:if>
       <label class="control-label col-sm-5" for="pwd">Password:</label>
       <div class="col-sm-3">          
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+        <input type="password" class="form-control" id="pwd" name="Password" placeholder="Enter password">
       </div>
     </div>
     <div class="form-group">        
@@ -55,7 +78,7 @@
     </div>
     <div class="form-group">        
       <div class="col-sm-offset-5 col-sm-5">
-        <button type="submit" class="btn btn-default">Submit.</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </form>

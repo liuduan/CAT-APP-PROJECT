@@ -32,6 +32,15 @@ public class UserHomeServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println("User Home Page<br> From UserHomeServlet.java: Hello Java!");
 		
+		String received_value_1 = request.getParameter("Email");	// receiving the post value
+		request.setAttribute("Email", received_value_1);			// submit vlue to following page:
+		
+		String received_value_2 = request.getParameter("Password");	// receiving the post value
+		request.setAttribute("Password", received_value_2);			// submit vlue to following page:
+
+		
+
+		
 		getServletContext().getRequestDispatcher("/WEB-INF/UserHome.jsp").forward(request, response);
 		// This line is go to "/WEB-INF/UserHome.jsp" with all the parameters.
 		
