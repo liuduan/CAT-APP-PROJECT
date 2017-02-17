@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="com.catapp.entity.User" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,18 +21,21 @@
     <link href="/CAT-APP-PROJECT/resources/css/full-width-pics.css" rel="stylesheet">
 	<link href="/CAT-APP-PROJECT/resources/css/login.css" rel="stylesheet">
 	<link href="/CAT-APP-PROJECT/resources/css/font-awesome.css" rel="stylesheet" />
+	<link href="/CAT-APP-PROJECT/resources/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <!-- CUSTOM STYLES-->
     <link href="/CAT-APP-PROJECT/resources/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' type='text/css' />
+     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' type='text/css' />
     
 </head>
 
 <body>
 
-   
+ <jsp:include page="headerUserHome.jsp" />   
   <div id="wrapper">
-  <jsp:include page="headerUserHome.jsp" />      
+       
         
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
@@ -73,8 +77,8 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <% String user=(String)request.getSession().getAttribute("email");%>
-						<h1>Welcome user <%=user %> </h1>
+                        <% String user=((User)request.getSession().getAttribute("user")).getFirst_name().toString();%>
+						<h1>Welcome <%=user %> </h1>
 						<br>
 						<h3>Now explore the projects. Click any of the projects to check out details</h3>
 		
@@ -97,55 +101,87 @@
 
         <!-- Content Row -->
         <div class="row">
-            <div class="col-md-4">
-                <h2 align="center">CAT-APP</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                <div class="btn-group">
-        		<div class="col-sm-3 col-md-3">
+            <div class="col-lg-12">
+                <h2 class="page-header">Projects</h2>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <span class="fa-stack fa-5x">
+                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                              <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <h4>CAT-APP</h4>
+                        
+                        <div class="btn-group">
+        		<div class="col-md-3">
                         <form action="CatAppDownloadPageServlet" method="post">
-                        <input type="submit" class="btn btn-primary"" value="Download">
+                        <input type="submit" class="btn btn-primary" value="Download">
 					</form>
 					</div>
-					<div class="col-sm-3 col-md-3" style="float:right">
+					<div class="col-md-3" style="margin-left:70px">
 						 <form action="UploadServlet" method="post">
-						<input type="submit" class="btn btn-success"" value="Upload">
+						<input type="submit" class="btn btn-success" value="Upload">
 						</form>
 				</div></div>
+                </div>
             </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-4">
-                <h2 align="center">Analytical</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                <div class="btn-group">
-        		<div class="col-sm-3 col-md-3">
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <span class="fa-stack fa-5x">
+                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                              <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <h4>Analytical</h4>
+                        
+                        <div class="btn-group">
+        		<div class="col-md-3">
                         <form action="CatAppDownloadPageServlet" method="post">
-                        <input type="submit" class="btn btn-primary"" value="Download">
+                        <!-- <input type="submit" class="btn btn-primary" value="Download"> -->
 					</form>
 					</div>
-					<div class="col-sm-3 col-md-3" style="float:right">
+					<div class="col-md-3" style="margin-left:70px">
 						 <form action="UploadServlet" method="post">
-						<input type="submit" class="btn btn-success"" value="Upload">
+						<!-- <input type="submit" class="btn btn-success" value="Upload"> -->
 						</form>
 				</div></div>
+                    </div>
+                </div>
             </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-4">
-                <h2 align="center">ECO-TOX</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                <div class="btn-group">
-        		<div class="col-sm-3 col-md-3">
+            <div class="col-md-4 col-sm-6">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <span class="fa-stack fa-5x">
+                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                              <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <h4>ECO-TOX</h4>
+                        
+                        <div class="btn-group">
+        		<div class="col-md-3">
                         <form action="CatAppDownloadPageServlet" method="post">
-                        <input type="submit" class="btn btn-primary"" value="Download">
+                       <!--  <input type="submit" class="btn btn-primary" value="Download"> -->
 					</form>
 					</div>
-					<div class="col-sm-3 col-md-3" style="float:right">
+					<div class="col-md-3" style="margin-left:70px">
 						 <form action="UploadServlet" method="post">
-						<input type="submit" class="btn btn-success"" value="Upload">
+						<!-- <input type="submit" class="btn btn-success" value="Upload"> -->
 						</form>
 				</div></div>
+                    </div>
+                </div>
             </div>
-            <!-- /.col-md-4 -->
+            
         </div>
+    </div>
         <!-- /.row -->
              	
              	
@@ -166,7 +202,7 @@
 
             </div>
             <!-- /. PAGE INNER  -->
-        </div>
+        
         <!-- /. PAGE WRAPPER  -->
    
     <!-- /. WRAPPER  -->

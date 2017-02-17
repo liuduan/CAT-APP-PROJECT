@@ -24,6 +24,7 @@
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     
+    
 </head>
 <style type="text/css">
 .span12{
@@ -36,6 +37,7 @@ margin-right: 20px;
 }  
 .spacer {
     margin-top: 40px; /* define margin as you see fit */
+    width:40
     
 }
 .scrollDiv{
@@ -130,93 +132,96 @@ function showFlatFiles(){
 
 
 </script>
+<jsp:include page="headerUserHome.jsp" /> 
     <div id="wrapper">
-        <jsp:include page="headerUserHome.jsp" /> 
+        
         
         <!-- /. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
+        <nav class="navbar-default navbar-side">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                    <li class="text-center user-image-back">
-                        <img src="/CAT-APP-PROJECT/images/find_user.png" class="img-responsive" />
-                     
+                    <li class="text-center user-image-back" style="background-color: white">
+                       
+                        <img src="/CAT-APP-PROJECT/resources/images/find_user.png" class="img-responsive" />
+                     <br>
                     </li>
 
-
+					
                     <li>
-                        <a href="#"><i class="fa fa-edit "></i>CellLines<span class="fa arrow"></span></a>
+                        <a href="#">CellLines</a>
                         <ul class="nav nav-second-level">
                             <li >
-							<a href="#"><label><input type="checkbox" value="">Cardiomyocytes</label></a>
+							<a href="#"><label><input type="checkbox" id="CL" name ="CL" value="2">Cardiomyocytes</label></a>
                                 
                             </li>
                             <li>
-                                <a href="#"><label><input type="checkbox" value="">Hepatocytes</label></a>
+                                <a href="#"><label><input type="checkbox" id="CL" name ="CL" value="1">Hepatocytes</label></a>
                             </li>
                         </ul>
                     </li>
 					<li>
-                        <a href="#"><i class="fa fa-table "></i>Assay Name</a>
+                        <a href="#">Assay Name</a>
 						<ul class="nav nav-second-level">
                             <li>
-                                <a href="#"><label><input type="checkbox" value="">Ca2+</label></a>
+                                <a href="#"><label><input type="checkbox" name = "AN" id ="AN" value="1">Ca2+</label></a>
                             </li>
 							<li>
-                                <a href="#"><label><input type="checkbox" value="">Hoechst</label></a>
+                                <a href="#"><label><input type="checkbox" name = "AN" id = "AN" value="2">Hoechst</label></a>
                             </li>
                      
                         </ul>
                     </li>
 					
                     <li>
-                        <a href="#"><i class="fa fa-edit "></i>PhenoTypes<span class="fa arrow"></span></a>
+                        <a href="#">PhenoTypes</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#"><label><input type="checkbox" value="">PF</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pt" id ="pt" value="1">PF</label></a>
                             </li>
                             <li>
-                                <a href="#"><label><input type="checkbox" value="">PW</label></a>
+                                <a href="#"><label><input type="checkbox" name = "pt" id = "pt" value="2">PW</label></a>
                             </li>
                             <li>
-                                <a href="#"><label><input type="checkbox" value="">PW10</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pt" id ="pt" value="3">PW10</label></a>
                             </li>
                         </ul>
                     </li>
 					
 
                     <li>
-                        <a href="#"><i class="fa fa-table "></i>Plate Design</a>
+                        <a href="#">Plate Design</a>
 						<ul class="nav nav-second-level">
                             <li>
-                                <a href="#"><label><input type="checkbox" value="">Plate 1</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id="pd" value="1">Plate 1</label></a>
                             </li>
                             <li>
-                                <a href="#"><label><input type="checkbox" value="">Plate 2</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="2">Plate 2</label></a>
                             </li>
                             <li>
-                                <a href="#"><label><input type="checkbox" value="">Plate 3</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="3">Plate 3</label></a>
                             </li>
 							<li>
-                                <a href="#"><label><input type="checkbox" value="">Plate 4</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="4">Plate 4</label></a>
                             </li>
                         </ul>
                     </li>
-                      <li>
+                      <li style="background-color:white">
                     
-					<button type="button" class="btn btn-info">
-						<span class="glyphicon glyphicon-search"></span> Search
+					<button type="button" class="btn btn-info" style="margin-left:20px" onclick="searchFiles()">
+						 Search
 					</button>
-					<button type="button" class="btn btn-info">
+					<button type="button" class="btn btn-info" style="margin-left:20px">
 						<span class="glyphicon glyphicon-clear"></span> Clear filter
 					</button>
 					</li>
 					
                     
                     
+</ul>
 
             </div>
-
-        </nav>
+</nav>
+        
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div id="page-inner">
@@ -270,113 +275,41 @@ function showFlatFiles(){
   <ul class="nav nav-pills">
     <li class="active"><a href="#" onclick="showAllFiles()">All Files</a></li>
     <li><a href="#" onclick="showExcelFiles()">Excel Files</a></li>
-    <li><a href="#" onclick="showImages()">Images</a></li>
+    <li><a href="#" onclick="showImages()">pdf</a></li>
     <li><a href="#" onclick="showFlatFiles()">Flat Files</a></li>
   </ul>
   <div id=allFiles>
   	
-  		<div class="scrollDiv">
-     	 <div class="row well well-sm span12 spacer" style="width:60;margin-left: 5%">
+  		
+     	 <!-- <div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">
   		<label><input type="checkbox" name="optradio">sample.xls</label>
 		</div>
 		
-  		<div class="row well well-sm span12 spacer" style="width:60;margin-left: 5%">
+  		<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">
   		<label><input type="checkbox" name="optradio">sample.xls</label>
 		</div>
-		<div class="row well well-sm span12 spacer" style="width:60;margin-left: 5%">
+		<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">
   		<label><input type="checkbox" name="optradio">sample.jpeg</label>
 		</div>
-		<div class="row well well-sm span12 spacer" style="width:60;margin-left: 5%">
+		<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">
   		<label><input type="checkbox" name="optradio">sample.doc</label>
-		</div>
+		</div> -->
 	
-	<div class="row">
-					<div class="col-xs-3 col-sm-3 col-md-3">
-                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Download">
-					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3">
-						<input type="submit" class="btn btn-lg btn-primary btn-block" value="Download All">
-				</div>
-</div>
+	
 </div>
   </div>
   <div id=excelFiles style="display: none">
-  <div class="scrollDiv">
-     	 <div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.xls</label>
-		</div>
-		
-  		<div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.xls</label>
-		</div>
-		<div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.jpeg</label>
-		</div>
-		<div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.doc</label>
-		</div>
+  
+     	 
 	
-	<div class="row">
-					<div class="col-xs-3 col-sm-3 col-md-3">
-                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Download">
-					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3">
-						<input type="submit" class="btn btn-lg btn-primary btn-block" value="Download All">
-				</div>
-</div>
-</div>
+	
+
   </div>
   <div id=images style="display: none">
-  <div class="scrollDiv">
-     	 <div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.xls</label>
-		</div>
-		
-  		<div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.xls</label>
-		</div>
-		<div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.jpeg</label>
-		</div>
-		<div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.doc</label>
-		</div>
-	
-	<div class="row">
-					<div class="col-xs-3 col-sm-3 col-md-3">
-                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Download">
-					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3">
-						<input type="submit" class="btn btn-lg btn-primary btn-block" value="Download All">
-				</div>
-</div>
-</div>
+  
 	</div>
   <div id=flatFiles style="display: none">
-  <div class="scrollDiv">
-     	 <div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.xls</label>
-		</div>
-		
-  		<div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.xls</label>
-		</div>
-		<div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.jpeg</label>
-		</div>
-		<div class="row well span12 spacer" style="width:75%">
-  		<label><input type="radio" name="optradio">sample.doc</label>
-		</div>
-	
-	<div class="row">
-					<div class="col-xs-3 col-sm-3 col-md-3">
-                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Download">
-					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3">
-						<input type="submit" class="btn btn-lg btn-primary btn-block" value="Download All">
-				</div>
-</div>
-  </div>
+
   
   
   
@@ -392,6 +325,7 @@ function showFlatFiles(){
 
             </div>
             <!-- /. PAGE INNER  -->
+        </div>
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
@@ -422,5 +356,6 @@ function showFlatFiles(){
     <script src="/CAT-APP-PROJECT/resources/js/jquery.metisMenu.js"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="/CAT-APP-PROJECT/resources/js/custom.js"></script>
+	<script src="/CAT-APP-PROJECT/resources/js/Uploadjs.js"></script>
 </body>
 </html>

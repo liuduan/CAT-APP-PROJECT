@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+ <%@ page import="com.catapp.entity.User" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,16 +111,25 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 			
 
         <!-- Heading Row -->
+       <div class="row">
+        <h2 align="center">Department of Veterinary Integrative Biosciences</h2>
+        
+        </div>
+        
+        <br><br>
         <div class="row">
-            <div class="col-md-6">
-                <img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/logo.JPG" alt="" style="margin-top:10%">
+        
+            <div class="col-md-6" style="margin-left:5%">
+                <img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/logo.JPG" alt=""  width="50%" height="50%" >
             </div>
             <!-- /.col-md-8 -->
-            <div class="col-md-6">
+            <div class="col-md-5">
             <p class="read">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pellentesque eget ex a lobortis. 
+            This web site is part of the New Technologies to 
+		Underpin Category Approaches and Read-across in Regulatory Programmes at Texas A&M University.
+		 
             </p><br>
-            <div class="circle circle2" align="center" style="margin-left:40%">
+            <div class="circle circle2" align="center" style="margin-left:35%">
           		<a href="#about"><h3>Read more</h3></a>
         		</div>
              <!-- <a href="#" class="btn btn-success btn-lg" id="readMore">Show Less</a></small><br>-->
@@ -130,8 +140,14 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 
 			
 				
-   		
-		<a href="#login" class="btn btn-lg btn-primary btn-block" style="margin-left: 40%;margin-top:10%;height: 40px; width:300px">Sign in or <font color="purple"><b>Request Access</b></font></a>
+   		<div class="row"><br>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+		<a href="#login" class="btn btn-lg btn-primary btn-block" style="text-align: center;">Sign in or <b>Request Access</b></a>
+       </div>
+       <div class="col-md-4">
+       </div>
+        </div>
         </header>
         
 </div>
@@ -288,12 +304,20 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
                 		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width:100%">Security question 1
                     		<span class="caret"></span>
                 		</button>
-                		<%-- <ul class="dropdown-menu" id="secqu">
+                		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" name="sec1" id="secqu">
+                		<c:forEach var="sec1" items="${secqu}">
+                		<li><a href="${sec1.key}">Action</a></li>
+                		</c:forEach>
+                		
+                		</ul>
+                		
+                		
+                		<!-- <ul class="dropdown-menu" id="secqu">
                     		<c:forEach var="sec1" items="${secqu}">
                     		<li value="${sec1.key}">${sec1.value}</li>
                     		</c:forEach>
-                		</ul> --%>
-                		
+                		</ul>  -->
+                		 
                 		<select name="sec1" id="secqu">
     					<c:forEach var="sec1" items="${secqu}">
 						<option value="${sec1.key}"> ${sec1.value}</option>
@@ -389,10 +413,18 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>.......</p>
+                    <p>One of the most challenging areas in regulatory toxicology is the assessment of UVCBs 
+		(Unknown or Variable composition, Complex reaction products and Biological materials). 
+		UVCBs present difficult problems for science-informed regulatory decisions. Regulators and 
+		registrants have a common interest to understand how to evaluate UVCBs under current 
+		chemical regulatory policy and ensure that there is not a large scale underestimation or 
+		overestimation of hazard. </p>
                 </div>
                 <div class="col-lg-4">
-                    <p>......</p>
+                    <p>This project tackles the challenge of UVCBs and will provide 
+		regulators and registrants with a cost-effective integrative approach to solve the 
+		challenges of UVCBs and will define the best practical strategies for the read-across and 
+		grouping approaches.</p>
                 </div>
                 
             </div>

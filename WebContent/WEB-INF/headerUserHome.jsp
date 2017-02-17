@@ -4,52 +4,46 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Insert title here</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-        <a class="navbar-brand" href="#" style="float: left"></a>
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+	<div class="container">
+		<div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                 <a class="navbar-brand" href="#">CAT-APP</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float: right">
-                <ul class="nav navbar-nav">
-                    <li><form action="BackToHomeServlet" method="post">
-                        <a href="">Home</a>
-                        </form>
-                        
-                    </li>
-                    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Account <b class="caret"></b></a>
-                    	<ul class="dropdown-menu">
-                    		<li><a href="#">User Profile</a></li>
-               				 <li><a href="#">Language Settings</a></li>
-               				 
-               				 <li><form action="ChangePasswordServlet" method="post"><a href="">Change Password</a></form></li>
-               				 
-               				 <li class="divider"></li>
-               				 <li><a href="#">Help Center</a></li>
-               				 
-                    	</ul>
-                    </li>
-                    <li>
-                        <a href="LogoutServlet">Logout</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+                 <form action="BackToMainServlet" method="get">
+                 <a class="navbar-brand" href="">CAT-APP</a>
+            	</form>
+            </div><!-- end of <div class="navbar-header" > -->
+ 
+    	
+      	
+    	
+    	<ul class="nav navbar-nav navbar-right">
+          <li class="active">
+        		<a href="BackToHomeServlet">
+        			 Home</a></li>
+        <li>
+        		<a href="#">
+        			 User profile</a></li>
+        	<li>
+        		<a href="#">
+        			 Contact us</a></li>
+        	<li>
+        		<a href="LogoutServlet">
+        			 Logout</a></li>
+        	
+            
+ 
+      	</ul>
+    	
+ 	</div><!-- end of class = container-fluid -->
+ </nav>		<!-- end of vav-->
 </body>
 </html>
