@@ -90,7 +90,7 @@ Password from db: ${result.rows[0].Password}
 		<input type="hidden" name="Email" value="${result.rows[0].Email}"/>
 		<input type="submit" class="btn btn-danger btn-lg" value ="Upload Files"></input>
 	</form>
-	<form action="${pageContext.request.contextPath}/UserHome" Method="post" style="display: inline;">
+	<form action="${pageContext.request.contextPath}/UserInfo" Method="post" style="display: inline;">
 		<input type="hidden" name="Email" value="${result.rows[0].Email}"/>
 		<input type="submit" class="btn btn-info btn-lg" value ="Update User Info"></input>
 	</form>

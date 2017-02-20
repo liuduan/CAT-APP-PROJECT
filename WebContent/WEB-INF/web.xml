@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>CAT-APP-PROJECT</display-name>
-   <servlet>
-    <servlet-name>CoverServlet</servlet-name>
-    <servlet-class>com.catapp.servlet.CoverServlet</servlet-class>
+  <servlet>
+    <display-name>UserInfoActServlet</display-name>
+    <servlet-name>UserInfoActServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.UserInfoActServlet</servlet-class>
+    <enabled>true</enabled>
   </servlet>
   <servlet>
+    <display-name>UserInfoServlet</display-name>
+    <servlet-name>UserInfoServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.UserInfoServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+  <servlet>
+    <display-name>CoverServlet</display-name>
+    <servlet-name>CoverServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.CoverServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+  <servlet>
+    <display-name>AdminServlet</display-name>
     <servlet-name>AdminServlet</servlet-name>
     <servlet-class>com.catapp.servlet.AdminServlet</servlet-class>
+    <enabled>true</enabled>
   </servlet>
   <servlet>
     <display-name>NewUserServlet</display-name>
@@ -51,10 +67,6 @@
     <servlet-class>com.catapp.servlet.ManageActionServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>AdminServlet</servlet-name>
-    <url-pattern>/Admin</url-pattern>
-  </servlet-mapping>
   <servlet>
     <display-name>FileUploadServlet</display-name>
     <servlet-name>FileUploadServlet</servlet-name>
@@ -62,8 +74,21 @@
     <enabled>true</enabled>
   </servlet>
   
-    
-   <servlet-mapping>
+  
+  
+  <servlet-mapping>
+    <servlet-name>UserInfoActServlet</servlet-name>
+    <url-pattern>/UserInfoAct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserInfoServlet</servlet-name>
+    <url-pattern>/UserInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/Admin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>CoverServlet</servlet-name>
     <url-pattern>/Cover</url-pattern>
   </servlet-mapping>
