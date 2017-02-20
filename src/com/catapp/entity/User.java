@@ -25,25 +25,58 @@ public class User extends BaseEntity{
 	public static final String f_institution = "institution";
 	public static final String f_phone = "phone_number";
 	public static final String f_email = "email";
-	public static final String f_supervisor = "supervisor_id";
+	public static final String f_supervisor_name = "supervisor_name";
+	public static final String f_supervisor_phone = "supervisor_phone";
+	public static final String f_supervisor_email = "supervisor_email";
+	public static final String f_approved = "approved";
 	public static final String f_admin = "is_admin";
 	public static final String f_last_login_time = "last_login_time";
 	public static final String f_Active = "is_active";
 	
-	private String user_name;
+
 	private String password;
 	private String first_name;
 	private String last_name;
 	private String institution;
 	private String phone_number;
 	private String email;
-	private Long supervisor_id;
+	private String supervisorname;
+	private String supervisorphone;
+	private String supervisoremail;
+	private String approved;
 	private String is_admin;
 	private Timestamp last_login_time;
 	private String is_active;
+	private String user_name;
 	
 	public String getIs_active() {
 		return is_active;
+	}
+	
+	public String getSupervisorname() {
+		return supervisorname;
+	}
+	public void setSupervisorname(String supervisorname) {
+		this.supervisorname = supervisorname;
+	}
+	public String getSupervisorphone() {
+		return supervisorphone;
+	}
+	
+	public void setSupervisorphone(String supervisorphone) {
+		this.supervisorphone = supervisorphone;
+	}
+	public String getSupervisoremail() {
+		return supervisoremail;
+	}
+	public void setSupervisoremail(String supervisoremail) {
+		this.supervisoremail = supervisoremail;
+	}
+	public String getApproved() {
+		return approved;
+	}
+	public void setApproved(String approved) {
+		this.approved = approved;
 	}
 	public void setIs_active(String is_active) {
 		this.is_active = is_active;
@@ -90,12 +123,6 @@ public class User extends BaseEntity{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Long getSupervisor_id() {
-		return supervisor_id;
-	}
-	public void setSupervisor_id(Long supervisor_id) {
-		this.supervisor_id = supervisor_id;
-	}
 	public String getIs_admin() {
 		return is_admin;
 	}
@@ -111,54 +138,57 @@ public class User extends BaseEntity{
 	
 	public String getInsertColumns()
 	{
-		return "(" + f_entityId + ","  + f_username + "," + f_password + "," + f_firstname + "," + f_last_name
-			+ "," + f_institution + "," + f_phone + "," + f_email + "," + f_supervisor + "," + f_admin + "," + f_last_login_time + f_Active + ","+ f_loggedDate + ","
-			+ "," + f_lastUpdatedDate + "," + f_loggedBy + "," + f_lastUpdatedBy + "," + f_rowstate
-			+ ") VALUES(?, ?, ? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?,? ) ";
+		return "(" /*+ f_entityId + ","*/  + f_username + "," + f_password + "," + f_firstname + "," + f_last_name
+			+ "," + f_institution + "," + f_phone + "," + f_email + "," + f_supervisor_name + "," +f_supervisor_email + "," +f_supervisor_phone + "," +f_approved + ","  + f_admin + "," + f_last_login_time + ","+ f_Active + ","+ f_loggedDate + ","
+			 + f_lastUpdatedDate + "," + f_loggedBy + "," + f_lastUpdatedBy + "," + f_rowstate
+			+ ") VALUES(?, ?, ? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?,?,?,?,?) ";
 	}
 	
 	public void setInsertValues(PreparedStatement pPreparedStatement)
 	{
 		try
 		{
-			if (getEntityId() == null)
+			/*if (getEntityId() == null)
 			{
 				pPreparedStatement.setNull(1, java.sql.Types.BIGINT);
 			}
 			else
 			{
 				pPreparedStatement.setLong(1, getEntityId());
-			}
-			pPreparedStatement.setString(2, getUser_name());
-			pPreparedStatement.setString(3, getPassword());
-			pPreparedStatement.setString(4, getFirst_name());
-			pPreparedStatement.setString(5, getLast_name());
-			pPreparedStatement.setString(6, getInstitution());
-			pPreparedStatement.setString(7, getPhone_number());
-			pPreparedStatement.setString(8, getEmail());
-			pPreparedStatement.setLong(9, 	getSupervisor_id());
-			pPreparedStatement.setString(10, 	getIs_admin());
-			pPreparedStatement.setTimestamp(11,null);
-			pPreparedStatement.setString(12, getIs_active());
-			pPreparedStatement.setTimestamp(13, getLoggedDate());
+			}*/
+			pPreparedStatement.setString(1, getUser_name());
+			pPreparedStatement.setString(2, getPassword());
+			pPreparedStatement.setString(3, getFirst_name());
+			pPreparedStatement.setString(4, getLast_name());
+			pPreparedStatement.setString(5, getInstitution());
+			pPreparedStatement.setString(6, getPhone_number());
+			pPreparedStatement.setString(7, getEmail());
+			pPreparedStatement.setString(8, getSupervisorname());
+			pPreparedStatement.setString(9, getSupervisoremail());
+			pPreparedStatement.setString(10, getSupervisorphone());
+			pPreparedStatement.setString(11, getApproved());
+			pPreparedStatement.setString(12, 	getIs_admin());
+			pPreparedStatement.setTimestamp(13,null);
+			pPreparedStatement.setString(14, getIs_active());
+			pPreparedStatement.setTimestamp(15, getLoggedDate());
 			if (getLastUpdatedDate() == null)
 			{
-				pPreparedStatement.setNull(14, java.sql.Types.TIMESTAMP);
+				pPreparedStatement.setNull(16, java.sql.Types.TIMESTAMP);
 			}
 			else
 			{
-				pPreparedStatement.setTimestamp(14, getLastUpdatedDate());
+				pPreparedStatement.setTimestamp(16, getLastUpdatedDate());
 			}
-			pPreparedStatement.setLong(15, getLoggedBy());
+			pPreparedStatement.setLong(17, getLoggedBy());
 			if (getLastUpdatedBy() == null)
 			{
-				pPreparedStatement.setNull(16, java.sql.Types.BIGINT);
+				pPreparedStatement.setNull(18, java.sql.Types.BIGINT);
 			}
 			else
 			{
-				pPreparedStatement.setLong(16, getLastUpdatedBy());
+				pPreparedStatement.setLong(18, getLastUpdatedBy());
 			}
-			pPreparedStatement.setLong(17, getRowstate());
+			pPreparedStatement.setLong(19, getRowstate());
 		}
 		catch (SQLException pException1)
 		{
@@ -173,10 +203,11 @@ public class User extends BaseEntity{
 
 	public String getUpdateColumns()
 	{
-		return f_entityId + " = ?" + "," + f_username + " = ?" + "," + f_password + " = ?" + "," + f_firstname + " = ?"
-			+ "," + f_last_name + " = ?" + "," + f_institution + " = ?" + "," + f_phone + " = ?" + "," + f_email + " = ?" + "," + f_supervisor
+		return  f_username + " = ?" + "," + f_password + " = ?" + "," + f_firstname + " = ?"
+			+ "," + f_last_name + " = ?" + "," + f_institution + " = ?" + "," + f_phone + " = ?" + "," + f_email
 			+ " = ?" + "," + f_admin + " = ?" + "," + f_last_login_time + " = ?" + "," + f_Active + " = ?" + "," + f_loggedDate
-			+ " = ?" + f_lastUpdatedDate + " = ?" + "," + f_loggedBy + " = ?" + "," + f_lastUpdatedBy + " = ?" + "," + f_rowstate + " = ?" + " WHERE " + f_entityId
+			+ " = ?" + "," + f_approved + " = ?" + "," + f_supervisor_email + " = ?" + "," + f_supervisor_name + " = ?" + "," + f_supervisor_phone
+			+ " = ?" + ","+ f_lastUpdatedDate + " = ?" + "," + f_loggedBy + " = ?" + "," + f_lastUpdatedBy + " = ?" + "," + f_rowstate + " = ?" + " WHERE " + f_entityId
 			+ " = ?";
 	}
 
@@ -184,7 +215,7 @@ public class User extends BaseEntity{
 	{
 		try
 		{
-			pPreparedStatement.setLong(18, getEntityId());
+			pPreparedStatement.setLong(20, getEntityId());
 		}
 		catch (SQLException pException1)
 		{
@@ -199,8 +230,247 @@ public class User extends BaseEntity{
 	{
 		return TABLE_NAME;
 	}
+	
 	public void fill(ResultSet pResultSet, String pTableAlias)
-	{}
+		{
+			try
+			{
+				setEntityId(pResultSet.getLong(f_entityId));
+				if (pResultSet.wasNull())
+				{
+					setEntityId(null);
+				}
+			}
+			catch (Exception pException1)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException1);
+			}
+			try
+			{
+				setParentEntityId(pResultSet.getLong(f_parentEntityId));
+				if (pResultSet.wasNull())
+				{
+					setParentEntityId(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			try
+			{
+				setUser_name(pResultSet.getString(f_username));
+				if (pResultSet.wasNull())
+				{
+					setUser_name(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			try
+			{
+				setPassword(pResultSet.getString(f_password));
+				if (pResultSet.wasNull())
+				{
+					setPassword(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			try
+			{
+				setFirst_name(pResultSet.getString(f_firstname));
+				if (pResultSet.wasNull())
+				{
+					setFirst_name(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			try
+			{
+				setPhone_number(pResultSet.getString(f_phone));
+				if (pResultSet.wasNull())
+				{
+					setPhone_number(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			
+			try
+			{
+				setLast_name(pResultSet.getString(f_last_name));
+				if (pResultSet.wasNull())
+				{
+					setLast_name(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			try
+			{
+				setEmail(pResultSet.getString(f_email));
+				if (pResultSet.wasNull())
+				{
+					setEmail(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			try
+			{
+				setSupervisorname(pResultSet.getString(f_supervisor_name));
+				if (pResultSet.wasNull())
+				{
+					setSupervisorname(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			try
+			{
+				setSupervisoremail(pResultSet.getString(f_supervisor_email));
+				if (pResultSet.wasNull())
+				{
+					setSupervisoremail(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			try
+			{
+				setApproved(pResultSet.getString(f_approved));
+				if (pResultSet.wasNull())
+				{
+					setApproved(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			try
+			{
+				setIs_admin(pResultSet.getString(f_admin));
+				if (pResultSet.wasNull())
+				{
+					setIs_admin(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			try
+			{
+				setSupervisorphone(pResultSet.getString(f_supervisor_phone));
+				if (pResultSet.wasNull())
+				{
+					setSupervisorphone(null);
+				}
+			}
+			catch (Exception pException2)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException2);
+			}
+			try
+			{
+				setOrganizationId(pResultSet.getLong(f_organizationId));
+				if (pResultSet.wasNull())
+				{
+					setOrganizationId(null);
+				}
+			}
+			catch (Exception pException3)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException3);
+			}
+			try
+			{
+				setDataCenterId(pResultSet.getLong(f_dataCenterId));
+				if (pResultSet.wasNull())
+				{
+					setDataCenterId(null);
+				}
+			}
+			catch (Exception pException4)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException4);
+			}
+			
+			
+			try
+			{
+				setLoggedBy(pResultSet.getLong(f_loggedBy));
+				if (pResultSet.wasNull())
+				{
+					setLoggedBy(null);
+				}
+			}
+			catch (Exception pException12)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException12);
+			}
+			try
+			{
+				setLoggedDate(pResultSet.getTimestamp(f_loggedDate));
+			}
+			catch (Exception pException13)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException13);
+			}
+			try
+			{
+				setLastUpdatedBy(pResultSet.getLong(f_lastUpdatedBy));
+				if (pResultSet.wasNull())
+				{
+					setLastUpdatedBy(null);
+				}
+			}
+			catch (Exception pException14)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException14);
+			}
+			try
+			{
+				setLastUpdatedDate(pResultSet.getTimestamp(f_lastUpdatedDate));
+			}
+			catch (Exception pException15)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException15);
+			}
+			try
+			{
+				setRowstate(pResultSet.getLong(f_rowstate));
+				if (pResultSet.wasNull())
+				{
+					setRowstate(null);
+				}
+			}
+			catch (Exception pException16)
+			{
+				//LOGGER.error("Error in Method --> getTableName", pException16);
+			}
+		}
+		
+	
 	
 	public void fill(HttpServletRequest pRequest, String pRecordCount, String pPrefix)
 	{}

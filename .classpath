@@ -10,11 +10,23 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_60">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/7-eclipse-Workspase/Cat-App/WebContent/WEB-INF/lib/jstl-1.2.jar"/>
+=======
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ssingh/Apache/lib/servlet-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ssingh/Desktop/assets/log4j-1.2.17.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ssingh/Desktop/assets/jstl.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ssingh/Desktop/assets/apache-commons.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ssingh/Desktop/assets/commons-fileupload-1.3.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ssingh/Apache/lib/sqljdbc41.jar"/>
+>>>>>>> SS-Master/master
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

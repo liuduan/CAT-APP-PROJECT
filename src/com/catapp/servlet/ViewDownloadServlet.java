@@ -28,13 +28,13 @@ public class ViewDownloadServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+/*		
 		PrintWriter out = response.getWriter();
 		out.println("View and Download Page<br> From ViewDownloadServlet.java: Hello Java!");
 		
 		getServletContext().getRequestDispatcher("/WEB-INF/ViewDownload.jsp").forward(request, response);
 		// This line is go to "/WEB-INF/ViewDownload.jsp" with all the parameters.
-		
+*/		
 	}
 
 	/**

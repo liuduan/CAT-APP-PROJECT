@@ -37,6 +37,15 @@
     <servlet-class>com.catapp.servlet.UploadServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+<<<<<<< HEAD
+=======
+  <servlet>
+    <display-name>LoadDataForHome</display-name>
+    <servlet-name>LoadDataForHome</servlet-name>
+    <servlet-class>com.catapp.servlet.LoadDataForHome</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+>>>>>>> SS-Master/master
   <servlet>
     <display-name>SaveFileFormServlet</display-name>
     <servlet-name>FileSave</servlet-name>
@@ -105,6 +114,13 @@
     <url-pattern>/Upload</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+<<<<<<< HEAD
+=======
+    <servlet-name>LoadDataForHome</servlet-name>
+    <url-pattern>/Home</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+>>>>>>> SS-Master/master
     <servlet-name>FileSave</servlet-name>
     <url-pattern>/FileSave</url-pattern>
   </servlet-mapping>
@@ -125,6 +141,10 @@
     <url-pattern>/ManageAction</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
+<<<<<<< HEAD
     <welcome-file>/WEB-INF/Cover.jsp</welcome-file>
+=======
+    <welcome-file>Home</welcome-file>
+>>>>>>> SS-Master/master
   </welcome-file-list>
 </web-app>
