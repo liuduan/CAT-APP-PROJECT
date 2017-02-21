@@ -29,7 +29,7 @@ import com.catapp.entity.User;
 @WebServlet("/SaveFileFormServlet")
 public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final String UPLOAD_DIRECTORY = "C:/Users/ssingh/serverfiles";
+	private final String UPLOAD_DIRECTORY = "C:\\7-5-Database_project-data\\Semi-Temp-Storage-2017";
        
     /**
      * @see HttpServlet#HttpServlet()
