@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import com.catapp.entity.User;
 
 public class DBConnection{
-	private static String url = "jdbc:sqlserver://IRUSYN1LAP\\SQLEXPRESS;databaseName=CATAPP;integratedSecurity=true";    
-    private static String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";   
-    ////private static String username = "root";   
-   // private static String password = "root";
+	private static String url = "jdbc:mysql://localhost:3306/catapp";    
+    private static String driverName = "com.mysql.jdbc.Driver";   
+    private static String username = "root";   
+    private static String password = "root";
     private static Connection con;
    // private static String urlstring;
 
@@ -24,8 +24,8 @@ public class DBConnection{
 		}
             
             try {
-               // con = DriverManager.getConnection(urlstring, username, password);
-            	con=DriverManager.getConnection(url);
+               con = DriverManager.getConnection(url, username, password);
+            	//con=DriverManager.getConnection(url);
             	
             	
             } catch (SQLException ex) {
@@ -38,25 +38,22 @@ public class DBConnection{
         }*/
     	return con;
     }
-    public static void main(String[] args){
-    	/*try {*/
+    /*public static void main(String[] args){
+    	try {
           //  Class.forName(driverName);
             
             try {
                // con = DriverManager.getConnection(urlstring, username, password);
-            	con=DriverManager.getConnection(url);
-            	User lUser =new User();
-            	lUser.setEntityId(1l);
-            	lUser.find(con, lUser);
+            	new DBConnection().getConnection();
             	
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 // log an exception. fro example:
                 System.out.println("Failed to create the database connection."); 
             }
-        /*} catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex) {
             // log an exception. for example:
             System.out.println("Driver not found."); 
-        }*/
+        }
     }
-
+*/
 }

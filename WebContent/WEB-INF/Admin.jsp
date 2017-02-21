@@ -30,11 +30,10 @@
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from users;
 </sql:query>
-
-<c:set var="tr_color" value="${['','success','danger','info', 'warning', 'active']}" scope="application" />
+<%-- <c:set var="tr_color" value="${['','success','danger','info', 'warning', 'active']}" scope="application" /> --%>
 
 <div class="container">
- 	<br>
+ 	<br><br><br><br><br><br><br>
  	
     <h1 style="text-align: center;" class = "text-danger">
     	CAT-APP Administration</h1>

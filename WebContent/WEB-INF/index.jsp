@@ -25,7 +25,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-	<style type="text/css">
+
+	
+	<link rel="stylesheet" 
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<style type="text/css">	
+		<!-- Bootstrap core CSS -->
+
+
 	.bs-example{
     	margin: 20px;
     }
@@ -90,8 +100,8 @@
 </style>
 </head>
 
-<body>
-<jsp:include page="header.jsp" />
+<body style="background-color: Azure">
+<jsp:directive.include file="Header.jsp" />
     <!-- Navigation -->
     <%
 String login_msg=(String)request.getAttribute("error");  
@@ -112,7 +122,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 
         <!-- Heading Row -->
        <div class="row">
-        <h2 align="center">Department of Veterinary Integrative Biosciences</h2>
+        <h2 align="center">Category Read-across Approaches For (Petroleum) UVCBs</h2>
         
         </div>
         

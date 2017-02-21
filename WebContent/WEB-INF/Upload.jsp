@@ -1,38 +1,21 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
-	<!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-</head>
-<body>
-<jsp:directive.include file="Header.jsp" />
-Upload Files <br></br>
-This is within Upload.jsp 
-</body>
-=======
-
-<!DOCTYPE html>
-<%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
-<html lang="en">
-
-
-
-    <head>
-
         <title>CAT-APP</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
-     <!--    <link rel="stylesheet" href="/database_project/scripts/assets/bootstrap/css/bootstrap.min.css"> -->
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     
         <link rel="stylesheet" href="resources/css/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="resources/css/form-elements.css">
         <link rel="stylesheet" href="resources/css/style.css"> 
@@ -43,37 +26,26 @@ This is within Upload.jsp
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resources/images/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/images/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="resources/images/apple-touch-icon-57-precomposed.png"> 
-
+        
+     <link rel="stylesheet" href="/database_project/scripts/assets/bootstrap/css/bootstrap.min.css">
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+     
     </head>
 
     <body>
-    
+    <jsp:directive.include file="Header.jsp" />
 		<!-- 	<div align="right"><a href = "/database_project/Protected/ID_home">
 		<img src="/database_project/scripts/images/MB__home.png"/></a>&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</div> -->
 		<!-- Top menu -->
 		<!--  -->
-		<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					 <a class="navbar-brand" >Upload Files</a> 
-				</div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="top-navbar-1">
-					
-				</div>
-			</div>
-		</nav>
+
 
         <!-- Top content -->
         <!-- <div class="top-content"> -->
         	
            <!--  <div class="inner-bg"> -->
+           
+           <br></br><br></br>
                 <div class="container">
                 <c:if test="${param.success eq 1}">
                 <div class="page-alerts">

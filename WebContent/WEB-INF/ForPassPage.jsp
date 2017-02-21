@@ -24,7 +24,7 @@
 </head>
 
 <body>
-<jsp:include page="header.jsp" />
+<jsp:directive.include file="Header.jsp" />
     <!-- Navigation -->
    <div class="container" id="registration">
  <c:if test="${param.page eq 1}">

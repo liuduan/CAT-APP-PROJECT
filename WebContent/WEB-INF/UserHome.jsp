@@ -22,7 +22,7 @@
 <body style="background-color: Azure" onload="Wrong_password()">
 <jsp:directive.include file="Header.jsp" />
 
-
+<br></br><br></br>
 <!--  
 Received variables: 
 Email: ${Email}<br></br>
