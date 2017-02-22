@@ -122,7 +122,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 
         <!-- Heading Row -->
        <div class="row">
-        <h2 align="center">Category Read-across Approaches For (Petroleum) UVCBs</h2>
+        <h2 style="text-align: center;" class = "text-danger">Category Read-across Approaches For (Petroleum) UVCBs</h2>
         
         </div>
         
