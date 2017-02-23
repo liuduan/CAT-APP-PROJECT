@@ -64,5 +64,31 @@ public class ChemData {
 	
 		return lReturnTag;
 	}
+	/*public String getFileExtensions(String pType){
+		String lReturnExten = null;
+		
+		switch(pType) {
+		
+		case "xls":
+			lReturnExten =".xls";
+		}
+		
+	
+		return lReturnExten;
+	}*/
+
+	public String generateQForparameter(int size){
+		
+		String lReturnString =null;
+		for(int i=0;i<size;i++){
+			if(i==0){
+				lReturnString="?";
+			}
+			else{
+				lReturnString=lReturnString+",?";
+			}
+		}
+		return lReturnString;
+	}
 
 }

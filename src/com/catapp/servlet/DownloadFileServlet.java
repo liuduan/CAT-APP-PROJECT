@@ -1,14 +1,19 @@
 package com.catapp.servlet;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,66 +44,121 @@ public class DownloadFileServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String [] lFiles=request.getParameter("lSelectedBox").split(",");
-		PreparedStatement lPstmt = null;
-		ResultSet lRst = null;
-		Connection lConn = null;
-		
+		String [] lFiles					= request.getParameterValues("optradio");
+		PreparedStatement lPstmt 			= null;
+		ResultSet lRst					    = null;
+		Connection lConn 					= null;
+		File lLocalFile 					= new File("C:\\Users\\ssingh\\serverfiles\\");
+		String lFolderLoc 					= null;
+		if(lLocalFile.exists()){
+			lFolderLoc ="C:\\Users\\ssingh\\serverfiles\\";
+		}else{
+			// Write code as per the server //
+		}
 		try{
 			if(lFiles.length>0){
-				String lParameter = null;
+				
+				ArrayList<Long>lParameter = new ArrayList<Long>() ;
 				for(int i=0;i<lFiles.length;i++){
-					if(lParameter==null){
-						lParameter = Long.parseLong(lFiles[i])+"";
-					}else{
-						lParameter =lParameter+","+Long.parseLong(lFiles[i]);
-					}
+						lParameter.add(Long.parseLong(lFiles[i]));
+					
 				}
 				
 				
 				lConn=new DBConnection().getConnection();
-				StringBuilder lBuild = new StringBuilder("select * From file_info where rowstate!=-1 and entity_id in (?) ");
+				StringBuilder lBuild = new StringBuilder("select * From file_info where rowstate!=-1 and entity_id in (");
+									   lBuild.append(new ChemData().generateQForparameter(lParameter.size()));
+									   lBuild.append(")");
+									   
 				lPstmt = lConn.prepareStatement(lBuild.toString());
-				lPstmt.setString(1, lParameter);
 				
-				lRst=lPstmt.executeQuery();
-				String lFilePath = null;
-				String lFileType = null;
-				String lFileName = null;
-				while(lRst.next()){
-					lFilePath = "localhost:8080"+File.separator+"static"+
-								File.separator+new ChemData().getTagNames(lRst.getLong("cell_line_id"))
-								+File.separator+"1"+File.separator+lRst.getString("file_name");
-					lFileType=lRst.getString("file_type");
+				for(int i=0;i<lParameter.size();i++){
+					
+					lPstmt.setLong(i+1, lParameter.get(i));
+					
 				}
 				
-				 response.setContentType(lFileType);
+				lRst=lPstmt.executeQuery();
+				ArrayList<String>lFileFromServer = new ArrayList<String>();
+				String lFileName ="";
+				String lFileType ="";
+				while(lRst.next()){
+					 lFileName = lRst.getString("file_name");
+					//lFileName ="test";
+					lFileType = lRst.getString("file_type");
+					String lCellLine = new ChemData().getTagNames(lRst.getLong("cell_line_id"));
+					String lPlate =lRst.getString("plate_id");
+					lFileFromServer.add(lFolderLoc+lCellLine+"\\"+lPlate+"\\"+lFileName+"."+lFileType);
+				}
+				
+				if(lFileFromServer.size()>0 && lFileFromServer.size()==1){
+					
+					 response.setHeader("Content-disposition","attachment; filename="+ lFileName+"."+lFileType);
+					 response.setContentType(lFileType);
+				    
+				         OutputStream out = response.getOutputStream();
+				         File lMyFile = new File(lFileFromServer.get(0));
+				        // FileReader lReader = new FileReader(lMyFile);
+				         FileInputStream in = new FileInputStream(lMyFile);
+				         byte[] buffer = new byte[4096];
+				         int length;
+				         while ((length = in.read(buffer)) > 0){
+				            out.write(buffer, 0, length);
+				         }
+				         in.close();
+				         out.flush();
+					 
+					
+				}else{
+					 ArrayList<File>files = new ArrayList<File>();
+					for(int i=0;i<lFileFromServer.size();i++){
+						File lTemp = new File(lFileFromServer.get(i));
+						
+						files.add(lTemp);
+					}
+					response.setContentType("Content-type: text/zip");
+					response.setHeader("Content-Disposition",
+							"attachment; filename=mytest.zip");
 
-		        
-		         response.setHeader("Content-disposition","attachment; filename=yourcustomfilename.pdf");
+					
 
+					OutputStream out = response.getOutputStream();
+					ZipOutputStream zos = new ZipOutputStream(new BufferedOutputStream(out));
 
-		         File my_file = new File(lFilePath);
-		         File my_file1 = new File("C://Users//ssingh//serverfiles//CM//1//2_CM_Ca2+_15 min_PF");
-		         //my_file.exists()
-		         my_file1.exists();
-		   
+					for (File file : files) {
+						FileInputStream fis = null;
+						try {
+							fis = new FileInputStream(file);
 
-		         // This should send the file to browser
-		         OutputStream out = response.getOutputStream();
-		         
-		         FileInputStream in = new FileInputStream(my_file);
-		         byte[] buffer = new byte[4096];
-		         int length;
-		         while ((length = in.read(buffer)) > 0){
-		            out.write(buffer, 0, length);
-		         }
-		         in.close();
-		         out.flush();
+						} catch (FileNotFoundException fnfe) {
+							zos.write(("ERRORld not find file " + file.getName())
+									.getBytes());
+							zos.closeEntry();
+							System.out.println("Couldfind file "
+									+ file.getAbsolutePath());
+							continue;
+						}
+
+						BufferedInputStream fif = new BufferedInputStream(fis);
+						zos.putNextEntry(new ZipEntry(file.getName()));
+
+						int data = 0;
+						while ((data = fif.read()) != -1) {
+							zos.write(data);
+						}
+						fif.close();
+
+						zos.closeEntry();
+						System.out.println("Finishedng file " + file.getName());
+					}
+					zos.close();
+				}
+		
 			}
 					
 		}
 		catch(Exception e){	
+			
 			
 		}finally{
 			if(lConn!=null){

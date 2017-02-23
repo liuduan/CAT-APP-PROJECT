@@ -275,8 +275,8 @@ function showFlatFiles(){
   <ul class="nav nav-pills">
     <li class="active"><a href="#" onclick="showAllFiles()">All Files</a></li>
     <li><a href="#" onclick="showExcelFiles()">Excel Files</a></li>
-    <li><a href="#" onclick="showImages()">pdf</a></li>
-    <li><a href="#" onclick="showFlatFiles()">Flat Files</a></li>
+    <li><a href="#" onclick="showImages()">Images</a></li>
+    <li><a href="#" onclick="showFlatFiles()">pdf</a></li>
   </ul>
   <div id=allFiles>
   	

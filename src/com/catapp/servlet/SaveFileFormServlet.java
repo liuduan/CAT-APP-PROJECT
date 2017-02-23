@@ -118,6 +118,7 @@ public class SaveFileFormServlet extends HttpServlet {
 			lFile.setCell_line_id(Long.valueOf(lCellLine));
 			lFile.setPhenotype_id(Long.valueOf(lPhenoType));
 			lFile.setAssay_type(Long.valueOf(lAssayData));
+			lFile.setPlate_id(Long.valueOf(lPlate));
 			lFile.setFile_name(lFileName);
 			lFile.setFile_path(UPLOAD_DIRECTORY);
 			if(lFileExtension!=null){
