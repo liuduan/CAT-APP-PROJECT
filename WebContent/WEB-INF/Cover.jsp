@@ -34,20 +34,16 @@
     	Category Read-across Approaches For (Petroleum) UVCBs</h1>
     	
     <br></br>	<br></br>
-    
-    
-    
+ 		
 
-  		
-
-  <form class="form-horizontal" action="${pageContext.request.contextPath}/UserHome"
-  	 method="POST">
+  <!-- <form class="form-horizontal" action="${pageContext.request.contextPath}/UserHome" method="POST"> -->
+  <form class="form-horizontal" action="LoginServlet" method="post">
     <div class="form-group">
 
       <label class="control-label col-sm-5" for="Username">User email:</label>
       <div class="col-sm-3">
       	
-        <input type="email" class="form-control" id="email" placeholder="Enter user email" name="Email" >
+        <input type="email" class="form-control" id="email" placeholder="Enter user email" name="email" >
       </div>
     </div>
     
@@ -57,7 +53,7 @@
 		</c:if>
       <label class="control-label col-sm-5" for="pwd">Password:</label>
       <div class="col-sm-3">          
-        <input type="password" class="form-control" id="pwd" name="Password" placeholder="Enter password">
+        <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter password">
       </div>
     </div>
     <div class="form-group">        
@@ -78,7 +74,6 @@
   	<a href="${pageContext.request.contextPath}/Upload">
          New user application. </a></h4>		
 
-    
     
     
     <br /> <br />	<br /> <br />	

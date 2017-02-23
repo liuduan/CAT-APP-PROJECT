@@ -1,6 +1,7 @@
 package com.catapp.servlet;
 
 import java.io.IOException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +18,7 @@ import org.apache.log4j.Logger;
 import com.catapp.action.Login;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;  
+
 @WebServlet(value="/LoginServlet")
 public class LoginServlet extends HttpServlet {  
 	/**

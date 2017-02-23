@@ -174,36 +174,36 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				<h2 align="center">Please Sign In</h2>
 				<hr class="colorgraph">
 				<form action="LoginServlet" method="post">
-				<div class="form-group">
-                    <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" required="required">
-				</div>
-				<div class="form-group">
-                    <input type="password" name="password" id="passwordLogin" class="form-control input-lg" placeholder="Password" required="required">
-				</div>
+					<div class="form-group">
+                    	<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" 
+                    		required="required">
+					</div>
+					<div class="form-group">
+                    	<input type="password" name="password" id="passwordLogin" class="form-control input-lg" 
+                    		placeholder="Password" required="required">
+					</div>
 				
 					<div class="checkbox">
-    				<label><input type="checkbox" id="rememberMe"> Remember me</label>
-  				</div>
+    					<label><input type="checkbox" id="rememberMe"> Remember me</label>
+  					</div>
                     <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
 					<!-- 
 					<a href="#" class="btn btn-link pull-right">Forgot Password?</a>
 					 -->
-					<button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#exampleModal" data-whatever="">Forgot Password?</button>
-
-
-						
+					<button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#exampleModal" 
+						data-whatever="">Forgot Password?</button>
 					
 					
-					
-				<hr class="colorgraph">
-				<div class="row">
-					<div class="col-xs-6 col-sm-6 col-md-6">
-                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign in">
+					<hr class="colorgraph">
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6">
+                        	<input type="submit" class="btn btn-lg btn-success btn-block" value="Sign in">
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<a href="#register" class="btn btn-lg btn-primary btn-block" 
+								onclick="showRegistration()">Request Access</a>
+						</div>
 					</div>
-					<div class="col-xs-6 col-sm-6 col-md-6">
-						<a href="#register" class="btn btn-lg btn-primary btn-block" onclick="showRegistration()">Request Access</a>
-					</div>
-				</div>
 				</form>
 			</fieldset>
 		
@@ -296,7 +296,8 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
    						 </ul>
 					</div> -->
 				    <div class="form-group">
-                    <input type="password" id="repassword" name="repassword" class="form-control input-lg" placeholder="Re-enter Password" required="required">
+                    <input type="password" id="repassword" name="repassword" class="form-control input-lg" 
+                    	placeholder="Re-enter Password" required="required">
 				    </div>
 					
 					
@@ -396,7 +397,8 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				<hr class="colorgraph">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
-                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Request Access" style="margin-left: 50%">
+                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Request Access" 
+                        	style="margin-left: 50%">
 					</div>
 					
 				</div>
