@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>CAT-APP-PROJECT</display-name>
+  
+ <servlet>
+    <display-name>DownloadFileServlet</display-name>
+    <servlet-name>DownloadFileServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.DownloadFileServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <servlet>
     <display-name>UserInfoActServlet</display-name>
     <servlet-name>UserInfoActServlet</servlet-name>
@@ -79,6 +95,16 @@
     <servlet-class>com.catapp.servlet.UploadServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+  
+  
+  
+  
+  <servlet-mapping>
+    <servlet-name>DownloadFileServlet</servlet-name>
+    <url-pattern>/Downloads</url-pattern>
+</servlet-mapping>
+  
+  
   
   
   

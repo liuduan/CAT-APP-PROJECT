@@ -1,7 +1,6 @@
 package com.catapp.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.catapp.action.ChemData;
 import com.catapp.connection.DBConnection;
 
 /**
@@ -37,29 +37,27 @@ public class ViewFiles extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String [] lSelectedCM 	= 	null;
-		String lQueryfilter     =   null;
-		Connection lConn 		=   null;
-		PreparedStatement lPst	=	null;
-		ResultSet lRst			=   null;
-		/*ArrayList<HashMap<String,String>> pFileListXls = new ArrayList<HashMap<String,String>>();
-		ArrayList<HashMap<String,String>> pFileListImg = new ArrayList<HashMap<String,String>>();
-		ArrayList<HashMap<String,String>> pFileListFlat = new ArrayList<HashMap<String,String>>();*/
-		PrintWriter out = response.getWriter();
+		String [] lSelectedCM 		= 	null;
+		String lQueryfilter     	=   null;
+		Connection lConn 			=   null;
+		PreparedStatement lPst		=	null;
+		ResultSet lRst				=   null;
+		
+
 		try{
 			lConn = new DBConnection().getConnection();
 			if(request.getParameter("lCM")!=null && request.getParameter("lCM").trim().length()>0 ){
 				lSelectedCM= request.getParameter("lCM").toString().split(",");
-				lQueryfilter = " and cell_line_id in (?) ";
+				lQueryfilter = " and cell_line_id in (" +new ChemData().generateQForparameter(lSelectedCM.length)+")";
 			}
 			
 			String [] lAssayName  	= 	null;
 			if(request.getParameter("lAN")!=null && request.getParameter("lAN").trim().length()>0){
 				lAssayName =	request.getParameter("lAN").toString().split(",");
-				if(lQueryfilter.trim().length()>0) {
-					lQueryfilter =lQueryfilter + " and assay_type in (?)";
+				if(lQueryfilter!=null && lQueryfilter.trim().length()>0) {
+					lQueryfilter =lQueryfilter + " and assay_type in (" + new ChemData().generateQForparameter(lAssayName.length)+")";
 				}else{
-					lQueryfilter = " and assay_type in (?)";
+					lQueryfilter = " and assay_type in (" +new ChemData().generateQForparameter(lAssayName.length)+")";
 				}
 				
 			}
@@ -67,88 +65,81 @@ public class ViewFiles extends HttpServlet {
 			String [] lPhenoType    =   null;
 			if(request.getParameter("lPT")!=null && request.getParameter("lPT").trim().length()>0){
 				lPhenoType =request.getParameter("lPT").toString().split(",");
-				if(lQueryfilter.trim().length()>0) {
-					lQueryfilter =lQueryfilter + " and phenotype_id in (?)";
+				if(lQueryfilter!=null && lQueryfilter.trim().length()>0) {
+					lQueryfilter =lQueryfilter + " and phenotype_id in (" + new ChemData().generateQForparameter(lPhenoType.length)+")";
 				}else{
-					lQueryfilter = " and phenotype_id in (?)";
+					lQueryfilter = " and phenotype_id in (" +new ChemData().generateQForparameter(lPhenoType.length)+")";
 				}
 			}
 			
 			String [] lPlateDesign	=	null;
 			if(request.getParameter("lPD")!=null && request.getParameter("lPD").trim().length()>0){
 				lPlateDesign= request.getParameter("lPD").toString().split(",");
-				if(lQueryfilter.trim().length()>0) {
-					lQueryfilter =lQueryfilter + " and plate_id in (?)";
+				if(lQueryfilter!=null && lQueryfilter.trim().length()>0) {
+					lQueryfilter =lQueryfilter + " and plate_id in (" + new ChemData().generateQForparameter(lPlateDesign.length)+")";
 				}else{
-					lQueryfilter = " and plate_id in (?)";
+					lQueryfilter = " and plate_id in (" +new ChemData().generateQForparameter(lPlateDesign.length)+")";
 				}
 				
 			}
 			
-			String lValueCM ="";
-			String lValuePT	="";
-			String lValueAs	="";
-			String lValuePl	="";
-			int lCount =0;
-			if(lQueryfilter.indexOf("cell_line_id")!=-1){
-				for(int i=0;i<lSelectedCM.length;i++){
-					if(i==0){
-						lValueCM=Integer.parseInt(lSelectedCM[i])+"";
-					}else{
-						
-						lValueCM=lValueCM+","+Integer.parseInt(lSelectedCM[i]);
-					}
-				}
-				lCount++;
-			}
-			if(lQueryfilter.indexOf("assay_type")!=-1){
-				for(int i=0;i<lAssayName.length;i++){
-					if(i==0){
-						lValueAs =Integer.parseInt(lAssayName[i])+"";
-					}else{
-						
-						lValueAs=lValueAs+","+Integer.parseInt(lAssayName[i]);
-					}
-				}
-				lCount++;
-			}
-			if(lQueryfilter.indexOf("phenotype_id")!=-1){
-				for(int i=0;i<lPhenoType.length;i++){
-					if(i==0){
-						lValuePT=Integer.parseInt(lPhenoType[i])+"";
-					}else{
-						lValuePT=lValuePT+","+Integer.parseInt(lPhenoType[i]);
-						
-					}
-				}
-				lCount++;
-			}
 			
-			if(lQueryfilter.indexOf("plate_id")!=-1){
-				for(int i=0;i<lPlateDesign.length;i++){
-					if(i==0){
-						lValuePl = Integer.parseInt(lPlateDesign[i])+"";
-					}else{
-						lValuePl=lValuePl+","+Integer.parseInt(lPlateDesign[i]);
-						
-					}
-				}
-				lCount++;
-			}
 			StringBuilder lBuilder = new StringBuilder ("select * From file_info where rowstate!=-1 ");
 				lPst = lConn.prepareStatement(lBuilder.toString()+lQueryfilter);
-				for(int i=0; i<lCount;i++){
-					if(i==0){
-						lPst.setString(1, lValueCM.trim());
-					}else if (i==1){
-						lPst.setString(2, lValueAs.trim());
-					}else if (i==2){
-						lPst.setString(3, lValuePT.trim());
-					}else if (i==3){
-						lPst.setString(4, lValuePl.trim());
-					}
-				}
 				
+				int lParameterStartCount =1;
+				int lLoopOverCount =1;
+				if(lSelectedCM!=null && lSelectedCM.length>0){
+					for(int j=0;j<lSelectedCM.length;j++){
+						if(lParameterStartCount ==1){
+							lPst.setLong(lParameterStartCount, Long.parseLong(lSelectedCM[0]));
+						}else{
+							lPst.setLong(j+1, Long.parseLong(lSelectedCM[j]));
+						}		
+						lLoopOverCount++;
+					}
+					
+				}
+				if(lAssayName!=null && lAssayName.length>0){
+					
+					for(int j=0;j<lAssayName.length;j++){
+						
+						if(lLoopOverCount==0){
+							lPst.setLong(lParameterStartCount, Long.parseLong(lAssayName[0]));
+						}else{
+							lPst.setLong(lLoopOverCount, Long.parseLong(lAssayName[j]));
+						}
+						lLoopOverCount++;
+					}
+					
+				}
+				if(lPhenoType!=null && lPhenoType.length>0){
+
+					for(int j=0;j<lPhenoType.length;j++){
+						
+						if(lLoopOverCount==0){
+							lPst.setLong(lParameterStartCount, Long.parseLong(lPhenoType[0]));
+						}else{
+							lPst.setLong(lLoopOverCount, Long.parseLong(lPhenoType[j]));
+						}
+						lLoopOverCount++;
+					}
+					
+				}
+				if(lPlateDesign!=null && lPlateDesign.length>0){
+
+					for(int j=0;j<lPlateDesign.length;j++){
+						
+						if(lLoopOverCount==0){
+							lPst.setLong(lParameterStartCount, Long.parseLong(lPlateDesign[0]));
+						}else{
+							lPst.setLong(lLoopOverCount, Long.parseLong(lPlateDesign[j]));
+						}
+						lLoopOverCount++;
+					}
+					
+				}
+
 				lRst = lPst.executeQuery();
 		
 			StringBuilder lXMLBuilder = new StringBuilder();

@@ -29,7 +29,7 @@ import com.catapp.entity.User;
 @WebServlet("/SaveFileFormServlet")
 public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final String UPLOAD_DIRECTORY = "C:\\7-5-Database_project-data\\Semi-Temp-Storage-2017";
+	private final String UPLOAD_DIRECTORY = "C:/7-5-Database_project-data/Semi-Temp-Storage-2017";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -118,6 +118,7 @@ public class SaveFileFormServlet extends HttpServlet {
 			lFile.setCell_line_id(Long.valueOf(lCellLine));
 			lFile.setPhenotype_id(Long.valueOf(lPhenoType));
 			lFile.setAssay_type(Long.valueOf(lAssayData));
+			lFile.setPlate_id(Long.valueOf(lPlate));
 			lFile.setFile_name(lFileName);
 			lFile.setFile_path(UPLOAD_DIRECTORY);
 			if(lFileExtension!=null){
@@ -127,6 +128,7 @@ public class SaveFileFormServlet extends HttpServlet {
 			//lUser.setEntityId(1l);
 			lConn = new DBConnection().getConnection();
 			lFile.save(lConn, lUser);
+		
 			if(lFile.getEntityId()!=null){
 				HashMap<Long,String>lPhenoMap =  new ChemData().getPhenoTypes();
 			    HashMap<Long,String>lAssayMap =  new ChemData().getAssayNames();

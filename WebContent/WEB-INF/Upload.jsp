@@ -13,8 +13,6 @@
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
-
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      
         <link rel="stylesheet" href="resources/css/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="resources/css/form-elements.css">
@@ -27,8 +25,10 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/images/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="resources/images/apple-touch-icon-57-precomposed.png"> 
         
-     <link rel="stylesheet" href="/database_project/scripts/assets/bootstrap/css/bootstrap.min.css">
-     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      
     </head>
 
@@ -45,7 +45,7 @@
         	
            <!--  <div class="inner-bg"> -->
            
-           <br></br><br></br>
+           <br></br><br></br><br></br>
                 <div class="container">
                 <c:if test="${param.success eq 1}">
                 <div class="page-alerts">
@@ -259,5 +259,5 @@
 
     </body>
 
->>>>>>> SS-Master/master
+
 </html>

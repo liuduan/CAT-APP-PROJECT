@@ -50,8 +50,6 @@ function searchFiles(){
 				}
 			});
 
-	
-
     
 			$.ajax({
 		        type: "GET",
@@ -70,63 +68,119 @@ function searchFiles(){
 		        	var lImages;
 		        	var lAllFiles;
 		        	var lTotalHtml;
+		        	var lPdf;
+		        	var lTFlag;
+		        	var lExFlag;
+		        	var lPdfFlag;
+		        	var lImgFlag;
 		        	for(var i=0;i<lfileList.length;i++){
 		        		
 		        		if(lfileList[i].childNodes[0].firstChild.nodeValue == "xls"){
 		        			if(lExcel==null){
+		        				lExFlag=1;
 		        				lExcel="";
-		        				lExcel='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        				lExcel='<form action="DownloadFileServlet">'+
+		        				'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        		  		+'<label><input type="checkbox" name="optradio"  id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
 		        				'</div>';
 		        			}else{
 		        				lExcel=lExcel+'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
+		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
 		        				'</div>';
 		        			}
 		        		}else if(lfileList[i].childNodes[0].firstChild.nodeValue=="pdf"){
-		        			if(lImages==null){
-		        				lImages='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        			if(lPdf==null){
+		        				lPdfFlag=1;
+		        				lPdf='<form action="DownloadFileServlet">'+
+		        				'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
 		        				'</div>';
 		        			}else{
-		        				lImages=lImages+'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
+		        				lPdf=lPdf+'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
 		        				'</div>';
 		        			}
 		        			
 		        		}
+		        		
+		        		else if(lfileList[i].childNodes[0].firstChild.nodeValue=="jpeg" ||
+		        				lfileList[i].childNodes[0].firstChild.nodeValue=="jpg"){
+		        			if(lImages==null){
+		        				lImgFlag=1;
+		        				lImages='<form action="DownloadFileServlet">'+
+		        				'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        				'</div>';
+		        			}else{
+		        				lImages=lImages+'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
+		        				'</div>';
+		        			}
+		        			
+		        		}
+		        		
 		        		if(lTotalHtml==null){
-	        				lTotalHtml='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-	        		  		+'<label><input type="checkbox" name="optradio" id ="optradio" value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        			lTFlag=1;
+	        				lTotalHtml='<form action="DownloadFileServlet">'+
+	        				'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+	        		  		+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
 	        				'</div>';
 	        			}else{
 	        				lTotalHtml=lTotalHtml+'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-	        		  		+'<label><input type="checkbox" name="optradio" id="optradio" value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
+	        		  		+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
 	        				'</div>';
 	        			}
 		        	}
-		        	lExcel = lExcel+ '<div class="row">'+
-					'<div class="col-xs-3 col-sm-3 col-md-3">'+
-                        '<input type="submit" class="btn btn-lg btn-success btn-block" value="Download">'+
-					'</div>'+
-						'</div>';
-		        	jQuery("#excelFiles").html(lExcel);
 		        	
-		        	lImages = lImages+ '<div class="row">'+
-					'<div class="col-xs-3 col-sm-3 col-md-3">'+
-                        '<input type="submit" class="btn btn-lg btn-success btn-block" value="Download">'+
-					'</div>'+
-						'</div>';
-		        	jQuery("#images").html(lImages);
-		        	
-		        	lTotalHtml= lTotalHtml+ '<div class="row">'+
-					'<div class="col-xs-3 col-sm-3 col-md-3">'+
-                    '<input type="submit" class="btn btn-lg btn-success btn-block" onclick="downloadfiles()" value="Download">'+
-				'</div>'+
-					'</div>';
-				jQuery("#allFiles").html(lTotalHtml);
-				
-		          
+		        	if(lExFlag =="1"){
+		        		lExcel = lExcel+ '<div class="row">'+
+		        		'<div class="col-xs-3 col-sm-3 col-md-3">'+
+		        		'<input type="submit" class="btn btn-lg btn-success btn-block" value="Download">'+
+		        		'</form>'+
+		        		
+		        		'</div>'+
+		        		'</div>';
+		        		jQuery("#excelFiles").html(lExcel);
+		        	}else{
+		        		jQuery("#excelFiles").html("No files to download in this format.");
+		        	}
+		        	if(lImgFlag=="1"){
+		        		lImages = lImages+ '<div class="row">'+
+		        		'<div class="col-xs-3 col-sm-3 col-md-3">'+
+		        		'<input type="submit" class="btn btn-lg btn-success btn-block" value="Download">'+
+		        		'</form>'+
+		        		'</div>'+
+		        		'</div>';
+		        		jQuery("#images").html(lImages);
+		        	}else{
+		        		jQuery("#images").html("No files to download in this format.");
+		        		
+		        	}
+		        	if(lPdfFlag=="1"){
+		        		
+		        		lPdf = lPdf + '<div class="row">'+
+		        		'<div class="col-xs-3 col-sm-3 col-md-3">'+
+		        		'<input type="submit" class="btn btn-lg btn-success btn-block" value="Download">'+
+		        		'</form>'+
+		        		'</div>'+
+		        		'</div>';
+		        		jQuery("#flatFiles").html(lPdf);
+		        	}else{
+		        		jQuery("#flatFiles").html("No files to download in this format.");
+		        	}
+		        	if(lTFlag=="1"){
+		        		lTotalHtml= lTotalHtml+ '<div class="row">'+
+		        		'<div class="col-xs-3 col-sm-3 col-md-3">'+
+		        		'<input type="submit" class="btn btn-lg btn-success btn-block" value="Download">'+
+		        		'</form>'+
+		        		'</div>'+
+		        		'</div>';
+		        		jQuery("#allFiles").html(lTotalHtml);
+		        	}else{
+		        		jQuery("#allFiles").html("Oops! No Records.");
+		        		
+		        	}
+		         
 		        }
 		    });
 		}
@@ -152,13 +206,17 @@ function downloadfiles(){
 	$.ajax({
         type: "GET",
         url: "DownloadFileServlet",
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        dataType: 'text',
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         data: { 
             'lSelectedBox': lSelectedCheckBox, 
             
           },
         //data: {"lCM": lCellLines, "lAN": lAssayNames, "lPT": lPhenoTypes, "lPD": lPlate},
-        success: function (responseText) {}
+        success: function (responseText) {
+        	
+        	window.location.href = responseText
+        }
     });
 	
 }

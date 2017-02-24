@@ -60,7 +60,6 @@ margin-right: 20px;
     -webkit-box-shadow: inset 1px 1px 6px #333; 
     background-color:#666;
 }
-
 .dropbtn {
     background-color: #4CAF50;
     color: white;
@@ -69,12 +68,10 @@ margin-right: 20px;
     border: none;
     cursor: pointer;
 }
-
 .dropdown {
     position: relative;
     display: inline-block;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -83,20 +80,16 @@ margin-right: 20px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown-content a:hover {background-color: #f1f1f1}
-
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
@@ -128,9 +121,6 @@ function showFlatFiles(){
 	document.getElementById('images').style.display="none";
 	document.getElementById('flatFiles').style.display="block";
 }
-
-
-
 </script>
 <jsp:include page="headerUserHome.jsp" /> 
     <div id="wrapper">
@@ -275,8 +265,8 @@ function showFlatFiles(){
   <ul class="nav nav-pills">
     <li class="active"><a href="#" onclick="showAllFiles()">All Files</a></li>
     <li><a href="#" onclick="showExcelFiles()">Excel Files</a></li>
-    <li><a href="#" onclick="showImages()">pdf</a></li>
-    <li><a href="#" onclick="showFlatFiles()">Flat Files</a></li>
+    <li><a href="#" onclick="showImages()">Images</a></li>
+    <li><a href="#" onclick="showFlatFiles()">pdf</a></li>
   </ul>
   <div id=allFiles>
   	

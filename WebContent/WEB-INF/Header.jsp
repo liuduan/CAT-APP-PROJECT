@@ -22,7 +22,7 @@
         	<li class="active">
         		<a href="${pageContext.request.contextPath}">
         			<span class="glyphicon glyphicon-home"></span> Home</a></li>
-        	<li><a href="${pageContext.request.contextPath}/UserHome">
+        	<li><a href="${pageContext.request.contextPath}/BackToHomeServlet">
         			<span class="glyphicon glyphicon-home"></span> User Home</a></li>
         	<li><a href="${pageContext.request.contextPath}/ViewDownload">
         		<span class = "glyphicon glyphicon-download-alt"></span> Download </a></li>
