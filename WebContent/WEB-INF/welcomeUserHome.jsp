@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="com.catapp.entity.User" %>
+<%@ page import="com.catapp.entity.User" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,8 +30,7 @@
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' type='text/css' />
      <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' type='text/css' />
     
-    	<link rel="stylesheet" 
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
@@ -43,7 +43,7 @@
         
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
+            <div class="sidebar-collapse" style="padding-left: 30px; padding-top: 15px;">
                 <ul class="nav" id="main-menu" style="background-color: white">
                     <li class="text-center user-image-back" style="background-color: white">
                        
@@ -64,7 +64,14 @@
                     <li style="margin-top:10px">
                     Supervisor name <br>
                     Liu Duan
-                 
+                    
+                    
+					
+	               <% String supervisor =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>
+                   <%-- String supervisor_last_name =((User)request.getSession().getAttribute("user")).getLast_login_time().toString(); --%>
+				<h5>e: <%=supervisor %> <%--=supervisor_last_name --%> </h5>
+						<br>
+														
                     </li>
                     <li style="margin-top:10px">
                     Supervisor email <br>
@@ -81,8 +88,9 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <% String user=((User)request.getSession().getAttribute("user")).getFirst_name().toString();%>
-						<h1>Welcome <%=user %> </h1>
+                        <% String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>
+                        <% String Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); %>
+						<h1>Welcome <%=First_name %> <%=Last_name %> </h1>
 						<br>
 						<h3>Now explore the projects. Click any of the projects to check out details</h3>
 		
