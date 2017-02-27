@@ -57,14 +57,17 @@
                     01/21/2017 20:08:09
                  
                     </li>
+                     
                     <li style="margin-top:10px">
-                    Supervisor name <br>
-                    Liu Duan
+                    
+                     <br>
+                    supervisor name
                  
                     </li>
                     <li style="margin-top:10px">
-                    Supervisor email <br>
-                    liuduan@gmail.com
+                    
+                     <br>
+                    Supervisor mail
                  
                     </li>
 				</ul>

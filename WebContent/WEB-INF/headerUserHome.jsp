@@ -17,9 +17,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                 <form action="BackToMainServlet" method="get">
+                 
                  <a class="navbar-brand" href="">CAT-APP</a>
-            	</form>
+            	
             </div><!-- end of <div class="navbar-header" > -->
  
     	

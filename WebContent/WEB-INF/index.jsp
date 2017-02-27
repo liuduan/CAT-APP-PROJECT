@@ -87,6 +87,51 @@
 #pswd_info {
     display:none;
 }
+
+#result{
+	margin-left:5px;
+}
+
+#register .short{
+	color:#FF0000;
+}
+
+#register .weak{
+	color:#E66C2C;
+}
+
+#register .good{
+	color:#2D98F3;
+}
+
+#register .strong{
+	color:#006400;
+}
+
+.hint { display: none; color: gray; font-style: italic; }
+input:focus + .hint { display: inline; }
+
+select#secqu, select#soflow-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   /*margin: 20px;*/
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 550px;
+}
+
 </style>
 </head>
 
@@ -174,7 +219,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 					<div class="checkbox">
     				<label><input type="checkbox" id="rememberMe"> Remember me</label>
   				</div>
-                    <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
+                    <input type="checkbox" name="remember_me" checked="checked" class="hidden">
 					<!-- 
 					<a href="#" class="btn btn-link pull-right">Forgot Password?</a>
 					 -->
@@ -237,7 +282,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form action="SubmittedRequestServlet" method="post">
+		<form action="SubmittedRequestServlet" method="post" id="register">
 			<fieldset>
 				<h2 align="center">Request access</h2>
 				<hr class="colorgraph">
@@ -273,20 +318,14 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
                     	<input type="text" id="supervisor_email" name="supervisor_email" class="form-control input-lg" data-provide="typeahead" placeholder="Supervisor Email">
 					</div>
 					<div class="form-group">
+                    
                     <input type="password" id="password" name="password" class="form-control input-lg" placeholder="Desired Password" required="required">
+                    <span id="result"></span>
 				    </div>
-				    <!-- 
-				    <div id="pswd_info">
-    					<h4>Password must meet the following requirements:</h4>
-  						 <ul>
-      					 <li id="letter" class="invalid">At least <strong>one letter</strong></li>
-       					 <li id="capital" class="invalid">At least <strong>one capital letter</strong></li>
-        				<li id="number" class="invalid">At least <strong>one number</strong></li>
-        				<li id="length" class="invalid">Be at least <strong>8 characters</strong></li>
-   						 </ul>
-					</div> -->
+				    <span class="hint">Create a strong password with more than 8 characters, lowercase, uppercase and special characters</span>
 				    <div class="form-group">
-                    <input type="password" id="repassword" name="repassword" class="form-control input-lg" placeholder="Re-enter Password" required="required">
+                    <input type="password" id="repassword" name="repassword" class="form-control input-lg" placeholder="Re-enter Password" required="required" onkeyup="checkPass(); return false;">
+				    <span id="confirmMessage" class="confirmMessage"></span>
 				    </div>
 					
 					
@@ -301,24 +340,15 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				
 				<div class="form-group">
 					<div class="dropdown">
+                		<!-- 
                 		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width:100%">Security question 1
                     		<span class="caret"></span>
-                		</button>
-                		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" name="sec1" id="secqu">
-                		<c:forEach var="sec1" items="${secqu}">
-                		<li><a href="${sec1.key}">Action</a></li>
-                		</c:forEach>
-                		
-                		</ul>
+                		</button> -->
                 		
                 		
-                		<!-- <ul class="dropdown-menu" id="secqu">
-                    		<c:forEach var="sec1" items="${secqu}">
-                    		<li value="${sec1.key}">${sec1.value}</li>
-                    		</c:forEach>
-                		</ul>  -->
-                		 
+                		                		 
                 		<select name="sec1" id="secqu">
+                		<option>Security Question 1</option>
     					<c:forEach var="sec1" items="${secqu}">
 						<option value="${sec1.key}"> ${sec1.value}</option>
 						</c:forEach>
@@ -331,17 +361,12 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				
 				<div class="form-group">
 					<div class="dropdown">
-                		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width:100%">Security question 2
-                    		<span class="caret"></span>
-                		</button>
-                		<%-- <ul class="dropdown-menu" id="secqu">
-                    		<c:forEach var="sec2" items="${secqu}">
-                    		<li value="${sec2.key}">${sec2.value}</li>
-                    		</c:forEach>
-                		</ul> --%>
-                		<select name="sec3" id="secqu">
-    					<c:forEach var="sec3" items="${secqu}">
-						<option value="${sec3.key}"> ${sec3.value}</option>
+                		
+                		
+                		<select name="sec2" id="secqu">
+                		<option>Security Question 2</option>
+    					<c:forEach var="sec2" items="${secqu}">
+						<option value="${sec2.key}"> ${sec2.value}</option>
 						</c:forEach>
 					    </select> 
                 		
@@ -352,17 +377,12 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				</div>
 				<div class="form-group">
 					<div class="dropdown">
-                		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width:100%">Security question 3
-                    		<span class="caret"></span>
-                		</button>
-                		<%-- <ul class="dropdown-menu" id="secqu">
-                    		<c:forEach var="sec3" items="${secqu}">
-                    		<li value="${sec3.key}">${sec3.value}</li>
-                    		</c:forEach>
-                		</ul> --%>
-                		<select name="sec2" id="secqu">
-    					<c:forEach var="sec2" items="${secqu}">
-						<option value="${sec2.key}"> ${sec2.value}</option>
+                		
+                		
+                		<select name="sec3" id="secqu">
+                		<option>Security Question 3</option>
+    					<c:forEach var="sec3" items="${secqu}">
+						<option value="${sec3.key}"> ${sec3.value}</option>
 						</c:forEach>
 					    </select> 
             		</div>
@@ -491,7 +511,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Ivan Rusyn Website 2017</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -501,6 +521,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 
     <!-- jQuery -->
     <script src="/CAT-APP-PROJECT/resources/js/jquery.js"></script>
+    <script src="/CAT-APP-PROJECT/resources/js/passwordStrength.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/CAT-APP-PROJECT/resources/js/bootstrap.min.js"></script>

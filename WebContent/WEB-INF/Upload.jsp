@@ -16,8 +16,10 @@
         <link rel="stylesheet" href="resources/css/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="resources/css/form-elements.css">
         <link rel="stylesheet" href="resources/css/style.css"> 
-
-        
+		 <link href="/CAT-APP-PROJECT/resources/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/CAT-APP-PROJECT/resources/css/custom.css" rel="stylesheet" />
+        <link href="/CAT-APP-PROJECT/resources/css/full-width-pics.css" rel="stylesheet">
+        <link href="/CAT-APP-PROJECT/resources/css/font-awesome.css" rel="stylesheet" />
         <link rel="shortcut icon" href="resources/images/favicon.png">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="resources/images/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resources/images/apple-touch-icon-114-precomposed.png">
@@ -27,11 +29,13 @@
     </head>
 
     <body>
-    
+    	
+    	<jsp:include page="headerUserHome.jsp" />  
 		<!-- 	<div align="right"><a href = "/database_project/Protected/ID_home">
 		<img src="/database_project/scripts/images/MB__home.png"/></a>&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</div> -->
 		<!-- Top menu -->
 		<!--  -->
+		<!-- 
 		<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
@@ -44,11 +48,11 @@
 					 <a class="navbar-brand" >Upload Files</a> 
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="top-navbar-1">
+				<!-- <div class="collapse navbar-collapse" id="top-navbar-1">
 					
 				</div>
 			</div>
-		</nav>
+		</nav> -->
 
         <!-- Top content -->
         <!-- <div class="top-content"> -->

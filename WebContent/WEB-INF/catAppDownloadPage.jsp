@@ -14,6 +14,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="/CAT-APP-PROJECT/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/CAT-APP-PROJECT/resources/css/catAppDown.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="/CAT-APP-PROJECT/resources/css/full-width-pics.css" rel="stylesheet">
@@ -27,109 +28,11 @@
     
 </head>
 <style type="text/css">
-.span12{
-border:none;
-background-color:silver;
-margin-left: 5 px;
-padding-left: 15 px;
-margin-right: 20px;
- 
-}  
-.spacer {
-    margin-top: 40px; /* define margin as you see fit */
-    width:40
-    
-}
-.scrollDiv{
-	max-height:500px;
-    overflow-y:scroll;
-    overflow-x:hidden;
-}
-::-webkit-scrollbar {
-    width: 8px;
-}
- 
-::-webkit-scrollbar-track {
-    -webkit-box-shadow:none;
-    border-radius: 0px;
-    background-color:#aaa;
-}
- 
-::-webkit-scrollbar-thumb {
-    border-radius: 0px;
-    -webkit-box-shadow: inset 1px 1px 6px #333; 
-    background-color:#666;
-}
 
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    
-    
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
   </style>
 <body>
 
 <script>
-function showAllFiles(){
-	document.getElementById('allFiles').style.display="block";
-	document.getElementById('excelFiles').style.display="none";
-	document.getElementById('images').style.display="none";
-	document.getElementById('flatFiles').style.display="none";
-}
-function showExcelFiles(){
-	document.getElementById('allFiles').style.display="none";
-	document.getElementById('excelFiles').style.display="block";
-	document.getElementById('images').style.display="none";
-	document.getElementById('flatFiles').style.display="none";
-}
-function showImages(){
-	document.getElementById('allFiles').style.display="none";
-	document.getElementById('excelFiles').style.display="none";
-	document.getElementById('images').style.display="block";
-	document.getElementById('flatFiles').style.display="none";
-}
-function showFlatFiles(){
-	document.getElementById('allFiles').style.display="none";
-	document.getElementById('excelFiles').style.display="none";
-	document.getElementById('images').style.display="none";
-	document.getElementById('flatFiles').style.display="block";
-}
-
-
 
 </script>
 <jsp:include page="headerUserHome.jsp" /> 
@@ -207,10 +110,10 @@ function showFlatFiles(){
                     </li>
                       <li style="background-color:white">
                     
-					<button type="button" class="btn btn-info" style="margin-left:20px" onclick="searchFiles()">
+					<button type="button" class="btn btn-info" style="margin-left:20px" onclick="searchFiles();hideJumbo();">
 						 Search
 					</button>
-					<button type="button" class="btn btn-info" style="margin-left:20px">
+					<button type="button" class="btn btn-info" style="margin-left:20px" onclick="uncheckAll()">
 						<span class="glyphicon glyphicon-clear"></span> Clear filter
 					</button>
 					</li>
@@ -223,6 +126,11 @@ function showFlatFiles(){
 </nav>
         
         <!-- /. NAV SIDE  -->
+        
+            
+            	
+        
+        
         <div id="page-wrapper">
             <div id="page-inner">
                 
@@ -238,29 +146,9 @@ function showFlatFiles(){
   							</div>
 						</div>
                     </div>
-                    <div class="col-sm-4 col-md-4 col-lg-4">
-                        
-  						
-  							<ul class="pagination">
-    							<li>
-      							<a href="#" aria-label="Previous">
-        						<span aria-hidden="true">&laquo;</span>
-      							</a>
-    							</li>
-    							<li><a href="#">1</a></li>
-    							<li><a href="#">2</a></li>
-    							<li><a href="#">3</a></li>
-    							<li><a href="#">4</a></li>
-    							<li><a href="#">5</a></li>
-    							<li>
-     							 <a href="#" aria-label="Next">
-       							 <span aria-hidden="true">&raquo;</span>
-      							</a>
-    							</li>
- 							 </ul>	
-  						
-						
-                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" id="show_paginator"></div>
+                    	
+                
                 </div>
                 
                 <div class="row">
@@ -273,47 +161,58 @@ function showFlatFiles(){
                 <div class="container">
              
   <ul class="nav nav-pills">
-    <li class="active"><a href="#" onclick="showAllFiles()">All Files</a></li>
+    <li><a href="#" onclick="showAllFiles()">All Files</a></li>
     <li><a href="#" onclick="showExcelFiles()">Excel Files</a></li>
     <li><a href="#" onclick="showImages()">Images</a></li>
     <li><a href="#" onclick="showFlatFiles()">pdf</a></li>
   </ul>
-  <div id=allFiles>
-  	
-  		
-     	 <!-- <div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">
-  		<label><input type="checkbox" name="optradio">sample.xls</label>
-		</div>
-		
-  		<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">
-  		<label><input type="checkbox" name="optradio">sample.xls</label>
-		</div>
-		<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">
-  		<label><input type="checkbox" name="optradio">sample.jpeg</label>
-		</div>
-		<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">
-  		<label><input type="checkbox" name="optradio">sample.doc</label>
-		</div> -->
-	
-	
+  
+  <div id="searchFilter">
+  <div class="jumbotron hero-spacer" style="margin-top: 15px;width:70%;margin-left: 5%">
+            	
+            			<div class="row">
+            				<div class="col-xs-6 col-sm-6 col-md-6 text-center vr-all" id="one">
+            			Now searching for your file<br>
+            			is easy<br><br><br>
+            			Use the left pane
+            				</div>
+            			
+            			
+            			
+            			
+            			<div class="col-xs-6 col-sm-6 col-md-6 text-center" id="one">
+            			Choose cell lines <br><br>
+            			
+            			Choose assay name<br><br>
+            			Select phenotype<br><br>
+            			Select plate design 
+            			</div>
+            			
+            			</div>
+            			
+            	</div>
+            </div>
+            
+ 
+  <div id="allFiles">
+  
 </div>
   </div>
-  <div id=excelFiles style="display: none">
+  <div id="excelFiles" style="display: none">
   
-     	 
-	
-	
 
   </div>
-  <div id=images style="display: none">
+  <div id="images" style="display: none">
   
 	</div>
-  <div id=flatFiles style="display: none">
+  <div id="flatFiles" style="display: none">
 
   
   
   
 </div>
+
+
 
 
 
@@ -357,5 +256,10 @@ function showFlatFiles(){
     <!-- CUSTOM SCRIPTS -->
     <script src="/CAT-APP-PROJECT/resources/js/custom.js"></script>
 	<script src="/CAT-APP-PROJECT/resources/js/Uploadjs.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="/CAT-APP-PROJECT/resources/js/catAppDown.js"></script>
+	<!-- <script src="/CAT-APP-PROJECT/resources/js/easyPaginate.js"></script> -->
+	<script type="text/plain" src="//raw.github.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
+	
 </body>
 </html>
