@@ -34,6 +34,7 @@ public class LoginServlet extends HttpServlet {
 	        
 	        try{
 	        	User lUser =new User();
+        
 	        	lUser =fetchUserDetails(email, lConn);
 	        	boolean lFlag =validateUsers(password, lUser.getPassword());
 	        	
@@ -94,7 +95,7 @@ public class LoginServlet extends HttpServlet {
 			User lUser 				  = new User();
 			
 			try{
-				StringBuilder lBuilder = new StringBuilder("select a.entity_id,a.email,a.first_name,a.last_name,a.password,a.approved,a.is_admin from users a where a.email=? ");
+				StringBuilder lBuilder = new StringBuilder("select a.entity_id,a.email,a.first_name,a.last_name,a.password,a.approved,a.is_admin,a.supervisor_name from users a where a.email=? ");
 										 lBuilder.append(" and a.is_active='Y' and a.rowstate!=-1");
 				
 				lPstmnt = pConnection.prepareStatement(lBuilder.toString());
@@ -109,6 +110,7 @@ public class LoginServlet extends HttpServlet {
 					lUser.setPassword(lRst.getString(5));
 					lUser.setApproved(lRst.getString(6));
 					lUser.setIs_admin(lRst.getString(7));
+					lUser.setSupervisorname(lRst.getString(8));
 					
 				}
 				
