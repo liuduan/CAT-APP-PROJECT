@@ -95,7 +95,11 @@ public class ViewFiles extends HttpServlet {
 							lPst.setLong(lParameterStartCount, Long.parseLong(lSelectedCM[0]));
 						}else{
 							lPst.setLong(j+1, Long.parseLong(lSelectedCM[j]));
+<<<<<<< HEAD
 						}		
+=======
+						}
+>>>>>>> SS-Master/master
 						lLoopOverCount++;
 					}
 					
@@ -144,12 +148,13 @@ public class ViewFiles extends HttpServlet {
 		
 			StringBuilder lXMLBuilder = new StringBuilder();
 			lXMLBuilder.append("<filelist>");
+			
 			while(lRst.next()){
 				
 				lXMLBuilder.append("<file>");
 				lXMLBuilder.append("<type>" + lRst.getString("file_type")+"</type>");
 				lXMLBuilder.append("<filepath>" + lRst.getString("entity_id") +"</filepath>");
-				lXMLBuilder.append("<filename>" + lRst.getString("file_name")+"</filename>");
+				lXMLBuilder.append("<filename>" + lRst.getString("file_name")+"."+lRst.getString("file_type")+"</filename>");
 				lXMLBuilder.append("</file>");
 				/*HashMap<String,String>lMap = new HashMap<String,String>();
 				lMap.put(lRst.getString("file_name"), lRst.getString("file_path"));
@@ -164,6 +169,7 @@ public class ViewFiles extends HttpServlet {
 					pFileListFlat.add(lMap);
 				}*/
 			}
+			
 			lXMLBuilder.append("</filelist>");
 			response.setContentType("text/xml");
 			response.setHeader("Cache-Control", "no-cache");

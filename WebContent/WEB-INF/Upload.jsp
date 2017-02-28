@@ -17,8 +17,10 @@
         <link rel="stylesheet" href="resources/css/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="resources/css/form-elements.css">
         <link rel="stylesheet" href="resources/css/style.css"> 
-
-        
+		 <link href="/CAT-APP-PROJECT/resources/css/bootstrap.min.css" rel="stylesheet">
+      <!--   <link href="/CAT-APP-PROJECT/resources/css/custom.css" rel="stylesheet" /> -->
+        <link href="/CAT-APP-PROJECT/resources/css/full-width-pics.css" rel="stylesheet">
+        <link href="/CAT-APP-PROJECT/resources/css/font-awesome.css" rel="stylesheet" />
         <link rel="shortcut icon" href="resources/images/favicon.png">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="resources/images/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resources/images/apple-touch-icon-114-precomposed.png">
@@ -33,12 +35,38 @@
     </head>
 
     <body>
+<<<<<<< HEAD
     <jsp:directive.include file="Header.jsp" />
+=======
+    	
+    	<jsp:include page="headerUserHome.jsp" />  
+>>>>>>> SS-Master/master
 		<!-- 	<div align="right"><a href = "/database_project/Protected/ID_home">
 		<img src="/database_project/scripts/images/MB__home.png"/></a>&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</div> -->
 		<!-- Top menu -->
 		<!--  -->
+<<<<<<< HEAD
 
+=======
+		<!-- 
+		<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					 <a class="navbar-brand" >Upload Files</a> 
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<!-- <div class="collapse navbar-collapse" id="top-navbar-1">
+					
+				</div>
+			</div>
+		</nav> -->
+>>>>>>> SS-Master/master
 
         <!-- Top content -->
         <!-- <div class="top-content"> -->
@@ -83,7 +111,7 @@
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
 		                        			<h3>Step 1 / 5</h3>
-		                            		<h4>Tell us Cell Type:</h4><p>Somewhere to Start &#9786;</p>
+		                            		<h4>Cell Type:</h4><p>Somewhere to Start &#9786;</p>
 		                            		<div class="progress">
 										  <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
 										  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:15%">
@@ -99,7 +127,7 @@
 				                    		
 											  
 											  <c:forEach var="cellline" items="${cell}">
-    												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>><c:out value="${cellline.value}"/><br>
+    												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>><c:out value="${cellline.value}"/><br><br>
 											  </c:forEach>
 				                 
 				                        </div>
@@ -197,10 +225,10 @@
 				                        </div>
 				                        <div class="form-group">
 											  <label class="sr-only" for="form-facebook">Select a Plate</label>
-											  <input type="radio" name="form-Plate" id="1"  value="1" checked> Plate 1<br>
-											  <input type="radio" name="form-Plate" id="2"  value="2"> Plate 2<br>
-											  <input type="radio" name="form-Plate" id="3"  value="3"> Plate 3 <br>
-											  <input type="radio" name="form-Plate" id="4"  value="4"> Plate 4 <br>
+											  <input type="radio" name="form-Plate" id="1"  value="1" checked> Plate 1<br><br>
+											  <input type="radio" name="form-Plate" id="2"  value="2"> Plate 2<br><br>
+											  <input type="radio" name="form-Plate" id="3"  value="3"> Plate 3 <br><br>
+											  <input type="radio" name="form-Plate" id="4"  value="4"> Plate 4 <br><br>
 				                        </div>
 										
 				                      

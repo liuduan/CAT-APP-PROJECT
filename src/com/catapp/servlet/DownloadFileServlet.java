@@ -48,10 +48,17 @@ public class DownloadFileServlet extends HttpServlet {
 		PreparedStatement lPstmt 			= null;
 		ResultSet lRst					    = null;
 		Connection lConn 					= null;
+<<<<<<< HEAD
 		File lLocalFile 					= new File("C:\\7-5-Database_project-data\\Semi-Temp-Storage-2017");
 		String lFolderLoc 					= null;
 		if(lLocalFile.exists()){
 			lFolderLoc ="C:\\7-5-Database_project-data\\Semi-Temp-Storage-2017";
+=======
+		File lLocalFile 					= new File("C:\\Users\\ssingh\\serverfiles\\");
+		String lFolderLoc 					= null;
+		if(lLocalFile.exists()){
+			lFolderLoc ="C:\\Users\\ssingh\\serverfiles\\";
+>>>>>>> SS-Master/master
 		}else{
 			// Write code as per the server //
 		}
@@ -88,7 +95,11 @@ public class DownloadFileServlet extends HttpServlet {
 					lFileType = lRst.getString("file_type");
 					String lCellLine = new ChemData().getTagNames(lRst.getLong("cell_line_id"));
 					String lPlate =lRst.getString("plate_id");
+<<<<<<< HEAD
 					lFileFromServer.add(lFolderLoc+"\\"+lCellLine+"\\"+lPlate+"\\"+lFileName+"."+lFileType);
+=======
+					lFileFromServer.add(lFolderLoc+lCellLine+"\\"+lPlate+"\\"+lFileName+"."+lFileType);
+>>>>>>> SS-Master/master
 				}
 				
 				if(lFileFromServer.size()>0 && lFileFromServer.size()==1){

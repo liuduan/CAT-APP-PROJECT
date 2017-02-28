@@ -90,4 +90,31 @@ $( document ).ready(function() {
 		    $('#pswd_info').hide();
 		});
 	
+	/*
+		fillByMemory()
+			$('button#sign').on('click', function() {
+
+	    if ($('#rememberChkBox').val()) {
+	      rememberMe();
+	    }
+
+
+	    doLogin();
+	  });
+
+		function rememberMe() {
+			  $.cookie('id', $('#email').val());
+			  $.cookie('pass', $('#passwordLogin').val());
+
+			}
+
+			function fillByMemory() {
+			  if (!!$.cookie('id'))
+			    $('#email').val($.cookie('id'));
+
+			  if (!!$.cookie('pass'))
+			    $('#passwordLogin').val($.cookie('pass'));
+			}*/
+
+		
 });

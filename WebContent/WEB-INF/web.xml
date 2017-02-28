@@ -77,6 +77,7 @@
     <servlet-class>com.catapp.servlet.ViewDownloadServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+<<<<<<< HEAD
   <servlet>
     <display-name>UserManagementServlet</display-name>
     <servlet-name>UserManagementServlet</servlet-name>
@@ -116,6 +117,16 @@
     <servlet-name>UserInfoServlet</servlet-name>
     <url-pattern>/UserInfo</url-pattern>
   </servlet-mapping>
+=======
+  
+   <servlet>
+    <display-name>DownloadFileServlet</display-name>
+    <servlet-name>DownloadFileServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.DownloadFileServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+  
+>>>>>>> SS-Master/master
   <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/Admin</url-pattern>
@@ -148,6 +159,7 @@
     <servlet-name>ViewDownloadServlet</servlet-name>
     <url-pattern>/ViewDownload</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
   <servlet-mapping>
     <servlet-name>FileUploadServlet</servlet-name>
     <url-pattern>/fileupload</url-pattern>
@@ -160,6 +172,14 @@
     <servlet-name>ManageActionServlet</servlet-name>
     <url-pattern>/ManageAction</url-pattern>
   </servlet-mapping>
+=======
+  
+  <servlet-mapping>
+    <servlet-name>DownloadFileServlet</servlet-name>
+    <url-pattern>/Downloads</url-pattern>
+  </servlet-mapping>
+  
+>>>>>>> SS-Master/master
   <welcome-file-list>
 
     <welcome-file>/WEB-INF/index.jsp</welcome-file>
