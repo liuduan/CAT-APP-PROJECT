@@ -157,7 +157,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 
         <!-- Heading Row -->
        <div class="row">
-        <h2 align="center">Department of Veterinary Integrative Biosciences</h2>
+        <h2 align="center">Category read-across approaches for (petroleum) UVCBs</h2>
         
         </div>
         
@@ -233,10 +233,10 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				<hr class="colorgraph">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
-                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign in">
+                        <input type="submit" class="btn btn-lg btn-success btn-block" style="margin-left:10px" value="Sign in">
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
-						<a href="#register" class="btn btn-lg btn-primary btn-block" onclick="showRegistration()">Request Access</a>
+						<a href="#register" class="btn btn-lg btn-primary btn-block"  onclick="showRegistration()">Request Access</a>
 					</div>
 				</div>
 				</form>

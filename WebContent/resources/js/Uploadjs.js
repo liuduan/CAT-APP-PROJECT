@@ -85,22 +85,36 @@ function searchFiles(){
 		        			if(lExcel==null){
 		        				lExFlag=1;
 		        				lExcel="";
-		        				lExcel='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        		  		+'<label><input type="checkbox" name="optradio"  id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
-		        				'</div>';
+		        				if(i==0){
+		        					
+		        					lExcel='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        						+'<label><input type="checkbox" name="optradio"  id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        						'</div>';
+		        				}else{
+		        					lExcel='<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
+		        						+'<label><input type="checkbox" name="optradio"  id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        						'</div>';
+		        				}
 		        			}else{
-		        				lExcel=lExcel+'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        				lExcel=lExcel+'<div class="row well well-sm span12 " style="width:50%;margin-left: 5%">'
 		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
 		        				'</div>';
 		        			}
 		        		}else if(lfileList[i].childNodes[0].firstChild.nodeValue=="pdf"){
 		        			if(lPdf==null){
 		        				lPdfFlag=1;
-		        				lPdf='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
-		        				'</div>';
+		        				if(i==0){
+		        					lPdf='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        						+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        						'</div>';
+		        					
+		        				}else{
+		        					lPdf='<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
+		        						+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        						'</div>';
+		        				}
 		        			}else{
-		        				lPdf=lPdf+'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        				lPdf=lPdf+'<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
 		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
 		        				'</div>';
 		        			}
@@ -111,11 +125,17 @@ function searchFiles(){
 		        				lfileList[i].childNodes[0].firstChild.nodeValue=="jpg"){
 		        			if(lImages==null){
 		        				lImgFlag=1;
-		        				lImages='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
-		        				'</div>';
+		        				if(i==0){
+		        					lImages='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        						+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        						'</div>';
+		        				}else{
+		        					lImages='<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
+		        						+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        						'</div>';
+		        				}
 		        			}else{
-		        				lImages=lImages+'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        				lImages=lImages+'<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
 		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
 		        				'</div>';
 		        			}
@@ -124,12 +144,20 @@ function searchFiles(){
 		        		
 		        		if(lTotalHtml==null){
 		        			lTFlag=1;
-	        				lTotalHtml='<form action="DownloadFileServlet">'+
-	        				'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-	        		  		+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
-	        				'</div>';
+		        			if(i==0){
+		        				
+		        				lTotalHtml='<form action="DownloadFileServlet">'+
+		        				'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+		        				+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        				'</div>';
+		        			}else{
+		        				lTotalHtml='<form action="DownloadFileServlet">'+
+		        				'<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
+		        				+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        				'</div>';
+		        			}
 	        			}else{
-	        				lTotalHtml=lTotalHtml+'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+	        				lTotalHtml=lTotalHtml+'<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
 	        		  		+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
 	        				'</div>';
 	        			}

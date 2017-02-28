@@ -8,24 +8,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+<nav class="navbar navbar-inverse navbar-fixed-top " role="navigation">
 	<div class="container">
-		<div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		<div class="navbar-header ">
+                <button type="button" class="navbar-toggle menu1" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                  
-                 <a class="navbar-brand" href="">CAT-APP</a>
+                 <a class="navbar-brand menu1" href="Home">CAT-APP</a>
             	
             </div><!-- end of <div class="navbar-header" > -->
  
     	
       	
     	
-    	<ul class="nav navbar-nav navbar-right">
+    	<ul class="nav navbar-nav navbar-right ">
           <li class="active">
         		<a href="BackToHomeServlet">
         			 Home</a></li>

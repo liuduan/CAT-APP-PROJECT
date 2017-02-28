@@ -110,10 +110,10 @@
                     </li>
                       <li style="background-color:white">
                     
-					<button type="button" class="btn btn-info" style="margin-left:20px" onclick="searchFiles();hideJumbo();">
+					<button type="button" class="btn btn-info" style="margin-left:10px" onclick="searchFiles();hideJumbo();">
 						 Search
 					</button>
-					<button type="button" class="btn btn-info" style="margin-left:20px" onclick="uncheckAll()">
+					<button type="button" class="btn btn-info" style="margin-left:10px" onclick="uncheckAll()">
 						<span class="glyphicon glyphicon-clear"></span> Clear filter
 					</button>
 					</li>

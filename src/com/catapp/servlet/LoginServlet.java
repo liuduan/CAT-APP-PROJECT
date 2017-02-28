@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,6 +51,12 @@ public class LoginServlet extends HttpServlet {
 	        				HttpSession session=request.getSession();  
 	        				session.setAttribute("email",email);
 	        				session.setAttribute("user", lUser);
+	        				User lUserToSave = new User();
+	        				lUserToSave.setEntityId(lUser.getEntityId());
+	        				lUserToSave.find(lConn, lUserToSave);
+	        				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+	        				lUserToSave.setLast_login_time(timestamp);
+	        				lUserToSave.save(lConn, lUserToSave);
 	        				request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
 	        				
 	        			}else{
@@ -95,7 +102,7 @@ public class LoginServlet extends HttpServlet {
 			User lUser 				  = new User();
 			
 			try{
-				StringBuilder lBuilder = new StringBuilder("select a.entity_id,a.email,a.first_name,a.last_name,a.password,a.approved,a.is_admin,a.supervisor_name from users a where a.email=? ");
+				StringBuilder lBuilder = new StringBuilder("select a.entity_id,a.email,a.first_name,a.last_name,a.password,a.approved,a.is_admin,a.supervisor_name,a.institution,a.last_login_time from users a where a.email=? ");
 										 lBuilder.append(" and a.is_active='Y' and a.rowstate!=-1");
 				
 				lPstmnt = pConnection.prepareStatement(lBuilder.toString());
@@ -111,6 +118,10 @@ public class LoginServlet extends HttpServlet {
 					lUser.setApproved(lRst.getString(6));
 					lUser.setIs_admin(lRst.getString(7));
 					lUser.setSupervisorname(lRst.getString(8));
+					lUser.setInstitution(lRst.getString(9));
+					if(lRst.getTimestamp(10)!=null){
+						lUser.setLast_login_time(lRst.getTimestamp(10));
+					}
 					
 				}
 				

@@ -47,27 +47,28 @@
                      
                     </li>
                    
-                    <li style="margin-top:10px">
+                    <li style="margin-top:10px;margin-left: 10px">
                     <b>Institution name<b></b> <br>
                     Texas A&M University
                  
                     </li>
-                    <li style="margin-top:10px">
+                    <li style="margin-top:10px;margin-left: 10px">
                     Last login <br>
                     01/21/2017 20:08:09
                  
                     </li>
                      
-                    <li style="margin-top:10px">
+                    <li style="margin-top:10px;margin-left: 10px">
                     
-                     <br>
-                    supervisor name
+                    <b>Supervisor name</b><br>
+                    Liu Duan
                  
                     </li>
-                    <li style="margin-top:10px">
+                    <li style="margin-top:10px;margin-left: 10px">
                     
-                     <br>
-                    Supervisor mail
+                    <b>Supervisor mail</b><br>
+                    liuduan@gmail.com
+               
                  
                     </li>
 				</ul>
@@ -83,7 +84,7 @@
                         <% String user=((User)request.getSession().getAttribute("user")).getFirst_name().toString();%>
 						<h1>Welcome <%=user %> </h1>
 						<br>
-						<h3>Now explore the projects. Click any of the projects to check out details</h3>
+						<h3>Use <strong>Download</strong> and <strong>Upload</strong> button to manage files related to a project.</h3>
 		
                     </div>
                 </div>
@@ -91,15 +92,15 @@
                 
              	
              	<!-- Call to Action Well -->
-        <br><br>
+       <!--  <br><br>
         <div class="row">
             <div class="col-lg-12">
                 <div class="well text-center">
                     Now managing your files is easy!
                 </div>
             </div>
-            <!-- /.col-lg-12 -->
-        </div>
+            /.col-lg-12
+        </div> -->
         <!-- /.row -->
 
         <!-- Content Row -->

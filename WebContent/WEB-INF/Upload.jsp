@@ -17,7 +17,7 @@
 		<link rel="stylesheet" href="resources/css/form-elements.css">
         <link rel="stylesheet" href="resources/css/style.css"> 
 		 <link href="/CAT-APP-PROJECT/resources/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/CAT-APP-PROJECT/resources/css/custom.css" rel="stylesheet" />
+      <!--   <link href="/CAT-APP-PROJECT/resources/css/custom.css" rel="stylesheet" /> -->
         <link href="/CAT-APP-PROJECT/resources/css/full-width-pics.css" rel="stylesheet">
         <link href="/CAT-APP-PROJECT/resources/css/font-awesome.css" rel="stylesheet" />
         <link rel="shortcut icon" href="resources/images/favicon.png">
@@ -95,7 +95,7 @@
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
 		                        			<h3>Step 1 / 5</h3>
-		                            		<h4>Tell us Cell Type:</h4><p>Somewhere to Start &#9786;</p>
+		                            		<h4>Cell Type:</h4><p>Somewhere to Start &#9786;</p>
 		                            		<div class="progress">
 										  <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
 										  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:15%">
@@ -111,7 +111,7 @@
 				                    		
 											  
 											  <c:forEach var="cellline" items="${cell}">
-    												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>><c:out value="${cellline.value}"/><br>
+    												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>><c:out value="${cellline.value}"/><br><br>
 											  </c:forEach>
 				                 
 				                        </div>
@@ -209,10 +209,10 @@
 				                        </div>
 				                        <div class="form-group">
 											  <label class="sr-only" for="form-facebook">Select a Plate</label>
-											  <input type="radio" name="form-Plate" id="1"  value="1" checked> Plate 1<br>
-											  <input type="radio" name="form-Plate" id="2"  value="2"> Plate 2<br>
-											  <input type="radio" name="form-Plate" id="3"  value="3"> Plate 3 <br>
-											  <input type="radio" name="form-Plate" id="4"  value="4"> Plate 4 <br>
+											  <input type="radio" name="form-Plate" id="1"  value="1" checked> Plate 1<br><br>
+											  <input type="radio" name="form-Plate" id="2"  value="2"> Plate 2<br><br>
+											  <input type="radio" name="form-Plate" id="3"  value="3"> Plate 3 <br><br>
+											  <input type="radio" name="form-Plate" id="4"  value="4"> Plate 4 <br><br>
 				                        </div>
 										
 				                      
