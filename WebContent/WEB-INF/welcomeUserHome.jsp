@@ -2,6 +2,13 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.catapp.entity.User" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,8 +43,23 @@
 </head>
 
 <body style="background-color: Azure">
-
 <jsp:directive.include file="Header.jsp" />
+<% String Email =((User)request.getSession().getAttribute("user")).getEmail().toString(); %>  
+
+
+
+<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://localhost:3306/catapp"
+     user="root"  password="root"/>
+
+<sql:query dataSource="${snapshot}" var="result">
+SELECT * from users where Email = "<%=Email%>";
+</sql:query>
+
+
+
+
+
   <div id="wrapper">
        
         
@@ -51,33 +73,17 @@
                      
                     </li>
                    
-                    <li style="margin-top:10px">
-                    <b>Institution name<b></b> <br>
-                    Texas A&M University
-                 
-                    </li>
+                  
                     <li style="margin-top:10px">
                     Last login <br>
                     01/21/2017 20:08:09
+                    <%-- 
+                  	<% String Last_login =((User)request.getSession().getAttribute("user")).getLast_login_time().toString(); %>      
+					<%=Last_login %>
+					--%>
                  
-                    </li>
-                    <li style="margin-top:10px">
-                    Supervisor name <br>
-                    Liu Duan
-                    
-                    
-					
-	               <% String supervisor =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>
-                   <%-- String supervisor_last_name =((User)request.getSession().getAttribute("user")).getLast_login_time().toString(); --%>
-				<h5>e: <%=supervisor %> <%--=supervisor_last_name --%> </h5>
-						<br>
-														
-                    </li>
-                    <li style="margin-top:10px">
-                    Supervisor email <br>
-                    liuduan@gmail.com
-                 
-                    </li>
+           
+
 				</ul>
             </div>
 		
@@ -91,8 +97,9 @@
                         <% String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>
                         <% String Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); %>
 						<h1>Welcome <%=First_name %> <%=Last_name %> </h1>
+						
+						<h3>From ${result.rows[0].supervisor_name} group at ${result.rows[0].institution}. </h3>
 						<br>
-						<h3>Now explore the projects. Click any of the projects to check out details</h3>
 		
                     </div>
                 </div>
@@ -101,29 +108,17 @@
              	
              	<!-- Call to Action Well -->
         <br><br>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="well text-center">
-                    Now managing your files is easy!
-                </div>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
+
 
         <!-- Content Row -->
         <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Projects</h2>
-            </div>
             <div class="col-md-4 col-sm-6">
                 <div class="panel panel-default text-center">
                     <div class="panel-heading">
-                        <span class="fa-stack fa-5x">
-                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                              <i class="fa fa-user fa-stack-1x fa-inverse"></i>
-                        </span>
+                    	<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" height="150" />
+                        
                     </div>
+                    
                     <div class="panel-body">
                         <h4>CAT-APP</h4>
                         
@@ -144,10 +139,8 @@
             <div class="col-md-4 col-sm-6">
                 <div class="panel panel-default text-center">
                     <div class="panel-heading">
-                        <span class="fa-stack fa-5x">
-                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                              <i class="fa fa-user fa-stack-1x fa-inverse"></i>
-                        </span>
+                        <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" height="150" />
+                        
                     </div>
                     <div class="panel-body">
                         <h4>Analytical</h4>
@@ -169,10 +162,7 @@
             <div class="col-md-4 col-sm-6">
                 <div class="panel panel-default text-center">
                     <div class="panel-heading">
-                        <span class="fa-stack fa-5x">
-                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                              <i class="fa fa-user fa-stack-1x fa-inverse"></i>
-                        </span>
+                        <img src="/CAT-APP-PROJECT/resources/images/leaf.png" height="150"/>
                     </div>
                     <div class="panel-body">
                         <h4>ECO-TOX</h4>
@@ -193,24 +183,8 @@
             </div>
             
         </div>
-    </div>
-        <!-- /.row -->
-             	
-             	
-             	
-             	
-             	
-             	
-  
-				</div>
-
-
-
-          
-             
-                  
-                  
-                <!-- /. ROW  -->
+    </div>    <!-- /.row -->
+</div>      <!-- /. ROW  -->
 
             </div>
             <!-- /. PAGE INNER  -->

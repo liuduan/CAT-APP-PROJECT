@@ -71,7 +71,7 @@ SELECT * from users;
    				<td><c:out value="${row.Approved}"/></td>
    				<td><c:out value="${row.First_Name} ${row.Last_Name}" /></td>
    				<td><c:out value="${row.Supervisor_ID}"/></td>
-   				<td><c:out value="${row.Supervisor_First_Name} ${row.Supervisor_Last_Name}" /></td>
+   				<td><c:out value="${row.Supervisor_Name}" /></td>
    				<td><c:out value="${row.Institution}"/></td>
    				<td><form action="${pageContext.request.contextPath}/UserManagement" Mehtod="post">
 					<input type="hidden" name="Email" value="<c:out value="${row.Email}"/>">
