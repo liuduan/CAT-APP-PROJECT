@@ -73,17 +73,13 @@ SELECT * from users where Email = "<%=Email%>";
                      
                     </li>
                    
-<<<<<<< HEAD
-                  
-                    <li style="margin-top:10px">
-=======
+
                     <li style="margin-top:10px;margin-left: 10px">
                     <b>Institution name<b></b> <br>
                     Texas A&M University
                  
                     </li>
                     <li style="margin-top:10px;margin-left: 10px">
->>>>>>> SS-Master/master
                     Last login <br>
                     01/21/2017 20:08:09
                     <%-- 
@@ -91,10 +87,7 @@ SELECT * from users where Email = "<%=Email%>";
 					<%=Last_login %>
 					--%>
                  
-<<<<<<< HEAD
-           
 
-=======
                     </li>
                      
                     <li style="margin-top:10px;margin-left: 10px">
@@ -110,7 +103,7 @@ SELECT * from users where Email = "<%=Email%>";
                
                  
                     </li>
->>>>>>> SS-Master/master
+
 				</ul>
             </div>
 		
@@ -127,10 +120,9 @@ SELECT * from users where Email = "<%=Email%>";
 						
 						<h3>From ${result.rows[0].supervisor_name} group at ${result.rows[0].institution}. </h3>
 						<br>
-<<<<<<< HEAD
-=======
+
 						<h3>Use <strong>Download</strong> and <strong>Upload</strong> button to manage files related to a project.</h3>
->>>>>>> SS-Master/master
+
 		
                     </div>
                 </div>
@@ -138,21 +130,9 @@ SELECT * from users where Email = "<%=Email%>";
                 
              	
              	<!-- Call to Action Well -->
-<<<<<<< HEAD
         <br><br>
 
-=======
-       <!--  <br><br>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="well text-center">
-                    Now managing your files is easy!
-                </div>
-            </div>
-            /.col-lg-12
-        </div> -->
-        <!-- /.row -->
->>>>>>> SS-Master/master
+
 
         <!-- Content Row -->
         <div class="row">

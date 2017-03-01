@@ -167,11 +167,9 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 
         <!-- Heading Row -->
        <div class="row">
-<<<<<<< HEAD
+
         <h2 style="text-align: center;" class = "text-danger">Category Read-across Approaches For (Petroleum) UVCBs</h2>
-=======
-        <h2 align="center">Category read-across approaches for (petroleum) UVCBs</h2>
->>>>>>> SS-Master/master
+
         
         </div>
         
@@ -189,7 +187,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 		 
             </p><br>
             <div class="circle circle2" align="center" style="margin-left:35%">
-          		<a href="#about"><h3>Read more</h3></a>
+          		<h3><a href="#about">Read more</a></h3>
         		</div>
              <!-- <a href="#" class="btn btn-success btn-lg" id="readMore">Show Less</a></small><br>-->
                 </div>
@@ -233,15 +231,11 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 					</div>
 				
 					<div class="checkbox">
-<<<<<<< HEAD
+
     					<label><input type="checkbox" id="rememberMe"> Remember me</label>
   					</div>
                     <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
-=======
-    				<label><input type="checkbox" id="rememberMe"> Remember me</label>
-  				</div>
-                    <input type="checkbox" name="remember_me" checked="checked" class="hidden">
->>>>>>> SS-Master/master
+
 					<!-- 
 					<a href="#" class="btn btn-link pull-right">Forgot Password?</a>
 					 -->
@@ -249,18 +243,6 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 						data-whatever="">Forgot Password?</button>
 					
 					
-<<<<<<< HEAD
-					<hr class="colorgraph">
-					<div class="row">
-						<div class="col-xs-6 col-sm-6 col-md-6">
-                        	<input type="submit" class="btn btn-lg btn-success btn-block" value="Sign in">
-						</div>
-						<div class="col-xs-6 col-sm-6 col-md-6">
-							<a href="#register" class="btn btn-lg btn-primary btn-block" 
-								onclick="showRegistration()">Request Access</a>
-						</div>
-					</div>
-=======
 				<hr class="colorgraph">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
@@ -270,7 +252,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 						<a href="#register" class="btn btn-lg btn-primary btn-block"  onclick="showRegistration()">Request Access</a>
 					</div>
 				</div>
->>>>>>> SS-Master/master
+
 				</form>
 			</fieldset>
 		
@@ -356,13 +338,9 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				    </div>
 				    <span class="hint">Create a strong password with more than 8 characters, lowercase, uppercase and special characters</span>
 				    <div class="form-group">
-<<<<<<< HEAD
-                    <input type="password" id="repassword" name="repassword" class="form-control input-lg" 
-                    	placeholder="Re-enter Password" required="required">
-=======
+
                     <input type="password" id="repassword" name="repassword" class="form-control input-lg" placeholder="Re-enter Password" required="required" onkeyup="checkPass(); return false;">
 				    <span id="confirmMessage" class="confirmMessage"></span>
->>>>>>> SS-Master/master
 				    </div>
 					
 					

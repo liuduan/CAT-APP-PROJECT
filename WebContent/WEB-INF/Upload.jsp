@@ -35,19 +35,14 @@
     </head>
 
     <body>
-<<<<<<< HEAD
+
     <jsp:directive.include file="Header.jsp" />
-=======
-    	
-    	<jsp:include page="headerUserHome.jsp" />  
->>>>>>> SS-Master/master
+
 		<!-- 	<div align="right"><a href = "/database_project/Protected/ID_home">
 		<img src="/database_project/scripts/images/MB__home.png"/></a>&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</div> -->
 		<!-- Top menu -->
 		<!--  -->
-<<<<<<< HEAD
 
-=======
 		<!-- 
 		<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
 			<div class="container">
@@ -66,7 +61,7 @@
 				</div>
 			</div>
 		</nav> -->
->>>>>>> SS-Master/master
+
 
         <!-- Top content -->
         <!-- <div class="top-content"> -->

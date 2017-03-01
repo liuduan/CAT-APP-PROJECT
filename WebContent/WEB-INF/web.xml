@@ -1,45 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>CAT-APP-PROJECT</display-name>
-  
- <servlet>
-    <display-name>DownloadFileServlet</display-name>
-    <servlet-name>DownloadFileServlet</servlet-name>
-    <servlet-class>com.catapp.servlet.DownloadFileServlet</servlet-class>
-    <enabled>true</enabled>
-  </servlet>
-
-  
-  
-  
-  
-  
-  
-  
-  
   <servlet>
-    <display-name>UserInfoActServlet</display-name>
-    <servlet-name>UserInfoActServlet</servlet-name>
-    <servlet-class>com.catapp.servlet.UserInfoActServlet</servlet-class>
-    <enabled>true</enabled>
-  </servlet>
-  <servlet>
-    <display-name>UserInfoServlet</display-name>
-    <servlet-name>UserInfoServlet</servlet-name>
-    <servlet-class>com.catapp.servlet.UserInfoServlet</servlet-class>
-    <enabled>true</enabled>
-  </servlet>
-  <servlet>
-    <display-name>CoverServlet</display-name>
-    <servlet-name>CoverServlet</servlet-name>
-    <servlet-class>com.catapp.servlet.CoverServlet</servlet-class>
-    <enabled>true</enabled>
-  </servlet>
-  <servlet>
-    <display-name>AdminServlet</display-name>
     <servlet-name>AdminServlet</servlet-name>
     <servlet-class>com.catapp.servlet.AdminServlet</servlet-class>
-    <enabled>true</enabled>
   </servlet>
   <servlet>
     <display-name>NewUserServlet</display-name>
@@ -77,47 +41,6 @@
     <servlet-class>com.catapp.servlet.ViewDownloadServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-<<<<<<< HEAD
-  <servlet>
-    <display-name>UserManagementServlet</display-name>
-    <servlet-name>UserManagementServlet</servlet-name>
-    <servlet-class>com.catapp.servlet.UserManagementServlet</servlet-class>
-    <enabled>true</enabled>
-  </servlet>
-  <servlet>
-    <display-name>ManageActionServlet</display-name>
-    <servlet-name>ManageActionServlet</servlet-name>
-    <servlet-class>com.catapp.servlet.ManageActionServlet</servlet-class>
-    <enabled>true</enabled>
-  </servlet>
-  <servlet>
-    <display-name>FileUploadServlet</display-name>
-    <servlet-name>FileUploadServlet</servlet-name>
-    <servlet-class>com.catapp.servlet.UploadServlet</servlet-class>
-    <enabled>true</enabled>
-  </servlet>
-  
-  
-  
-  
-  <servlet-mapping>
-    <servlet-name>DownloadFileServlet</servlet-name>
-    <url-pattern>/Downloads</url-pattern>
-</servlet-mapping>
-  
-  
-  
-  
-  
-  <servlet-mapping>
-    <servlet-name>UserInfoActServlet</servlet-name>
-    <url-pattern>/UserInfoAct</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UserInfoServlet</servlet-name>
-    <url-pattern>/UserInfo</url-pattern>
-  </servlet-mapping>
-=======
   
    <servlet>
     <display-name>DownloadFileServlet</display-name>
@@ -126,14 +49,9 @@
     <enabled>true</enabled>
   </servlet>
   
->>>>>>> SS-Master/master
   <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/Admin</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>CoverServlet</servlet-name>
-    <url-pattern>/Cover</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>NewUserServlet</servlet-name>
@@ -159,32 +77,13 @@
     <servlet-name>ViewDownloadServlet</servlet-name>
     <url-pattern>/ViewDownload</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
-  <servlet-mapping>
-    <servlet-name>FileUploadServlet</servlet-name>
-    <url-pattern>/fileupload</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UserManagementServlet</servlet-name>
-    <url-pattern>/UserManagement</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ManageActionServlet</servlet-name>
-    <url-pattern>/ManageAction</url-pattern>
-  </servlet-mapping>
-=======
   
   <servlet-mapping>
     <servlet-name>DownloadFileServlet</servlet-name>
     <url-pattern>/Downloads</url-pattern>
   </servlet-mapping>
   
->>>>>>> SS-Master/master
   <welcome-file-list>
-
-    <welcome-file>/WEB-INF/index.jsp</welcome-file>
-
-
-
+    <welcome-file>Home</welcome-file>
   </welcome-file-list>
 </web-app>

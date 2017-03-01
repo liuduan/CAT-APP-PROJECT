@@ -104,11 +104,8 @@ public class LoginServlet extends HttpServlet {
 			User lUser 				  = new User();
 			
 			try{
-<<<<<<< HEAD
-				StringBuilder lBuilder = new StringBuilder("select a.entity_id,a.email,a.first_name,a.last_name,a.password,a.approved,a.is_admin,a.supervisor_name from users a where a.email=? ");
-=======
+
 				StringBuilder lBuilder = new StringBuilder("select a.entity_id,a.email,a.first_name,a.last_name,a.password,a.approved,a.is_admin,a.supervisor_name,a.institution,a.last_login_time from users a where a.email=? ");
->>>>>>> SS-Master/master
 										 lBuilder.append(" and a.is_active='Y' and a.rowstate!=-1");
 				
 				lPstmnt = pConnection.prepareStatement(lBuilder.toString());
@@ -124,13 +121,10 @@ public class LoginServlet extends HttpServlet {
 					lUser.setApproved(lRst.getString(6));
 					lUser.setIs_admin(lRst.getString(7));
 					lUser.setSupervisorname(lRst.getString(8));
-<<<<<<< HEAD
-=======
 					lUser.setInstitution(lRst.getString(9));
 					if(lRst.getTimestamp(10)!=null){
 						lUser.setLast_login_time(lRst.getTimestamp(10));
 					}
->>>>>>> SS-Master/master
 					
 				}
 				

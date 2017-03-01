@@ -95,11 +95,7 @@ public class ViewFiles extends HttpServlet {
 							lPst.setLong(lParameterStartCount, Long.parseLong(lSelectedCM[0]));
 						}else{
 							lPst.setLong(j+1, Long.parseLong(lSelectedCM[j]));
-<<<<<<< HEAD
-						}		
-=======
 						}
->>>>>>> SS-Master/master
 						lLoopOverCount++;
 					}
 					
