@@ -20,7 +20,7 @@
 
 </head>
 <body style="background-color: Azure">
-<jsp:directive.include file="Header.jsp" />
+<jsp:directive.include file="HeaderAdmin.jsp" />
 
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"

@@ -146,7 +146,7 @@ select#secqu, select#soflow-color {
 </head>
 
 <body style="background-color: Azure">
-<jsp:directive.include file="Header.jsp" />
+<jsp:directive.include file="HeaderCover.jsp" />
     <!-- Navigation -->
     <%
 String login_msg=(String)request.getAttribute("error");  
