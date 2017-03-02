@@ -43,7 +43,6 @@
 </head>
 
 <body style="background-color: Azure">
-<jsp:directive.include file="Header.jsp" />
 <% String Email =((User)request.getSession().getAttribute("user")).getEmail().toString(); %>  
 
 
@@ -56,9 +55,7 @@
 SELECT * from users where Email = "<%=Email%>";
 </sql:query>
 
-
-
-
+<jsp:directive.include file="Header.jsp" />
 
   <div id="wrapper">
        
@@ -69,19 +66,17 @@ SELECT * from users where Email = "<%=Email%>";
                 <ul class="nav" id="main-menu" style="background-color: white">
                     <li class="text-center user-image-back" style="background-color: white">
                        
-                        <img src="/CAT-APP-PROJECT/resources/images/find_user.png" class="img-responsive" />
+                        <img src="/CAT-APP-PROJECT/resources/images/Portrait.jpg" class="img-responsive"
+							style="margin: auto; margin-top: 20px;" width="150" height="200px"/>
                      
                     </li>
                    
 
-                    <li style="margin-top:10px;margin-left: 10px">
-                    <b>Institution name<b></b> <br>
-                    Texas A&M University
-                 
-                    </li>
-                    <li style="margin-top:10px;margin-left: 10px">
+
+                    <li style="margin-top:10px; margin: auto; text-align: center;">
+                    <br>
                     Last login <br>
-                    01/21/2017 20:08:09
+                    03/01/2017 20:08:09
                     <%-- 
                   	<% String Last_login =((User)request.getSession().getAttribute("user")).getLast_login_time().toString(); %>      
 					<%=Last_login %>
@@ -89,20 +84,7 @@ SELECT * from users where Email = "<%=Email%>";
                  
 
                     </li>
-                     
-                    <li style="margin-top:10px;margin-left: 10px">
-                    
-                    <b>Supervisor name</b><br>
-                    Liu Duan
-                 
-                    </li>
-                    <li style="margin-top:10px;margin-left: 10px">
-                    
-                    <b>Supervisor mail</b><br>
-                    liuduan@gmail.com
-               
-                 
-                    </li>
+                
 
 				</ul>
             </div>
@@ -121,7 +103,6 @@ SELECT * from users where Email = "<%=Email%>";
 						<h3>From ${result.rows[0].supervisor_name} group at ${result.rows[0].institution}. </h3>
 						<br>
 
-						<h3>Use <strong>Download</strong> and <strong>Upload</strong> button to manage files related to a project.</h3>
 
 		
                     </div>

@@ -41,6 +41,10 @@ public class LoginServlet extends HttpServlet {
 	        	lUser =fetchUserDetails(email, lConn);
 	        	boolean lFlag =validateUsers(password, lUser.getPassword());
 	        	
+	        	System.out.println("Hello World java. ");
+	        	System.out.println(password  + ", " + lUser.getPassword());
+	        	System.out.println(Login.generateHash("Pwdtest_user2") );
+	        	
 	        	if(lFlag){
 	        		if(lUser.getIs_admin()!=null && lUser.getIs_admin().equals("Y")){
 	        			HttpSession session=request.getSession();  

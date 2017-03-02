@@ -29,8 +29,7 @@ public class AdminServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		//PrintWriter out = response.getWriter();
-		//out.println("Administration Page<br> From AdminServlet.java: Hello Java!");
+		System.out.println("Hello World");
 
 		getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
 		// This line is go to "/WEB-INF/Adminpage.jsp" with all the parameters.
