@@ -19,6 +19,8 @@ public class BackToHomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {  
 		response.setContentType("text/html");  
+		HttpSession session=request.getSession();
+		session.getAttribute("user");
         //PrintWriter out=response.getWriter();
 	      request.getServletContext().getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").forward(request, response);}
 		

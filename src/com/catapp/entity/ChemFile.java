@@ -25,6 +25,7 @@ public class ChemFile extends BaseEntity{
 	public static final String f_filetype = "file_type";
 	public static final String f_plateId = 	"plate_id";
 	public static final String f_Active = "is_active";
+	public static final String f_description = "description";
 	
 	private String file_name;
 	private String file_path;
@@ -33,6 +34,14 @@ public class ChemFile extends BaseEntity{
 	private Long assay_type;
 	private String file_type;
 	private Long plate_id;
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	private String description;
 	
 	public Long getPlate_id() {
 		return plate_id;
@@ -88,8 +97,8 @@ public class ChemFile extends BaseEntity{
 	{
 		return "(" /*+ f_entityId + ","*/  + f_filename + "," + f_filepath + "," + f_cellline + "," + f_phenotype
 			+ "," + f_assaytype + "," + f_filetype +"," + f_Active + ","+ f_loggedDate + ","
-			 + f_lastUpdatedDate + "," + f_loggedBy + "," + f_lastUpdatedBy + "," + f_rowstate+ "," +f_plateId
-			+ ") VALUES(?, ? ,? ,? ,? ,? ,? ,? ,? ,? ,?,?,?) ";
+			 + f_lastUpdatedDate + "," + f_loggedBy + "," + f_lastUpdatedBy + "," + f_rowstate+ "," +f_plateId+ "," +f_description
+			+ ") VALUES(?, ? ,? ,? ,? ,? ,? ,? ,? ,? ,?,?,?,?) ";
 	}
 	
 	public void setInsertValues(PreparedStatement pPreparedStatement)
@@ -131,6 +140,7 @@ public class ChemFile extends BaseEntity{
 			}
 			pPreparedStatement.setLong(12, getRowstate());
 			pPreparedStatement.setLong(13, getPlate_id());
+			pPreparedStatement.setString(14, getDescription());
 		}
 		catch (SQLException pException1)
 		{

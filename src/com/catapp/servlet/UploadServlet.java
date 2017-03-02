@@ -1,8 +1,7 @@
 package com.catapp.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.sql.Connection;
 import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
@@ -12,13 +11,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.catapp.action.ChemData;
+import com.catapp.connection.DBConnection;
 
 /**
  * Servlet implementation class AdminServlet
  */
 @WebServlet("/UploadServlet")
 public class UploadServlet extends HttpServlet {
+	public static final Logger logger = Logger.getLogger(UploadServlet.class.toString());
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -51,19 +54,33 @@ public class UploadServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		Connection lConn = null;
 		
-		
+		try{
+			lConn= new DBConnection().getConnection();
+			HashMap<Long,String>lPhenoMap =  new ChemData().getNamesofInputs("phenotypes",lConn);
+			HashMap<Long,String>lAssayMap =  new ChemData().getNamesofInputs("assaynames",lConn);
+			HashMap<Long,String>lCellMap  =  new ChemData().getNamesofInputs("celllines",lConn);
+			HashMap<Long,String>lTimMap   =  new ChemData().getTimePoints();
+			request.setAttribute("pheno", lPhenoMap);
+			request.setAttribute("assay", lAssayMap);
+			request.setAttribute("cell", lCellMap);
+			request.setAttribute("time", lTimMap);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp");
+			rd.forward(request, response);
+			
+		}catch(Exception e){
+			logger.error("Error Occured while dispatching the request",e);
+		}finally{
+			if(lConn!=null){
+				try{
+					lConn.close();
+				}catch(Exception e){
+					logger.error("Error Occured while closing the connection",e);
+				}
+			}
+		}
 	
-	    HashMap<Long,String>lPhenoMap =  new ChemData().getPhenoTypes();
-	    HashMap<Long,String>lAssayMap =  new ChemData().getAssayNames();
-	    HashMap<Long,String>lCellMap  =  new ChemData().getCellLines();
-	    HashMap<Long,String>lTimMap   =  new ChemData().getTimePoints();
-	    request.setAttribute("pheno", lPhenoMap);
-	    request.setAttribute("assay", lAssayMap);
-	    request.setAttribute("cell", lCellMap);
-	    request.setAttribute("time", lTimMap);
-	  	RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp");
-	    rd.forward(request, response);
 	}
 
 	/**
