@@ -40,6 +40,8 @@ public class LoadDataForHome extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("Hello World java. \n\n");
+		
 		HashMap<Long,String>lListOfSq =getSecurityQuestions();
 		request.setAttribute("secqu", lListOfSq);
 	  	RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/index.jsp");

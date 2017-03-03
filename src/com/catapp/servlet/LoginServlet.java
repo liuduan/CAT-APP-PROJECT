@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 	        	lUser =fetchUserDetails(email, lConn);
 	        	boolean lFlag =validateUsers(password, lUser.getPassword());
 	        	
-	        	System.out.println("Hello World java. ");
+	        	System.out.println("Hello World java. \n\n");
 	        	System.out.println(password  + ", " + lUser.getPassword());
 	        	System.out.println(Login.generateHash("Pwdtest_user2") );
 	        	

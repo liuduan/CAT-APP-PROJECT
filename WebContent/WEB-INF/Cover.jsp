@@ -72,10 +72,7 @@
   			
   <h4 style="text-align: center;" class = "text-primary">
   	<a href="${pageContext.request.contextPath}/Upload">
-         New user application. </a></h4>		
-
-    
-    
+         New user application. </a></h4>
     <br /> <br />	<br /> <br />	
     <h4 style="text-align: center;" class = "text-primary">
     	This website is currently designed for file exchange in CAT-APP project, 
