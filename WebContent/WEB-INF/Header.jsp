@@ -28,8 +28,6 @@
         		<span class = "glyphicon glyphicon-download-alt"></span> Download </a></li>
         	<li><a href="${pageContext.request.contextPath}/UploadServlet">
         		<span class = "glyphicon glyphicon-upload"></span> Upload </a></li>
-        	<li><a href="${pageContext.request.contextPath}/Admin">
-        		<span class = "glyphicon glyphicon-lamp"></span></a></li>
         </ul>
     	<ul class="nav navbar-nav navbar-right">
             <li id="Contact" >

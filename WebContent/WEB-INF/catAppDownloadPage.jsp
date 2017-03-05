@@ -25,16 +25,28 @@
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     
 </head>
 <style type="text/css">
   </style>
 <body>
+<jsp:directive.include file="Header.jsp" />
 
-<script>
+<%-- 
+<% String Is_admin =((User)request.getSession().getAttribute("user")).getIs_admin().toString(); %>
+<c:set var="Is_admin" scope="session" value="<%=Is_admin %>"/>
+<c:choose>
+	<c:when test="${Is_admin == 'Y'}">
+		<jsp:directive.include file="HeaderAdmin.jsp" />
+    </c:when>    
+    <c:otherwise>
+        <jsp:directive.include file="Header.jsp" />
+    </c:otherwise>
+</c:choose>
+--%>
 
-</script>
-<jsp:include page="headerUserHome.jsp" /> 
     <div id="wrapper">
         
         

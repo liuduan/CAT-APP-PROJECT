@@ -24,10 +24,13 @@
         			<span class="glyphicon glyphicon-home"></span> Home</a></li>
         	<li><a href="${pageContext.request.contextPath}/BackToHomeServlet">
         			<span class="glyphicon glyphicon-home"></span> User Home</a></li>
-        	<li><a href="${pageContext.request.contextPath}/ViewDownload">
+        	<li><a href="${pageContext.request.contextPath}/CatAppDownloadPageServlet">
         		<span class = "glyphicon glyphicon-download-alt"></span> Download </a></li>
-        	<li><a href="${pageContext.request.contextPath}/Upload">
-        		<span class = "glyphicon glyphicon-upload"></span> Upload </a></li>
+        	<li><a href="${pageContext.request.contextPath}/UploadServlet">
+        		<span class = "glyphicon glyphicon-upload"></span> Upload </a>
+        	
+        		
+        		</li>
         	<li><a href="${pageContext.request.contextPath}/Admin">
         		<span class = "glyphicon glyphicon-lamp"></span> Administration</a></li>
         </ul>

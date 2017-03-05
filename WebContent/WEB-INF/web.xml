@@ -48,6 +48,16 @@
     <servlet-class>com.catapp.servlet.DownloadFileServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+  <servlet>
+    <display-name>catAppDownloadPageServlet</display-name>
+    <servlet-name>catAppDownloadPageServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.catAppDownloadPageServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+  
+  
+  
+  
   
   <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>
@@ -77,6 +87,14 @@
     <servlet-name>ViewDownloadServlet</servlet-name>
     <url-pattern>/ViewDownload</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>catAppDownloadPageServlet</servlet-name>
+    <url-pattern>/catAppDownloadPageServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
   
   <servlet-mapping>
     <servlet-name>DownloadFileServlet</servlet-name>

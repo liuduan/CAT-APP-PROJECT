@@ -44,7 +44,7 @@
 
 <body style="background-color: Azure">
 <% String Email =((User)request.getSession().getAttribute("user")).getEmail().toString(); %>  
-
+<% String Is_admin =((User)request.getSession().getAttribute("user")).getIs_admin().toString(); %>
 
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
@@ -55,7 +55,16 @@
 SELECT * from users where Email = "<%=Email%>";
 </sql:query>
 
-<jsp:directive.include file="Header.jsp" />
+<c:set var="Is_admin" scope="session" value="<%=Is_admin %>"/>
+<c:choose>
+	<c:when test="${Is_admin == 'Y'}">
+		<jsp:directive.include file="HeaderAdmin.jsp" />
+    </c:when>    
+    <c:otherwise>
+        <jsp:directive.include file="Header.jsp" />
+    </c:otherwise>
+</c:choose>
+
 
   <div id="wrapper">
        
@@ -98,8 +107,9 @@ SELECT * from users where Email = "<%=Email%>";
                     <div class="col-md-12">
                         <% String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>
                         <% String Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); %>
+                        
 						<h1>Welcome <%=First_name %> <%=Last_name %> </h1>
-						
+				
 						<h3>From ${result.rows[0].supervisor_name} group at ${result.rows[0].institution}. </h3>
 						<br>
 

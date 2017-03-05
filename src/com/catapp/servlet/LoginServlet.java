@@ -41,15 +41,26 @@ public class LoginServlet extends HttpServlet {
 	        	lUser =fetchUserDetails(email, lConn);
 	        	boolean lFlag =validateUsers(password, lUser.getPassword());
 	        	
-	        	System.out.println("Hello World java. ");
+	        	System.out.println("Hello World java. 2");
 	        	System.out.println(password  + ", " + lUser.getPassword());
 	        	System.out.println(Login.generateHash("Pwdtest_user2") );
 	        	
 	        	if(lFlag){
 	        		if(lUser.getIs_admin()!=null && lUser.getIs_admin().equals("Y")){
+	        			
+	        			System.out.println("Hello World. \n\n");
+	        			
 	        			HttpSession session=request.getSession();  
 	        			session.setAttribute("email",email);
-	        			request.getRequestDispatcher("/WEB-INF/adminUser.jsp").include(request, response);
+	        			session.setAttribute("user", lUser);
+        				User lUserToSave = new User();
+        				lUserToSave.setEntityId(lUser.getEntityId());
+        				lUserToSave.find(lConn, lUserToSave);
+        				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        				lUserToSave.setLast_login_time(timestamp);
+        				lUserToSave.save(lConn, lUserToSave);
+        				request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
+        				
 	        			
 	        		}else{
 	        			if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
