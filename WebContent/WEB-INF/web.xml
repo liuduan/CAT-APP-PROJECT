@@ -51,12 +51,23 @@
   <servlet>
     <display-name>catAppDownloadPageServlet</display-name>
     <servlet-name>catAppDownloadPageServlet</servlet-name>
-    <servlet-class>com.catapp.servlet.catAppDownloadPageServlet</servlet-class>
+    <servlet-class>com.catapp.servlet.CatAppDownloadPageServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+  <servlet>
+    <display-name>UserManagementServlet</display-name>
+    <servlet-name>UserManagementServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.UserManagementServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
   
   
   
+  
+  <servlet-mapping>
+    <servlet-name>UserManagementServlet</servlet-name>
+    <url-pattern>/UserManagement</url-pattern>
+  </servlet-mapping>
   
   
   <servlet-mapping>
