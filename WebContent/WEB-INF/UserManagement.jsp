@@ -32,6 +32,15 @@
 SELECT * from users where Email = "<%=Email%>";
 </sql:query>
 
+<sql:query dataSource="${snapshot}" var="answers_result">
+SELECT * from security_questions_answers where user_id = "${result.rows[0].entity_id}";
+</sql:query>
+
+<sql:query dataSource="${snapshot}" var="questions_result">
+SELECT * from security_questions;
+</sql:query>
+
+
 
 <div id="New_Window_content" style="margin:auto;">
 	<div style="margin:auto; width:700px; background-color: AntiqueWhite; padding: 50px;
@@ -53,33 +62,59 @@ SELECT * from users where Email = "<%=Email%>";
     	<h3 style="text-align: center;" class = "text-danger"><b>
     	Authorization and Password Reset</b></h2><br>
     	
-      <c:forEach var="row" items="${result.rows}">  
+    	
     	<form action="${pageContext.request.contextPath}/ManageAction" Mehtod="post">
+      		<c:forEach var="row" items="${result.rows}">  
+    	
     		
-    		<input type="hidden" name="Email" value="${row.Email}">
-    		<b>Name: <span class="text-primary">${row.First_name} ${row.Last_name}</span></b><p></p>
-    		<c:choose>
-    			<c:when test="${row.Approved == 'Yes'}">
-        			<c:set var="checked" scope="session" value="checked"/> 
-    			</c:when>    
-    			<c:otherwise>
-    				<c:set var="checked" scope="session" value=""/> 
-    			</c:otherwise>
-			</c:choose>
+    			<input type="hidden" name="Email" value="${row.Email}">
+    			<b>Name: <span class="text-primary">${row.First_name} ${row.Last_name}</span></b><p></p>
+    			<c:choose>
+    				<c:when test="${row.Approved == 'Yes'}">
+        				<c:set var="checked" scope="session" value="checked"/> 
+    				</c:when>    
+    				<c:otherwise>
+    					<c:set var="checked" scope="session" value=""/> 
+    				</c:otherwise>
+				</c:choose>
     		
-  			<input type="checkbox" name="Authorization" value="Yes_authorizing" ${checked}><b>Authorization</b><p></p>
-			<input type="checkbox" name="Change_password" value="Change_password"><b>Change Password</b><p></p>
+  				<input type="checkbox" name="Authorization" value="Yes_authorizing" ${checked}><b>Authorization</b><p></p>
+				<input type="checkbox" name="Change_password" value="Change_password"><b>Change Password</b><p></p>
 			
-    		<b>New Password: </b><input name="Passowrd_1" ></input> <br></br>
-    		<b>Repeat Password: </b><input name="Password_2" ></input><p></p>
+    			<b>New Password: </b><input name="Passowrd_1" ></input> <br></br>
+    			<b>Repeat Password: </b><input name="Password_2" ></input><p></p>
     		
-    		<b>Phone Number: </b><c:out value="${row.Phone_Number}"/><p></p>
-    		<b>E-mail address: </b><c:out value="${row.Email}"/><p></p>
-    		<b>Supervisor Username: </b><c:out value="${row.Supervisor_ID}"/><p></p>
-    		<b>Supervisor Name: </b><c:out value="${row.Supervisor_First_Name}"/> 
+    			<b>Phone Number: </b><c:out value="${row.Phone_Number}"/><p></p>
+    			<b>E-mail address: </b><c:out value="${row.Email}"/><p></p>
+    			<b>Supervisor Username: </b><c:out value="${row.Supervisor_ID}"/><p></p>
+    			<b>Supervisor Name: </b><c:out value="${row.Supervisor_First_Name}"/> 
     				<c:out value="${row.Supervisor_Last_Name}"/><p></p>
-    		<b>Supervisor Phone number: </b><c:out value="${row.Supervisor_Phone_Number}"/><p></p>
-    		<b>Supervisor Email: </b><c:out value="${row.Supervisor_Email}"/><p></p>
+    			<b>Supervisor Phone number: </b><c:out value="${row.Supervisor_Phone_Number}"/><p></p>
+    			<b>Supervisor Email: </b><c:out value="${row.Supervisor_Email}"/><p></p><br>
+
+  		
+      		</c:forEach>  
+      		
+      		
+          	<p  style="text-align:center"><b>Security Questions: </b></p>
+          	
+    			<c:forEach var="row" items="${answers_result.rows}">  
+    			
+    				
+    			
+    				${questions_result.rows[row.question_id - 1].security_question}
+    		
+    				<b>: <span class="text-primary">${row.answer}</span></b><p></p>	
+
+      			</c:forEach>  
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
     		<p style="margin:auto; text-align:center">
     		<input type="submit" class="btn btn-primary" value ="Save"></input>
   
@@ -88,7 +123,6 @@ SELECT * from users where Email = "<%=Email%>";
   			<a href="${pageContext.request.contextPath}/Admin">
   			<input type="button" class="btn btn-danger" value ="Cancel"></input></a></p>
   		</form>
-      </c:forEach>  
     </div>
 </div>	
 	

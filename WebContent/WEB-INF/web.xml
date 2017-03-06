@@ -60,10 +60,19 @@
     <servlet-class>com.catapp.servlet.UserManagementServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+  <servlet>
+    <display-name>ManageActionServlet</display-name>
+    <servlet-name>ManageActionServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.ManageActionServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
   
   
   
-  
+  <servlet-mapping>
+    <servlet-name>ManageActionServlet</servlet-name>
+    <url-pattern>/ManageAction</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>UserManagementServlet</servlet-name>
     <url-pattern>/UserManagement</url-pattern>
