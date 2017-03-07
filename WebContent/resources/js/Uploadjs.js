@@ -1,8 +1,4 @@
 function searchFiles(){
-	
-	
-	
-	
 	var lCellLines="";
 	var lCount=0;
 	$. each($("input[name='CL']:checked"), function(){
@@ -67,7 +63,101 @@ function searchFiles(){
 		        //data: {"lCM": lCellLines, "lAN": lAssayNames, "lPT": lPhenoTypes, "lPD": lPlate},
 		        success: function (responseText) {
 		        	var lfileList = responseText.getElementsByTagName("file");
-		        	var lExcel;
+		        	
+		        	
+		        	var lTableBody;
+		        	lTableBody ='<br>'+'<form action="DownloadFileServlet">'+'<table class="table" style="width: 70%;">'
+		        				+'<thead> <tr>'
+						  		+ '<th>Select</th>'
+						  		+ '<th>File Name</th>'
+						  		+ '<th>Uploaded Date</th>'
+						  		+ '<th>Description</th></thead><tbody>';
+		        	
+		        	var lPagination;
+		        	var lLoopCount=0;
+		        	for(var i=0;i<lfileList.length;i++){
+		        		lLoopCount=lLoopCount+1;
+		        		var lFileName=lfileList[i].childNodes[2].firstChild.nodeValue;
+		        		var lFilePath=lfileList[i].childNodes[1].firstChild.nodeValue;
+		        		var lUploadTime=lfileList[i].childNodes[3].firstChild.nodeValue;
+		        		var lDescription=lfileList[i].childNodes[4].firstChild.nodeValue;
+		        		var lClassStyle;
+		        		var lTrId;
+		        		if(lfileList[i].childNodes[0].firstChild.nodeValue == "xls"){
+		        			lClassStyle="success";
+		        			lTrId="xls";
+		        		}else if(lfileList[i].childNodes[0].firstChild.nodeValue == "pdf"){
+		        			lClassStyle="danger";
+		        			lTrId="pdf";
+		        		}else if(lfileList[i].childNodes[0].firstChild.nodeValue == "jpeg"){
+		        			lClassStyle="warning";
+		        			lTrId="img";
+		        		}
+		        			
+		        			lTableBody=lTableBody+'<tr class='+lClassStyle+'>'
+		        								 +'<td>'
+		        								 + '<input type="checkbox" name="optradio"  id ='
+		     		        					 + lFilePath
+		     		        					 + '  value='+lFilePath+ '>'
+		    		        					 +'</td>'
+		    		        					 +'<td>'
+		    		        					 +lFileName+'</td>'
+		    		        					 +'<td>'
+		    		        					 +lUploadTime+'</td>'
+		    		        					 +'<td>'
+		    		        					 +lDescription+'</td>'+'</tr>';
+		        		}
+		        	lPagination=(lLoopCount)%10;
+		        	
+		        	/// Loop for pagination ///
+		        	
+		        	/*var lPageHTML ='<ul class="pager">'
+		        					+ '<li><a href="#">Next</a></li>'
+		        					+ '<li><a href="#">Previous</a></li>';
+		        					+'</ul>'*/;
+		        	/*for(var i=1;i<=lPagination;i++){
+		        		lPageHTML=lPageHTML+'<li><a href="#"> '+i+ '</a></li>'	;
+		        	}*/
+		        	lTableBody=lTableBody+'<tr class="pager">'+'<td><a href="#">Next</a>&nbsp;&nbsp;<a href="#">Previous</a></td>'+'<tr id="button">'+'<td><input type="submit" class="btn btn-lg btn-success btn-block" value="Download"></td>'+'</tr>';
+		        	lTableBody=lTableBody+'</tbody>'+'</table>'+'</form>';
+		        	
+		        	jQuery("#allFiles").html(lTableBody);
+		        	//jQuery("#pagination").html(lPageHTML);
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	
+		        	/*var lExcel;
 		        	var lImages;
 		        	var lAllFiles;
 		        	var lTotalHtml;
@@ -89,7 +179,9 @@ function searchFiles(){
 		        				if(i==0){
 		        					
 		        					lExcel='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        						+'<label><input type="checkbox" name="optradio"  id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        						+'<label><input type="checkbox" name="optradio"  id ='
+		        						+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'
+		        						+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
 		        						'</div>';
 		        				}else{
 		        					lExcel='<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
@@ -147,23 +239,40 @@ function searchFiles(){
 		        		
 		        		if(lTotalHtml==null){
 		        			lTFlag=1;
+<<<<<<< HEAD
 
+=======
+		        			lTotalHtml = '<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
+	        				+'<label>'+'File Name &nbsp;'  +'Uploaded Date &nbsp;' +'Description &nbsp;' + '</label>'+
+	        				'</div>';
+>>>>>>> SS-Master/master
 		        			if(i==0){
 		        				
-		        				lTotalHtml='<form action="DownloadFileServlet">'+
+		        				lTotalHtml= lTotalHtml+'<form action="DownloadFileServlet">'+
 		        				'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        				+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        				+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue
+		        				+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'
+		        				+lfileList[i].childNodes[2].firstChild.nodeValue+'&nbsp; &nbsp;'+lfileList[i].childNodes[3].firstChild.nodeValue +'&nbsp; &nbsp;'+lfileList[i].childNodes[4].firstChild.nodeValue+ '</label>'+
 		        				'</div>';
 		        			}else{
-		        				lTotalHtml='<form action="DownloadFileServlet">'+
-		        				'<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
-		        				+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
+		        				lTotalHtml= lTotalHtml+'<form action="DownloadFileServlet">'+
+		        				'<div class="row well well-sm span12 " style="width:50%;margin-left: 5%">'
+		        				+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue
+		        				+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'
+		        				+lfileList[i].childNodes[2].firstChild.nodeValue+'&nbsp; &nbsp;'+lfileList[i].childNodes[3].firstChild.nodeValue +'&nbsp; &nbsp;'+lfileList[i].childNodes[4].firstChild.nodeValue+ '</label>'+
 		        				'</div>';
 		        			}
 	        			}else{
+<<<<<<< HEAD
 	        				lTotalHtml=lTotalHtml+'<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
 
 	        		  		+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
+=======
+	        				lTotalHtml=lTotalHtml+'<div class="row well well-sm span12 " style="width:50%;margin-left: 5%">'
+	        				+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue
+	        				+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'
+	        				+lfileList[i].childNodes[2].firstChild.nodeValue+'&nbsp; &nbsp;'+lfileList[i].childNodes[3].firstChild.nodeValue +'&nbsp; &nbsp;'+lfileList[i].childNodes[4].firstChild.nodeValue+ '</label>'+
+>>>>>>> SS-Master/master
 	        				'</div>';
 	        			}
 		        	}
@@ -223,7 +332,7 @@ function searchFiles(){
 		        	}else{
 		        		jQuery("#allFiles").html(lErroDiv);
 		        		
-		        	}
+		        	}*/
 		         
 		        }
 		          
@@ -265,4 +374,17 @@ function downloadfiles(){
         }
     });
 	
+<<<<<<< HEAD
 }
+=======
+}
+function showExcelFiles() {
+
+    jQuery("#pdf").hide();
+ }
+
+
+	
+	
+
+>>>>>>> SS-Master/master

@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html>
 <%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<html lang="en">
 
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+    <head>
+
         <title>CAT-APP</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
-     
+     <!--    <link rel="stylesheet" href="/database_project/scripts/assets/bootstrap/css/bootstrap.min.css"> -->
         <link rel="stylesheet" href="resources/css/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="resources/css/form-elements.css">
         <link rel="stylesheet" href="resources/css/style.css"> 
@@ -26,49 +25,16 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resources/images/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/images/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="resources/images/apple-touch-icon-57-precomposed.png"> 
-        
 
-<link rel="stylesheet" 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     
     </head>
 
     <body>
-<<<<<<< HEAD
-
-    <jsp:directive.include file="Header.jsp" />
-
-=======
-    <script type="text/javascript">
-    function stepJump(){
     	
-    	//var step1Value='<c:out value="${sessionScope.cellLine}" />';
-    	//var step2Value='<c:out value="${cellline.value}"/>';
-    	//alert(step1Value);
-    	//alert(step2Value);
-    	document.getElementById('step2').style.display="none";
-    	document.getElementById('step3').style.display="none";
-    	document.getElementById('step4').style.display="none";
-    	document.getElementById('step5').style.display="none";
-    	document.getElementById('directJumpToUpload').style.display="block";
-    }
-    
-    function backToStep2(){
-    	document.getElementById('directJumpToUpload').style.display="none";
-    	document.getElementById('step4').style.display="none";
-    	document.getElementById('step3').style.display="none";
-    	document.getElementById('step2').style.display="block";
-    }
-    
-    </script>
     	<jsp:include page="headerUserHome.jsp" />  
->>>>>>> SS-Master/master
 		<!-- 	<div align="right"><a href = "/database_project/Protected/ID_home">
 		<img src="/database_project/scripts/images/MB__home.png"/></a>&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</div> -->
 		<!-- Top menu -->
 		<!--  -->
-
 		<!-- 
 		<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
 			<div class="container">
@@ -88,13 +54,10 @@
 			</div>
 		</nav> -->
 
-
         <!-- Top content -->
         <!-- <div class="top-content"> -->
         	
            <!--  <div class="inner-bg"> -->
-           
-           <br></br><br></br><br></br>
                 <div class="container">
                 <c:if test="${param.success eq 1}">
                 <div class="page-alerts">
@@ -150,16 +113,14 @@
 											  <c:forEach var="cellline" items="${cell}">
     												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>> &nbsp;<b><c:out value="${cellline.value}"/></b><br><br>
 											  </c:forEach>
-				                 			<%String celllines=request.getParameter("celllines");%>
-				                 			<c:set var="cellLine" value="${celllines}" scope="session"  />
-				                 				
+				                 
 				                        </div>
 				                        
 				                        <button type="button" class="btn btn-next">Next</button>
 				                    </div>
 			                    </fieldset>
 			                    
-			                    <fieldset id="step2">
+			                    <fieldset>
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
 		                        			<h3>Step 2 / 5</h3>
@@ -170,9 +131,7 @@
 										  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%">
 										    25% Complete (cellline done)
 										  </div>
-										  
 										</div>
-										<p><font color="red"> Click upload if time point and phenotype are unavailable</font></p>
 		                        		</div>
 		                        		
 		                            </div>
@@ -186,17 +145,13 @@
 												</select>
 
 				                        </div>
-				                      	
+				                      
 				                        <button type="button" class="btn btn-previous">Previous</button>
-				                        <button type="button" class="btn btn-next" >Next</button>
-				                         OR
-				                        <button type="button" class="btn btn-primary" onclick="stepJump()">Upload</button>
+				                        <button type="button" class="btn btn-next">Next</button>
 				                    </div>
 			                    </fieldset>
 			                    
-			                    
-			                    <fieldset id="step3">
-			                      <div>
+			                    <fieldset>
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
 		                        			<h3>Step 3 / 5</h3>
@@ -225,14 +180,9 @@
 										<button type="button" class="btn btn-next">Next</button>
 				                        
 				                    </div>
-				                   </div> 
 			                    </fieldset>
-			                  
-			                  
-			                    
 								
-								<fieldset id="step4">
-								  <div>
+								<fieldset>
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
 		                        			<h3>Step 4 / 5</h3>
@@ -269,12 +219,8 @@
 				                        <button type="button" class="btn btn-previous">Previous</button>
 				                        <button type="button" class="btn btn-next">Next</button>
 				                    </div>
-				                   </div> 
 			                    </fieldset>
-			                
-			                 
-								<fieldset id="step5">
-								  <div>   
+								<fieldset>
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
 		                        			<h3>Step 5 / 5</h3>
@@ -300,39 +246,7 @@
 				                        <button type="submit"  class="btn btn-submit">Upload</button>
 				                        
 				                    </div>
-				                  </div>  
 			                    </fieldset>
-			                  
-			                    
-			                 
-			                    <fieldset id="directJumpToUpload" style="display: none">
-		                        	<div class="form-top">
-		                        		<div class="form-top-left">
-		                        			<h3>Step 3 / 3</h3>
-		                        			<h4>Upload Files: </h4>
-		                            		<p>Here you are,Finally!!!</p>
-		                            		<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-										  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-										    100% Complete (Selection complete)
-										  </div>
-		                        		</div>
-		                        		
-		                            </div>
-		                            <div class="form-bottom">
-				                       <div class="form-group">
-				                       		<label class="sr-only" for="form-facebook">Desc:</label>
-				                        	<input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)"><br><br><br>
-				                    		<label class="sr-only" for="form-facebook">Upload File:</label>
-				                        	<input type="file"  id="uploadfile" name="file" size="40">
-				                        	
-				                        </div>
-										
-										<button type="button" class="btn btn-submit" onclick="backToStep2()">Previous</button>
-				                        <button type="submit"  class="btn btn-submit">Upload</button>
-				                        
-				                    </div>
-			                    </fieldset>
-			                  
 			                    
 			                    
 		                    
@@ -360,6 +274,5 @@
         <![endif]-->
 
     </body>
-
 
 </html>

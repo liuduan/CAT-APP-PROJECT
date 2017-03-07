@@ -55,9 +55,10 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li class="text-center user-image-back" style="background-color: white">
+                    <br>
                        
-                        <img src="/CAT-APP-PROJECT/resources/images/find_user.png" class="img-responsive" />
-                     <br>
+                        Choose your options
+                     <br><br>
                     </li>
 
 					
@@ -119,6 +120,7 @@
                             </li>
                         </ul>
                     </li>
+                    <br>
                       <li style="background-color:white">
                     
 					<button type="button" class="btn btn-info" style="margin-left:10px" onclick="searchFiles();hideJumbo();">
@@ -172,8 +174,8 @@
                 <div class="container">
              
   <ul class="nav nav-pills">
-    <li><a href="#" onclick="showAllFiles()">All Files</a></li>
-    <li><a href="#" onclick="showExcelFiles()">Excel Files</a></li>
+    <li><a href="#" onclick=" showAllFiles();">All Files</a></li>
+    <li><a href="#" onclick="showExcelFiles();" >Excel Files</a></li>
     <li><a href="#" onclick="showImages()">Images</a></li>
     <li><a href="#" onclick="showFlatFiles()">pdf</a></li>
   </ul>
@@ -206,11 +208,14 @@
             
  
   <div id="allFiles">
+  <div id ="pagination">
+  </div>
   
 </div>
   </div>
   <div id="excelFiles" style="display: none">
-  
+  <div id ="pagination">
+  </div>
 
   </div>
   <div id="images" style="display: none">
@@ -218,7 +223,6 @@
 	</div>
   <div id="flatFiles" style="display: none">
 
-  
   
   
 </div>
@@ -251,6 +255,7 @@
         </div>
         <!-- /.container -->
     </footer>
+     
 
     <!-- jQuery -->
     <script src="/CAT-APP-PROJECT/resources/js/jquery.js"></script>

@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.log4j.Logger;
 
 import com.catapp.action.ChemData;
 import com.catapp.connection.DBConnection;
@@ -29,7 +30,12 @@ import com.catapp.entity.User;
 @WebServlet("/SaveFileFormServlet")
 public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+<<<<<<< HEAD
 	private final String UPLOAD_DIRECTORY = "C:/7-5-Database_project-data/Semi-Temp-Storage-2017";
+=======
+	private final String UPLOAD_DIRECTORY = "C:/Users/ssingh/serverfiles";
+	public static final Logger logger = Logger.getLogger(SaveFileFormServlet.class.toString());
+>>>>>>> SS-Master/master
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -61,10 +67,12 @@ public class SaveFileFormServlet extends HttpServlet {
 		Connection lConn  = null;
 		String lFileName  = null;
 		String lFileExtension = null;
+		String lDescription = null;
 		User lUser =(User)request.getSession().getAttribute("user");
 		//String lPlateInfo = request.getParameter("form-Plate1");
 		try{
 			
+			lConn = new DBConnection().getConnection();
 			if(ServletFileUpload.isMultipartContent(request)){
 				
 				List<FileItem> multiparts = new ServletFileUpload( new DiskFileItemFactory()).parseRequest(request);
@@ -82,15 +90,17 @@ public class SaveFileFormServlet extends HttpServlet {
 							lTimePoint=item.getString();
 						}else if(item.getFieldName().equals("form-Plate")){
 							lPlate=item.getString();
+						}else if(item.getFieldName().equals("desc")){
+							lDescription=item.getString();
 						}
 						
 					}
 					if(!item.isFormField()){
 						
-						lFileName = Long.valueOf(lCellLine)+"_"+new ChemData().getTagNames(Long.valueOf(lCellLine))+"_"+
-								new ChemData().getAssayNames().get(Long.valueOf(lAssayData))+"_"+
+						lFileName = new ChemData().getTagNamesofInputs("celllines",lConn).get(Long.valueOf(lCellLine))+"_"+
+								new ChemData().getTagNamesofInputs("celllines",lConn).get(Long.valueOf(lAssayData))+"_"+
 								new ChemData().getTimePoints().get(Long.valueOf(lTimePoint))+"_"+
-								new ChemData().getPhenoTypes().get(Long.valueOf(lPhenoType));
+								new ChemData().getTagNamesofInputs("phenotypes",lConn).get(Long.valueOf(lPhenoType));
 						//File lUploadedFile =new File(item.getName()); 
 						String name = new File(item.getName()).getName();
 						if(name!=null){
@@ -121,19 +131,21 @@ public class SaveFileFormServlet extends HttpServlet {
 			lFile.setPlate_id(Long.valueOf(lPlate));
 			lFile.setFile_name(lFileName);
 			lFile.setFile_path(UPLOAD_DIRECTORY);
+			if(lDescription!=null){
+				lFile.setDescription(lDescription);
+			}
 			if(lFileExtension!=null){
 				lFile.setFile_type(lFileExtension);
 			}
 			//User lUser =new User();
 			//lUser.setEntityId(1l);
-			lConn = new DBConnection().getConnection();
 			lFile.save(lConn, lUser);
 		
 			if(lFile.getEntityId()!=null){
-				HashMap<Long,String>lPhenoMap =  new ChemData().getPhenoTypes();
-			    HashMap<Long,String>lAssayMap =  new ChemData().getAssayNames();
-			    HashMap<Long,String>lCellMap  =  new ChemData().getCellLines();
-			    HashMap<Long,String>lTimMap   =  new ChemData().getTimePoints();
+				HashMap<Long,String>lPhenoMap =  new ChemData().getNamesofInputs("phenotypes",lConn);
+				HashMap<Long,String>lAssayMap =  new ChemData().getNamesofInputs("assaynames",lConn);
+				HashMap<Long,String>lCellMap  =  new ChemData().getNamesofInputs("celllines",lConn);
+				HashMap<Long,String>lTimMap   =  new ChemData().getTimePoints();
 			    request.setAttribute("pheno", lPhenoMap);
 			    request.setAttribute("assay", lAssayMap);
 			    request.setAttribute("cell", lCellMap);
@@ -141,10 +153,10 @@ public class SaveFileFormServlet extends HttpServlet {
 			 	RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp?success=1");
 			    rd.forward(request, response);
 			}else{
-				HashMap<Long,String>lPhenoMap =  new ChemData().getPhenoTypes();
-			    HashMap<Long,String>lAssayMap =  new ChemData().getAssayNames();
-			    HashMap<Long,String>lCellMap  =  new ChemData().getCellLines();
-			    HashMap<Long,String>lTimMap   =  new ChemData().getTimePoints();
+				HashMap<Long,String>lPhenoMap =  new ChemData().getNamesofInputs("phenotypes",lConn);
+				HashMap<Long,String>lAssayMap =  new ChemData().getNamesofInputs("assaynames",lConn);
+				HashMap<Long,String>lCellMap  =  new ChemData().getNamesofInputs("celllines",lConn);
+				HashMap<Long,String>lTimMap   =  new ChemData().getTimePoints();
 			    request.setAttribute("pheno", lPhenoMap);
 			    request.setAttribute("assay", lAssayMap);
 			    request.setAttribute("cell", lCellMap);
@@ -154,20 +166,18 @@ public class SaveFileFormServlet extends HttpServlet {
 			}
 			///// *************************** Data save ended ************************************////
 		}catch(Exception e){
-			
+			logger.error("Error Occured while uploading the file.",e);
 		}
 		
 		finally{
 			try{
 				
 				lConn.close();
-			}catch (Exception e){
-				
+			}catch (Exception e1){
+				logger.error("Error Occured while closing the connection.",e1);
 			}
 		}
 		
-		/*PrintWriter out = response.getWriter();
-		out.println(lCellLine+","+lPhenoType+","+lAssayData+","+lTimePoint+","+lPlateInfo);*/
 	}
 
 }

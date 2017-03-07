@@ -151,6 +151,13 @@ public class ViewFiles extends HttpServlet {
 				lXMLBuilder.append("<type>" + lRst.getString("file_type")+"</type>");
 				lXMLBuilder.append("<filepath>" + lRst.getString("entity_id") +"</filepath>");
 				lXMLBuilder.append("<filename>" + lRst.getString("file_name")+"."+lRst.getString("file_type")+"</filename>");
+				lXMLBuilder.append("<uploadtime>" + lRst.getString("logged_date") +"</uploadtime>");
+				if(lRst.getString("description")!=null && lRst.getString("description").trim().length()>0){
+					lXMLBuilder.append("<desc>" + lRst.getString("description") +"</desc>");
+					
+				}else{
+					lXMLBuilder.append("<desc>"+"N/A"+"</desc>");
+				}
 				lXMLBuilder.append("</file>");
 				/*HashMap<String,String>lMap = new HashMap<String,String>();
 				lMap.put(lRst.getString("file_name"), lRst.getString("file_path"));

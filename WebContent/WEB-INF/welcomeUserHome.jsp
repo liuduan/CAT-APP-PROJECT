@@ -188,7 +188,7 @@ SELECT * from users where Email = "<%=Email%>";
                        <!--  <input type="submit" class="btn btn-primary" value="Download"> -->
 					</form>
 					</div>
-					<div class="col-md-3" style="margin-left:70px">
+					<div class="col-md-3"  >
 						 <form action="UploadServlet" method="post">
 						<!-- <input type="submit" class="btn btn-success" value="Upload"> -->
 						</form>

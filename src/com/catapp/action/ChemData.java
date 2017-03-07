@@ -1,7 +1,8 @@
 package com.catapp.action;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.HashMap;
 
 import org.apache.log4j.Logger;
@@ -9,19 +10,47 @@ import org.apache.log4j.Logger;
 public class ChemData {
 	
 	public static final Logger logger = Logger.getLogger(ChemData.class.toString());
-	public HashMap<Long,String> getPhenoTypes(){
+	public HashMap<Long,String> getNamesofInputs(String pTableName,Connection pConnection){
+		
 		HashMap<Long,String> lPhenotypeMap =new HashMap<Long,String>();
-		lPhenotypeMap.put(1l, "PF");
-		lPhenotypeMap.put(2l, "PW");
-		lPhenotypeMap.put(3l, "PW10");
-		lPhenotypeMap.put(4l, "PA");
-		lPhenotypeMap.put(5l, "PS");
-		lPhenotypeMap.put(6l, "PRT");
-		lPhenotypeMap.put(7l, "PDT");
-		lPhenotypeMap.put(8l, "TC");
-		lPhenotypeMap.put(9l, "posMT");
-		lPhenotypeMap.put(10l, "MT_MSA");
-		lPhenotypeMap.put(11l, "MT_ACMA");
+		PreparedStatement lPstmt = null;
+		ResultSet lRst 			 = null;
+		try{
+			
+			String lBuilder = "select entity_id,name from xxx where rowstate!=-1 ";
+			lBuilder =lBuilder.replaceAll("xxx", pTableName);
+			lPstmt =pConnection.prepareStatement(lBuilder);
+			lRst = lPstmt.executeQuery();
+			while(lRst.next()){
+				lPhenotypeMap.put(lRst.getLong(1), lRst.getString(2));
+			}
+			
+		}catch(Exception e){
+			logger.error("Error Occured while getting the cellline names",e);
+		}
+		
+		return lPhenotypeMap;
+	}
+	
+	public HashMap<Long,String> getTagNamesofInputs(String pTableName,Connection pConnection){
+		
+		HashMap<Long,String> lPhenotypeMap =new HashMap<Long,String>();
+		PreparedStatement lPstmt = null;
+		ResultSet lRst 			 = null;
+		try{
+			
+			String lBuilder = "select entity_id,tag from xxx where rowstate!=-1 ";
+			lBuilder =lBuilder.replaceAll("xxx", pTableName);
+			lPstmt =pConnection.prepareStatement(lBuilder);
+			lRst = lPstmt.executeQuery();
+			while(lRst.next()){
+				lPhenotypeMap.put(lRst.getLong(1), lRst.getString(2));
+			}
+			
+		}catch(Exception e){
+			logger.error("Error Occured while getting the cellline names",e);
+		}
+		
 		return lPhenotypeMap;
 	}
 	
