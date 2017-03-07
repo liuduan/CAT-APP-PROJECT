@@ -14,7 +14,7 @@
     <meta name="author" content="">
 
     <title>CAT-APP</title>
-	<link rel="shortcut icon" href="/CAT-APP-PROJECT/resources/images/logo2.ico" />
+
     <!-- Bootstrap Core CSS -->
     <link href="/CAT-APP-PROJECT/resources/css/bootstrap.min.css" rel="stylesheet">
 
@@ -132,52 +132,6 @@ select#secqu, select#soflow-color {
    width: 550px;
 }
 
-.jumbotron { 
- background: url('/CAT-APP-PROJECT/resources/images/1.jpg') no-repeat center center fixed; 
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
- width:100%;
-}
-
-.jumbotroon { 
- background: url('/CAT-APP-PROJECT/resources/images/2.jpg') no-repeat center center fixed; 
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
- width:100%;
-}
-
-.panel-default {
- opacity: 0.9;
- margin-top:30px;
-}
-.form-group.last {
- margin-bottom:0px;
-}
-
-.images {
-    display: inline;
-    margin: 0px;
-    padding: 0px;
-    vertical-align:middle;
-    width:200px;
-}
-#content {
-    display: block;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    top: 90px;
-    height: auto;
-    max-width: auto;
-    overflow-y: hidden;
-    overflow-x:auto;
-    word-wrap:normal;
-    white-space:nowrap;
-}
 </style>
 </head>
 
@@ -193,50 +147,68 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
     <!-- Full Width Image Header with Logo -->
     <!-- Image backgrounds are set within the full-width-pics.css file. -->
     <div class="container">
-    <header class="jumbotron" style="margin-top: 15px">
+    <header class="jumbotron hero-spacer" style="margin-top: 15px">
             
             
             <div class="container">
-            <h2 align="center" style="font-size:2.2em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"><font color="Black" >Category Read-across Approaches For (petroleum) UVCBs</font></h2>
-    <div class="row">
-    
-    	<div class="col-md-8 ">
-    		<div class="row">
-    		
-    			<img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/logo.JPG" alt=""  width="50%" height="50%" style="margin-left: 20%; margin-top:5%">
-    		
-    		</div>
-    		<div class="row">
-    		
-    			<div  id="content" >
-    			<div class="col-md-4 col-sm-6">
-    				<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle "  width ="100" height ="100" style="margin-left: 9%;"/>
-    			<h3 style="font-size:1.6em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"><span id="lblLrner">&nbsp;&nbsp;&nbsp;CAT-APP</span></h3>
-    			<!-- <p><span id="lblLrnerTxt1">Collaborate with peers</span></p> -->
-    			</div>	
-    			
-    			<div class="col-md-4 col-sm-6">
-    				<img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
-    				<h3 style="font-size:1.6em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"><span id="lblLrner">&nbsp;&nbsp;ANALYTICAL</span></h3>
-    				<!-- <p style="font-size: 1.2em; color:#999"><span id="lblLrnerTxt1">Analyze the Data</span></p> -->
-    			</div>
-    			<div class="col-md-4 col-sm-6">
-    				<img src="/CAT-APP-PROJECT/resources/images/leaf.png" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
-				<h3 style="font-size:1.6em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"><span id="lblLrner">&nbsp;&nbsp;&nbsp;ECO-TOX</span></h3>
-				<!-- <p><span id="lblLrnerTxt1">Plot Graphs</span></p> -->
-				</div>
-				</div>
-    		
-    		</div>
-    	
-    	</div>
-        <div class="col-md-4 ">
-            <div class="panel panel-default">
-                <div class="panel-heading"> <strong class="">Login</strong>
 
+
+			
+
+        <!-- Heading Row -->
+       <div class="row">
+        <h2 align="center">Category read-across approaches for (petroleum) UVCBs</h2>
+        
+        </div>
+        
+        <br><br>
+        <div class="row">
+        
+            <div class="col-md-6" style="margin-left:5%">
+                <img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/logo.JPG" alt=""  width="50%" height="50%" >
+            </div>
+            <!-- /.col-md-8 -->
+            <div class="col-md-5">
+            <p class="read">
+            This web site is part of the New Technologies to 
+		Underpin Category Approaches and Read-across in Regulatory Programmes at Texas A&M University.
+		 
+            </p><br>
+            <div class="circle circle2" align="center" style="margin-left:35%">
+          		<a href="#about"><h3>Read more</h3></a>
+        		</div>
+             <!-- <a href="#" class="btn btn-success btn-lg" id="readMore">Show Less</a></small><br>-->
                 </div>
-                <div class="panel-body">
-                    <form action="LoginServlet" method="post">
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+
+			
+				
+   		<div class="row"><br>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+		<a href="#login" class="btn btn-lg btn-primary btn-block" style="text-align: center;">Sign in or <b>Request Access</b></a>
+       </div>
+       <div class="col-md-4">
+       </div>
+        </div>
+        </header>
+        
+</div>
+        <hr>
+
+    <!-- Content Section -->
+<section id="login">
+<div class="container">
+
+<div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		
+			<fieldset>
+				<h2 align="center">Please Sign In</h2>
+				<hr class="colorgraph">
+				<form action="LoginServlet" method="post">
 				<div class="form-group">
                     <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" required="required">
 				</div>
@@ -261,31 +233,19 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				<hr class="colorgraph">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
-                        <input type="submit" class="btn btn-md btn-success btn-block" style="margin-left:10px" value="Sign in">
+                        <input type="submit" class="btn btn-lg btn-success btn-block" style="margin-left:10px" value="Sign in">
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
-						<button type="reset" class="btn btn-md btn-success btn-block" style="margin-left:10px" value="">Clear</button>
+						<a href="#register" class="btn btn-lg btn-primary btn-block"  onclick="showRegistration()">Request Access</a>
 					</div>
 				</div>
 				</form>
-                </div>
-                <div class="panel-footer">Not Registered? <a href="#register" class="" onclick="showRegistration()">Register here</a>
-                </div>
-            </div>
-        </div>
-    </div>
+			</fieldset>
+		
+	</div>
 </div>
-</header>
 
-			
-
-        <!-- Heading Row -->
-       
-        <hr>
-
-    <!-- Content Section -->
-<section id="login">
-
+</div>
 
 		
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -316,16 +276,15 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 		</div>
 		
     </section>
-    </div>
 
- <section class="jumbotroon" id = "register">
+ <section id = "register">
  <div class="container" id="registration" style="display: none">
 
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 		<form action="SubmittedRequestServlet" method="post" id="register">
 			<fieldset>
-				<h2 align="center">REGISTER</h2>
+				<h2 align="center">Request access</h2>
 				<hr class="colorgraph">
 				
 				
@@ -463,27 +422,26 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
  </section>   
 
  <!-- About Section -->
-    <section class="jumbotroon"  id="about">
+    <section class="success" id="about">
         <div class="container">
             
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 style="font-size:2.8em; font-family:'Tahoma' ;text-shadow: 2px 2px white;">ABOUT US</h2>
-                   
+                    <h2>About</h2>
+                    
                 </div>
             </div>
- <br>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-         <p style="text-align: justify;font-size:1.2em; font-family:'Tahoma' ;">One of the most challenging areas in regulatory toxicology is the assessment 
-		of UVCBs (Unknown or Variable composition, Complex reaction products and Biological materials). 
-		UVCBs present difficult problems for science-informed regulatory decisions.Regulators and 
-		registrants have a common interest to understand how to evaluate UVCBs under current chemical
-		regulatory policy and ensure that there is not a large scale underestimation or 
+                    <p>One of the most challenging areas in regulatory toxicology is the assessment of UVCBs 
+		(Unknown or Variable composition, Complex reaction products and Biological materials). 
+		UVCBs present difficult problems for science-informed regulatory decisions. Regulators and 
+		registrants have a common interest to understand how to evaluate UVCBs under current 
+		chemical regulatory policy and ensure that there is not a large scale underestimation or 
 		overestimation of hazard. </p>
                 </div>
                 <div class="col-lg-4">
-                    <p style="text-align: justify; font-size:1.2em; font-family:'Tahoma' ;">This project tackles the challenge of UVCBs and will provide 
+                    <p>This project tackles the challenge of UVCBs and will provide 
 		regulators and registrants with a cost-effective integrative approach to solve the 
 		challenges of UVCBs and will define the best practical strategies for the read-across and 
 		grouping approaches.</p>
@@ -494,14 +452,11 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="jumbotroon" >
-    <br><br><br><br>
+    <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-               
-                
-                    <h2 style="font-size:2.8em; font-family:'Tahoma' ;text-shadow: 2px 2px white;">Contact Me</h2>
+                    <h2>Contact Me</h2>
                     
                 </div>
             </div>
@@ -545,11 +500,6 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
                                 <button type="submit" class="btn btn-success btn-lg">Send</button>
                             </div>
                         </div>
-                        
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
-                        
                     </form>
                 </div>
             </div>
@@ -557,22 +507,16 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
     </section>
 
     <!-- Footer -->
-    <footer style="margin:5px">
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p align="left">Copyright &copy; Ivan Rusyn Website 2017</p>
+                    <p>Copyright &copy; Ivan Rusyn Website 2017</p>
                 </div>
             </div>
-           
             <!-- /.row -->
         </div>
         <!-- /.container -->
-        <div class="row">
-        <div class="col-lg-12">
-         <a id="to-top" href="#top" class=""> <img src="/CAT-APP-PROJECT/resources/images/icon_top.png" width="5%" height="5%"align="right" ></a>
-         </div>
-    </div>
     </footer>
 
     <!-- jQuery -->

@@ -118,7 +118,7 @@ function searchFiles(){
 		        	/*for(var i=1;i<=lPagination;i++){
 		        		lPageHTML=lPageHTML+'<li><a href="#"> '+i+ '</a></li>'	;
 		        	}*/
-		        	lTableBody=lTableBody+'<tr class="pager">'+'<td><a href="#">Next</a>&nbsp;&nbsp;<a href="#">Previous</a></td>'+'<tr id="button">'+'<td><input type="submit" class="btn btn-lg btn-success btn-block" value="Download"></td>'+'</tr>';
+		        	lTableBody=lTableBody+'<tr class="pager">'+'<td><a href="#">Next</a>&nbsp;&nbsp;<a href="#">Previous</a></td>'+'<tr id="button">'+'<td><input type="submit" class="btn btn-lg btn-success btn-block" style="border-radius: 5px;" value="Download"></td>'+'</tr>';
 		        	lTableBody=lTableBody+'</tbody>'+'</table>'+'</form>';
 		        	
 		        	jQuery("#allFiles").html(lTableBody);

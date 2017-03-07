@@ -8,7 +8,7 @@
     <head>
 
         <title>CAT-APP</title>
-
+		<link rel="shortcut icon" href="/CAT-APP-PROJECT/resources/images/logo2.ico" />
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
