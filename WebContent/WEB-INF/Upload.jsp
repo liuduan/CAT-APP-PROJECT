@@ -35,11 +35,10 @@
     </head>
 
     <body>
-<<<<<<< HEAD
 
-    <jsp:directive.include file="Header.jsp" />
 
-=======
+
+
     <script type="text/javascript">
     function stepJump(){
     	
@@ -62,8 +61,7 @@
     }
     
     </script>
-    	<jsp:include page="headerUserHome.jsp" />  
->>>>>>> SS-Master/master
+    <jsp:directive.include file="Header.jsp" />
 		<!-- 	<div align="right"><a href = "/database_project/Protected/ID_home">
 		<img src="/database_project/scripts/images/MB__home.png"/></a>&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</div> -->
 		<!-- Top menu -->

@@ -365,7 +365,9 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
                 		<select name="sec1" id="secqu">
                 		<option>Security Question 1</option>
     					<c:forEach var="sec1" items="${secqu}">
-						<option value="${sec1.key}"> ${sec1.value}</option>
+    						<c:if test="${sec1.key < 8}">
+								<option value="${sec1.key}"> ${sec1.value}</option>
+							</c:if>
 						</c:forEach>
 					    </select> 
             		</div>
@@ -380,8 +382,11 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
                 		
                 		<select name="sec2" id="secqu">
                 		<option>Security Question 2</option>
+                		
     					<c:forEach var="sec2" items="${secqu}">
-						<option value="${sec2.key}"> ${sec2.value}</option>
+    						<c:if test="${sec2.key > 7 && sec2.key < 15}">
+								<option value="${sec2.key}"> ${sec2.value}</option>
+							</c:if>
 						</c:forEach>
 					    </select> 
                 		
@@ -397,7 +402,9 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
                 		<select name="sec3" id="secqu">
                 		<option>Security Question 3</option>
     					<c:forEach var="sec3" items="${secqu}">
-						<option value="${sec3.key}"> ${sec3.value}</option>
+    						<c:if test="${sec3.key > 14}">
+								<option value="${sec3.key}"> ${sec3.value}</option>
+							</c:if>
 						</c:forEach>
 					    </select> 
             		</div>

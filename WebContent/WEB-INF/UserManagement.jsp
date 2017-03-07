@@ -87,9 +87,8 @@ SELECT * from security_questions;
     			<b>Phone Number: </b><c:out value="${row.Phone_Number}"/><p></p>
     			<b>E-mail address: </b><c:out value="${row.Email}"/><p></p>
     			<b>Supervisor Username: </b><c:out value="${row.Supervisor_ID}"/><p></p>
-    			<b>Supervisor Name: </b><c:out value="${row.Supervisor_First_Name}"/> 
-    				<c:out value="${row.Supervisor_Last_Name}"/><p></p>
-    			<b>Supervisor Phone number: </b><c:out value="${row.Supervisor_Phone_Number}"/><p></p>
+    			<b>Supervisor Name: </b><c:out value="${row.Supervisor_name}"/> <p></p>
+    			<b>Supervisor Phone number: </b><c:out value="${row.Supervisor_phone}"/><p></p>
     			<b>Supervisor Email: </b><c:out value="${row.Supervisor_Email}"/><p></p><br>
 
   		

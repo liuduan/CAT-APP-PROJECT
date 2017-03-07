@@ -374,9 +374,7 @@ function downloadfiles(){
         }
     });
 	
-<<<<<<< HEAD
-}
-=======
+
 }
 function showExcelFiles() {
 
@@ -386,5 +384,3 @@ function showExcelFiles() {
 
 	
 	
-
->>>>>>> SS-Master/master

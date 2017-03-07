@@ -30,12 +30,11 @@ import com.catapp.entity.User;
 @WebServlet("/SaveFileFormServlet")
 public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
+
 	private final String UPLOAD_DIRECTORY = "C:/7-5-Database_project-data/Semi-Temp-Storage-2017";
-=======
-	private final String UPLOAD_DIRECTORY = "C:/Users/ssingh/serverfiles";
+
 	public static final Logger logger = Logger.getLogger(SaveFileFormServlet.class.toString());
->>>>>>> SS-Master/master
+
        
     /**
      * @see HttpServlet#HttpServlet()
