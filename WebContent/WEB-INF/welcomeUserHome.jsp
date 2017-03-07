@@ -21,7 +21,7 @@
     <meta name="author" content="">
 
     <title>CAT-APP</title>
-
+<link rel="shortcut icon" href="/CAT-APP-PROJECT/resources/images/logo2.ico" />
     <!-- Bootstrap Core CSS -->
     <link href="/CAT-APP-PROJECT/resources/css/bootstrap.min.css" rel="stylesheet">
 
@@ -70,8 +70,13 @@ SELECT * from users where Email = "<%=Email%>";
        
         
         <!-- /. NAV TOP  -->
+<<<<<<< HEAD
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse" style="padding-left: 30px; padding-top: 15px;">
+=======
+        <!-- <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+>>>>>>> SS-Master/master
                 <ul class="nav" id="main-menu" style="background-color: white">
                     <li class="text-center user-image-back" style="background-color: white">
                        
@@ -98,13 +103,14 @@ SELECT * from users where Email = "<%=Email%>";
 				</ul>
             </div>
 		
-        </nav>
+        </nav> -->
         
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper">
-            <div id="page-inner">
+        <!-- <div id="page-wrapper"> -->
+           
                 <div class="row">
                     <div class="col-md-12">
+<<<<<<< HEAD
                         <% String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>
                         <% String Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); %>
                         
@@ -115,8 +121,21 @@ SELECT * from users where Email = "<%=Email%>";
 
 
 		
+=======
+                        <% String user=((User)request.getSession().getAttribute("user")).getFirst_name().toString();%>
+                        <h1 style="margin-left:40px;font-size:2.0em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"> Ongoing Projects</h1>
+						<h2 style="font-size:2.0em; font-family:'Tahoma';" align="center">Welcome <%=user %> </h2>
+						<img src="/CAT-APP-PROJECT/resources/images/Portrait.jpg" class="img-responsive"  width ="150" height ="150"  style="margin-top:-85px; margin-right:20px;" align="right">
+						
+						
+						<!-- <h3>Use <strong>Download</strong> and <strong>Upload</strong> button to manage files related to a project.</h3>
+		 -->
+>>>>>>> SS-Master/master
                     </div>
                 </div>
+                
+						
+                
                 <!-- /. ROW  -->
                 
              	
@@ -127,38 +146,57 @@ SELECT * from users where Email = "<%=Email%>";
 
         <!-- Content Row -->
         <div class="row">
+<<<<<<< HEAD
             <div class="col-md-4 col-sm-6">
                 <div class="panel panel-default text-center">
                     <div class="panel-heading">
                     	<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" height="150" />
                         
+=======
+            <!-- <div class="col-lg-12">
+                <h2 class="page-header">Projects</h2>
+            </div> -->
+            <div style="margin-left:115px"class="col-md-3 col-sm-3">
+                <div class="panel panel-default text-center"  style=" border-radius: 25px;">
+                    <div class="panel-heading"  style=" border-radius: 20px;">
+                        <img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle "  width ="150" height ="150" "/>
+    			
+>>>>>>> SS-Master/master
                     </div>
                     
                     <div class="panel-body">
-                        <h4>CAT-APP</h4>
+                        <h4 style="font-size:1.4em; font-family:'Tahoma'">CAT-APP</h4>
                         
                         <div class="btn-group">
         		<div class="col-md-3">
                         <form action="CatAppDownloadPageServlet" method="post">
-                        <input type="submit" class="btn btn-primary" value="Download">
+                        <input type="submit" class="btn btn-primary" style=" border-radius: 5px;" value="Download">
 					</form>
 					</div>
 					<div class="col-md-3" style="margin-left:70px">
 						 <form action="UploadServlet" method="post">
-						<input type="submit" class="btn btn-success" value="Upload">
+						<input type="submit" class="btn btn-success" style=" border-radius: 5px;" value="Upload">
 						</form>
 				</div></div>
                 </div>
             </div>
             </div>
+<<<<<<< HEAD
             <div class="col-md-4 col-sm-6">
                 <div class="panel panel-default text-center">
                     <div class="panel-heading">
                         <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" height="150" />
                         
+=======
+            <div class="col-md-3 col-sm-3" >
+                <div class="panel panel-default text-center" style=" border-radius: 25px;">
+                    <div class="panel-heading" style=" border-radius: 20px;" >
+                       <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle " width ="150" height ="150" "/>
+    				
+>>>>>>> SS-Master/master
                     </div>
                     <div class="panel-body">
-                        <h4>Analytical</h4>
+                        <h4 style="font-size:1.4em; font-family:'Tahoma'">ANALYTICAL</h4>
                         
                         <div class="btn-group">
         		<div class="col-md-3">
@@ -174,13 +212,21 @@ SELECT * from users where Email = "<%=Email%>";
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="col-md-4 col-sm-6">
                 <div class="panel panel-default text-center">
                     <div class="panel-heading">
                         <img src="/CAT-APP-PROJECT/resources/images/leaf.png" height="150"/>
+=======
+            <div class="col-md-3 col-sm-3">
+                <div class="panel panel-default text-center"  style=" border-radius: 25px;">
+                    <div class="panel-heading"  style=" border-radius: 20px;">
+                       <img src="/CAT-APP-PROJECT/resources/images/leaf.png" class=" img-circle " width ="150" height ="150" "/>
+				
+>>>>>>> SS-Master/master
                     </div>
                     <div class="panel-body">
-                        <h4>ECO-TOX</h4>
+                        <h4 style="font-size:1.4em; font-family:'Tahoma'">ECO-TOX</h4>
                         
                         <div class="btn-group">
         		<div class="col-md-3">
@@ -198,10 +244,31 @@ SELECT * from users where Email = "<%=Email%>";
             </div>
             
         </div>
+<<<<<<< HEAD
     </div>    <!-- /.row -->
 </div>      <!-- /. ROW  -->
+=======
+    </div>
+        <!-- /.row -->
+             	
+             	
+             	
+             	
+             	
+             	
+  
+			<!-- 	</div> -->
 
-            </div>
+
+
+          
+             
+                  
+                  
+                <!-- /. ROW  -->
+>>>>>>> SS-Master/master
+
+            
             <!-- /. PAGE INNER  -->
         
         <!-- /. PAGE WRAPPER  -->
@@ -214,7 +281,7 @@ SELECT * from users where Email = "<%=Email%>";
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2017</p>
+                    <p align="left">Copyright &copy; Ivan Rusyn Website 2017</p>
                 </div>
             </div>
             <!-- /.row -->

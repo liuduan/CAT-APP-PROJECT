@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <html>
 <head>
 
@@ -64,25 +65,31 @@
 					
                     <li>
                         <a href="#">CellLines</a>
+                       
                         <ul class="nav nav-second-level">
                             <li >
-							<a href="#"><label><input type="checkbox" id="CL" name ="CL" value="2">Cardiomyocytes</label></a>
+                            
+							<!-- <a href="#"><label><input type="checkbox" id="CL" name ="CL" value="2">Cardiomyocytes</label></a>
                                 
                             </li>
                             <li>
                                 <a href="#"><label><input type="checkbox" id="CL" name ="CL" value="1">Hepatocytes</label></a>
-                            </li>
+                            </li> -->
+                              <c:forEach var="cellline" items="${cell}">
+                         							<li >
+    												<a href="#"><label><input type="checkbox" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>> &nbsp;<c:out value="${cellline.value}"/></label></a>
+											 		</li>
+						</c:forEach>
                         </ul>
                     </li>
 					<li>
                         <a href="#">Assay Name</a>
 						<ul class="nav nav-second-level">
-                            <li>
-                                <a href="#"><label><input type="checkbox" name = "AN" id ="AN" value="1">Ca2+</label></a>
-                            </li>
-							<li>
-                                <a href="#"><label><input type="checkbox" name = "AN" id = "AN" value="2">Hoechst</label></a>
-                            </li>
+                             <c:forEach var="assaynames" items="${assay}">
+                         							<li >
+    												<a href="#"><label><input type="checkbox" name= "assay" id= <c:out value="${assaynames.value}"/> value= <c:out value="${assaynames.key}"/>> &nbsp;<c:out value="${assaynames.value}"/></label></a>
+											 		</li>
+						</c:forEach>
                      
                         </ul>
                     </li>
@@ -90,43 +97,39 @@
                     <li>
                         <a href="#">PhenoTypes</a>
                         <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#"><label><input type="checkbox" name ="pt" id ="pt" value="1">PF</label></a>
-                            </li>
-                            <li>
-                                <a href="#"><label><input type="checkbox" name = "pt" id = "pt" value="2">PW</label></a>
-                            </li>
-                            <li>
-                                <a href="#"><label><input type="checkbox" name ="pt" id ="pt" value="3">PW10</label></a>
-                            </li>
+                            <c:forEach var="phenotypes" items="${pheno}">
+                         							<li >
+    												<a href="#"><label><input type="checkbox" name= "phenotypes" id= <c:out value="${phenotypes.value}"/> value= <c:out value="${phenotypes.key}"/>> &nbsp;<c:out value="${phenotypes.value}"/></label></a>
+											 		</li>
+						</c:forEach>
                         </ul>
                     </li>
 					
 
                     <li>
-                        <a href="#">Plate Design</a>
+                        <a href="#">Plate Conc</a>
 						<ul class="nav nav-second-level">
                             <li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id="pd" value="1">Plate 1</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id="pd" value="1">10x</label></a>
                             </li>
                             <li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="2">Plate 2</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="2">100x</label></a>
                             </li>
                             <li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="3">Plate 3</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="3">1000x</label></a>
                             </li>
 							<li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="4">Plate 4</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="4">10000x</label></a>
                             </li>
                         </ul>
                     </li>
                     <br>
                       <li style="background-color:white">
                     
-					<button type="button" class="btn btn-info" style="margin-left:10px" onclick="searchFiles();hideJumbo();">
+					<button type="button" class="btn btn-info" style="margin-left:10px; border-radius: 5px;" onclick="searchFiles();hideJumbo();">
 						 Search
 					</button>
-					<button type="button" class="btn btn-info" style="margin-left:10px" onclick="uncheckAll()">
+					<button type="button" class="btn btn-info" style="margin-left:10px; border-radius: 5px;" onclick="uncheckAll()">
 						<span class="glyphicon glyphicon-clear"></span> Clear filter
 					</button>
 					</li>
@@ -248,7 +251,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2017</p>
+                    <p align="left">Copyright &copy; Ivan Rusyn Website 2017</p>
                 </div>
             </div>
             <!-- /.row -->
