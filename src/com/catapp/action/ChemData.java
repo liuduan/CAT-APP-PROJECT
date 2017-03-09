@@ -17,12 +17,17 @@ public class ChemData {
 		ResultSet lRst 			 = null;
 		try{
 			
-			String lBuilder = "select entity_id,name from xxx where rowstate!=-1 ";
+			String lBuilder = "select entity_id,name,dsc from xxx where rowstate!=-1 ";
 			lBuilder =lBuilder.replaceAll("xxx", pTableName);
 			lPstmt =pConnection.prepareStatement(lBuilder);
 			lRst = lPstmt.executeQuery();
 			while(lRst.next()){
-				lPhenotypeMap.put(lRst.getLong(1), lRst.getString(2));
+				if(lRst.getLong(1)>=7){
+					lPhenotypeMap.put(lRst.getLong(1), lRst.getString(2)+" "+lRst.getString(3));
+				}else{
+					lPhenotypeMap.put(lRst.getLong(1), lRst.getString(2));
+					
+				}
 			}
 			
 		}catch(Exception e){

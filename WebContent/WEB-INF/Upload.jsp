@@ -27,7 +27,15 @@
         <link rel="apple-touch-icon-precomposed" href="resources/images/apple-touch-icon-57-precomposed.png"> 
 
     </head>
-
+	<style type="text/css">
+	.scrollable {
+    height: 300px; /* or any value */
+    overflow-y: auto;
+}
+	
+	
+	
+	</style>
     <body>
     <script type="text/javascript">
     function stepJump(){
@@ -98,7 +106,7 @@
      			<div> failure </div>
 				</c:if>
                     <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
+                        <div class="col-sm-8 col-sm-offset-2 text" >
                             <h1><strong>UPLOAD</strong> Files in CAT-APP</h1>
                             <div class="description">
                             	<p>
@@ -108,15 +116,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        <div class="col-sm-6 col-sm-offset-3 form-box" style="margin-top:-50px">
                         	
                         	<form role="form" action="SaveFileFormServlet" method="post" class="registration-form" enctype="multipart/form-data">
                         		
                         		<fieldset>
-		                        	<div class="form-top">
+		                        	<div class="form-top ">
 		                        		<div class="form-top-left">
-		                        			<h3>Step 1 / 5</h3>
-		                            		<h4>Cell Type:</h4><p>Somewhere to Start &#9786;</p>
+		                        			<h3>Step 1 / 5:</h3> <h4>Choose CellLine</h4>
+		                            		<!-- <h4>Cell Type:</h4><p>Somewhere to Start &#9786;</p> -->
 		                            		<div class="progress">
 										  <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
 										  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:15%">
@@ -127,7 +135,7 @@
 		                        		</div>
 		                        		
 		                            </div>
-		                            <div class="form-bottom">
+		                            <div class="form-bottom scrollable">
 				                    	<div class="form-group">
 				                    		
 											  
@@ -156,8 +164,8 @@
 										  </div>
 										  
 										</div>
-										<p><font color="red"> Click upload if time point and phenotype are unavailable</font></p>
-		                        		</div>
+										<!-- <p><font color="red"> Click upload if time point and phenotype are unavailable</font></p>
+		                        		 --></div>
 		                        		
 		                            </div>
 		                            <div class="form-bottom">
@@ -173,8 +181,8 @@
 				                      	
 				                        <button type="button" class="btn btn-previous">Previous</button>
 				                        <button type="button" class="btn btn-next" >Next</button>
-				                         OR
-				                        <button type="button" class="btn btn-primary" onclick="stepJump()">Upload</button>
+				                         <!-- OR
+				                        <button type="button" class="btn btn-primary" onclick="stepJump()">Upload</button> -->
 				                    </div>
 			                    </fieldset>
 			                    
@@ -256,6 +264,36 @@
 				                   </div> 
 			                    </fieldset>
 			                
+			                
+			                
+			                    <!-- <fieldset id="directJumpToUpload" style="display: none">
+			                    <div>
+		                        	<div class="form-top">
+		                        		<div class="form-top-left">
+		                        			<h3>Step 3 / 3</h3>
+		                        			<h4>Upload Files: </h4>
+		                            		<p>Here you are,Finally!!!</p>
+		                            		<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+										  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+										    100% Complete (Selection complete)
+										  </div>
+		                        		</div>
+		                        		
+		                            </div>
+		                            <div class="form-bottom">
+				                       <div class="form-group">
+				                       		<label class="sr-only" for="form-facebook">Desc:</label>
+				                        	<input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)"><br><br><br>
+				                    		<label class="sr-only" for="form-facebook">Upload File:</label>
+				                        	<input type="file"  id="uploadfile" name="file" size="40">
+				                        	
+				                        </div>
+										
+										<button type="button" class="btn btn-primary" onclick="backToStep2()">Previous</button>
+				                        <button type="submit" name="directsave" class="btn btn-submit">Upload</button>
+				                       </div> 
+				                    </div>
+			                    </fieldset> -->
 			                 
 								<fieldset id="step5">
 								  <div>   
@@ -281,7 +319,7 @@
 				                        </div>
 										
 										<button type="button" class="btn btn-previous">Previous</button>
-				                        <button type="submit"  class="btn btn-submit">Upload</button>
+				                        <button type="submit" name="sequencesave"  class="btn btn-submit">Upload</button>
 				                        
 				                    </div>
 				                  </div>  
@@ -289,33 +327,6 @@
 			                  
 			                    
 			                 
-			                    <fieldset id="directJumpToUpload" style="display: none">
-		                        	<div class="form-top">
-		                        		<div class="form-top-left">
-		                        			<h3>Step 3 / 3</h3>
-		                        			<h4>Upload Files: </h4>
-		                            		<p>Here you are,Finally!!!</p>
-		                            		<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-										  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-										    100% Complete (Selection complete)
-										  </div>
-		                        		</div>
-		                        		
-		                            </div>
-		                            <div class="form-bottom">
-				                       <div class="form-group">
-				                       		<label class="sr-only" for="form-facebook">Desc:</label>
-				                        	<input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)"><br><br><br>
-				                    		<label class="sr-only" for="form-facebook">Upload File:</label>
-				                        	<input type="file"  id="uploadfile" name="file" size="40">
-				                        	
-				                        </div>
-										
-										<button type="button" class="btn btn-submit" onclick="backToStep2()">Previous</button>
-				                        <button type="submit"  class="btn btn-submit">Upload</button>
-				                        
-				                    </div>
-			                    </fieldset>
 			                  
 			                    
 			                    

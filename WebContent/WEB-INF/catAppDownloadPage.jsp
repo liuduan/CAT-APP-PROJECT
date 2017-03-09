@@ -47,7 +47,7 @@
                     <li class="text-center user-image-back" style="background-color: white">
                     <br>
                        
-                        Choose your options
+                       <b> Choose your options </b> 
                      <br><br>
                     </li>
 
@@ -66,7 +66,7 @@
                             </li> -->
                               <c:forEach var="cellline" items="${cell}">
                          							<li >
-    												<a href="#"><label><input type="checkbox" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>> &nbsp;<c:out value="${cellline.value}"/></label></a>
+    												<a href="#"><label><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/>> &nbsp;<c:out value="${cellline.value}"/></label></a>
 											 		</li>
 						</c:forEach>
                         </ul>
@@ -76,7 +76,7 @@
 						<ul class="nav nav-second-level">
                              <c:forEach var="assaynames" items="${assay}">
                          							<li >
-    												<a href="#"><label><input type="checkbox" name= "assay" id= <c:out value="${assaynames.value}"/> value= <c:out value="${assaynames.key}"/>> &nbsp;<c:out value="${assaynames.value}"/></label></a>
+    												<a href="#"><label><input type="checkbox" name= "assaynames" id= "assaynames" value= <c:out value="${assaynames.key}"/>> &nbsp;<c:out value="${assaynames.value}"/></label></a>
 											 		</li>
 						</c:forEach>
                      
@@ -88,7 +88,7 @@
                         <ul class="nav nav-second-level">
                             <c:forEach var="phenotypes" items="${pheno}">
                          							<li >
-    												<a href="#"><label><input type="checkbox" name= "phenotypes" id= <c:out value="${phenotypes.value}"/> value= <c:out value="${phenotypes.key}"/>> &nbsp;<c:out value="${phenotypes.value}"/></label></a>
+    												<a href="#"><label><input type="checkbox" name= "phenotypes" id= "phenotypes" value= <c:out value="${phenotypes.key}"/>> &nbsp;<c:out value="${phenotypes.value}"/></label></a>
 											 		</li>
 						</c:forEach>
                         </ul>
@@ -96,25 +96,44 @@
 					
 
                     <li>
-                        <a href="#">Plate Conc</a>
+                        <a href="#">Plate Concentration</a>
 						<ul class="nav nav-second-level">
                             <li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id="pd" value="1">10x</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id="pd" value="1">&nbsp;10x</label></a>
                             </li>
                             <li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="2">100x</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="2">&nbsp;100x</label></a>
                             </li>
                             <li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="3">1000x</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="3">&nbsp;1000x</label></a>
                             </li>
 							<li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="4">10000x</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="4">&nbsp;10000x</label></a>
                             </li>
                         </ul>
                     </li>
-                    <br>
+                   
+                   <li>
+                        <a href="#">Entries per page</a>
+						<ul class="nav nav-second-level">
+                            <li>
+                                <a href="#"><label><input type="radio" name ="pg" id="pg" value="1">&nbsp;10</label></a>
+                            </li>
+                            <li>
+                                <a href="#"><label><input type="radio" name ="pg" id= "pg" value="2">&nbsp;20</label></a>
+                            </li>
+                            <li>
+                                <a href="#"><label><input type="radio" name ="pg" id= "pg" value="3">&nbsp;50</label></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                   
+                   
+                   
+                   
                       <li style="background-color:white">
-                    
+                    <br>
 					<button type="button" class="btn btn-info" style="margin-left:10px; border-radius: 5px;" onclick="searchFiles();hideJumbo();">
 						 Search
 					</button>
@@ -142,14 +161,14 @@
                 
                 <div class="row">
                     <div class="col-sm-4 col-md-4 col-lg-4">
-                         <div class="dropdown">
+                         <!-- <div class="dropdown">
   							<button class="dropbtn">entries per page</button>
   							<div class="dropdown-content">
     						<a href="#">20</a>
     						<a href="#">50</a>
     						<a href="#">100</a>
   							</div>
-						</div>
+						</div> -->
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" id="show_paginator"></div>
                     	
@@ -158,7 +177,7 @@
                 
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Download your document</h2>
+                        <h3 align="center">Download Single Files Or In Bulk</h3>
                     </div>
                 </div>
                 
