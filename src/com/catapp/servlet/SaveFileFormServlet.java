@@ -97,7 +97,7 @@ public class SaveFileFormServlet extends HttpServlet {
 					if(!item.isFormField()){
 						
 						lFileName = new ChemData().getTagNamesofInputs("celllines",lConn).get(Long.valueOf(lCellLine))+"_"+
-								new ChemData().getTagNamesofInputs("celllines",lConn).get(Long.valueOf(lAssayData))+"_"+
+								new ChemData().getTagNamesofInputs("assaynames",lConn).get(Long.valueOf(lAssayData))+"_"+
 								new ChemData().getTimePoints().get(Long.valueOf(lTimePoint))+"_"+
 								new ChemData().getTagNamesofInputs("phenotypes",lConn).get(Long.valueOf(lPhenoType));
 						//File lUploadedFile =new File(item.getName()); 

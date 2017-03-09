@@ -91,7 +91,7 @@ public class ViewFiles extends HttpServlet {
 				int lLoopOverCount =1;
 				if(lSelectedCM!=null && lSelectedCM.length>0){
 					for(int j=0;j<lSelectedCM.length;j++){
-						if(lParameterStartCount ==1){
+						if(lLoopOverCount ==0){
 							lPst.setLong(lParameterStartCount, Long.parseLong(lSelectedCM[0]));
 						}else{
 							lPst.setLong(j+1, Long.parseLong(lSelectedCM[j]));
@@ -151,7 +151,7 @@ public class ViewFiles extends HttpServlet {
 				lXMLBuilder.append("<type>" + lRst.getString("file_type")+"</type>");
 				lXMLBuilder.append("<filepath>" + lRst.getString("entity_id") +"</filepath>");
 				lXMLBuilder.append("<filename>" + lRst.getString("file_name")+"."+lRst.getString("file_type")+"</filename>");
-				lXMLBuilder.append("<uploadtime>" + lRst.getString("logged_date") +"</uploadtime>");
+				lXMLBuilder.append("<uploadtime>" + lRst.getString("logged_date")+"</uploadtime>");
 				if(lRst.getString("description")!=null && lRst.getString("description").trim().length()>0){
 					lXMLBuilder.append("<desc>" + lRst.getString("description") +"</desc>");
 					

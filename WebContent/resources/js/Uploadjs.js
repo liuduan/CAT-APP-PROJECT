@@ -1,7 +1,7 @@
 function searchFiles(){
 	var lCellLines="";
 	var lCount=0;
-	$. each($("input[name='CL']:checked"), function(){
+	$. each($("input[name='celllines']:checked"), function(){
 		if(lCount==0){
 			lCellLines= $(this).val();
 		}else{
@@ -13,7 +13,7 @@ function searchFiles(){
 		
 	var lCount1=0;
 	var lAssayNames="";
-	$. each($("input[name='AN']:checked"), function(){
+	$. each($("input[name='assaynames']:checked"), function(){
 		if(lCount1==0){
 			lAssayNames=$(this).val();
 		}else{
@@ -25,7 +25,7 @@ function searchFiles(){
 	
 	var lCount2=0;
 	var lPhenoTypes="";
-		$. each($("input[name='pt']:checked"), function(){
+		$. each($("input[name='phenotypes']:checked"), function(){
 			if(lCount2==0){
 				lPhenoTypes=$(this).val();
 
@@ -47,6 +47,7 @@ function searchFiles(){
 				}else{
 					lPlate=lPlate+","+$(this).val();
 				}
+				lCount3++;
 			});
 
     
@@ -75,7 +76,9 @@ function searchFiles(){
 		        	
 		        	var lPagination;
 		        	var lLoopCount=0;
+		        	var lFileExists=0;
 		        	for(var i=0;i<lfileList.length;i++){
+		        		lFileExists=1;
 		        		lLoopCount=lLoopCount+1;
 		        		var lFileName=lfileList[i].childNodes[2].firstChild.nodeValue;
 		        		var lFilePath=lfileList[i].childNodes[1].firstChild.nodeValue;
@@ -83,7 +86,7 @@ function searchFiles(){
 		        		var lDescription=lfileList[i].childNodes[4].firstChild.nodeValue;
 		        		var lClassStyle;
 		        		var lTrId;
-		        		if(lfileList[i].childNodes[0].firstChild.nodeValue == "xls"){
+		        		if(lfileList[i].childNodes[0].firstChild.nodeValue == "xls" || lfileList[i].childNodes[0].firstChild.nodeValue == "xlsx" ){
 		        			lClassStyle="success";
 		        			lTrId="xls";
 		        		}else if(lfileList[i].childNodes[0].firstChild.nodeValue == "pdf"){
@@ -92,6 +95,8 @@ function searchFiles(){
 		        		}else if(lfileList[i].childNodes[0].firstChild.nodeValue == "jpeg"){
 		        			lClassStyle="warning";
 		        			lTrId="img";
+		        		}else{
+		        			lClassStyle="active";
 		        		}
 		        			
 		        			lTableBody=lTableBody+'<tr class='+lClassStyle+'>'
@@ -118,10 +123,21 @@ function searchFiles(){
 		        	/*for(var i=1;i<=lPagination;i++){
 		        		lPageHTML=lPageHTML+'<li><a href="#"> '+i+ '</a></li>'	;
 		        	}*/
-		        	lTableBody=lTableBody+'<tr class="pager">'+'<td><a href="#">Next</a>&nbsp;&nbsp;<a href="#">Previous</a></td>'+'<tr id="button">'+'<td><input type="submit" class="btn btn-lg btn-success btn-block" style="border-radius: 5px;" value="Download"></td>'+'</tr>';
-		        	lTableBody=lTableBody+'</tbody>'+'</table>'+'</form>';
-		        	
-		        	jQuery("#allFiles").html(lTableBody);
+		        	if(lFileExists==1){
+		        		
+		        		if(lLoopCount>8){
+		        			lTableBody=lTableBody+'<tr class="pager">'+'<td><a href="#">Next</a>&nbsp;&nbsp;<a href="#">Previous</a></td></tr>';
+		        		}
+		        		lTableBody=lTableBody+'<tr id="button">'+'<td><input type="submit" class="btn btn-lg btn-success btn-block" style="border-radius: 5px;" value="Download"></td>'+'</tr>';
+		        		lTableBody=lTableBody+'</tbody>'+'</table>'+'</form>';
+		        		
+		        		jQuery("#allFiles").html(lTableBody);
+		        		
+		        	}else{
+		        		lTableBody=lTableBody+'<br><br>'+'<tr class="info">'+'<td></td><td></td><td><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Files Exists!!<b></td><td></td>'+'</tr>';
+		        		lTableBody=lTableBody+'</tbody>'+'</table>'+'</form>';
+		        		jQuery("#allFiles").html(lTableBody);
+		        	}				
 		        	//jQuery("#pagination").html(lPageHTML);
 		        	
 		        	
