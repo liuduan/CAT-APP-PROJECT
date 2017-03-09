@@ -136,7 +136,7 @@ select#secqu, select#soflow-color {
 </head>
 
 <body>
-<jsp:include page="header.jsp" />
+<jsp:directive.include file="HeaderCover.jsp" />
     <!-- Navigation -->
     <%
 String login_msg=(String)request.getAttribute("error");  

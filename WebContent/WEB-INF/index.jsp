@@ -244,75 +244,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
             <div class="panel panel-default">
                 <div class="panel-heading"> <strong class="">Login</strong>
 
-<<<<<<< HEAD
 
-			
-
-        <!-- Heading Row -->
-       <div class="row">
-
-        <h2 style="text-align: center;" class = "text-danger">Category Read-across Approaches For (Petroleum) UVCBs</h2>
-
-        
-        </div>
-        
-        <br><br>
-        <div class="row">
-        
-            <div class="col-md-6" style="margin-left:5%">
-                <img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/logo.JPG" alt=""  width="50%" height="50%" >
-            </div>
-            <!-- /.col-md-8 -->
-            <div class="col-md-5">
-            <p class="read">
-            This web site is part of the New Technologies to 
-		Underpin Category Approaches and Read-across in Regulatory Programmes at Texas A&M University.
-		 
-            </p><br>
-            <div class="circle circle2" align="center" style="margin-left:35%">
-          		<h3><a href="#about">Read more</a></h3>
-        		</div>
-             <!-- <a href="#" class="btn btn-success btn-lg" id="readMore">Show Less</a></small><br>-->
-                </div>
-            <!-- /.col-md-4 -->
-        </div>
-        <!-- /.row -->
-
-			
-				
-   		<div class="row"><br>
-		<div class="col-md-4"></div>
-		<div class="col-md-4">
-		<a href="#login" class="btn btn-lg btn-primary btn-block" style="text-align: center;">Sign in or <b>Request Access</b></a>
-       </div>
-       <div class="col-md-4">
-       </div>
-        </div>
-        </header>
-        
-</div>
-        <hr>
-
-    <!-- Content Section -->
-<section id="login">
-<div class="container">
-
-<div class="row" style="margin-top:20px">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		
-			<fieldset>
-				<h2 align="center">Please Sign In</h2>
-				<hr class="colorgraph">
-				<form action="LoginServlet" method="post">
-					<div class="form-group">
-                    	<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" 
-                    		required="required">
-					</div>
-					<div class="form-group">
-                    	<input type="password" name="password" id="passwordLogin" class="form-control input-lg" 
-                    		placeholder="Password" required="required">
-					</div>
-=======
                 </div>
                 <div class="panel-body">
                     <form action="LoginServlet" method="post">
@@ -322,7 +254,6 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				<div class="form-group">
                     <input type="password" name="password" id="passwordLogin" class="form-control input-lg" placeholder="Password" required="required">
 				</div>
->>>>>>> SS-Master/master
 				
 					<div class="checkbox">
 
@@ -647,15 +578,6 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 
     <!-- Footer -->
     <footer style="margin:5px">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p align="left">Copyright &copy; Ivan Rusyn Website 2017</p>
-                </div>
-            </div>
-           
-            <!-- /.row -->
-        </div>
         <!-- /.container -->
         <div class="row">
         <div class="col-lg-12">

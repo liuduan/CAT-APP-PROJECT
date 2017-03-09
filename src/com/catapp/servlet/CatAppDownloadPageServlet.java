@@ -18,8 +18,8 @@ public class CatAppDownloadPageServlet extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PrintWriter out = response.getWriter();
-		out.println("DogName_Servlet.java: Hello Java!");
+		// PrintWriter out = response.getWriter();
+		// out.println("DogName_Servlet.java: Hello Java!");
 		
 		// session.setAttribute("user", lUser);
 		String received_value = request.getParameter("Email");	// receiving the post value

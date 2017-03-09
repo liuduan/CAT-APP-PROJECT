@@ -65,41 +65,43 @@ SELECT * from users where Email = "<%=Email%>";
     </c:otherwise>
 </c:choose>
 
-
-  <div id="wrapper">
+ <div id="wrapper">
        
         
         <!-- /. NAV TOP  -->
-<<<<<<< HEAD
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse" style="padding-left: 30px; padding-top: 15px;">
-=======
         <!-- <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
->>>>>>> SS-Master/master
                 <ul class="nav" id="main-menu" style="background-color: white">
                     <li class="text-center user-image-back" style="background-color: white">
                        
-                        <img src="/CAT-APP-PROJECT/resources/images/Portrait.jpg" class="img-responsive"
-							style="margin: auto; margin-top: 20px;" width="150" height="200px"/>
+                        <img src="/CAT-APP-PROJECT/resources/images/find_user.png" class="img-responsive" />
                      
                     </li>
                    
-
-
-                    <li style="margin-top:10px; margin: auto; text-align: center;">
-                    <br>
-                    Last login <br>
-                    03/01/2017 20:08:09
-                    <%-- 
-                  	<% String Last_login =((User)request.getSession().getAttribute("user")).getLast_login_time().toString(); %>      
-					<%=Last_login %>
-					--%>
+                    <li style="margin-top:10px;margin-left: 10px">
+                    <b>Institution name<b></b> <br>
+                    Texas A&M University
                  
-
                     </li>
-                
-
+                    <li style="margin-top:10px;margin-left: 10px">
+                    Last login <br>
+                    01/21/2017 20:08:09
+                 
+                    </li>
+                     
+                    <li style="margin-top:10px;margin-left: 10px">
+                    
+                    <b>Supervisor name</b><br>
+                    Liu Duan
+                 
+                    </li>
+                    <li style="margin-top:10px;margin-left: 10px">
+                    
+                    <b>Supervisor mail</b><br>
+                    liuduan@gmail.com
+               
+                 
+                    </li>
 				</ul>
             </div>
 		
@@ -110,27 +112,18 @@ SELECT * from users where Email = "<%=Email%>";
            
                 <div class="row">
                     <div class="col-md-12">
-<<<<<<< HEAD
                         <% String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>
                         <% String Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); %>
-                        
-						<h1>Welcome <%=First_name %> <%=Last_name %> </h1>
+                        <br>
+						<h2 style="font-size:2.0em; font-family:'Tahoma';" align="center">Welcome <%=First_name %> <%=Last_name %> </h2>
 				
-						<h3>From ${result.rows[0].supervisor_name} group at ${result.rows[0].institution}. </h3>
-						<br>
-
-
-		
-=======
-                        <% String user=((User)request.getSession().getAttribute("user")).getFirst_name().toString();%>
-                        <h1 style="margin-left:40px;font-size:2.0em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"> Ongoing Projects</h1>
-						<h2 style="font-size:2.0em; font-family:'Tahoma';" align="center">Welcome <%=user %> </h2>
+						<h4 style="font-family:'Tahoma';" align="center">From ${result.rows[0].supervisor_name} group at ${result.rows[0].institution}. </h4>
+<br>
 						<img src="/CAT-APP-PROJECT/resources/images/Portrait.jpg" class="img-responsive"  width ="150" height ="150"  style="margin-top:-85px; margin-right:20px;" align="right">
 						
 						
 						<!-- <h3>Use <strong>Download</strong> and <strong>Upload</strong> button to manage files related to a project.</h3>
 		 -->
->>>>>>> SS-Master/master
                     </div>
                 </div>
                 
@@ -140,19 +133,19 @@ SELECT * from users where Email = "<%=Email%>";
                 
              	
              	<!-- Call to Action Well -->
-        <br><br>
-
-
+       <!--  <br><br>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well text-center">
+                    Now managing your files is easy!
+                </div>
+            </div>
+            /.col-lg-12
+        </div> -->
+        <!-- /.row -->
 
         <!-- Content Row -->
         <div class="row">
-<<<<<<< HEAD
-            <div class="col-md-4 col-sm-6">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                    	<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" height="150" />
-                        
-=======
             <!-- <div class="col-lg-12">
                 <h2 class="page-header">Projects</h2>
             </div> -->
@@ -161,9 +154,7 @@ SELECT * from users where Email = "<%=Email%>";
                     <div class="panel-heading"  style=" border-radius: 20px;">
                         <img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle "  width ="150" height ="150" "/>
     			
->>>>>>> SS-Master/master
                     </div>
-                    
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">CAT-APP</h4>
                         
@@ -181,19 +172,11 @@ SELECT * from users where Email = "<%=Email%>";
                 </div>
             </div>
             </div>
-<<<<<<< HEAD
-            <div class="col-md-4 col-sm-6">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                        <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" height="150" />
-                        
-=======
             <div class="col-md-3 col-sm-3" >
                 <div class="panel panel-default text-center" style=" border-radius: 25px;">
                     <div class="panel-heading" style=" border-radius: 20px;" >
                        <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle " width ="150" height ="150" "/>
     				
->>>>>>> SS-Master/master
                     </div>
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">ANALYTICAL</h4>
@@ -212,18 +195,11 @@ SELECT * from users where Email = "<%=Email%>";
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-            <div class="col-md-4 col-sm-6">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                        <img src="/CAT-APP-PROJECT/resources/images/leaf.png" height="150"/>
-=======
             <div class="col-md-3 col-sm-3">
                 <div class="panel panel-default text-center"  style=" border-radius: 25px;">
                     <div class="panel-heading"  style=" border-radius: 20px;">
                        <img src="/CAT-APP-PROJECT/resources/images/leaf.png" class=" img-circle " width ="150" height ="150" "/>
 				
->>>>>>> SS-Master/master
                     </div>
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">ECO-TOX</h4>
@@ -244,10 +220,6 @@ SELECT * from users where Email = "<%=Email%>";
             </div>
             
         </div>
-<<<<<<< HEAD
-    </div>    <!-- /.row -->
-</div>      <!-- /. ROW  -->
-=======
     </div>
         <!-- /.row -->
              	
@@ -258,16 +230,11 @@ SELECT * from users where Email = "<%=Email%>";
              	
   
 			<!-- 	</div> -->
-
-
-
           
              
                   
                   
                 <!-- /. ROW  -->
->>>>>>> SS-Master/master
-
             
             <!-- /. PAGE INNER  -->
         
@@ -275,7 +242,6 @@ SELECT * from users where Email = "<%=Email%>";
    
     <!-- /. WRAPPER  -->
  
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -288,10 +254,8 @@ SELECT * from users where Email = "<%=Email%>";
         </div>
         <!-- /.container -->
     </footer>
-
     <!-- jQuery -->
     <script src="/CAT-APP-PROJECT/resources/js/jquery.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="/CAT-APP-PROJECT/resources/js/bootstrap.min.js"></script>
     <script src="/CAT-APP-PROJECT/resources/js/userHome.js"></script>
@@ -303,6 +267,8 @@ SELECT * from users where Email = "<%=Email%>";
     <script src="/CAT-APP-PROJECT/resources/js/jquery.metisMenu.js"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="/CAT-APP-PROJECT/resources/js/custom.js"></script>
+</body>
+</html>
 
 </body>
 

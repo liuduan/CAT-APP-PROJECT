@@ -41,14 +41,10 @@ public class LoginServlet extends HttpServlet {
 	        	lUser =fetchUserDetails(email, lConn);
 	        	boolean lFlag =validateUsers(password, lUser.getPassword());
 	        	
-	        	System.out.println("Hello World java. 2");
-	        	System.out.println(password  + ", " + lUser.getPassword());
-	        	System.out.println(Login.generateHash("Pwdtest_user2") );
-	        	
 	        	if(lFlag){
 	        		if(lUser.getIs_admin()!=null && lUser.getIs_admin().equals("Y")){
 	        			
-	        			System.out.println("Hello World. \n\n");
+	        			System.out.println("It is Admin. \n\n");
 	        			
 	        			HttpSession session=request.getSession();  
 	        			session.setAttribute("email",email);
@@ -65,17 +61,26 @@ public class LoginServlet extends HttpServlet {
 	        		}else{
 	        			if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
 	        				
+	        				System.out.println("It is approved. \n\n");
+	        				
+	        				
 	        				HttpSession session=request.getSession();  
 	        				session.setAttribute("email",email);
 	        				session.setAttribute("user", lUser);
+	        				
+	        				System.out.println("Session OK.");
+	        				/*
+	        				
 	        				User lUserToSave = new User();
 	        				lUserToSave.setEntityId(lUser.getEntityId());
 	        				lUserToSave.find(lConn, lUserToSave);
 	        				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	        				lUserToSave.setLast_login_time(timestamp);
 	        				lUserToSave.save(lConn, lUserToSave);
-	        				request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
+	        				System.out.println("User saved.\n\n");
+	        				*/
 	        				
+	        				request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
 	        			}else{
 	        				
 	        				request.setAttribute("error","Your request is not approved yet.");
@@ -105,7 +110,16 @@ public class LoginServlet extends HttpServlet {
 			
 			boolean lFlag=false;
 			String lHashedPwd=Login.generateHash("PWD"+lTypedPassword);
+			
+			
+        	System.out.println("Password comparison: \n");
+        	System.out.println("Typed in: " + lTypedPassword);
+        	System.out.println("Typed in and hashed: " + lHashedPwd);
+        	System.out.println("\nFrom database: " + lStoredPassword  );
+			
+			
 			if(lStoredPassword.equals(lHashedPwd)){
+				System.out.println("They matches." + "\n\n");
 				lFlag=true;
 			}else{
 				lFlag=false;

@@ -41,8 +41,7 @@
     <servlet-class>com.catapp.servlet.ViewDownloadServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-  
-   <servlet>
+  <servlet>
     <display-name>DownloadFileServlet</display-name>
     <servlet-name>DownloadFileServlet</servlet-name>
     <servlet-class>com.catapp.servlet.DownloadFileServlet</servlet-class>
@@ -66,9 +65,21 @@
     <servlet-class>com.catapp.servlet.ManageActionServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+  <servlet>
+    <display-name>SuccessServlet</display-name>
+    <servlet-name>SuccessServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.SuccessServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
   
   
   
+  
+  
+  <servlet-mapping>
+    <servlet-name>SuccessServlet</servlet-name>
+    <url-pattern>/Success</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ManageActionServlet</servlet-name>
     <url-pattern>/ManageAction</url-pattern>
@@ -77,8 +88,6 @@
     <servlet-name>UserManagementServlet</servlet-name>
     <url-pattern>/UserManagement</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/Admin</url-pattern>
@@ -111,16 +120,10 @@
     <servlet-name>catAppDownloadPageServlet</servlet-name>
     <url-pattern>/catAppDownloadPageServlet</url-pattern>
   </servlet-mapping>
-  
-  
-  
-  
-  
   <servlet-mapping>
     <servlet-name>DownloadFileServlet</servlet-name>
     <url-pattern>/Downloads</url-pattern>
   </servlet-mapping>
-  
   <welcome-file-list>
     <welcome-file>Home</welcome-file>
   </welcome-file-list>
