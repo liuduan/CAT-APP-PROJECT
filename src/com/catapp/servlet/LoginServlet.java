@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 	        	boolean lFlag =validateUsers(password, lUser.getPassword());
 	        	
 	        	if(lFlag){
-	        		if(lUser.getIs_admin()!=null && lUser.getIs_admin().equals("Y")){
+	        		if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
 	        			
 	        			System.out.println("It is Admin. \n\n");
 	        			
@@ -59,34 +59,8 @@ public class LoginServlet extends HttpServlet {
         				
 	        			
 	        		}else{
-	        			if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
-	        				
-	        				System.out.println("It is approved. \n\n");
-	        				
-	        				
-	        				HttpSession session=request.getSession();  
-	        				session.setAttribute("email",email);
-	        				session.setAttribute("user", lUser);
-	        				
-	        				System.out.println("Session OK.");
-	        				/*
-	        				
-	        				User lUserToSave = new User();
-	        				lUserToSave.setEntityId(lUser.getEntityId());
-	        				lUserToSave.find(lConn, lUserToSave);
-	        				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-	        				lUserToSave.setLast_login_time(timestamp);
-	        				lUserToSave.save(lConn, lUserToSave);
-	        				System.out.println("User saved.\n\n");
-	        				*/
-	        				
-	        				request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
-	        			}else{
-	        				
-	        				request.setAttribute("error","Your request is not approved yet.");
-	    		        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
-	        			}
-	        			
+	        			request.setAttribute("error","Your request is not approved yet.");
+    		        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);          			
 	        		}
 	        	}else{
 	        		request.setAttribute("error","Invalid Username or Password");

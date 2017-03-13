@@ -43,6 +43,7 @@
 </head>
 
 <body style="background-color: Azure">
+
 <% String Email =((User)request.getSession().getAttribute("user")).getEmail().toString(); %>  
 <% String Is_admin =((User)request.getSession().getAttribute("user")).getIs_admin().toString(); %>
 
@@ -64,6 +65,11 @@ SELECT * from users where Email = "<%=Email%>";
         <jsp:directive.include file="Header.jsp" />
     </c:otherwise>
 </c:choose>
+
+
+
+
+
 
  <div id="wrapper">
        
@@ -268,8 +274,4 @@ SELECT * from users where Email = "<%=Email%>";
     <!-- CUSTOM SCRIPTS -->
     <script src="/CAT-APP-PROJECT/resources/js/custom.js"></script>
 </body>
-</html>
-
-</body>
-
 </html>

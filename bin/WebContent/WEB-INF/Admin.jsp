@@ -8,10 +8,6 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 
 
-
-
-
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Administration</title>
@@ -25,7 +21,7 @@
 <body style="background-color: Azure">
 <jsp:directive.include file="Header.jsp" />
 
-
+Hello<br></br>Hello<br></br>Hello<br></br>Hello<br></br>Hello<br></br>
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"
      user="root"  password="root"/>
@@ -40,7 +36,7 @@ SELECT * from users;
  	<br>
  	
     <h1 style="text-align: ;" class = "text-danger">
-    	CAT-APP Administration</h1>
+    	CAT-APP Administration...</h1>
     	
     <h4 style="text-indent: 50px;" class="text-primary">
     	For user authorization and password reset.</h4><br><br>
@@ -71,8 +67,8 @@ SELECT * from users;
    				<c:set var="i" scope="session" value="${0}"/>
 			</c:if>
 			<tr class='<c:out value="${tr_color[i]}" />'>
-   				<td class = "user_id"> <c:out value="${row.User_ID}"/> </td>
-   				<td><c:out value="${row.Approved}"/></td>
+   				<td class = "user_id"> <c:out value="${row.User_ID}"/> i, <c:out value="${tr_color[i]}"/></td>
+   				<td><c:out value="${row.Approved}"/>o </td>
    				<td><c:out value="${row.First_Name} ${row.Last_Name}" /></td>
    				<td><c:out value="${row.Supervisor_ID}"/></td>
    				<td><c:out value="${row.Supervisor_First_Name} ${row.Supervisor_Last_Name}" /></td>
