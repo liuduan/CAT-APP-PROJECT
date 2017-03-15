@@ -214,19 +214,20 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
     		<div class="row">
     		
     			<img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/logo.JPG" alt=""  width="50%" height="50%" style="margin-left: 20%; margin-top:5%">
-    		
+    			<img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/CATAPP_Pres.jpg" alt=""  width="50%" height="50%" style="margin-left: 20%;">
     		</div>
     		<div class="row">
     		
     			<div  id="content" >
     			<div class="col-md-4 col-sm-6">
-    				<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle "  width ="100" height ="100" style="margin-left: 9%;"/>
+    				<img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
+    				
     			<h3 style="font-size:1.6em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"><span id="lblLrner">&nbsp;&nbsp;&nbsp;CAT-APP</span></h3>
     			<!-- <p><span id="lblLrnerTxt1">Collaborate with peers</span></p> -->
     			</div>	
     			
     			<div class="col-md-4 col-sm-6">
-    				<img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
+    				<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle "  width ="100" height ="100" style="margin-left: 9%;"/>
     				<h3 style="font-size:1.6em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"><span id="lblLrner">&nbsp;&nbsp;ANALYTICAL</span></h3>
     				<!-- <p style="font-size: 1.2em; color:#999"><span id="lblLrnerTxt1">Analyze the Data</span></p> -->
     			</div>

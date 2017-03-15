@@ -103,13 +103,14 @@
            <br></br><br></br><br></br>
                 <div class="container">
                 <c:if test="${param.success eq 1}">
-                <div class="page-alerts">
-     			<div class="alert alert-success">
-      			<button  type="button" class="close"><i class="glyphicon glyphicon-remove-circle text-success"></i></button>
-      			<h4>Success</h4>
-      			<p>The file was uploaded successfully</p>
-    			</div>
-    			</div>
+                	<div class="page-alerts">
+     					<div class="alert alert-success">
+      						<button  type="button" class="close">
+      							<i class="glyphicon glyphicon-remove-circle text-success"></i></button>
+      						<h4>Success</h4>
+      						<p>The file was uploaded successfully</p>
+    					</div>
+    				</div>
 				</c:if>
 				<c:if test="${param.success eq 2}">
 				 <div class="alert alert-danger">
