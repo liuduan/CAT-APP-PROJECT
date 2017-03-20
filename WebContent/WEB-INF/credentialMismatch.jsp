@@ -25,12 +25,13 @@
 <body>
 <jsp:directive.include file="Header.jsp" />
     <!-- Navigation -->
+    <div style="text-align: center;">
     <%
-String login_msg=(String)request.getAttribute("error");  
-if(login_msg!=null)
-out.println("<font color=red size=4px>"+login_msg+"</font>");
-%>
-
+		String login_msg=(String)request.getAttribute("error");  
+		if(login_msg!=null)
+		out.println("<font color=red size=4px>"+login_msg+"</font>");
+	%>
+	</div>
     
     <!-- Content Section -->
 <section id="login">

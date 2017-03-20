@@ -68,6 +68,8 @@ public class LoginServlet extends HttpServlet {
 	        	}
 	        	
 	        }catch(Exception e){
+	        	request.setAttribute("error","Invalid Username or Password");
+	        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
 	        	LOGGER.error("Error Occured while validating user",e);
 	        }finally{
 	        	try{
