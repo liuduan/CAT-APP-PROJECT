@@ -10,7 +10,7 @@ public class DBConnection{
 	private static String url = "jdbc:mysql://localhost:3306/catapp";    
     private static String driverName = "com.mysql.jdbc.Driver";   
     private static String username = "root";   
-    private static String password = "root";
+    private static String password = "vibscatapp";
     private static Connection con;
    // private static String urlstring;
 

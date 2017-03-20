@@ -28,7 +28,7 @@
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"
-     user="root"  password="root"/>
+     user="root"  password="vibscatapp"/>
  
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from users where Email = "<%=Email%>";
