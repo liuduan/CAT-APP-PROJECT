@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.catapp.action.Login;
+
 /**
  * Servlet implementation class ManageActionServlet
  */
@@ -34,6 +36,9 @@ public class ManageActionServlet extends HttpServlet {
 		String received_Authorization = request.getParameter("Authorization");		// receiving the post value
 		String received_Change_password = request.getParameter("Change_password");	// receiving the post value
 		String received_Password_2 = request.getParameter("Password_2");			// receiving the post value
+		String hashed_password = Login.generateHash("PWD" + received_Password_2);			// receiving the post value
+		
+		
 		
 		PrintWriter out = response.getWriter();
 		out.println("DogName_Servlet.java: Hello Java!");
@@ -43,7 +48,7 @@ public class ManageActionServlet extends HttpServlet {
 		request.setAttribute("Authorization", received_Authorization);			// submit vlue to following page:
 		request.setAttribute("Change_password", received_Change_password);		// submit vlue to following page:
 		request.setAttribute("Password_2", received_Password_2);				// submit vlue to following page:
-
+		request.setAttribute("hashed_password", hashed_password);				// submit vlue to following page:
 		
 		
 		getServletContext().getRequestDispatcher("/WEB-INF/ManageAction.jsp").forward(request, response);

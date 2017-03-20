@@ -7,6 +7,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ page import="com.catapp.action.Login" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,7 +22,8 @@ User email: 		"${Email}"<br></br>
 Authorization:	"${Authorization}"<br></br>
 Change_password:"${Change_password}"<br></br>
 Password_2: 	"${Password_2}"<br></br>
-		
+hashed_password: 	"${hashed_password}"<br></br>
+
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"
@@ -30,7 +32,7 @@ Password_2: 	"${Password_2}"<br></br>
 <c:choose>
 	<c:when test="${Authorization == 'Yes_authorizing'}">
 		<sql:update dataSource="${snapshot}" var="count">
-  			update users SET Approved = 'Yes' where Email = "${Email}";
+  			update users SET Approved = 'Y' where Email = "${Email}";
 		</sql:update>
     </c:when>    
     <c:otherwise> 
@@ -41,7 +43,7 @@ Password_2: 	"${Password_2}"<br></br>
 </c:choose>
 <c:if test="${Change_password == 'Change_password'}">
 	<sql:update dataSource="${snapshot}" var="count">
-  		update users SET Password = "${Password_2}" where Email = "${Email}";
+  		update users SET Password = "${hashed_password}" where Email = "${Email}";
 	</sql:update>
 </c:if>
 
@@ -58,7 +60,7 @@ Password_2: 	"${Password_2}"<br></br>
 					
 <script type="text/javascript">
 	$( document ).ready(function() {
-		window.location = "${pageContext.request.contextPath}/Admin";
+		// window.location = "${pageContext.request.contextPath}/Admin";
 	});
 </script>
 		

@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 	        	if(lFlag){
 	        		if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
 	        			
-	        			System.out.println("It is Admin. \n\n");
+	        			// System.out.println("It is Admin. \n\n");
 	        			
 	        			HttpSession session=request.getSession();  
 	        			session.setAttribute("email",email);
