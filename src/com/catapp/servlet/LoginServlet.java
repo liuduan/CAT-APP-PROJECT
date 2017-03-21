@@ -127,6 +127,7 @@ public class LoginServlet extends HttpServlet {
 					lUser.setIs_admin(lRst.getString(7));
 					lUser.setSupervisorname(lRst.getString(8));
 					lUser.setInstitution(lRst.getString(9));
+					lUser.setLoggedBy(lRst.getLong(1));
 					if(lRst.getTimestamp(10)!=null){
 						lUser.setLast_login_time(lRst.getTimestamp(10));
 					}

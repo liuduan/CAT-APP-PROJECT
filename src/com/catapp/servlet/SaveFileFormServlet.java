@@ -31,7 +31,7 @@ import com.catapp.entity.User;
 public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private final String UPLOAD_DIRECTORY = "C:/7-5-Database_project-data/Semi-Temp-Storage-2017";
+	private final String UPLOAD_DIRECTORY = "C:/Users/CATAPP/serverfiles";
 
 	public static final Logger logger = Logger.getLogger(SaveFileFormServlet.class.toString());
 

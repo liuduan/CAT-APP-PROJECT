@@ -14,14 +14,14 @@ $( document ).ready(function() {
     });
 	
 	
-	$('#show_paginator').bootpag({
+	/*$('#show_paginator').bootpag({
 	      total: 10,
 	      page: 3,
 	      maxVisible: 10
 	}).on('page', function(event, num)
 	{
 	     $("#flatFiles").html("Page " + num); 
-	});
+	});*/
 
 	$("li").click(function(){
 		  // If this isn't already active

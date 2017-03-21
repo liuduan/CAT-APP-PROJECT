@@ -49,10 +49,10 @@ public class DownloadFileServlet extends HttpServlet {
 		ResultSet lRst					    = null;
 		Connection lConn 					= null;
 
-		File lLocalFile 					= new File("C:\\7-5-Database_project-data\\Semi-Temp-Storage-2017");
+		File lLocalFile 					= new File("C:\\Users\\CATAPP\\serverfiles");
 		String lFolderLoc 					= null;
 		if(lLocalFile.exists()){
-			lFolderLoc ="C:\\7-5-Database_project-data\\Semi-Temp-Storage-2017";
+			lFolderLoc ="C:\\Users\\CATAPP\\serverfiles";
 		}else{
 			// Write code as per the server //
 		}

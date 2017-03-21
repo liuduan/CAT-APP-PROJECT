@@ -13,7 +13,6 @@ public class DBConnection{
     private static String password = "vibscatapp";
     private static Connection con;
    // private static String urlstring;
-
     public  Connection getConnection() {
     	
            try {
@@ -26,8 +25,9 @@ public class DBConnection{
             try {
                con = DriverManager.getConnection(url, username, password);
             	//con=DriverManager.getConnection(url);
-            	
-            	
+               if(!con.isClosed() || con!=null){
+            	   System.out.println("------Successful database connection.------------------------\n\n");}
+
             } catch (SQLException ex) {
                 // log an exception. fro example:
                 System.out.println("Failed to create the database connection."); 

@@ -103,6 +103,11 @@
            <br></br><br></br><br></br>
                 <div class="container">
                 <c:if test="${param.success eq 1}">
+                	<script type="text/javascript">
+						<!--
+							window.location = "${pageContext.request.contextPath}/Success"
+						//-->
+					</script>
                 	<div class="page-alerts">
      					<div class="alert alert-success">
       						<button  type="button" class="close">
