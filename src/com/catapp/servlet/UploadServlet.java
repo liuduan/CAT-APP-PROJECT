@@ -66,8 +66,11 @@ public class UploadServlet extends HttpServlet {
 			request.setAttribute("assay", lAssayMap);
 			request.setAttribute("cell", lCellMap);
 			request.setAttribute("time", lTimMap);
+			System.out.println("UploadServlet \n");
+			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp");
 			rd.forward(request, response);
+			
 			
 		}catch(Exception e){
 			logger.error("Error Occured while dispatching the request",e);

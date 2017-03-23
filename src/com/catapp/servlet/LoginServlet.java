@@ -29,116 +29,118 @@ public class LoginServlet extends HttpServlet {
 	private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
 	//private static final long serialVersionUID = 1L;
 
-		protected void doPost(HttpServletRequest request, HttpServletResponse response)  
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)  
 	                    throws ServletException, IOException {    
-			String email=request.getParameter("email").toString();  
-	        String password=request.getParameter("password");  
-	        Connection lConn = new DBConnection().getConnection();
+		String email=request.getParameter("email").toString();  
+	    String password=request.getParameter("password");  
+	    Connection lConn = new DBConnection().getConnection();
 	        
-	        try{
-	        	User lUser =new User();
+	    try{
+	     	User lUser =new User();
         
-	        	lUser =fetchUserDetails(email, lConn);
-	        	boolean lFlag =validateUsers(password, lUser.getPassword());
+	      	lUser =fetchUserDetails(email, lConn);
+	       	boolean lFlag =validateUsers(password, lUser.getPassword());
 	        	
-	        	if(lFlag){
-	        		if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
+	       	if(lFlag){
+	       		if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
 	        			
-	        			// System.out.println("It is Admin. \n\n");
+	       			// System.out.println("It is Admin. \n\n");
 	        			
-	        			HttpSession session=request.getSession();  
-	        			session.setAttribute("email",email);
-	        			session.setAttribute("user", lUser);
-        				User lUserToSave = new User();
-        				lUserToSave.setEntityId(lUser.getEntityId());
-        				lUserToSave.find(lConn, lUserToSave);
-        				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        				lUserToSave.setLast_login_time(timestamp);
-        				lUserToSave.save(lConn, lUserToSave);
-        				request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
+	       			HttpSession session=request.getSession();  
+	       			session.setAttribute("email",email);
+	       			session.setAttribute("user", lUser);
+        			User lUserToSave = new User();
+        			lUserToSave.setEntityId(lUser.getEntityId());
+        			lUserToSave.find(lConn, lUserToSave);
+        			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        			lUserToSave.setLast_login_time(timestamp);
+        			lUserToSave.save(lConn, lUserToSave);
+        			
+        			request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
         				
 	        			
-	        		}else{
-	        			request.setAttribute("error","Your request is not approved yet.");
-    		        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);          			
+	       		}else{
+	       			request.setAttribute("error","Your request is not approved yet.");
+    	        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);          			
 	        		}
-	        	}else{
-	        		request.setAttribute("error","Invalid Username or Password");
-		        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
+	        }else{
+	        	request.setAttribute("error","Invalid Username or Password");
+		       	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
 	        	}
 	        	
-	        }catch(Exception e){
-	        	request.setAttribute("error","Invalid Username or Password");
-	        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
-	        	LOGGER.error("Error Occured while validating user",e);
-	        }finally{
-	        	try{
-	        		if(lConn!=null){
-	        			lConn.close();
+	    }catch(Exception e){
+	        request.setAttribute("error","Invalid Username or Password");
+	        request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
+	        LOGGER.error("Error Occured while validating user",e);
+	    }finally{
+	       	try{
+	    		if(lConn!=null){
+	       			lConn.close();
 	        		}
-	        	}catch(Exception e1){
-	        		LOGGER.error("Error Occured while closing connection",e1);
+	       	}catch(Exception e1){
+	       		LOGGER.error("Error Occured while closing connection",e1);
 	        	}
 	        }
 	        
-	      }  
-		public Boolean validateUsers(String lTypedPassword, String lStoredPassword ){
+	    }  
+	public Boolean validateUsers(String lTypedPassword, String lStoredPassword ){
 			
-			boolean lFlag=false;
-			String lHashedPwd=Login.generateHash("PWD"+lTypedPassword);
-			
-			
-        	System.out.println("Password comparison: \n");
-        	System.out.println("Typed in: " + lTypedPassword);
-        	System.out.println("Typed in and hashed: " + lHashedPwd);
-        	System.out.println("\nFrom database: " + lStoredPassword  );
+		boolean lFlag=false;
+		String lHashedPwd=Login.generateHash("PWD"+lTypedPassword);
 			
 			
-			if(lStoredPassword.equals(lHashedPwd)){
-				System.out.println("They matches." + "\n\n");
-				lFlag=true;
-			}else{
-				lFlag=false;
+        System.out.println("Password comparison: \n");
+        System.out.println("Typed in: " + lTypedPassword);
+        System.out.println("Typed in and hashed: " + lHashedPwd);
+        System.out.println("\nFrom database: " + lStoredPassword  );
+			
+			
+		if(lStoredPassword.equals(lHashedPwd)){
+			System.out.println("They matches." + "\n\n");
+			lFlag=true;
+		}else{
+			lFlag=false;
 			}
-			return lFlag;
-		}
-		public User fetchUserDetails(String pEmail,Connection pConnection){
+		return lFlag;
+	}
+	
+	public User fetchUserDetails(String pEmail,Connection pConnection){
 			
-			PreparedStatement lPstmnt = null;
-			ResultSet lRst			  = null;
-			User lUser 				  = new User();
+		PreparedStatement lPstmnt = null;
+		ResultSet lRst			  = null;
+		User lUser 				  = new User();
 			
-			try{
+		try{
 
-				StringBuilder lBuilder = new StringBuilder("select a.entity_id,a.email,a.first_name,a.last_name,a.password,a.approved,a.is_admin,a.supervisor_name,a.institution,a.last_login_time from users a where a.email=? ");
-										 lBuilder.append(" and a.is_active='Y' and a.rowstate!=-1");
+			StringBuilder lBuilder = new StringBuilder("select a.entity_id,a.email,a.first_name,a.last_name,a.password,a.approved,a.is_admin,a.supervisor_name,a.institution,a.last_login_time from users a where a.email=? ");
+			lBuilder.append(" and a.is_active='Y' and a.rowstate!=-1");
 				
-				lPstmnt = pConnection.prepareStatement(lBuilder.toString());
-				lPstmnt.setString(1, pEmail);
-				lRst=lPstmnt.executeQuery();
+			lPstmnt = pConnection.prepareStatement(lBuilder.toString());
+			lPstmnt.setString(1, pEmail);
+			lRst=lPstmnt.executeQuery();
 				
-				while(lRst.next()){
-					lUser.setEntityId(lRst.getLong(1));
-					lUser.setEmail(lRst.getString(2));
-					lUser.setFirst_name(lRst.getString(3));
-					lUser.setLast_name(lRst.getString(4));
-					lUser.setPassword(lRst.getString(5));
-					lUser.setApproved(lRst.getString(6));
-					lUser.setIs_admin(lRst.getString(7));
-					lUser.setSupervisorname(lRst.getString(8));
-					lUser.setInstitution(lRst.getString(9));
-					lUser.setLoggedBy(lRst.getLong(1));
-					if(lRst.getTimestamp(10)!=null){
-						lUser.setLast_login_time(lRst.getTimestamp(10));
-					}
-					
+			while(lRst.next()){
+				lUser.setEntityId(lRst.getLong(1));
+				lUser.setEmail(lRst.getString(2));
+				lUser.setFirst_name(lRst.getString(3));
+				lUser.setLast_name(lRst.getString(4));
+				lUser.setPassword(lRst.getString(5));
+				lUser.setApproved(lRst.getString(6));
+				lUser.setIs_admin(lRst.getString(7));
+				lUser.setSupervisorname(lRst.getString(8));
+				lUser.setInstitution(lRst.getString(9));
+				lUser.setLoggedBy(lRst.getLong(1));
+				if(lRst.getTimestamp(10)!=null){
+				lUser.setLast_login_time(lRst.getTimestamp(10));
 				}
-				
-				
-			}catch(Exception e){
-				LOGGER.error("Error Occured while fetching user details", e);
+					
 			}
-			return lUser;
+				
+				
+		}catch(Exception e){
+			LOGGER.error("Error Occured while fetching user details", e);
+			}
+		return lUser;
 		}
 	}  
 

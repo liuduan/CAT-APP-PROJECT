@@ -8,6 +8,7 @@
 
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ page import="com.catapp.action.Login" %>
+<%@ page import="com.catapp.entity.User" %>
 
 
 
@@ -18,6 +19,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+UU:
+<% String Email2 =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>  
+
+<%=Email2%>  
 
 <%
 	String Email = (String) request.getAttribute("Email");	// receiving value from servlet

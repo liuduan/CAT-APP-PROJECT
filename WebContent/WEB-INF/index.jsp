@@ -212,8 +212,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
     
     	<div class="col-md-8 ">
     		<div class="row">
-    		
-    			<img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/logo.JPG" alt=""  width="50%" height="50%" style="margin-left: 20%; margin-top:5%">
+    			<br><br><br>
     			<img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/CATAPP_Pres.jpg" alt=""  width="50%" height="50%" style="margin-left: 20%;">
     		</div>
     		<div class="row">

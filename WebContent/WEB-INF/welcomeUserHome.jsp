@@ -124,9 +124,7 @@ SELECT * from users where Email = "<%=Email%>";
 				
 						<h4 style="font-family:'Tahoma';" align="center">From ${result.rows[0].supervisor_name} group at ${result.rows[0].institution}. </h4>
 <br>
-						<img src="/CAT-APP-PROJECT/resources/images/Portrait.jpg" class="img-responsive"  width ="150" height ="150"  style="margin-top:-85px; margin-right:20px;" align="right">
-						
-						
+										
 						<!-- <h3>Use <strong>Download</strong> and <strong>Upload</strong> button to manage files related to a project.</h3>
 		 -->
                     </div>
