@@ -36,22 +36,20 @@ public class UserManagementServlet extends HttpServlet {
     }
 
     
-    
-    
-    
-    
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// PrintWriter out = response.getWriter();
 		// out.println("DogName_Servlet.java: Hello Java!");
 		
-		String received_value = request.getParameter("Email");	// receiving the post value
-		request.setAttribute("Email", received_value);			// submit vlue to following page:
+		String received_value = request.getParameter("what");	// receiving the post value
+		request.setAttribute("what", received_value);			// submit vlue to following page:
 		
-		
+		String received_Email = request.getParameter("Email");	// receiving the post value
+		request.setAttribute("Email", received_Email);			// submit vlue to following page:
 		
 		String email="test_user2@tamu.edu"; 
 	    Connection lConn = new DBConnection().getConnection();
@@ -63,12 +61,7 @@ public class UserManagementServlet extends HttpServlet {
       	HttpSession session=request.getSession();  
 			session.setAttribute("email",email);
 			session.setAttribute("user", lUser);
-			User lUserToSave = new User();
-			lUserToSave.setEntityId(lUser.getEntityId());
-			lUserToSave.find(lConn, lUserToSave);
-			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-			lUserToSave.setLast_login_time(timestamp);
-			lUserToSave.save(lConn, lUserToSave);
+
 		
 		// request.getRequestDispatcher("/WEB-INF/UserManagement.jsp").include(request, response);
 		getServletContext().getRequestDispatcher("/WEB-INF/UserManagement.jsp").forward(request, response);
@@ -87,10 +80,12 @@ public class UserManagementServlet extends HttpServlet {
 		
 		try{
 			
-			String query_string = "select entity_id, email, first_name, last_name, password, approved, is_admin, supervisor_name, institution, last_login_time from users where email='test_user1@tamu.edu'";
-			// System.out.println("Hello World: " + lBuilder.toString());					
-			StringBuilder lBuilder = new StringBuilder("select a.entity_id,a.email,a.first_name,a.last_name,a.password,a.approved,a.is_admin,a.supervisor_name,a.institution,a.last_login_time from users a where a.email=? ");
-			lBuilder.append(" and a.is_active='Y' and a.rowstate!=-1");						 
+			String query_string = "select entity_id, email, first_name, last_name, password, approved, "
+			 	+ "is_admin, supervisor_name, institution, last_login_time from users where email='"
+				+ pEmail + "'";
+			// System.out.println("Hello World: " + query_string);	
+			
+			// String query_string = "select * from users where email='" + pEmail + "'";			 
 									 
 			lPstmnt = pConnection.prepareStatement(query_string);
 			// lPstmnt.setString(1, pEmail);
@@ -106,13 +101,8 @@ public class UserManagementServlet extends HttpServlet {
 				lUser.setIs_admin(lRst.getString(7));
 				lUser.setSupervisorname(lRst.getString(8));
 				lUser.setInstitution(lRst.getString(9));
-				lUser.setLoggedBy(lRst.getLong(1));
-				if(lRst.getTimestamp(10)!=null){
-					lUser.setLast_login_time(lRst.getTimestamp(10));
-				}
-				
-			}
-			
+				lUser.setLoggedBy(lRst.getLong(10));
+				}	
 			
 		}catch(Exception e){
 			LOGGER.error("Error Occured while fetching user details", e);

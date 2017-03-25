@@ -20,8 +20,15 @@
 </head>
 <body>
 
-UU:
-<% String Email2 =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>  
+UU:"${what}""${Email}"
+<% 
+String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); 
+String Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); 
+String Email2 =((User)request.getSession().getAttribute("user")).getEmail().toString(); 
+String Approved =((User)request.getSession().getAttribute("user")).getApproved().toString(); 
+String Supervisorname =((User)request.getSession().getAttribute("user")).getSupervisorname().toString(); 
+
+%>  
 
 <%=Email2%>  
 
@@ -37,7 +44,7 @@ UU:
      user="root"  password="vibscatapp"/>
  
 <sql:query dataSource="${snapshot}" var="result">
-SELECT * from users where Email = "<%=Email%>";
+SELECT * from users where Email = "${Email}";
 </sql:query>
 
 <sql:query dataSource="${snapshot}" var="answers_result">
@@ -70,9 +77,6 @@ SELECT * from security_questions;
     	<h3 style="text-align: center;" class = "text-danger"><b>
     	Authorization and Password Reset</b></h2><br>
     	
-    	${result.rows[0].Password}<br></br>
-    	<%= Login.generateHash("PWD" + "test_user2") %>
-    	
     	
     	<form action="${pageContext.request.contextPath}/ManageAction" Mehtod="post">
       		<input type="hidden" name="Email" value="${result.rows[0].Email}">
@@ -93,7 +97,7 @@ SELECT * from security_questions;
     		<b>Repeat Password: </b><input name="Password_2" ></input><p></p>
     		
     		<b>Phone Number: </b><c:out value="${result.rows[0].Phone_Number}"/><p></p>
-    		<b>E-mail address: </b><c:out value="${result.rows[0].Email}"/><p></p>
+    		<b>E-mail address: </b><c:out value="<%=Email2%>"/><p></p>
     		<b>Supervisor Username: </b><c:out value="${result.rows[0].Supervisor_ID}"/><p></p>
     		<b>Supervisor Name: </b><c:out value="${result.rows[0].Supervisor_name}"/> <p></p>
     		<b>Supervisor Phone number: </b><c:out value="${result.rows[0].Supervisor_phone}"/><p></p>

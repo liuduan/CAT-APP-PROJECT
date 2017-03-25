@@ -22,6 +22,18 @@
 <body style="background-color: Azure">
 <jsp:directive.include file="HeaderAdmin.jsp" />
 
+<br></br><br></br>
+<form action="${pageContext.request.contextPath}/UserManagement" Mehtod="POST">
+					<input type="hidden" name="what" value="Hello">
+					<input type="submit" class="btn btn-primary" value ="test post"></input>
+					</form>
+
+
+
+
+
+
+
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"

@@ -21,27 +21,13 @@
  
     	
       	<ul class="nav navbar-nav">
-        	<li class="active">
-        		<a href="${pageContext.request.contextPath}">
-        			<span class="glyphicon glyphicon-home"></span> Home</a></li>
         	<li><a href="${pageContext.request.contextPath}/BackToHomeServlet">
         			<span class="glyphicon glyphicon-home"></span> User Home</a></li>
-        	<li><a href="${pageContext.request.contextPath}/CatAppDownloadPageServlet">
-        		<span class = "glyphicon glyphicon-download-alt"></span> Download </a></li>
-        	<li><a href="${pageContext.request.contextPath}/UploadServlet">
-        		<span class = "glyphicon glyphicon-upload"></span> Upload </a></li>
         </ul>
     	<ul class="nav navbar-nav navbar-right">
             <li id="Contact" >
                	<a href="${pageContext.request.contextPath}">
-               		<span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-        	<li id="Contact" >
-               	<a href="${pageContext.request.contextPath}">
-               		<span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
-               		
-        	<li><a href="${pageContext.request.contextPath}">
-        		<span class="glyphicon glyphicon-info-sign"></span> About</a></li>
- 
+               		<span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
       	</ul>
     	
  	</div><!-- end of class = container-fluid -->
