@@ -51,7 +51,7 @@ public class UserManagementServlet extends HttpServlet {
 		String received_Email = request.getParameter("Email");	// receiving the post value
 		request.setAttribute("Email", received_Email);			// submit vlue to following page:
 		
-		String email="test_user2@tamu.edu"; 
+		String email= received_Email; 
 	    Connection lConn = new DBConnection().getConnection();
 		
 		
@@ -81,8 +81,9 @@ public class UserManagementServlet extends HttpServlet {
 		try{
 			
 			String query_string = "select entity_id, email, first_name, last_name, password, approved, "
-			 	+ "is_admin, supervisor_name, institution, last_login_time from users where email='"
-				+ pEmail + "'";
+			 	+ "is_admin, supervisor_name, Institution, last_login_time, Phone_Number, supervisor_phone, "
+			 	+ "Supervisor_Email"
+				+ "	 from users where email='" + pEmail + "'";
 			// System.out.println("Hello World: " + query_string);	
 			
 			// String query_string = "select * from users where email='" + pEmail + "'";			 
@@ -102,6 +103,9 @@ public class UserManagementServlet extends HttpServlet {
 				lUser.setSupervisorname(lRst.getString(8));
 				lUser.setInstitution(lRst.getString(9));
 				lUser.setLoggedBy(lRst.getLong(10));
+				lUser.setPhone_number(lRst.getString(11));
+				lUser.setSupervisorphone(lRst.getString(12));
+				lUser.setSupervisoremail(lRst.getString(13));
 				}	
 			
 		}catch(Exception e){

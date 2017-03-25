@@ -27,11 +27,13 @@ String Last_name =((User)request.getSession().getAttribute("user")).getLast_name
 String Email2 =((User)request.getSession().getAttribute("user")).getEmail().toString(); 
 String Approved =((User)request.getSession().getAttribute("user")).getApproved().toString(); 
 String Supervisorname =((User)request.getSession().getAttribute("user")).getSupervisorname().toString(); 
-
+String Phone_number =((User)request.getSession().getAttribute("user")).getPhone_number().toString(); 
+String Institution =((User)request.getSession().getAttribute("user")).getInstitution().toString(); 
+String Supervisorphone =((User)request.getSession().getAttribute("user")).getSupervisorphone().toString(); 
+String Supervisoremail =((User)request.getSession().getAttribute("user")).getSupervisoremail().toString(); 
 %>  
 
-<%=Email2%>  
-
+  
 <%
 	String Email = (String) request.getAttribute("Email");	// receiving value from servlet
 	
@@ -77,12 +79,12 @@ SELECT * from security_questions;
     	<h3 style="text-align: center;" class = "text-danger"><b>
     	Authorization and Password Reset</b></h2><br>
     	
-    	
+    	<c:set var="Approved" scope = "session" value = '<%=Approved%>' />
     	<form action="${pageContext.request.contextPath}/ManageAction" Mehtod="post">
       		<input type="hidden" name="Email" value="${result.rows[0].Email}">
-    		<b>Name: <span class="text-primary">${result.rows[0].First_name} ${result.rows[0].Last_name}</span></b><p></p>
+    		<b>Name: <span class="text-primary"><%=First_name%> <%=Last_name%> </span></b><p></p>
     		<c:choose>
-    			<c:when test="${result.rows[0].Approved == 'Y'}">
+    			<c:when test="${Approved == 'Y'}">
         			<c:set var="checked" scope="session" value="checked"/> 
     			</c:when>    
     			<c:otherwise>
@@ -95,13 +97,12 @@ SELECT * from security_questions;
 			
     		<b>New Password: </b><input name="Passowrd_1" ></input> <br></br>
     		<b>Repeat Password: </b><input name="Password_2" ></input><p></p>
-    		
-    		<b>Phone Number: </b><c:out value="${result.rows[0].Phone_Number}"/><p></p>
-    		<b>E-mail address: </b><c:out value="<%=Email2%>"/><p></p>
-    		<b>Supervisor Username: </b><c:out value="${result.rows[0].Supervisor_ID}"/><p></p>
-    		<b>Supervisor Name: </b><c:out value="${result.rows[0].Supervisor_name}"/> <p></p>
-    		<b>Supervisor Phone number: </b><c:out value="${result.rows[0].Supervisor_phone}"/><p></p>
-    		<b>Supervisor Email: </b><c:out value="${result.rows[0].Supervisor_Email}"/><p></p><br>
+    		<b>Institution: </b> <%=Institution %><p></p>
+    		<b>Phone Number: </b> <%=Phone_number %><p></p>
+    		<b>E-mail address: </b><%=Email2%><p></p>
+    		<b>Supervisor Name: </b><%=Supervisorname%> <p></p>
+    		<b>Supervisor Phone number: </b><%=Supervisorphone%> <p></p>
+    		<b>Supervisor Email: </b><%=Supervisoremail%> <p></p><br></br>
 
   		
       		
