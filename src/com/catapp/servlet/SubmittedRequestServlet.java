@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 import com.catapp.action.Login;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;  
+
 @WebServlet(value="/SubmittedRequestServlet")
 public class SubmittedRequestServlet extends HttpServlet{
 	private static final Logger LOGGER = Logger.getLogger(SubmittedRequestServlet	.class);

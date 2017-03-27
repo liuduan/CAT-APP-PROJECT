@@ -23,7 +23,7 @@
 <jsp:directive.include file="HeaderAdmin.jsp" />
 
 <br></br><br></br>
-<form action="${pageContext.request.contextPath}/UserManagement" Mehtod="POST">
+<form action="${pageContext.request.contextPath}/UserManagement" method="POST">
 					<input type="hidden" name="what" value="Hello">
 					<input type="submit" class="btn btn-primary" value ="test post"></input>
 					</form>
@@ -86,7 +86,7 @@ SELECT * from users;
    				<td><c:out value="${row.Supervisor_ID}"/></td>
    				<td><c:out value="${row.Supervisor_Name}" /></td>
    				<td><c:out value="${row.Institution}"/></td>
-   				<td><form action="${pageContext.request.contextPath}/UserManagement" Mehtod="post">
+   				<td><form action="${pageContext.request.contextPath}/UserManagement" method="POST">
 					<input type="hidden" name="Email" value="<c:out value="${row.Email}"/>">
 					<input type="submit" class="btn btn-primary" value ="Manage"></input>
 					</form></td>
