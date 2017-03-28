@@ -49,8 +49,9 @@ public class ManageActionServlet extends HttpServlet {
 		
 		
 		PrintWriter out = response.getWriter();
-		out.println("DogName_Servlet.java: Hello Java!");
-		out.println(received_Authorization);
+		System.out.println("DogName_Servlet.java: Hello Java!");
+		
+		System.out.println(received_Authorization);
 		
 		request.setAttribute("Email", received_email);			// submit vlue to following page:
 		request.setAttribute("Authorization", received_Authorization);			// submit vlue to following page:
@@ -60,8 +61,28 @@ public class ManageActionServlet extends HttpServlet {
 		
 		
 		Connection lConn = new DBConnection().getConnection();
-		String update_query = "update catapp.users set Phone_Number = '979-123-4566'  where Email = 'admin@test.com'";
+		String update_query = "";
+		String Yes_authorizing = "Yes_authorizing";
+		if(received_Authorization != null && received_Authorization.equals("Yes_authorizing")){
+			System.out.println("\nHello World:: " + received_Authorization);	
+			update_query = "update catapp.users set Approved = 'Y'  where Email = '" + 
+					received_email + "'";
+			if(received_Change_password!=null && received_Change_password.equals("Change_password")){
+				update_query = "update catapp.users set Approved = 'Y', Password = '" +
+						hashed_password + "' where Email = '" + received_email + "'";
+			}
+		}else{update_query = "update catapp.users set Approved = 'N'  where Email = '" + 
+				received_email + "'";
+				if(received_Change_password!=null && received_Change_password.equals("Change_password")){
+					update_query = "update catapp.users set Approved = 'Y', Password = '" +
+					hashed_password + "' where Email = '" + received_email + "'";
+				}}
+		System.out.println("\nHello World: " + received_Change_password);	
+		System.out.println("\nHello World: " + update_query);	
+		System.out.println("Received_authorization: " + received_Authorization);	
+		
 		PreparedStatement lPst;
+		
 		try {
 			lPst = lConn.prepareStatement(update_query);
 			lPst.executeUpdate(); 
@@ -80,7 +101,7 @@ public class ManageActionServlet extends HttpServlet {
 				}
 		}
 		
-		getServletContext().getRequestDispatcher("/WEB-INF/ManageAction.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
 	}
 
 	/**

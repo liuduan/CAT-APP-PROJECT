@@ -20,7 +20,6 @@
 </head>
 <body>
 
-UU:"${what}""${Email}"
 <% 
 String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); 
 String Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); 
@@ -80,7 +79,7 @@ SELECT * from security_questions;
     	Authorization and Password Reset</b></h2><br>
     	
     	<c:set var="Approved" scope = "session" value = '<%=Approved%>' />
-    	<form action="${pageContext.request.contextPath}/ManageAction" Mehtod="post">
+    	<form action="${pageContext.request.contextPath}/ManageAction" Method="POST">
       		<input type="hidden" name="Email" value="${result.rows[0].Email}">
     		<b>Name: <span class="text-primary"><%=First_name%> <%=Last_name%> </span></b><p></p>
     		<c:choose>
