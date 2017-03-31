@@ -27,7 +27,7 @@
 </head>
 
 <body>
-<jsp:directive.include file="Header.jsp" />
+<%-- <jsp:directive.include file="header.jsp" />--%>
     <!-- Navigation -->
     <div style="text-align: center;">
     <%

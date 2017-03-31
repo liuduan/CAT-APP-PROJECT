@@ -16,7 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body style="background-color: Azure">
-<jsp:directive.include file="Header.jsp" />
+<jsp:directive.include file="header.jsp" />
 
 <%
 	String Email = (String) request.getAttribute("Email");	// receiving value from servlet

@@ -69,7 +69,7 @@
     }
     
     </script>
-    <jsp:directive.include file="Header.jsp" />
+    <jsp:directive.include file="header.jsp" />
 		<!-- 	<div align="right"><a href = "/database_project/Protected/ID_home">
 		<img src="/database_project/scripts/images/MB__home.png"/></a>&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</div> -->
 		<!-- Top menu -->

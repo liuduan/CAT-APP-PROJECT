@@ -30,8 +30,8 @@
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from users;
 </sql:query>
-<c:set var="tr_color" value="${['', 'success','danger','info', 'warning', 'active']}" scope="application" />
-
+<%-- <c:set var="tr_color" value="${['', 'success','danger','info', 'warning', 'active']}" scope="application" /> --%>
+<c:set var="tr_color" value="${''}" scope="application" />
 <div class="container">
  	<br><br><br><br>
  	
@@ -64,10 +64,18 @@ SELECT * from users;
         <c:set var="i" scope="session" value="${1}"/>
     
       	<c:forEach var="row" items="${result.rows}">  
-    		<c:if test="${i > 5}">
-   				<c:set var="i" scope="session" value="${0}"/>
+    		<c:if test="${i > 6}">
+   				<c:set var="i" scope="session" value="${1}"/>
 			</c:if>
-			<tr class='<c:out value="${tr_color[i]}" />'>
+			<c:choose>
+				<c:when test="${i == '1'}"><c:set var="tr_color" scope="application" value=""/></c:when>
+				<c:when test="${i == '2'}"><c:set var="tr_color" scope="application" value="success"/></c:when>
+				<c:when test="${i == '3'}"><c:set var="tr_color" scope="application" value="danger"/></c:when>
+				<c:when test="${i == '4'}"><c:set var="tr_color" scope="application" value="info"/></c:when>
+				<c:when test="${i == '5'}"><c:set var="tr_color" scope="application" value="warning"/></c:when>
+				<c:when test="${i == '6'}"><c:set var="tr_color" scope="application" value="active"/></c:when>
+    		</c:choose>
+			<tr class='<c:out value="${tr_color}" />'>
    				<td class = "user_id"> <c:out value="${row.Email}"/> </td>
    				<td><c:out value="${row.Approved}"/></td>
    				<td><c:out value="${row.First_Name} ${row.Last_Name}" /></td>

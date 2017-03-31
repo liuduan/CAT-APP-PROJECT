@@ -92,7 +92,7 @@ a:active {
 
 <body style="background-color: Azure">
 
-<jsp:directive.include file="Header.jsp" />
+<jsp:directive.include file="header.jsp" />
 <div class="container-2" style = "min-height: 200px; width: 80%; 
     margin: auto; margin-top: 100px; padding: 40px; padding-top: 25px;  
 -webkit-box-shadow: 0 0 6px 4px black;

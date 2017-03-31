@@ -46,12 +46,8 @@ public class ManageActionServlet extends HttpServlet {
 		String received_Password_2 = request.getParameter("Password_2");			// receiving the post value
 		String hashed_password = Login.generateHash("PWD" + received_Password_2);			// receiving the post value
 		
-		
-		
 		PrintWriter out = response.getWriter();
 		System.out.println("DogName_Servlet.java: Hello Java!");
-		
-		System.out.println(received_Authorization);
 		
 		request.setAttribute("Email", received_email);			// submit vlue to following page:
 		request.setAttribute("Authorization", received_Authorization);			// submit vlue to following page:
@@ -64,7 +60,6 @@ public class ManageActionServlet extends HttpServlet {
 		String update_query = "";
 		String Yes_authorizing = "Yes_authorizing";
 		if(received_Authorization != null && received_Authorization.equals("Yes_authorizing")){
-			System.out.println("\nHello World:: " + received_Authorization);	
 			update_query = "update catapp.users set Approved = 'Y'  where Email = '" + 
 					received_email + "'";
 			if(received_Change_password!=null && received_Change_password.equals("Change_password")){
@@ -78,8 +73,6 @@ public class ManageActionServlet extends HttpServlet {
 					hashed_password + "' where Email = '" + received_email + "'";
 				}}
 		System.out.println("\nHello World: " + received_Change_password);	
-		System.out.println("\nHello World: " + update_query);	
-		System.out.println("Received_authorization: " + received_Authorization);	
 		
 		PreparedStatement lPst;
 		
@@ -103,6 +96,8 @@ public class ManageActionServlet extends HttpServlet {
 		
 		getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
 	}
+	
+	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

@@ -33,7 +33,7 @@
 <style type="text/css">
   </style>
 <body>
-<jsp:directive.include file="Header.jsp" />
+<jsp:directive.include file="header.jsp" />
 
 <%-- 
 <% String Is_admin =((User)request.getSession().getAttribute("user")).getIs_admin().toString(); %>
@@ -43,7 +43,7 @@
 		<jsp:directive.include file="HeaderAdmin.jsp" />
     </c:when>    
     <c:otherwise>
-        <jsp:directive.include file="Header.jsp" />
+        <jsp:directive.include file="header.jsp" />
     </c:otherwise>
 </c:choose>
 --%>

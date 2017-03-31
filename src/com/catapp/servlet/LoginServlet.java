@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
 import com.catapp.action.Login;
@@ -28,47 +29,63 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
 	//private static final long serialVersionUID = 1L;
+	
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)  
 	                    throws ServletException, IOException {    
 		String email=request.getParameter("email").toString();  
 	    String password=request.getParameter("password");  
 	    Connection lConn = new DBConnection().getConnection();
+	    
+	    // BasicConfigurator.configure();
+	    
 	        
 	    try{
 	     	User lUser =new User();
         
 	      	lUser =fetchUserDetails(email, lConn);
+	      	System.out.println(email + ", email. \n\n");
+	      	
 	       	boolean lFlag =validateUsers(password, lUser.getPassword());
 	        	
 	       	if(lFlag){
+	       		System.out.println("lFlag is true.");
 	       		if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
 	        			
-	       			// System.out.println("It is Admin. \n\n");
+	       			System.out.println("It is approved.");
 	        			
 	       			HttpSession session=request.getSession();  
 	       			session.setAttribute("email",email);
 	       			session.setAttribute("user", lUser);
+	       			
+	       			System.out.println("After Session set..");
+        			
+        			/*
         			User lUserToSave = new User();
         			lUserToSave.setEntityId(lUser.getEntityId());
         			lUserToSave.find(lConn, lUserToSave);
         			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         			lUserToSave.setLast_login_time(timestamp);
         			lUserToSave.save(lConn, lUserToSave);
+        			*/
         			
         			request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
         				
 	        			
 	       		}else{
+	       			System.out.println("not approved yet.");
 	       			request.setAttribute("error","Your request is not approved yet.");
     	        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);          			
 	        		}
 	        }else{
+	        	System.out.println("Invalid Username or Password");
 	        	request.setAttribute("error","Invalid Username or Password");
 		       	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
 	        	}
 	        	
 	    }catch(Exception e){
+	    	System.out.println("Invalid Username or Password 2");
 	        request.setAttribute("error","Invalid Username or Password");
 	        request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
 	        LOGGER.error("Error Occured while validating user",e);
@@ -96,7 +113,7 @@ public class LoginServlet extends HttpServlet {
 			
 			
 		if(lStoredPassword.equals(lHashedPwd)){
-			System.out.println("They matches." + "\n\n");
+			System.out.println("They matche." + "\n\n");
 			lFlag=true;
 		}else{
 			lFlag=false;
@@ -109,11 +126,11 @@ public class LoginServlet extends HttpServlet {
 		PreparedStatement lPstmnt = null;
 		ResultSet lRst			  = null;
 		User lUser 				  = new User();
-			
+		System.out.println("in fetchUser...");
 		try{
 
-			StringBuilder lBuilder = new StringBuilder("select a.entity_id,a.email,a.first_name,a.last_name,a.password,a.approved,a.is_admin,a.supervisor_name,a.institution,a.last_login_time from users a where a.email=? ");
-			lBuilder.append(" and a.is_active='Y' and a.rowstate!=-1");
+			StringBuilder lBuilder = new StringBuilder("select entity_id, email, first_name, last_name, password, approved, is_admin, supervisor_name, institution, last_login_time from catapp.users where email=? ");
+			lBuilder.append(" and is_active='Y' and rowstate!=-1");
 				
 			lPstmnt = pConnection.prepareStatement(lBuilder.toString());
 			lPstmnt.setString(1, pEmail);

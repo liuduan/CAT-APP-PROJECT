@@ -43,6 +43,8 @@
 
 <body style="background-color: Azure">
 
+Hello
+
 <% String Email =((User)request.getSession().getAttribute("user")).getEmail().toString(); %>  
 <% String Is_admin =((User)request.getSession().getAttribute("user")).getIs_admin().toString(); %>
 
@@ -55,19 +57,20 @@
 SELECT * from users where Email = "<%=Email%>";
 </sql:query>
 
+
 <c:set var="Is_admin" scope="session" value="<%=Is_admin %>"/>
 <c:choose>
 	<c:when test="${Is_admin == 'Y'}">
 		<jsp:directive.include file="HeaderAdmin.jsp" />
     </c:when>    
     <c:otherwise>
-        <jsp:directive.include file="Header.jsp" />
+        <jsp:directive.include file="header.jsp" />
     </c:otherwise>
 </c:choose>
 
 
 
-
+ 
 
 
  <div id="wrapper">
@@ -111,25 +114,27 @@ SELECT * from users where Email = "<%=Email%>";
             </div>
 		
         </nav> -->
-        
+           
         <!-- /. NAV SIDE  -->
         <!-- <div id="page-wrapper"> -->
            
                 <div class="row">
                     <div class="col-md-12">
+                     
                         <% String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>
                         <% String Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); %>
-                        <br>
+                        
+                        <br>  
 						<h2 style="font-size:2.0em; font-family:'Tahoma';" align="center">Welcome <%=First_name %> <%=Last_name %> </h2>
 				
 						<h4 style="font-family:'Tahoma';" align="center">From ${result.rows[0].supervisor_name} group at ${result.rows[0].institution}. </h4>
 <br>
 										
 						<!-- <h3>Use <strong>Download</strong> and <strong>Upload</strong> button to manage files related to a project.</h3>
-		 -->
+		 
                     </div>
                 </div>
-                
+            
 						
                 
                 <!-- /. ROW  -->
@@ -198,6 +203,7 @@ SELECT * from users where Email = "<%=Email%>";
                     </div>
                 </div>
             </div>
+           
             <div class="col-md-3 col-sm-3">
                 <div class="panel panel-default text-center"  style=" border-radius: 25px;">
                     <div class="panel-heading"  style=" border-radius: 20px;">
@@ -272,5 +278,6 @@ SELECT * from users where Email = "<%=Email%>";
     <script src="/CAT-APP-PROJECT/resources/js/custom.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 </body>
 </html>
