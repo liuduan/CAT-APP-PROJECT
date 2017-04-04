@@ -71,11 +71,6 @@
     <servlet-class>com.catapp.servlet.SuccessServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-  
-  
-  
-  
-  
   <servlet-mapping>
     <servlet-name>SuccessServlet</servlet-name>
     <url-pattern>/Success</url-pattern>

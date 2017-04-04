@@ -466,8 +466,14 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				<hr class="colorgraph">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
-                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Request Access" 
-                        	style="margin-left: 50%">
+                        	<input type="submit" class="btn btn-lg btn-success btn-block" 
+                        		value="Request Access" style="margin-left: 50%">
+                      
+                        <p>
+							Click to email :
+								<a href="mailto:dliu@cvm.tamu.edu?Subject=Hello" target="_top">	
+								someone@mozilla.org</a>
+</p>
 					</div>
 					
 				</div>

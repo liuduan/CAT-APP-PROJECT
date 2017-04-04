@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.catapp.action.Login;
+import com.catapp.action.SendEmail;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;  
 
@@ -30,6 +31,7 @@ public class SubmittedRequestServlet extends HttpServlet{
 	response.setContentType("text/html");  
     //PrintWriter out=response.getWriter();
     saveUserToDB(request);
+    SendEmail.sendEmail("");
     request.getRequestDispatcher("/WEB-INF/requestSubmitted.jsp").include(request, response);
 	}
 	
