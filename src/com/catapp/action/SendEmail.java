@@ -47,4 +47,7 @@ public class SendEmail {
 	return null;
 	
 	}
+	public static void main (String [] args){
+		sendEmail();
+	}
 }

@@ -24,6 +24,7 @@
         			<span class="glyphicon glyphicon-home"></span> User Home</a></li>
         </ul>
     	<ul class="nav navbar-nav navbar-right">
+
             <li id="Contact" >
                	<a href="${pageContext.request.contextPath}">
                		<span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 

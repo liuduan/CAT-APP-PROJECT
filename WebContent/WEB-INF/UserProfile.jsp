@@ -22,11 +22,7 @@
 
 <% 
 String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); 
-String Last_name="";
-if(((User)request.getSession().getAttribute("user")).getLast_name()!=null){
-Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); 
-	
-}
+String Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); 
 String Email2 =((User)request.getSession().getAttribute("user")).getEmail().toString(); 
 String Approved =((User)request.getSession().getAttribute("user")).getApproved().toString(); 
 String Supervisorname =((User)request.getSession().getAttribute("user")).getSupervisorname().toString(); 

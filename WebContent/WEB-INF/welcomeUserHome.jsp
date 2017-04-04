@@ -70,7 +70,15 @@ SELECT * from users where Email = "<%=Email%>";
 
 
 
- 
+ <br><br><br>
+ <form id="my_form" action="${pageContext.request.contextPath}/Userprofile" method="POST">
+<!-- Your Form -->    
+
+ <input type="hidden" name="Email" value="<%=Email %>"> 
+<a href="javascript:{}" onclick="document.getElementById('my_form').submit(); return false;">
+<span class="glyphicon glyphicon-pencil"></span> Edit Profile</a>
+</form>
+
 
 
  <div id="wrapper">
