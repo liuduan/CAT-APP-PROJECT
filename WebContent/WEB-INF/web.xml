@@ -36,6 +36,12 @@
     <enabled>true</enabled>
   </servlet>
   <servlet>
+    <display-name>UserProfileServlet</display-name>
+    <servlet-name>UserProfileServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.UserProfileServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+  <servlet>
     <display-name>ViewDownloadServlet</display-name>
     <servlet-name>ViewDownloadServlet</servlet-name>
     <servlet-class>com.catapp.servlet.ViewDownloadServlet</servlet-class>
@@ -71,6 +77,8 @@
     <servlet-class>com.catapp.servlet.SuccessServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+  
+  
   <servlet-mapping>
     <servlet-name>SuccessServlet</servlet-name>
     <url-pattern>/Success</url-pattern>
@@ -82,6 +90,10 @@
   <servlet-mapping>
     <servlet-name>UserManagementServlet</servlet-name>
     <url-pattern>/UserManagement</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserProfileServlet</servlet-name>
+    <url-pattern>/UserProfile</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>

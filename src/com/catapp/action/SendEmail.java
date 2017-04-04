@@ -11,15 +11,16 @@ import javax.mail.internet.MimeMessage;
 
 public class SendEmail {
 	
-	public static Boolean sendEmail(String string) {  
-		final String senderEmail= "liuduan8@gmail.com";
-		final String password = "*******";
+	public static Boolean sendEmail() {  
+		final String senderEmail= "rusynLab@gmail.com";
+		final String password = "rusynLab123#";
 		
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.port", "587");
+		props.put("mail.smtp.port", 587);
+		props.put("mail.smtp.authentication", "plain");
 		
 		Session session = Session.getInstance(props,
 				new javax.mail.Authenticator(){
