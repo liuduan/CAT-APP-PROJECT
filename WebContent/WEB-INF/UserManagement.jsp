@@ -9,6 +9,7 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ page import="com.catapp.action.Login" %>
 <%@ page import="com.catapp.entity.User" %>
+<%@ page import="com.catapp.action.smallTools" %>
 
 
 
@@ -21,19 +22,15 @@
 <body>
 
 <% 
-String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); 
-String Last_name="";
-if(((User)request.getSession().getAttribute("user")).getLast_name()!=null){
-Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); 
-	
-}
-String Email2 =((User)request.getSession().getAttribute("user")).getEmail().toString(); 
-String Approved =((User)request.getSession().getAttribute("user")).getApproved().toString(); 
-String Supervisorname =((User)request.getSession().getAttribute("user")).getSupervisorname().toString(); 
-String Phone_number =((User)request.getSession().getAttribute("user")).getPhone_number().toString(); 
-String Institution =((User)request.getSession().getAttribute("user")).getInstitution().toString(); 
-String Supervisorphone =((User)request.getSession().getAttribute("user")).getSupervisorphone().toString(); 
-String Supervisoremail =((User)request.getSession().getAttribute("user")).getSupervisoremail().toString(); 
+String First_name = smallTools.safeString(((User)request.getSession().getAttribute("user")).getFirst_name()); 
+String Last_name = smallTools.safeString(((User)request.getSession().getAttribute("user")).getLast_name());
+String Email2 = smallTools.safeString(((User)request.getSession().getAttribute("user")).getEmail());
+String Approved = smallTools.safeString(((User)request.getSession().getAttribute("user")).getApproved());
+String Supervisorname = smallTools.safeString(((User)request.getSession().getAttribute("user")).getSupervisorname());
+String Phone_number = smallTools.safeString(((User)request.getSession().getAttribute("user")).getPhone_number());
+String Institution = smallTools.safeString(((User)request.getSession().getAttribute("user")).getInstitution());
+String Supervisorphone = smallTools.safeString(((User)request.getSession().getAttribute("user")).getSupervisorphone());
+String Supervisoremail = smallTools.safeString(((User)request.getSession().getAttribute("user")).getSupervisoremail());
 %>  
 
   

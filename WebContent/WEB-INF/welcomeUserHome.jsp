@@ -6,8 +6,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 
-
-
+<%@ page import="com.catapp.action.smallTools" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,11 +41,10 @@
 </head>
 
 <body style="background-color: Azure">
-
-Hello
-
-<% String Email =((User)request.getSession().getAttribute("user")).getEmail().toString(); %>  
-<% String Is_admin =((User)request.getSession().getAttribute("user")).getIs_admin().toString(); %>
+<% 
+String Email = smallTools.safeString(((User)request.getSession().getAttribute("user")).getEmail());
+String Is_admin = smallTools.safeString(((User)request.getSession().getAttribute("user")).getIs_admin());
+%>
 
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
@@ -71,13 +69,7 @@ SELECT * from users where Email = "<%=Email%>";
 
 
  <br><br><br>
- <form id="my_form" action="${pageContext.request.contextPath}/Userprofile" method="POST">
-<!-- Your Form -->    
 
- <input type="hidden" name="Email" value="<%=Email %>"> 
-<a href="javascript:{}" onclick="document.getElementById('my_form').submit(); return false;">
-<span class="glyphicon glyphicon-pencil"></span> Edit Profile</a>
-</form>
 
 
 

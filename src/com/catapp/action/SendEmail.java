@@ -10,7 +10,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendEmail {
-	
+	// take input of email id,subject,content//
 	public static Boolean sendEmail() {  
 		final String senderEmail= "rusynLab@gmail.com";
 		final String password = "rusynLab123#";

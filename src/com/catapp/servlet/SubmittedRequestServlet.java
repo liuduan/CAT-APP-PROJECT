@@ -31,7 +31,7 @@ public class SubmittedRequestServlet extends HttpServlet{
 	response.setContentType("text/html");  
     //PrintWriter out=response.getWriter();
     saveUserToDB(request);
-    // SendEmail.sendEmail();
+    SendEmail.sendEmail();
     request.getRequestDispatcher("/WEB-INF/requestSubmitted.jsp").include(request, response);
 	}
 	
