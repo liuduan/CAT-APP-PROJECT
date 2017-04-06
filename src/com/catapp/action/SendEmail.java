@@ -12,8 +12,8 @@ import javax.mail.internet.MimeMessage;
 public class SendEmail {
 	// take input of email id,subject,content//
 	public static Boolean sendEmail() {  
-		final String senderEmail= "rusynLab@gmail.com";
-		final String password = "rusynLab123#";
+		final String senderEmail= "fake.email.2017.00@gmail.com";
+		final String password = "Texas-A&M-2017";
 		
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
