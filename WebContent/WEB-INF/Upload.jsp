@@ -140,7 +140,15 @@
 				                    		
 											  
 											  <c:forEach var="cellline" items="${cell}">
+											  <c:choose>
+											  <c:when test="${cellline.key=='2'}">
     												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>> &nbsp;<b><c:out value="${cellline.value}"/></b><br><br>
+											   </c:when>
+											   <c:otherwise>
+											   <input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/> disabled> &nbsp;<b><c:out value="${cellline.value}"/></b><br><br>
+											   
+											   </c:otherwise>
+											   </c:choose>
 											  </c:forEach>
 				                 			<%String celllines=request.getParameter("celllines");%>
 				                 			<c:set var="cellLine" value="${celllines}" scope="session"  />
@@ -173,7 +181,14 @@
 				                        	<label class="sr-only" for="form-email">Assay Name</label>
 				                        	<select name="assaydata" id="assay">
     											<c:forEach var="assaynames" items="${assay}">
+    											<c:choose>
+    											<c:when test="${assaynames.key=='1' }">
 										        <option value="${assaynames.key}"> ${assaynames.value}</option>
+										        </c:when>
+										        <c:otherwise>
+										         <option value="${assaynames.key}" disabled> ${assaynames.value}</option>
+										        </c:otherwise>
+										        </c:choose>
 										    	</c:forEach>
 												</select>
 
@@ -251,10 +266,10 @@
 				                        </div>
 				                        <div class="form-group">
 											  <label class="sr-only" for="form-facebook">Select a Plate</label>
-											  <input type="radio" name="form-Plate" id="1"  value="1" checked>&nbsp;10x<br><br>
-											  <input type="radio" name="form-Plate" id="2"  value="2"> &nbsp;100x<br><br>
-											  <input type="radio" name="form-Plate" id="3"  value="3"> &nbsp;1000x <br><br>
-											  <input type="radio" name="form-Plate" id="4"  value="4"> &nbsp;10000x<br><br>
+											  <input type="radio" name="form-Plate" id="1"  value="1" checked>&nbsp;1x<br><br>
+											  <input type="radio" name="form-Plate" id="2"  value="2"> &nbsp;10x<br><br>
+											  <input type="radio" name="form-Plate" id="3"  value="3"> &nbsp;100x <br><br>
+											  <input type="radio" name="form-Plate" id="4"  value="4"> &nbsp;1000x<br><br>
 				                        </div>
 										
 				                      

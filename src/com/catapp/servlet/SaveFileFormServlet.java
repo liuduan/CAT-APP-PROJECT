@@ -17,9 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.log4j.Logger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.catapp.action.ChemData;
+import com.catapp.action.SaveExceltoDB;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.ChemFile;
 import com.catapp.entity.User;
@@ -30,7 +32,7 @@ import com.catapp.entity.User;
 @WebServlet("/SaveFileFormServlet")
 public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final String UPLOAD_DIRECTORY = "C:/Users/ssingh/serverfiles";
+	private final String UPLOAD_DIRECTORY = "C:/Users/CATAPP/serverfiles";
 	public static final Logger logger = Logger.getLogger(SaveFileFormServlet.class.toString());
        
     /**
@@ -55,6 +57,7 @@ public class SaveFileFormServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		logger.info("File Save Started");
 		String lCellLine  = request.getParameter("celllines");
 		String lPhenoType = request.getParameter("phenotypes");
 		String lAssayData = request.getParameter("assaydata");
@@ -73,6 +76,7 @@ public class SaveFileFormServlet extends HttpServlet {
 				
 				List<FileItem> multiparts = new ServletFileUpload( new DiskFileItemFactory()).parseRequest(request);
 				for(FileItem item : multiparts){
+					logger.info("Inside For Loop");
 					if(item.isFormField()){
 						if(item.getFieldName().equals("celllines")){
 							lCellLine=item.getString();
@@ -136,6 +140,19 @@ public class SaveFileFormServlet extends HttpServlet {
 			//User lUser =new User();
 			//lUser.setEntityId(1l);
 			lFile.save(lConn, lUser);
+			
+			///// ************************* Excel Save in DB *************************************//////
+			
+			String lReturnResponse=new SaveExceltoDB().saveExcelDataToDb(lFile, lConn);
+			if(lReturnResponse=="success"){
+				
+			}else{
+				lConn.rollback();
+			}
+			
+		   ///// ************************* Excel Save in DB *************************************//////
+			
+			
 			if(lFile.getEntityId()!=null){
 				HashMap<Long,String>lPhenoMap =  new ChemData().getNamesofInputs("phenotypes",lConn);
 				HashMap<Long,String>lAssayMap =  new ChemData().getNamesofInputs("assaynames",lConn);
@@ -161,7 +178,7 @@ public class SaveFileFormServlet extends HttpServlet {
 			}
 			///// *************************** Data save ended ************************************////
 		}catch(Exception e){
-			logger.error("Error Occured while uploading the file.",e);
+			logger.log(Level.INFO,"Error Occured while uploading the file.",e);
 		}
 		
 		finally{
@@ -169,7 +186,7 @@ public class SaveFileFormServlet extends HttpServlet {
 				
 				lConn.close();
 			}catch (Exception e1){
-				logger.error("Error Occured while closing the connection.",e1);
+				logger.log(Level.INFO,"Error Occured while closing the connection.",e1);
 			}
 		}
 		

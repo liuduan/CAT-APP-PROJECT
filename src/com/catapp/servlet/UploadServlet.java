@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
@@ -66,8 +67,15 @@ public class UploadServlet extends HttpServlet {
 			request.setAttribute("assay", lAssayMap);
 			request.setAttribute("cell", lCellMap);
 			request.setAttribute("time", lTimMap);
+			HttpSession session=request.getSession(false);
+			if(session!=null){
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp");
 			rd.forward(request, response);
+			}
+			else{
+				request.setAttribute("error","Current session is lost. Please log in");
+				request.getRequestDispatcher("/LoadDataForHome").include(request, response);  
+				}
 			
 		}catch(Exception e){
 			logger.error("Error Occured while dispatching the request",e);

@@ -65,9 +65,18 @@
                                 <a href="#"><label><input type="checkbox" id="CL" name ="CL" value="1">Hepatocytes</label></a>
                             </li> -->
                               <c:forEach var="cellline" items="${cell}">
+                              <c:choose>
+                              <c:when test="${cellline.key=='2'}">
                          							<li >
     												<a href="#"><label><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/>> &nbsp;<c:out value="${cellline.value}"/></label></a>
 											 		</li>
+							 </c:when>
+							 <c:otherwise>
+    							<li >
+    												<a href="#"><label><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/> disabled> &nbsp;<c:out value="${cellline.value}"/></label></a>
+											 		</li>
+							 </c:otherwise>
+							</c:choose>
 						</c:forEach>
                         </ul>
                     </li>
@@ -75,9 +84,19 @@
                         <a href="#">Assay Name</a>
 						<ul class="nav nav-second-level">
                              <c:forEach var="assaynames" items="${assay}">
+                             <c:choose>
+                             <c:when test="${assaynames.key=='1'}">
                          							<li >
-    												<a href="#"><label><input type="checkbox" name= "assaynames" id= "assaynames" value= <c:out value="${assaynames.key}"/>> &nbsp;<c:out value="${assaynames.value}"/></label></a>
+    												<a href="#"><label><input type="checkbox" name= "assaynames" id= "assaynames" value= <c:out value="${assaynames.key}"/>  > &nbsp;<c:out value="${assaynames.value}"/></label></a>
 											 		</li>
+						
+						    </c:when>
+						    <c:otherwise>
+						    <li >
+    												<a href="#"><label><input type="checkbox" name= "assaynames" id= "assaynames" value= <c:out value="${assaynames.key}"/> disabled  > &nbsp;<c:out value="${assaynames.value}"/></label></a>
+											 		</li>
+						    </c:otherwise>
+						 </c:choose>
 						</c:forEach>
                      
                         </ul>
@@ -99,16 +118,16 @@
                         <a href="#">Plate Concentration</a>
 						<ul class="nav nav-second-level">
                             <li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id="pd" value="1">&nbsp;10x</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id="pd" value="1">&nbsp;1x</label></a>
                             </li>
                             <li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="2">&nbsp;100x</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="2">&nbsp;10x</label></a>
                             </li>
                             <li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="3">&nbsp;1000x</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="3">&nbsp;100x</label></a>
                             </li>
 							<li>
-                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="4">&nbsp;10000x</label></a>
+                                <a href="#"><label><input type="checkbox" name ="pd" id= "pd" value="4">&nbsp;1000x</label></a>
                             </li>
                         </ul>
                     </li>

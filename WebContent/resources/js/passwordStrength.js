@@ -30,6 +30,8 @@ $(document).ready(function()
 		//if password contains both lower and uppercase characters, increase strength value
 		if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/))  strength += 1
 		
+		
+		
 		//if it has numbers and characters, increase strength value
 		if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/))  strength += 1 
 		

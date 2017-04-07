@@ -49,5 +49,10 @@ public class Login {
 		///Logic for save
 	}
 	
-
+	public static void main(String [] args){
+		String lPwd=generateHash("PWD"+"Tata@1234");
+		String lPwd1="31d01e58afdaae8bfabc0156c0ba64cc590b37a6";
+		logger.info(lPwd);
+		logger.info(lPwd1);
+	}
 }

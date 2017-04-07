@@ -19,9 +19,24 @@ public class BackToHomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {  
 		response.setContentType("text/html");  
-		HttpSession session=request.getSession();
-		session.getAttribute("user");
+		HttpSession session=request.getSession(false);
+		PrintWriter out = response.getWriter();
+		//session.getAttribute("user");
         //PrintWriter out=response.getWriter();
-	      request.getServletContext().getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").forward(request, response);}
+		System.out.println("Session is"+session);
+		try{
+			if(session!=null){
+				request.getServletContext().getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").forward(request, response);
+			}
+		
+		else{
+			request.setAttribute("error","Current session is lost. Please log in");
+			request.getRequestDispatcher("/LoadDataForHome").include(request, response);  
+			}
+		}	
+		finally{
+			out.close();
+		}
+	      }
 		
 }

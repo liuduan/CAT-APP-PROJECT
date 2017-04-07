@@ -133,7 +133,7 @@ public abstract class BaseEntity implements IBaseEntity
 			}
 			catch (Exception pException1)
 			{
-				logger.getLogger("save : Disconnect Failed", pException1.toString());
+				Logger.getLogger("save : Disconnect Failed", pException1.toString());
 			}
 		}
 	}
@@ -433,16 +433,21 @@ public abstract class BaseEntity implements IBaseEntity
 		// calling method
 		try
 		{
+			System.out.println("Start Of Connection.");
+			System.out.println(pConnection);
+			System.out.println("End Of Connection.");
+            
 			lPreparedStatement = pConnection.prepareStatement(pSQLStatement);
+			logger.info("Not in Catch Block");
 		}
 		catch (SQLException pException1)
 		{
-			logger.log(Level.INFO,"Error in Method --> setRowstate", pException1);
+			logger.log(Level.INFO,"New Error in Method --> setRowstate", pException1);
 			
 		}
 		catch (Exception pException2)
 		{
-			logger.log(Level.INFO,"Error in Method --> setRowstate", pException2);
+			logger.log(Level.INFO,"New Error in Method --> setRowstate", pException2);
 		}
 		return lPreparedStatement;
 	}

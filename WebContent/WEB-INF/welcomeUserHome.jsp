@@ -117,7 +117,7 @@
             <div style="margin-left:115px"class="col-md-3 col-sm-3">
                 <div class="panel panel-default text-center"  style=" border-radius: 25px;">
                     <div class="panel-heading"  style=" border-radius: 20px;">
-                        <img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle "  width ="150" height ="150" "/>
+                        <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle "  width ="150" height ="150" "/>
     			
                     </div>
                     <div class="panel-body">
@@ -140,7 +140,7 @@
             <div class="col-md-3 col-sm-3" >
                 <div class="panel panel-default text-center" style=" border-radius: 25px;">
                     <div class="panel-heading" style=" border-radius: 20px;" >
-                       <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle " width ="150" height ="150" "/>
+                       <img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle " width ="150" height ="150" "/>
     				
                     </div>
                     <div class="panel-body">

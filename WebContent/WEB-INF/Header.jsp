@@ -19,8 +19,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                 <form action="BackToMainServlet" method="get">
-                 <a class="navbar-brand" href="">CAT-APP</a>
+                 <form action="" method="get">
+                 <a href="BackToMainServlet" class="navbar-brand" >CAT-APP</a>
             	</form>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,7 +32,7 @@
                         <a href="#about">About us</a>
                     </li>
                     <li>
-                        <a href="#contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
+                        <a href="#contact"> Contact</a></li>
                     
                 </ul>
                  
