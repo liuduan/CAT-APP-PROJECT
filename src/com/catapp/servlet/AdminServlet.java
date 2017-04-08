@@ -1,6 +1,8 @@
 package com.catapp.servlet;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,6 +19,8 @@ import org.apache.log4j.Logger;
 
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;
+import com.catapp.action.shellCommands;;
+
 
 /**
  * Servlet implementation class AdminServlet
@@ -25,7 +29,6 @@ import com.catapp.entity.User;
 public class AdminServlet extends HttpServlet {
 	private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
 	
-
 	public User fetchUserDetails(String pEmail, Connection pConnection){
 		
 		PreparedStatement lPstmnt = null;
@@ -93,6 +96,12 @@ public class AdminServlet extends HttpServlet {
       	
       	HttpSession session=request.getSession();  
       	session.setAttribute("all_users", lUser);
+      	
+
+    	// shellCommands.main("copy C:\\2-Installers\\Clock\\Clock-image.ico C:\\2-Installers\\Clock\\Clock-image2.ico ");
+    	// System.out.println("ping");
+    	
+      	// back to normal
 
 		getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
 		// This line is go to "/WEB-INF/Adminpage.jsp" with all the parameters.
@@ -103,6 +112,11 @@ public class AdminServlet extends HttpServlet {
 	
 	
 	
+	private void shellCommands(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */

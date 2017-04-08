@@ -332,11 +332,11 @@
 		                            <div class="form-bottom">
 				                       <div class="form-group">
 				                       		<label class="sr-only" for="form-facebook">Desc:</label>
-				                        	<input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)"><br><br><br>
-				                    		<label class="sr-only" for="form-facebook">Upload File:</label>
-				                        	<input type="file"  id="uploadfile" name="file" size="40">
+				                        	<input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)">..<br><br><br>
+				                    		<label class="sr-only" for="form-facebook">Upload File:.</label>
+				                        	<input type="file"  id="uploadfile" name="file" size="40">,,
 				                        	
-				                        </div>
+				                        </div>/
 										
 										<button type="button" class="btn btn-previous">Previous</button>
 				                        <button type="submit" name="sequencesave"  class="btn btn-submit">Upload</button>
