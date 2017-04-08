@@ -128,7 +128,9 @@ function searchFiles(){
 		        		if(lLoopCount>8){
 		        			lTableBody=lTableBody+'<tr class="pager">'+'<td><a href="#">Next</a>&nbsp;&nbsp;<a href="#">Previous</a></td></tr>';
 		        		}
-		        		lTableBody=lTableBody+'<tr id="button">'+'<td><input type="submit" class="btn btn-lg btn-success btn-block" style="border-radius: 5px;" value="Download"></td>'+'</tr>';
+		        		lTableBody=lTableBody+'<tr id="button">'+'<td><input type="submit" class="btn btn-lg btn-success btn-block" name="download" style="border-radius: 5px;" value="Download"></td>';
+		        		lTableBody=lTableBody+'<td><input type="submit" class="btn btn-lg btn-success btn-block" name="json" style="border-radius: 5px;" value="Convert to JSON"></td>'+'</tr>';
+		        		lTableBody=lTableBody+'</tbody>'+'</table>'+'</form>';
 		        		lTableBody=lTableBody+'</tbody>'+'</table>'+'</form>';
 		        		
 		        		jQuery("#allFiles").html(lTableBody);

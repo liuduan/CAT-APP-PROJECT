@@ -160,7 +160,12 @@ SELECT * from users where Email = "<%=Email%>";
             <div style="margin-left:115px"class="col-md-3 col-sm-3">
                 <div class="panel panel-default text-center"  style=" border-radius: 25px;">
                     <div class="panel-heading"  style=" border-radius: 20px;">
+<<<<<<< HEAD
                         <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle " width ="150" height ="150" "/>
+=======
+                        <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle "  width ="150" height ="150" "/>
+    			
+>>>>>>> SS-Master/master
                     </div>
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">CAT-APP</h4>
@@ -182,9 +187,14 @@ SELECT * from users where Email = "<%=Email%>";
             <div class="col-md-3 col-sm-3" >
                 <div class="panel panel-default text-center" style=" border-radius: 25px;">
                     <div class="panel-heading" style=" border-radius: 20px;" >
+<<<<<<< HEAD
                        
     					<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle "  width ="150" height ="150" "/>
     			
+=======
+                       <img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle " width ="150" height ="150" "/>
+    				
+>>>>>>> SS-Master/master
                     </div>
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">ANALYTICAL</h4>

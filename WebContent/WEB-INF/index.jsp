@@ -212,21 +212,35 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
     
     	<div class="col-md-8 ">
     		<div class="row">
+<<<<<<< HEAD
     			<br><br><br>
     			<img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/CATAPP_Pres.jpg" alt=""  width="50%" height="50%" style="margin-left: 20%;">
+=======
+    		
+    			<img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/CATAPP_Pres.jpg" alt=""  width="30%" height="20%" style="margin-left: 30%; margin-top:5%">
+    		
+>>>>>>> SS-Master/master
     		</div>
     		<div class="row">
     		
     			<div  id="content" >
     			<div class="col-md-4 col-sm-6">
+<<<<<<< HEAD
     				<img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
     				
+=======
+    				<img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle "  width ="100" height ="100" style="margin-left: 9%;"/>
+>>>>>>> SS-Master/master
     			<h3 style="font-size:1.6em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"><span id="lblLrner">&nbsp;&nbsp;&nbsp;CAT-APP</span></h3>
     			<!-- <p><span id="lblLrnerTxt1">Collaborate with peers</span></p> -->
     			</div>	
     			
     			<div class="col-md-4 col-sm-6">
+<<<<<<< HEAD
     				<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle "  width ="100" height ="100" style="margin-left: 9%;"/>
+=======
+    				<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
+>>>>>>> SS-Master/master
     				<h3 style="font-size:1.6em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"><span id="lblLrner">&nbsp;&nbsp;ANALYTICAL</span></h3>
     				<!-- <p style="font-size: 1.2em; color:#999"><span id="lblLrnerTxt1">Analyze the Data</span></p> -->
     			</div>
@@ -334,14 +348,15 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form action="SubmittedRequestServlet" method="post" id="register">
+		<form action="SubmittedRequestServlet" method="post" id="register" data-toggle="validator" >
 			<fieldset>
 				<h2 align="center">REGISTER</h2>
+				<h3 align="center">(*) Marked fields are mandatory.</h3>
 				<hr class="colorgraph">
 				
 				
 					<div class="form-group">
-                    	<input type="text" id="first_name" name="first_name" class="form-control input-lg" placeholder="First Name">
+                    	<input type="text" id="first_name" name="first_name" class="form-control input-lg" placeholder="First Name *" required="required">
 					</div>
 					<div class="form-group">
                    	 	<input type="text" id="last_Name" name="last_Name" class="form-control input-lg" placeholder="Last Name">
@@ -349,10 +364,10 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				
 				
 					<div class="form-group">
-                    	<input type="email" id="email" name="email" class="form-control input-lg" placeholder="Email Address">
+                    	<input type="email" id="email" name="email" class="form-control input-lg" placeholder="Email Address *" required="required">
 				    </div>
 					<div class="form-group">
-                    	<input type="number" id="phone_number" name="phone_number" class="form-control input-lg" placeholder="Contact No">
+                    	<input type="text" id="phone_number" name="phone_number" maxlength="10" class="form-control input-lg" placeholder="Contact No">
 				    </div>
 				    
 				    <div class="form-group">
@@ -361,23 +376,27 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				
 				
 					<div class="form-group">
-                    	<input type="text" id="supervisor_name" name="supervisor_name" class="form-control input-lg" data-provide="typeahead" placeholder="Supervisor  Name">
+                    	<input type="text" id="supervisor_name" name="supervisor_name" class="form-control input-lg" data-provide="typeahead" placeholder="Supervisor  Name *" required="required">
 					</div>
 					<div class="form-group">
-                    	<input type="text" id="supervisor_phone" name="supervisor_phone" class="form-control input-lg"  placeholder="Supervisor ContactNo">
+                    	<input type="text" id="supervisor_phone" name="supervisor_phone" class="form-control input-lg"  placeholder="Supervisor ContactNo *" required="required" maxlength="10">
 					</div>
 					<div class="form-group">
-                    	<input type="text" id="supervisor_email" name="supervisor_email" class="form-control input-lg" data-provide="typeahead" placeholder="Supervisor Email">
+                    	<input type="text" id="supervisor_email" name="supervisor_email" class="form-control input-lg" data-provide="typeahead" placeholder="Supervisor Email * " required="required" >
 					</div>
 					<div class="form-group">
                     
-                    <input type="password" id="password" name="password" class="form-control input-lg" placeholder="Desired Password" required="required">
+                    <input type="password" id="password" name="password" class="form-control input-lg" placeholder="Desired Password *" required="required">
                     <span id="result"></span>
 				    </div>
 				    <span class="hint">Create a strong password with more than 8 characters, lowercase, uppercase and special characters</span>
 				    <div class="form-group">
+<<<<<<< HEAD
 
                     <input type="password" id="repassword" name="repassword" class="form-control input-lg" placeholder="Re-enter Password" required="required" onkeyup="checkPass(); return false;">
+=======
+                    <input type="password" id="repassword" name="repassword" class="form-control input-lg" placeholder="Re-enter Password *" required="required" onkeyup="checkPass(); return false;">
+>>>>>>> SS-Master/master
 				    <span id="confirmMessage" class="confirmMessage"></span>
 				    </div>
 					
@@ -401,7 +420,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
                 		
                 		                		 
                 		<select name="sec1" id="secqu">
-                		<option>Security Question 1</option>
+                		<option>Security Question 1 *</option>
     					<c:forEach var="sec1" items="${secqu}">
     						<c:if test="${sec1.key < 8}">
 								<option value="${sec1.key}"> ${sec1.value}</option>
@@ -411,7 +430,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
             		</div>
 				</div>
 				<div class="form-group">
-                    	<input type="text" name="ans1" id="ans1" class="form-control input-lg" placeholder="Answer1">
+                    	<input type="text" name="ans1" id="ans1" class="form-control input-lg" placeholder="Answer1 *" required="required">
 				</div>
 				
 				<div class="form-group">
@@ -419,8 +438,12 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
                 		
                 		
                 		<select name="sec2" id="secqu">
+<<<<<<< HEAD
                 		<option>Security Question 2</option>
                 		
+=======
+                		<option>Security Question 2 *</option>
+>>>>>>> SS-Master/master
     					<c:forEach var="sec2" items="${secqu}">
     						<c:if test="${sec2.key > 7 && sec2.key < 15}">
 								<option value="${sec2.key}"> ${sec2.value}</option>
@@ -431,14 +454,14 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
             		</div>
 				</div>
 				<div class="form-group">
-                    	<input type="text" name="ans2" id="ans2" class="form-control input-lg" placeholder="Answer2">
+                    	<input type="text" name="ans2" id="ans2" class="form-control input-lg" placeholder="Answer2 *" required="required">
 				</div>
 				<div class="form-group">
 					<div class="dropdown">
                 		
                 		
                 		<select name="sec3" id="secqu">
-                		<option>Security Question 3</option>
+                		<option>Security Question 3 *</option>
     					<c:forEach var="sec3" items="${secqu}">
     						<c:if test="${sec3.key > 14}">
 								<option value="${sec3.key}"> ${sec3.value}</option>
@@ -448,7 +471,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
             		</div>
 				</div>
 				<div class="form-group">
-                    	<input type="text" name="ans3" id="ans3" class="form-control input-lg" placeholder="Answer3">
+                    	<input type="text" name="ans3" id="ans3" class="form-control input-lg" placeholder="Answer3 *" required="required">
 				</div>
 				<!-- <div class="form-group"> Select your project(s)
 					<label class="checkbox-inline">
@@ -527,7 +550,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
                 <div class="col-lg-12 text-center">
                
                 
-                    <h2 style="font-size:2.8em; font-family:'Tahoma' ;text-shadow: 2px 2px white;">Contact Me</h2>
+                    <h2 style="font-size:2.8em; font-family:'Tahoma' ;text-shadow: 2px 2px white;">Contact Us</h2>
                     
                 </div>
             </div>
@@ -535,7 +558,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form name="sentMessage" id="contactForm" data-toggle="validator">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Name</label>

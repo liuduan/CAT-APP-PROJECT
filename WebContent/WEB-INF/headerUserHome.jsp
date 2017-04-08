@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                 </button>
                  
-                 <a class="navbar-brand menu1" href="Home">CAT-APP</a>
+                 <a class="navbar-brand menu1">CAT-APP</a>
             	
             </div><!-- end of <div class="navbar-header" > -->
  
@@ -31,7 +31,7 @@
         		<a href="BackToHomeServlet">
         			 Home</a></li>
         <li>
-        		<a href="#">
+        		<a href="UserDisplayController">
         			 User profile</a></li>
         	<li>
         		<a href="#">

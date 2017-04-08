@@ -79,8 +79,8 @@ public class SubmittedRequestServlet extends HttpServlet{
 			if(request.getParameter("institution")!=null){
 				lInstitution = request.getParameter("institution");
 			}
-			if(request.getParameter("password")!=null){
-				lPassword = request.getParameter("password");
+			if(request.getParameter("repassword")!=null){
+				lPassword = request.getParameter("repassword");
 			}
 			if(request.getParameter("sec1")!=null){
 				lQue1 = request.getParameter("sec1");
@@ -101,6 +101,7 @@ public class SubmittedRequestServlet extends HttpServlet{
 				lAns3 = request.getParameter("ans3");
 			}
 			lConn= new DBConnection().getConnection();
+			LOGGER.error("This is Connection------>  "+lConn);
 			User lUser = new User();
 			lUser.setPassword(Login.generateHash("PWD"+lPassword));
 			lUser.setFirst_name(lFirstName);

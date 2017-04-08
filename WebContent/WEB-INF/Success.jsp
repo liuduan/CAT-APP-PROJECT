@@ -47,25 +47,37 @@ a:link {
     color: black;
     text-decoration: none;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> SS-Master/master
 /* visited link */
 a:visited {
     color: black;
     text-decoration: none;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> SS-Master/master
 /* mouse over link */
 a:hover {
     color: black;
     text-decoration: none;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> SS-Master/master
 /* selected link */
 a:active {
     color: black;
     text-decoration: none;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> SS-Master/master
 /* Highlighted_rows*/
 .Highlighted_rows{
 	background-color: lightblue;
@@ -79,7 +91,10 @@ a:active {
 	font-size: 14;
 	font-weight: bold;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> SS-Master/master
 </style>
 
 
@@ -123,4 +138,8 @@ a:active {
 
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> SS-Master/master

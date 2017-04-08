@@ -30,9 +30,9 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Account <b class="caret"></b></a>
                     	<ul class="dropdown-menu">
-                    		<li><a href="#">User Profile</a></li>
+                    		<li><a href="UserManagementServlet">User Profile</a></li>
                				 <li><a href="#">Language Settings</a></li>
-               				 <li><a href="#">Change Password</a></li>
+               				 <li><a href="UserManagementServlet">Change Password</a></li>
                				 <li class="divider"></li>
                				 <li><a href="#">Help Center</a></li>
                				 

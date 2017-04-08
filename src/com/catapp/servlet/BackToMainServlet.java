@@ -18,5 +18,8 @@ public class BackToMainServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {  
 		//String pathInfo = request.getPathInfo();
-	      request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);}
+	      request.getRequestDispatcher("/LoadDataForHome").forward(request, response);
+	      HttpSession session=request.getSession();  
+          session.invalidate();
+          }
 }

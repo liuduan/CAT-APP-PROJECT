@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:web="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="3.0">
   <display-name>CAT-APP-PROJECT</display-name>
   <servlet>
     <servlet-name>AdminServlet</servlet-name>
@@ -47,12 +51,16 @@
     <servlet-class>com.catapp.servlet.DownloadFileServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+<<<<<<< HEAD
   <servlet>
     <display-name>catAppDownloadPageServlet</display-name>
     <servlet-name>catAppDownloadPageServlet</servlet-name>
     <servlet-class>com.catapp.servlet.CatAppDownloadPageServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+=======
+  
+>>>>>>> SS-Master/master
   <servlet>
     <display-name>UserManagementServlet</display-name>
     <servlet-name>UserManagementServlet</servlet-name>
@@ -60,17 +68,21 @@
     <enabled>true</enabled>
   </servlet>
   <servlet>
+<<<<<<< HEAD
     <display-name>ManageActionServlet</display-name>
     <servlet-name>ManageActionServlet</servlet-name>
     <servlet-class>com.catapp.servlet.ManageActionServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
   <servlet>
+=======
+>>>>>>> SS-Master/master
     <display-name>SuccessServlet</display-name>
     <servlet-name>SuccessServlet</servlet-name>
     <servlet-class>com.catapp.servlet.SuccessServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+<<<<<<< HEAD
 
 
 
@@ -87,6 +99,9 @@
     <servlet-name>UserManagementServlet</servlet-name>
     <url-pattern>/UserManagement</url-pattern>
   </servlet-mapping>
+=======
+  
+>>>>>>> SS-Master/master
   <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/Admin</url-pattern>
@@ -123,7 +138,22 @@
     <servlet-name>DownloadFileServlet</servlet-name>
     <url-pattern>/Downloads</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
+=======
+   <servlet-mapping>
+    <servlet-name>SuccessServlet</servlet-name>
+    <url-pattern>/Success</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>UserManagementServlet</servlet-name>
+    <url-pattern>/UserManagement</url-pattern>
+  </servlet-mapping>
+>>>>>>> SS-Master/master
   <welcome-file-list>
     <welcome-file>Home</welcome-file>
   </welcome-file-list>
+  
+  <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 </web-app>

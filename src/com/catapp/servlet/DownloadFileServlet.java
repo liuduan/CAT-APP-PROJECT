@@ -5,12 +5,14 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -19,6 +21,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import com.catapp.action.ChemData;
 import com.catapp.connection.DBConnection;
@@ -45,6 +55,13 @@ public class DownloadFileServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String [] lFiles					= request.getParameterValues("optradio");
+		String lButtonClick					= null;
+		if(request.getParameterValues("download")!=null){
+			lButtonClick="Download";
+		}else{
+			lButtonClick="JSON";
+		}
+		
 		PreparedStatement lPstmt 			= null;
 		ResultSet lRst					    = null;
 		Connection lConn 					= null;
@@ -89,26 +106,89 @@ public class DownloadFileServlet extends HttpServlet {
 					lFileType = lRst.getString("file_type");
 					String lCellLine = new ChemData().getTagNames(lRst.getLong("cell_line_id"));
 					String lPlate =lRst.getString("plate_id");
+<<<<<<< HEAD
 
 					lFileFromServer.add(lFolderLoc+lCellLine+"\\"+lPlate+"\\"+lFileName+"."+lFileType);
+=======
+					lFileFromServer.add(lFolderLoc+lCellLine+"\\"+lPlate+"\\"+lFileName+"."+"xlsx");
+>>>>>>> SS-Master/master
 				}
 				
 				if(lFileFromServer.size()>0 && lFileFromServer.size()==1){
 					
-					 response.setHeader("Content-disposition","attachment; filename="+ lFileName+"."+lFileType);
-					 response.setContentType(lFileType);
-				    
-				         OutputStream out = response.getOutputStream();
-				         File lMyFile = new File(lFileFromServer.get(0));
-				        // FileReader lReader = new FileReader(lMyFile);
-				         FileInputStream in = new FileInputStream(lMyFile);
-				         byte[] buffer = new byte[4096];
-				         int length;
-				         while ((length = in.read(buffer)) > 0){
-				            out.write(buffer, 0, length);
-				         }
-				         in.close();
-				         out.flush();
+					if(lButtonClick!=null && lButtonClick=="Download"){
+						response.setHeader("Content-disposition","attachment; filename="+ lFileName+"."+lFileType);
+						response.setContentType(lFileType);
+						
+						OutputStream out = response.getOutputStream();
+						File lMyFile = new File(lFileFromServer.get(0));
+						// FileReader lReader = new FileReader(lMyFile);
+						FileInputStream in = new FileInputStream(lMyFile);
+						byte[] buffer = new byte[4096];
+						int length;
+						while ((length = in.read(buffer)) > 0){
+							out.write(buffer, 0, length);
+						}
+						in.close();
+						out.flush();
+						
+					}else{
+						if(lFileType.equals("xls") ||  lFileType.equals("xlsx")){
+							FileInputStream inp = new FileInputStream( lFileFromServer.get(0) );
+							Workbook workbook =WorkbookFactory.create(inp);
+
+							// Get the first Sheet.
+							Sheet sheet = workbook.getSheetAt( 0 );
+
+							JSONObject json = new JSONObject();
+
+						    // Iterate through the rows.
+						    JSONArray rows = new JSONArray();
+						    for ( Iterator<Row> rowsIT = sheet.rowIterator(); rowsIT.hasNext(); )
+						    {
+						        Row row = rowsIT.next();
+						        JSONObject jRow = new JSONObject();
+
+						        // Iterate through the cells.
+						        JSONArray cells = new JSONArray();
+						        for ( Iterator<Cell> cellsIT = row.cellIterator(); cellsIT.hasNext(); )
+						        {
+						            Cell cell = cellsIT.next();
+						            cells.add( cell.getStringCellValue() );
+						        }
+						        jRow.put( "cell", cells );
+						        rows.add( jRow );
+						    }
+
+						    // Create the JSON.
+						    json.put( "rows", rows );
+							    workbook.close();
+
+							// Get the JSON text.
+							    
+							    response.setHeader("Content-disposition","attachment; filename="+ lFileName+".json");
+								response.setContentType(lFileType);
+								File lJsonFile =new File ("C:/Users/CATAPP/serverfiles/NewJson.txt");
+								lJsonFile.createNewFile();
+								FileWriter lWriter = new FileWriter("C:/Users/CATAPP/serverfiles/NewJson.txt");
+								lWriter.write(json.toJSONString());
+								OutputStream out = response.getOutputStream();
+								File lMyFile = new File("C:/Users/CATAPP/serverfiles/NewJson.txt");
+								// FileReader lReader = new FileReader(lMyFile);
+								FileInputStream in = new FileInputStream(lMyFile);
+								byte[] buffer = new byte[4096];
+								int length;
+								while ((length = in.read(buffer)) > 0){
+									out.write(buffer, 0, length);
+								}
+								in.close();
+								out.flush();
+								lWriter.close();
+								File lToDelete = new File("C:/Users/CATAPP/serverfiles/NewJson.txt");
+								lToDelete.delete();
+								
+						}
+					}
 					 
 					
 				}else{
