@@ -40,12 +40,9 @@
 
 </head>
 
-<!-- <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full.jpg"
-	style="background-size: cover;"> -->
 <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
-	style="background-size: cover;">
+	style="background-size:250%">
 	
-	<br><br><br><br><br><br><br><br><br><br><br><br>Hello
 	
 <% 
 String Email = smallTools.safeString(((User)request.getSession().getAttribute("user")).getEmail());

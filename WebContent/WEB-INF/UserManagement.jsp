@@ -29,8 +29,8 @@
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <title>Insert title here</title>
 </head>
-<body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full.jpg"
-	style="background-size: cover;">
+<body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
+	style="background-size:250%">
 
 
 <% 

@@ -19,10 +19,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 </head>
+<!-- 
 <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full.jpg"
-	style="background-size: cover;">
-<jsp:directive.include file="HeaderAdmin.jsp" />
+	style="background-size: cover;"> -->
+	
 
+<body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
+	style="background-size:250%">
+	
+<jsp:directive.include file="HeaderAdmin.jsp" />
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"

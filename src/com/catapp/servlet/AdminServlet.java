@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -99,11 +100,20 @@ public class AdminServlet extends HttpServlet {
       	
 
     	// shellCommands.main("copy C:\\2-Installers\\Clock\\Clock-image.ico C:\\2-Installers\\Clock\\Clock-image2.ico ");
-    	// System.out.println("ping");
+    	System.out.println("ping");
     	
       	// back to normal
+    	HttpSession session2 = request.getSession(false);
+		if(session2 != null){
+			System.out.println("ping 2");
+			getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
+		}
+		else{
+			request.setAttribute("error","Current session is lost. Please log in");
+			request.getRequestDispatcher("/LoadDataForHome").include(request, response);  
+			}
 
-		getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
+		
 		// This line is go to "/WEB-INF/Adminpage.jsp" with all the parameters.
 		
 	}

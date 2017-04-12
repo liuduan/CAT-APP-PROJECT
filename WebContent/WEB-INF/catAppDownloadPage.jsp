@@ -32,8 +32,8 @@
 </head>
 <style type="text/css">
   </style>
-<body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full.jpg"
-	style="background-size: cover;">
+<body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
+	style="background-size:250%">
 <jsp:directive.include file='header.jsp' />
 
 <%-- 
@@ -57,36 +57,26 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li class="text-center user-image-back" style="background-color: white">
-                    <br>
-                       
-                       <b> Choose your options </b> 
-                     <br><br>
+                    	<br><b> Choose your options </b> <br><br>
                     </li>
-
-					
                     <li>
                         <a href="#">CellLines</a>
                        
                         <ul class="nav nav-second-level">
                             <li >
-                            
-							<!-- <a href="#"><label><input type="checkbox" id="CL" name ="CL" value="2">Cardiomyocytes</label></a>
-                                
-                            </li>
-                            <li>
-                                <a href="#"><label><input type="checkbox" id="CL" name ="CL" value="1">Hepatocytes</label></a>
-                            </li> -->
                               <c:forEach var="cellline" items="${cell}">
                               <c:choose>
                               <c:when test="${cellline.key=='2'}">
-                         							<li >
-    												<a href="#"><label><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/>> &nbsp;<c:out value="${cellline.value}"/></label></a>
-											 		</li>
-							 </c:when>
+                         		<li >
+    								<a href="#"><label><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/>> 
+    									&nbsp;<c:out value="${cellline.value}"/></label></a>
+									</li>
+							 	</c:when>
 							 <c:otherwise>
-    							<li >
-    												<a href="#"><label><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/> disabled> &nbsp;<c:out value="${cellline.value}"/></label></a>
-											 		</li>
+    							<li>
+    								<a href="#"><label style="font-size:13px; color:lightgray;"><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/> disabled> 
+    									&nbsp;<c:out value="${cellline.value}"/></label></a>
+									</li>
 							 </c:otherwise>
 							</c:choose>
 						</c:forEach>
@@ -105,7 +95,7 @@
 						    </c:when>
 						    <c:otherwise>
 						    <li >
-    												<a href="#"><label><input type="checkbox" name= "assaynames" id= "assaynames" value= <c:out value="${assaynames.key}"/> disabled  > &nbsp;<c:out value="${assaynames.value}"/></label></a>
+    												<a href="#"><label style="font-size:13px; color:lightgray;"><input type="checkbox" name= "assaynames" id= "assaynames" value= <c:out value="${assaynames.key}"/> disabled  > &nbsp;<c:out value="${assaynames.value}"/></label></a>
 											 		</li>
 						    </c:otherwise>
 						 </c:choose>

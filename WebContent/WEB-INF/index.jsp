@@ -176,10 +176,8 @@ select#secqu, select#soflow-color {
 </style>
 </head>
 
-<!-- <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full.jpg"
-	style="background-size: cover;"> -->
 <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
-	style="background-size: cover;">
+	style="background-size:250%">
 
 <jsp:directive.include file="HeaderCover.jsp" />
     <!-- Navigation -->
