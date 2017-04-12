@@ -36,8 +36,6 @@
 
 <style type="text/css">	
 		<!-- Bootstrap core CSS -->
-
-
 	.bs-example{
     	margin: 20px;
     }
@@ -50,7 +48,6 @@
 .read-less{
     height: 40px!important;
 }
-
 #pswd_info {
     position:absolute;
     bottom:-75px;
@@ -64,13 +61,11 @@
     box-shadow:0 1px 3px #ccc;
     border:1px solid #ddd;
 }
-
 #pswd_info h4 {
     margin:0 0 10px 0;
     padding:0;
     font-weight:normal;
 }
-
 #pswd_info::before {
     content: "\25B2";
     position:absolute;
@@ -82,7 +77,6 @@
     text-shadow:none;
     display:block;
 }
-
 .invalid {
    	background:url(/CAT-APP-PROJECT/resources/images/cross.png) no-repeat 0 50%;
     padding-left:22px;
@@ -95,34 +89,26 @@
     line-height:24px;
     color:#3a7d34;
 }
-
 #pswd_info {
     display:none;
 }
-
 #result{
 	margin-left:5px;
 }
-
 #register .short{
 	color:#FF0000;
 }
-
 #register .weak{
 	color:#E66C2C;
 }
-
 #register .good{
 	color:#2D98F3;
 }
-
 #register .strong{
 	color:#006400;
 }
-
 .hint { display: none; color: gray; font-style: italic; }
 input:focus + .hint { display: inline; }
-
 select#secqu, select#soflow-color {
    -webkit-appearance: button;
    -webkit-border-radius: 2px;
@@ -143,7 +129,6 @@ select#secqu, select#soflow-color {
    white-space: nowrap;
    width: 550px;
 }
-
 .jumbotron { 
  background: url('${pageContext.request.contextPath}/resources/images/1.jpg') no-repeat center center fixed; 
  -webkit-background-size: cover;
@@ -153,7 +138,6 @@ select#secqu, select#soflow-color {
  
  width:100%;
 }
-
 .jumbotroon { 
  background: url('${pageContext.request.contextPath}/resources/images/2.jpg') no-repeat center center fixed; 
  -webkit-background-size: cover;
@@ -162,7 +146,6 @@ select#secqu, select#soflow-color {
  background-size: cover;
  width:100%;
 }
-
 .panel-default {
  opacity: 0.9;
  margin-top:30px;
@@ -170,7 +153,6 @@ select#secqu, select#soflow-color {
 .form-group.last {
  margin-bottom:0px;
 }
-
 .images {
     display: inline;
     margin: 0px;
