@@ -42,7 +42,8 @@
 	
 	
 	</style>
-    <body>
+<body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full.jpg"
+	style="background-size: cover;">
 
 
 
@@ -70,6 +71,7 @@
     
     </script>
     <jsp:directive.include file="header.jsp" />
+    
 		<!-- 	<div align="right"><a href = "/database_project/Protected/ID_home">
 		<img src="/database_project/scripts/images/MB__home.png"/></a>&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</div> -->
 		<!-- Top menu -->
@@ -104,9 +106,7 @@
                 <div class="container">
                 <c:if test="${param.success eq 1}">
                 	<script type="text/javascript">
-						<!--
 							window.location = "${pageContext.request.contextPath}/Success"
-						//-->
 					</script>
                 	<div class="page-alerts">
      					<div class="alert alert-success">
@@ -349,9 +349,9 @@
 				                       		<label class="sr-only" for="form-facebook">Desc:</label>
 				                        	<input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)">..<br><br><br>
 				                    		<label class="sr-only" for="form-facebook">Upload File:.</label>
-				                        	<input type="file"  id="uploadfile" name="file" size="40">,,
+				                        	<input type="file"  id="uploadfile" name="file" size="40">
 				                        	
-				                        </div>/
+				                        </div>
 										
 										<button type="button" class="btn btn-previous">Previous</button>
 				                        <button type="submit" name="sequencesave"  class="btn btn-submit">Upload</button>

@@ -16,6 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body style="background-color: Azure">
+
 <jsp:directive.include file="header.jsp" />
 
 <%

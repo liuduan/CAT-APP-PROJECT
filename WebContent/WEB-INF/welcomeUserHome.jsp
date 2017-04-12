@@ -40,7 +40,13 @@
 
 </head>
 
-<body style="background-color: Azure">
+<!-- <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full.jpg"
+	style="background-size: cover;"> -->
+<body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
+	style="background-size: cover;">
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br>Hello
+	
 <% 
 String Email = smallTools.safeString(((User)request.getSession().getAttribute("user")).getEmail());
 String Is_admin = smallTools.safeString(((User)request.getSession().getAttribute("user")).getIs_admin());
@@ -65,8 +71,6 @@ SELECT * from users where Email = "<%=Email%>";
         <jsp:directive.include file="header.jsp" />
     </c:otherwise>
 </c:choose>
-
-
 
  <br><br><br>
 
@@ -160,12 +164,9 @@ SELECT * from users where Email = "<%=Email%>";
             <div style="margin-left:115px"class="col-md-3 col-sm-3">
                 <div class="panel panel-default text-center"  style=" border-radius: 25px;">
                     <div class="panel-heading"  style=" border-radius: 20px;">
-<<<<<<< HEAD
-                        <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle " width ="150" height ="150" "/>
-=======
-                        <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle "  width ="150" height ="150" "/>
-    			
->>>>>>> SS-Master/master
+
+                        <img src="${pageContext.request.contextPath}/resources/images/piechart.jpg" class=" img-circle " width ="150" height ="150" "/>
+
                     </div>
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">CAT-APP</h4>
@@ -187,14 +188,9 @@ SELECT * from users where Email = "<%=Email%>";
             <div class="col-md-3 col-sm-3" >
                 <div class="panel panel-default text-center" style=" border-radius: 25px;">
                     <div class="panel-heading" style=" border-radius: 20px;" >
-<<<<<<< HEAD
                        
-    					<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle "  width ="150" height ="150" "/>
+    					<img src="${pageContext.request.contextPath}/resources/images/Oil.jpg" class=" img-circle "  width ="150" height ="150" "/>
     			
-=======
-                       <img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle " width ="150" height ="150" "/>
-    				
->>>>>>> SS-Master/master
                     </div>
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">ANALYTICAL</h4>
@@ -217,7 +213,7 @@ SELECT * from users where Email = "<%=Email%>";
             <div class="col-md-3 col-sm-3">
                 <div class="panel panel-default text-center"  style=" border-radius: 25px;">
                     <div class="panel-heading"  style=" border-radius: 20px;">
-                       <img src="/CAT-APP-PROJECT/resources/images/leaf.png" class=" img-circle " width ="150" height ="150" "/>
+                       <img src="${pageContext.request.contextPath}/resources/images/leaf.png" class=" img-circle " width ="150" height ="150" "/>
 				
                     </div>
                     <div class="panel-body">
@@ -266,7 +262,7 @@ SELECT * from users where Email = "<%=Email%>";
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p align="left">Copyright &copy; Ivan Rusyn Website 2017</p>
+                    <p align="left">Copyright &copy; Ivan Rusyn Website 2017.</p>
                 </div>
             </div>
             <!-- /.row -->

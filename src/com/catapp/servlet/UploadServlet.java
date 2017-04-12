@@ -67,13 +67,13 @@ public class UploadServlet extends HttpServlet {
 			request.setAttribute("assay", lAssayMap);
 			request.setAttribute("cell", lCellMap);
 			request.setAttribute("time", lTimMap);
-<<<<<<< HEAD
+
 			System.out.println("UploadServlet \n");
 			
-=======
+
 			HttpSession session=request.getSession(false);
 			if(session!=null){
->>>>>>> SS-Master/master
+
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp");
 			rd.forward(request, response);
 			}

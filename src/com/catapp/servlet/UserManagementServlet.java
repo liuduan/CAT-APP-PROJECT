@@ -2,28 +2,25 @@ package com.catapp.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-<<<<<<< HEAD
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
-=======
->>>>>>> SS-Master/master
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-<<<<<<< HEAD
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;
-=======
->>>>>>> SS-Master/master
+
 
 /**
  * Servlet implementation class UserManagementServlet
@@ -31,10 +28,9 @@ import com.catapp.entity.User;
 @WebServlet("/UserManagementServlet")
 public class UserManagementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
+
 	private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
-=======
->>>>>>> SS-Master/master
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -45,7 +41,6 @@ public class UserManagementServlet extends HttpServlet {
     }
 
     
-<<<<<<< HEAD
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -74,32 +69,11 @@ public class UserManagementServlet extends HttpServlet {
 
 		
 		// request.getRequestDispatcher("/WEB-INF/UserManagement.jsp").include(request, response);
-=======
-    
-    
-    
-    
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		PrintWriter out = response.getWriter();
-		out.println("DogName_Servlet.java: Hello Java!");
-		
-		String received_value = request.getSession().getAttribute("email").toString();	// receiving the post value
-		request.setAttribute("email", received_value);			// submit vlue to following page:
-		
->>>>>>> SS-Master/master
 		getServletContext().getRequestDispatcher("/WEB-INF/UserManagement.jsp").forward(request, response);
 	}
 
 	
-	
-	
-	
-	
-<<<<<<< HEAD
+
 	public User fetchUserDetails(String pEmail, Connection pConnection){
 		
 		PreparedStatement lPstmnt = null;
@@ -144,11 +118,6 @@ public class UserManagementServlet extends HttpServlet {
 	
 	
 	
-=======
->>>>>>> SS-Master/master
-	
-	
-	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -165,8 +134,6 @@ public class UserManagementServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> SS-Master/master
+

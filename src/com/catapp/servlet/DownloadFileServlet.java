@@ -106,12 +106,8 @@ public class DownloadFileServlet extends HttpServlet {
 					lFileType = lRst.getString("file_type");
 					String lCellLine = new ChemData().getTagNames(lRst.getLong("cell_line_id"));
 					String lPlate =lRst.getString("plate_id");
-<<<<<<< HEAD
 
-					lFileFromServer.add(lFolderLoc+lCellLine+"\\"+lPlate+"\\"+lFileName+"."+lFileType);
-=======
 					lFileFromServer.add(lFolderLoc+lCellLine+"\\"+lPlate+"\\"+lFileName+"."+"xlsx");
->>>>>>> SS-Master/master
 				}
 				
 				if(lFileFromServer.size()>0 && lFileFromServer.size()==1){

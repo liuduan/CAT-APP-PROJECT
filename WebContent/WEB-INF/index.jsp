@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
- <%@ page import="com.catapp.entity.User" %>
+<%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@ page import="com.catapp.entity.User" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -143,16 +145,17 @@ select#secqu, select#soflow-color {
 }
 
 .jumbotron { 
- background: url('/CAT-APP-PROJECT/resources/images/1.jpg') no-repeat center center fixed; 
+ background: url('${pageContext.request.contextPath}/resources/images/1.jpg') no-repeat center center fixed; 
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;
+ 
  width:100%;
 }
 
 .jumbotroon { 
- background: url('/CAT-APP-PROJECT/resources/images/2.jpg') no-repeat center center fixed; 
+ background: url('${pageContext.request.contextPath}/resources/images/2.jpg') no-repeat center center fixed; 
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
@@ -191,9 +194,21 @@ select#secqu, select#soflow-color {
 </style>
 </head>
 
-<body style="background-color: Azure">
+<!-- <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full.jpg"
+	style="background-size: cover;"> -->
+<body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
+	style="background-size: cover;">
+
 <jsp:directive.include file="HeaderCover.jsp" />
     <!-- Navigation -->
+    
+
+
+
+
+ 
+
+
     <%
 String login_msg=(String)request.getAttribute("error");  
 if(login_msg!=null)
@@ -212,40 +227,30 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
     
     	<div class="col-md-8 ">
     		<div class="row">
-<<<<<<< HEAD
+
     			<br><br><br>
-    			<img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/CATAPP_Pres.jpg" alt=""  width="50%" height="50%" style="margin-left: 20%;">
-=======
-    		
-    			<img class="img-responsive" src="/CAT-APP-PROJECT/resources/images/CATAPP_Pres.jpg" alt=""  width="30%" height="20%" style="margin-left: 30%; margin-top:5%">
-    		
->>>>>>> SS-Master/master
+    			<img class="img-responsive" src="${pageContext.request.contextPath}/resources/images/CATAPP_Pres.jpg" alt=""  width="50%" height="50%" style="margin-left: 20%;">
+
     		</div>
     		<div class="row">
     		
     			<div  id="content" >
     			<div class="col-md-4 col-sm-6">
-<<<<<<< HEAD
-    				<img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
+    				<img src="${pageContext.request.contextPath}/resources/images/piechart.jpg" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
     				
-=======
-    				<img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle "  width ="100" height ="100" style="margin-left: 9%;"/>
->>>>>>> SS-Master/master
     			<h3 style="font-size:1.6em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"><span id="lblLrner">&nbsp;&nbsp;&nbsp;CAT-APP</span></h3>
     			<!-- <p><span id="lblLrnerTxt1">Collaborate with peers</span></p> -->
     			</div>	
     			
     			<div class="col-md-4 col-sm-6">
-<<<<<<< HEAD
-    				<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle "  width ="100" height ="100" style="margin-left: 9%;"/>
-=======
-    				<img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
->>>>>>> SS-Master/master
+
+    				<img src="${pageContext.request.contextPath}/resources/images/Oil.jpg" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
+
     				<h3 style="font-size:1.6em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"><span id="lblLrner">&nbsp;&nbsp;ANALYTICAL</span></h3>
     				<!-- <p style="font-size: 1.2em; color:#999"><span id="lblLrnerTxt1">Analyze the Data</span></p> -->
     			</div>
     			<div class="col-md-4 col-sm-6">
-    				<img src="/CAT-APP-PROJECT/resources/images/leaf.png" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
+    				<img src="${pageContext.request.contextPath}/resources/images/leaf.png" class=" img-circle " width ="100" height ="100" style="margin-left: 9%;"/>
 				<h3 style="font-size:1.6em; font-family:'Tahoma' ;text-shadow: 2px 2px white;"><span id="lblLrner">&nbsp;&nbsp;&nbsp;ECO-TOX</span></h3>
 				<!-- <p><span id="lblLrnerTxt1">Plot Graphs</span></p> -->
 				</div>
@@ -391,12 +396,9 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				    </div>
 				    <span class="hint">Create a strong password with more than 8 characters, lowercase, uppercase and special characters</span>
 				    <div class="form-group">
-<<<<<<< HEAD
 
-                    <input type="password" id="repassword" name="repassword" class="form-control input-lg" placeholder="Re-enter Password" required="required" onkeyup="checkPass(); return false;">
-=======
                     <input type="password" id="repassword" name="repassword" class="form-control input-lg" placeholder="Re-enter Password *" required="required" onkeyup="checkPass(); return false;">
->>>>>>> SS-Master/master
+
 				    <span id="confirmMessage" class="confirmMessage"></span>
 				    </div>
 					
@@ -438,12 +440,9 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
                 		
                 		
                 		<select name="sec2" id="secqu">
-<<<<<<< HEAD
-                		<option>Security Question 2</option>
-                		
-=======
+
                 		<option>Security Question 2 *</option>
->>>>>>> SS-Master/master
+
     					<c:forEach var="sec2" items="${secqu}">
     						<c:if test="${sec2.key > 7 && sec2.key < 15}">
 								<option value="${sec2.key}"> ${sec2.value}</option>
@@ -610,7 +609,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
         <!-- /.container -->
         <div class="row">
         <div class="col-lg-12">
-         <a id="to-top" href="#top" class=""> <img src="/CAT-APP-PROJECT/resources/images/icon_top.png" width="5%" height="5%"align="right" ></a>
+         <a id="to-top" href="#top" class=""> <img src="${pageContext.request.contextPath}/resources/images/icon_top.png" width="5%" height="5%"align="right" ></a>
          </div>
     </div>
     </footer>

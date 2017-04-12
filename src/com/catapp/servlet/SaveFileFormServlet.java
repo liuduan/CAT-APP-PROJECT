@@ -32,13 +32,11 @@ import com.catapp.entity.User;
 @WebServlet("/SaveFileFormServlet")
 public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
+
 
 	private final String UPLOAD_DIRECTORY = "C:/Users/CATAPP/serverfiles";
 
-=======
-	private final String UPLOAD_DIRECTORY = "C:/Users/CATAPP/serverfiles";
->>>>>>> SS-Master/master
+
 	public static final Logger logger = Logger.getLogger(SaveFileFormServlet.class.toString());
 
        
@@ -61,9 +59,13 @@ public class SaveFileFormServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		
+		System.out.println("SaveFileFormServlet A \n");
+		
 		logger.info("File Save Started");
 		String lCellLine  = request.getParameter("celllines");
 		String lPhenoType = request.getParameter("phenotypes");
@@ -78,9 +80,11 @@ public class SaveFileFormServlet extends HttpServlet {
 		//String lPlateInfo = request.getParameter("form-Plate1");
 		try{
 			
+			System.out.println("SaveFileFormServlet B \n");
 			lConn = new DBConnection().getConnection();
 			if(ServletFileUpload.isMultipartContent(request)){
 				
+				System.out.println("SaveFileFormServlet C \n");
 				List<FileItem> multiparts = new ServletFileUpload( new DiskFileItemFactory()).parseRequest(request);
 				for(FileItem item : multiparts){
 					logger.info("Inside For Loop");
@@ -131,6 +135,8 @@ public class SaveFileFormServlet extends HttpServlet {
 				
 			}		
 			///// *************************** Data save started ************************************/////
+			System.out.println("SaveFileFormServlet D \n");
+			
 			ChemFile lFile = new ChemFile();
 			lFile.setCell_line_id(Long.valueOf(lCellLine));
 			lFile.setPhenotype_id(Long.valueOf(lPhenoType));
@@ -147,23 +153,21 @@ public class SaveFileFormServlet extends HttpServlet {
 			//User lUser =new User();
 			//lUser.setEntityId(1l);
 			lFile.save(lConn, lUser);
-<<<<<<< HEAD
-		
-=======
-			
+
+			System.out.println("SaveFileFormServlet E \n");
 			///// ************************* Excel Save in DB *************************************//////
 			
-			String lReturnResponse=new SaveExceltoDB().saveExcelDataToDb(lFile, lConn);
+			/*String lReturnResponse=new SaveExceltoDB().saveExcelDataToDb(lFile, lConn);
 			if(lReturnResponse=="success"){
 				
 			}else{
 				lConn.rollback();
-			}
+			}*/
 			
 		   ///// ************************* Excel Save in DB *************************************//////
+			System.out.println("SaveFileFormServlet X" + " \n");
 			
-			
->>>>>>> SS-Master/master
+
 			if(lFile.getEntityId()!=null){
 				HashMap<Long,String>lPhenoMap =  new ChemData().getNamesofInputs("phenotypes",lConn);
 				HashMap<Long,String>lAssayMap =  new ChemData().getNamesofInputs("assaynames",lConn);
@@ -173,6 +177,9 @@ public class SaveFileFormServlet extends HttpServlet {
 			    request.setAttribute("assay", lAssayMap);
 			    request.setAttribute("cell", lCellMap);
 			    request.setAttribute("time", lTimMap);
+			    
+			    System.out.println("SaveFileFormServlet Y \n");
+			    
 			 	RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp?success=1");
 			    rd.forward(request, response);
 			}else{
@@ -184,6 +191,9 @@ public class SaveFileFormServlet extends HttpServlet {
 			    request.setAttribute("assay", lAssayMap);
 			    request.setAttribute("cell", lCellMap);
 			    request.setAttribute("time", lTimMap);
+			    
+			    System.out.println("SaveFileFormServlet Z" + " \n");
+			    
 				RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp?success=2");
 			    rd.forward(request, response);
 			}

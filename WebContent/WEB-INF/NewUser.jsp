@@ -14,6 +14,7 @@
 </head>
 <body>
 <jsp:directive.include file="header.jsp" />
+
 This is in NewUser.jsp
 </body>
 </html>

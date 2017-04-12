@@ -47,37 +47,25 @@ a:link {
     color: black;
     text-decoration: none;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
 /* visited link */
 a:visited {
     color: black;
     text-decoration: none;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
 /* mouse over link */
 a:hover {
     color: black;
     text-decoration: none;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
 /* selected link */
 a:active {
     color: black;
     text-decoration: none;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
 /* Highlighted_rows*/
 .Highlighted_rows{
 	background-color: lightblue;
@@ -91,10 +79,7 @@ a:active {
 	font-size: 14;
 	font-weight: bold;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
 </style>
 
 
@@ -105,9 +90,11 @@ a:active {
 
 </head>
 
-<body style="background-color: Azure">
+<body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full.jpg"
+	style="background-size: cover;">
 
 <jsp:directive.include file="header.jsp" />
+
 <div class="container-2" style = "min-height: 200px; width: 80%; 
     margin: auto; margin-top: 100px; padding: 40px; padding-top: 25px;  
 -webkit-box-shadow: 0 0 6px 4px black;
@@ -138,8 +125,6 @@ a:active {
 
 </body>
 
-<<<<<<< HEAD
+
 </html>
-=======
-</html>
->>>>>>> SS-Master/master
+

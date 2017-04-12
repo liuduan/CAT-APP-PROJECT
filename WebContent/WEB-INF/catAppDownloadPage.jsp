@@ -32,8 +32,9 @@
 </head>
 <style type="text/css">
   </style>
-<body>
-<jsp:directive.include file="header.jsp" />
+<body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full.jpg"
+	style="background-size: cover;">
+<jsp:directive.include file='header.jsp' />
 
 <%-- 
 <% String Is_admin =((User)request.getSession().getAttribute("user")).getIs_admin().toString(); %>
