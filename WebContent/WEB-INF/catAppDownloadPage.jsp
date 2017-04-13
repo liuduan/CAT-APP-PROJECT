@@ -14,41 +14,29 @@
     <title>CAT-APP</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/CAT-APP-PROJECT/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/CAT-APP-PROJECT/resources/css/catAppDown.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/catAppDown.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/CAT-APP-PROJECT/resources/css/full-width-pics.css" rel="stylesheet">
-	<link href="/CAT-APP-PROJECT/resources/css/login.css" rel="stylesheet">
-	<link href="/CAT-APP-PROJECT/resources/css/font-awesome.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/css/full-width-pics.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/login.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLES-->
-    <link href="/CAT-APP-PROJECT/resources/css/custom.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    	<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     
 </head>
-<style type="text/css">
-  </style>
 <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
 	style="background-size:250%">
-<jsp:directive.include file='header.jsp' />
 
-<%-- 
-<% String Is_admin =((User)request.getSession().getAttribute("user")).getIs_admin().toString(); %>
-<c:set var="Is_admin" scope="session" value="<%=Is_admin %>"/>
-<c:choose>
-	<c:when test="${Is_admin == 'Y'}">
-		<jsp:directive.include file="HeaderAdmin.jsp" />
-    </c:when>    
-    <c:otherwise>
-        <jsp:directive.include file="header.jsp" />
-    </c:otherwise>
-</c:choose>
---%>
-
+<script>
+</script>
+<jsp:include page="header.jsp" /> 
     <div id="wrapper">
         
         
@@ -57,25 +45,37 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li class="text-center user-image-back" style="background-color: white">
-                    	<br><b> Choose your options </b> <br><br>
+                    <br>
+                       
+                       <b> Choose your options </b> 
+                     <br><br>
                     </li>
+
+					
                     <li>
-                        <a href="#">CellLines</a>
+                        <a href="#"><h4>CellLines</h4></a>
                        
                         <ul class="nav nav-second-level">
                             <li >
+                            
+							<!-- <a href="#"><label><input type="checkbox" id="CL" name ="CL" value="2">Cardiomyocytes</label></a>
+                                
+                            </li>
+                            <li>
+                                <a href="#"><label><input type="checkbox" id="CL" name ="CL" value="1">Hepatocytes</label></a>
+                            </li> -->
                               <c:forEach var="cellline" items="${cell}">
                               <c:choose>
                               <c:when test="${cellline.key=='2'}">
                          		<li >
-    								<a href="#"><label><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/>> 
-    									&nbsp;<c:out value="${cellline.value}"/></label></a>
+    								<a href="#"><label><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/>> &nbsp;<c:out value="${cellline.value}"/></label></a>
 									</li>
-							 	</c:when>
+							 </c:when>
 							 <c:otherwise>
-    							<li>
-    								<a href="#"><label style="font-size:13px; color:lightgray;"><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/> disabled> 
-    									&nbsp;<c:out value="${cellline.value}"/></label></a>
+    							<li >
+    								<a href="#"><label><span style="font-size:13px; color:lightgray;">
+    									<input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/> disabled> &nbsp;<c:out value="${cellline.value}"/>
+    									</span></label></a>
 									</li>
 							 </c:otherwise>
 							</c:choose>
@@ -83,7 +83,7 @@
                         </ul>
                     </li>
 					<li>
-                        <a href="#">Assay Name</a>
+                        <a href="#"><h4>Assay Name</h4></a>
 						<ul class="nav nav-second-level">
                              <c:forEach var="assaynames" items="${assay}">
                              <c:choose>
@@ -94,9 +94,11 @@
 						
 						    </c:when>
 						    <c:otherwise>
-						    <li >
-    												<a href="#"><label style="font-size:13px; color:lightgray;"><input type="checkbox" name= "assaynames" id= "assaynames" value= <c:out value="${assaynames.key}"/> disabled  > &nbsp;<c:out value="${assaynames.value}"/></label></a>
-											 		</li>
+						    	<li >
+    								<a href="#"><label><span style="font-size:13px; color:lightgray;">
+    									<input type="checkbox" name= "assaynames" id= "assaynames" value= <c:out value="${assaynames.key}"/> disabled  > 
+    										&nbsp;<c:out value="${assaynames.value}"/>
+    								</span></label></a></li>
 						    </c:otherwise>
 						 </c:choose>
 						</c:forEach>
@@ -105,19 +107,19 @@
                     </li>
 					
                     <li>
-                        <a href="#">PhenoTypes</a>
+                        <a href="#"><h4>PhenoTypes</h4></a>
                         <ul class="nav nav-second-level">
                             <c:forEach var="phenotypes" items="${pheno}">
-                         							<li >
-    												<a href="#"><label><input type="checkbox" name= "phenotypes" id= "phenotypes" value= <c:out value="${phenotypes.key}"/>> &nbsp;<c:out value="${phenotypes.value}"/></label></a>
-											 		</li>
+                         		<li ><a href="#"><label>
+                         			<input type="checkbox" name= "phenotypes" id= "phenotypes" value= <c:out value="${phenotypes.key}"/>> 
+                         				&nbsp;<c:out value="${phenotypes.value}"/></label></a></li>
 						</c:forEach>
                         </ul>
                     </li>
 					
 
                     <li>
-                        <a href="#">Plate Concentration</a>
+                        <a href="#"><h4>Plate Concentration</h4></a>
 						<ul class="nav nav-second-level">
                             <li>
                                 <a href="#"><label><input type="checkbox" name ="pd" id="pd" value="1">&nbsp;1x</label></a>
@@ -290,23 +292,23 @@
      
 
     <!-- jQuery -->
-    <script src="/CAT-APP-PROJECT/resources/js/jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/CAT-APP-PROJECT/resources/js/bootstrap.min.js"></script>
-    <script src="/CAT-APP-PROJECT/resources/js/userHome.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/userHome.js"></script>
     <!-- JQUERY SCRIPTS -->
-    <script src="/CAT-APP-PROJECT/resources/js/jquery-1.10.2.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
-    <script src="/CAT-APP-PROJECT/resources/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
-    <script src="/CAT-APP-PROJECT/resources/js/jquery.metisMenu.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.metisMenu.js"></script>
     <!-- CUSTOM SCRIPTS -->
-    <script src="/CAT-APP-PROJECT/resources/js/custom.js"></script>
-	<script src="/CAT-APP-PROJECT/resources/js/Uploadjs.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/Uploadjs.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="/CAT-APP-PROJECT/resources/js/catAppDown.js"></script>
-	<!-- <script src="/CAT-APP-PROJECT/resources/js/easyPaginate.js"></script> -->
+	<script src="${pageContext.request.contextPath}/resources/js/catAppDown.js"></script>
+	<!-- <script src="${pageContext.request.contextPath}/resources/js/easyPaginate.js"></script> -->
 	<script type="text/plain" src="//raw.github.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
 	
 </body>

@@ -24,6 +24,8 @@
         			<span class="glyphicon glyphicon-home"></span> User Home</a></li>
         </ul>
     	<ul class="nav navbar-nav navbar-right">
+  			<li>
+        		<a href="UserDisplayController">User profile</a></li>
 
             <li id="Contact" >
                	<a href="LogoutServlet">
