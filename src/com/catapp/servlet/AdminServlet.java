@@ -86,57 +86,67 @@ public class AdminServlet extends HttpServlet {
 		System.out.println("Hello World..");
 		
 		Connection lConn = new DBConnection().getConnection();
+		
+      	
+      	
+      	
 
     	// shellCommands.main("copy C:\\2-Installers\\Clock\\Clock-image.ico C:\\2-Installers\\Clock\\Clock-image2.ico ");
     	System.out.println("ping");
     	
       	// back to normal
     	HttpSession session = request.getSession(false);
-
-    	request.getRequestDispatcher("/WEB-INF/Admin.jsp").include(request, response);  
     	
-    	/*
-    	String email = "";
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     	
 		if(session != null){
-			System.out.println("ping 1");
-	    	try {
-	    		if ((User)request == null){
-	    			System.out.println("ping 2");
-	    			getServletContext().getRequestDispatcher("/home").forward(request, response);
-	    	   		}
-	    		else{
-	    			System.out.println("ping 3");
-	    			email=((User)request.getSession().getAttribute("user")).getEmail().toString();}
-	    		}		// end of try{}
-	    	catch (NullPointerException nullPointer){
-	    		System.out.println("ping 4");
-	    		getServletContext().getRequestDispatcher("/home").forward(request, response);
-	    		request.setAttribute("error","Current session is lost. Please log in");
-	    		
-	    		}		// end of catch{}
-			email=((User)request.getSession().getAttribute("user")).getEmail().toString();
-			}		// end of if(session != null){}
-			else{
-				getServletContext().getRequestDispatcher("/home").forward(request, response);
+			
+			String email="";
+			try{
+				if((User)request == null){
+					System.out.println("null (User)request");}	
+			}catch(Exception e){
+				LOGGER.error("Error Occured while fetching user details", e);
 			}
+				
+				
+				
+			
+			
+			if(((User)request.getSession().getAttribute("user")).getEmail() != null){
+				email=((User)request.getSession().getAttribute("user")).getEmail().toString();
+			}
+			else{getServletContext().getRequestDispatcher("/home").forward(request, response);
+			}
+			//"test_user1@tamu.edu";  
 	
 				User lUser =new User();
     
 				lUser =fetchUserDetails(email, lConn);
-			System.out.println("ping 5"); 
-			// getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
-			request.getRequestDispatcher("/WEB-INF/Admin.jsp").include(request, response);  
-		
-			// System.out.println("ping 3");
-			// request.setAttribute("error","Current session is lost. Please log in");
-			// request.getRequestDispatcher("/LoadDataForHome").include(request, response);  
-		
+			System.out.println("ping 2"); 
+			getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
+		}
+		else{
+			System.out.println("ping 3");
+			request.setAttribute("error","Current session is lost. Please log in");
+			request.getRequestDispatcher("/LoadDataForHome").include(request, response);  
+			}
 
 		
 		// This line is go to "/WEB-INF/Adminpage.jsp" with all the parameters.
-		*/
-	}		// end of protected void service(){}
+		
+	}
 
 	
 	
