@@ -26,7 +26,7 @@
         		<span class = "glyphicon glyphicon-lamp"></span> Administration</a></li>
         </ul>
     	<ul class="nav navbar-nav navbar-right">
-    	 	<li><a href="UserDisplayController">User profile</a></li>
+    	 	<li><a href="UserDisplayController"><span class="glyphicon glyphicon-user"></span> User profile</a></li>
             <li id="Contact" >
                	<a href="LogoutServlet">
                		<span class="glyphicon glyphicon-log-out"></span> Logout</a></li>

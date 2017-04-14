@@ -25,7 +25,7 @@
         </ul>
     	<ul class="nav navbar-nav navbar-right">
   			<li>
-        		<a href="UserDisplayController">User profile</a></li>
+        		<a href="UserDisplayController"><span class="glyphicon glyphicon-user"></span> User profile</a></li>
 
             <li id="Contact" >
                	<a href="LogoutServlet">

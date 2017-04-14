@@ -143,7 +143,7 @@
                         		<fieldset>
 		                        	<div class="form-top ">
 		                        		<div class="form-top-left">
-		                        			<h3>Step 1 / 5:</h3> <h4>Choose CellLine</h4>
+		                        			<h3>Step 1 / 5:</h3> <h4>Please Select a Cell Line</h4>
 		                            		<!-- <h4>Cell Type:</h4><p>Somewhere to Start &#9786;</p> -->
 		                            		<div class="progress">
 										  <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
@@ -162,10 +162,13 @@
 											  <c:forEach var="cellline" items="${cell}">
 											  <c:choose>
 											  <c:when test="${cellline.key=='2'}">
-    												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>> &nbsp;<b><c:out value="${cellline.value}"/></b><br><br>
+    												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>> 
+    												&nbsp;<b><c:out value="${cellline.value}"/></b><br>
 											   </c:when>
 											   <c:otherwise>
-											   <input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/> disabled> &nbsp;<b><c:out value="${cellline.value}"/></b><br><br>
+											   <input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/> disabled> 
+											   		<span style="font-size:13px; color:lightgray;"> &nbsp;<b><c:out value="${cellline.value}"/></b>
+											   		</span><br>
 											   
 											   </c:otherwise>
 											   </c:choose>
@@ -206,7 +209,8 @@
 										        <option value="${assaynames.key}"> ${assaynames.value}</option>
 										        </c:when>
 										        <c:otherwise>
-										         <option value="${assaynames.key}" disabled> ${assaynames.value}</option>
+										         <option value="${assaynames.key}" disabled>
+										         	<span style="font-size:13px; color:lightgray;"> ${assaynames.value}</span></option>
 										        </c:otherwise>
 										        </c:choose>
 										    	</c:forEach>
