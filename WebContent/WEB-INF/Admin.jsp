@@ -57,7 +57,6 @@ SELECT * from users;
         <th>User email</th>
         <th>Approved</th> 
         <th>Name</th>       
-        <th>Supervisor UserID</th>
         <th>Supervisor Name</th>
         <th>Institution</th>
         <th></th>
@@ -85,7 +84,6 @@ SELECT * from users;
    				<td class = "user_id"> <c:out value="${row.Email}"/> </td>
    				<td><c:out value="${row.Approved}"/></td>
    				<td><c:out value="${row.First_Name} ${row.Last_Name}" /></td>
-   				<td><c:out value="${row.Supervisor_ID}"/></td>
    				<td><c:out value="${row.Supervisor_Name}" /></td>
    				<td><c:out value="${row.Institution}"/></td>
    				<td><form action="${pageContext.request.contextPath}/UserManagement" method="POST">
