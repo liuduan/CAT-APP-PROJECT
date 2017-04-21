@@ -71,10 +71,24 @@
     <servlet-class>com.catapp.servlet.SuccessServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-
-
-
-
+    <servlet>
+    <display-name>responseServlet</display-name>
+    <servlet-name>responseServlet</servlet-name>
+    <servlet-class>cat.response.responseServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+  
+  
+  
+  
+  
+  
+  
+  
+  <servlet-mapping>
+    <servlet-name>responseServlet</servlet-name>
+    <url-pattern>/Response/Response</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>SuccessServlet</servlet-name>
     <url-pattern>/Success</url-pattern>
