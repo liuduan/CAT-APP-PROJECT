@@ -71,16 +71,25 @@
     <servlet-class>com.catapp.servlet.SuccessServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-    <servlet>
+  <servlet>
     <display-name>responseServlet</display-name>
     <servlet-name>responseServlet</servlet-name>
     <servlet-class>cat.response.responseServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+  <servlet>
+    <display-name>column_3Servlet</display-name>
+    <servlet-name>column_3Servlet</servlet-name>
+    <servlet-class>cat.response.column_3Servlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
   
   
   
-  
+  <servlet-mapping>
+    <servlet-name>column_3Servlet</servlet-name>
+    <url-pattern>/Response/Column_3</url-pattern>
+  </servlet-mapping>
   
   
   

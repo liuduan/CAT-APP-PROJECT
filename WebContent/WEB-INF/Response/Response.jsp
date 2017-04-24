@@ -160,17 +160,23 @@ SELECT * from chemicals;
 		<!-- end of class="col-lg-3"  -->
 		</div>
 		<div class="col-lg-3" id="Clumn-B" style="background-color:lavenderblush;">
-			<br><br><br><br>
-			<table id = "table_2" style = "font-size: 16px; font-weight: bold;">
+			<br><br><br><br><span style = "font-size: 13px; font-weight: bold;">
+			<table id = "table_2" >
 			<tr><td><div id = "chem_properties">Chemical & physic properties.<br></div></td></tr>
-			<tr><td><div id = "macro">Macrophages test<br></div></td></tr>
-			<tr><td><div id = "cardio">Cardiomyocyte test<br></div></td></tr>
-			<tr><td><div id = "hepa">Hepatocytes test<br></div></td></tr>
-			<tr><td><div id = "endo">Endothelial Cell test<br></div></td></tr>
-			<tr><td><div id = "neuro">Neuron test<br></div></td></tr>
-			<tr><td><div id = "skelet">Skeletal Myoblast test<br></div></td></tr>
-			<tr><td><div id = "lymph">Lymphoblast test<br></div></td></tr>
+			
+			<tr><td><div id = "cardio90">iCardiomyocyte 90 min Peak Frequency <br></div></td></tr>
+			<tr><td><div id = "cardio24">iCardiomyocyte 24 hr Peak Frequency<br></div></td></tr>
+			<tr><td><div id = "HUVEC_TC">HUVEC total cells <br></div></td></tr>
+			<tr><td><div id = "HUVEC_TA">HUVEC Tube Area<br></div></td></tr>
 			</table>
+			<span style = "color: LightGray;">
+			iMacrophages test<br>
+			iHepatocytes test<br>
+
+			iEndothelial Cell test<br>
+			iNeuron test<br>
+			iSkeletal Myoblast test<br>
+			iLymphoblast test<br></span></span>
 			<br><br><br><br><br><br><br><br>
 		</div>
 		<div class="col-lg-6" id="Clumn-C" style="background-color:lavender; height:500px; border-radius: 25px;">
@@ -194,7 +200,8 @@ SELECT * from chemicals;
 
 
 <script>
-var js_row_number = "";
+var chem_row_n = "";
+var endpoint_row_n = "";
 var source_div ="";
 var background_A = "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))";
 var background_B = "-webkit-gradient(linear, left top, left bottom, from(DarkCyan), to(DarkBlue))";
@@ -210,18 +217,18 @@ $(document).ready(function(){
 	    	$(this).addClass("Highlighted_rows");
 	    
 	    	$("#chem_properties").addClass("Highlighted_rows");
-	    	js_row_number = $(this).find(".row_number").text();
-			// alert(js_row_number);
-			source_div = "c" + js_row_number;
+	    	chem_row_n = $(this).find(".row_number").text();
+			// alert(chem_row_n);
+			source_div = "c" + chem_row_n;
 			jQuery('#inside-C').html('');
-			jQuery('#inside-C').html(column3_data[js_row_number]);
-			// alert("remainder: " + js_row_number%3);
+			jQuery('#inside-C').html(column3_data[chem_row_n]);
+			// alert("remainder: " + chem_row_n%3);
 		
-			if (js_row_number%3 == 0) {
+			if (chem_row_n%3 == 0) {
 				background = "-webkit-gradient(linear, left top, left bottom, from(DarkSlateBlue), to(DarkBlue))";} 
-			if (js_row_number%3 == 1) {
+			if (chem_row_n%3 == 1) {
 				background = "-webkit-gradient(linear, right top, left bottom, from(DarkSlateGray), to(MidnightBlue))";} 
-			if (js_row_number%3 == 2) {
+			if (chem_row_n%3 == 2) {
 				background = "-webkit-gradient(linear, left top, right bottom, from(Black), to(DarkGrey))";} 
 		
 			$('#Clumn-C').css({
@@ -237,11 +244,24 @@ $(document).ready(function(){
 	  	}
 	);		// end of $table_1 tr
 	
-	$("#table_2 tr").hover(
+	$("#table_2 tr").not(':first-child').hover(
 		function () {
 			if(endpoint_selected == false){
 				// $(this).css("background","yellow");
 				$(this).addClass("Highlighted_rows");
+
+		    	
+		    	endpoint_row_n = $(this).index();
+				// alert(endpoint_row_n);
+				
+				jQuery('#inside-C').html('');
+				jQuery('#inside-C').html(endpoint_data[endpoint_row_n]);
+				// alert("remainder: " + chem_row_n%3);
+
+
+
+
+				
 			    
 				if (background == background_A) {
 					background = background_B;
@@ -249,6 +269,12 @@ $(document).ready(function(){
 						background = background_A;}
 				
 				$('#Clumn-C').css({background: background });
+
+
+
+
+
+				
 				}		// end of endpoint selected == false
 			},			// end of mouse over table 2 function part 1.
 			function () {
@@ -263,19 +289,14 @@ $(document).ready(function(){
 			chemical_selected = true;
 		    $("#table_1 tr").removeClass("Highlighted_rows");
 			$(this).addClass("Highlighted_rows");
-			js_row_number = $(this).find(".row_number").text();
+			chem_row_n = $(this).find(".row_number").text();
 			
 			});
 
-
-
-
-
-
-
-	  
 	$("#table_2 tr").click(
-					function () {});
+		function () {
+			endpoint_selected = true;
+			});
 
 			
 	$("#chem_properties").hover(
@@ -285,76 +306,69 @@ $(document).ready(function(){
     			background: "-webkit-gradient(linear, left top, left bottom, from(DarkGrey), to(Black))" 
 				});
 			jQuery('#inside-C').html('');
-			jQuery('#inside-C').html(column3_data[js_row_number]);
+			jQuery('#inside-C').html(column3_data[chem_row_n]);
 			},
 		function () {
 			    //$(this).removeClass("button blue");
 			  }
 			);
-	$("#macro").hover(
-			function () {
+
+
+	/*
+	$("#cardio90").hover(
+		function () {
+			if(endpoint_selected == false){
 				//alert("yes");
 				$('#Clumn-C').css({
 	    			background: "-webkit-gradient(linear, left top, left bottom, from(SeaGreen), to(MidnightBlue))" 
 					});
 				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html("<br><br><br><papaya>Macrophage benchmark dose is not available. <br>" + 
-					"Macrophage endpoint experiment is not available.<br>" + 
-					"Sample data files: <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/macro-1.pdf'>"+
-"<papaya><u>Macrophage Sample file 1.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/macro-2.pdf'>"+
-"<papaya><u>Macrophage Sample file 2.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
-'<a href="/database_project/test_data/macro-3.txt">' + 
-'<papaya><u>Macrophage Sample file 3.txt</u></papaya></a>'+
+				jQuery('#inside-C').html("<br><br><br><papaya>" + 
+				' <p  style="text-align: center;">iCadiomyocyte peak frequency 90 minutes. </p><br>' + 
+				'<p style ="text-indent: 50px; text-align: justify;">iCell cardiomyocytes (Catalogue #: CMC-100-010-001) including their respective plating ' +
+				"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
+				"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
 	
 					"<br><br><br><br><br>");
 					
-				},
+			}},
 			function () {
 				    //$(this).removeClass("button blue");
 				  }
 				);
-	$("#cardio").hover(
-			function () {
+	$("#cardio24").hover(
+		function () {
+			if(endpoint_selected == false){
 				//alert("yes");
 				$('#Clumn-C').css({
 	    			background: "-webkit-gradient(linear, left top, left bottom, from(DarkSlateBlue), to(DarkBlue))" 
 					});
 				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html("<br><br><br><papaya>Cardiomyocyte benchmark dose is not available. <br>" + 
-					"Cardiomyocyte endpoint experiment is not available.<br>" + 
-					"Sample data files: <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/cardio-1.pdf'>"+
-"<papaya><u>Cardiomyocyte Sample file 1.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/cardio-2.pdf'>"+
-"<papaya><u>Cardiomyocyte Sample file 2.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
-'<a href="/database_project/test_data/cardio-3.txt">' + 
-'<papaya><u>Cardiomyocyte Sample file 3.txt</u></papaya></a>'+
+				jQuery('#inside-C').html("<br><br><br><papaya>" + 
+						' <p  style="text-align: center;">iCadiomyocyte peak frequency 24 hours. </p><br>' + 
+					'<p style ="text-indent: 50px; text-align: justify;">iCell cardiomyocytes (Catalogue #: CMC-100-010-001) including their respective plating ' +
+					"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
+					"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
 	
 					"<br><br><br><br><br>");
 					
-				},
+				}},
 			function () {
 				    //$(this).removeClass("button blue");
 				  }
 				);
-	$("#hepa").hover(
+	$("#HUVEC_TC").hover(
 			function () {
 				//alert("yes");
 				$('#Clumn-C').css({
 	    			background: "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))" 
 					});
 				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html("<br><br><br><papaya>Hepatocyte benchmark dose is not available. <br>" + 
-					"Hepatocyte endpoint experiment is not available.<br>" + 
-					"Sample data files: <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/hepa-1.pdf'>"+
-"<papaya><u>Hepatocyte Sample file 1.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/hepa-2.pdf'>"+
-"<papaya><u>Hepatocyte Sample file 2.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
-'<a href="/database_project/test_data/hepa-3.txt">' + 
-'<papaya><u>Hepatocyte Sample file 3.txt</u></papaya></a>'+
+				jQuery('#inside-C').html("<br><br><br><papaya>" + 
+						' <p  style="text-align: center;">HUVEC total cell number </p><br>' + 
+						'<p style ="text-indent: 50px; text-align: justify;">' +
+						"" +
+						""+
 	
 					"<br><br><br><br><br>");
 					
@@ -363,22 +377,18 @@ $(document).ready(function(){
 				    //$(this).removeClass("button blue");
 				  }
 				);
-	$("#endo").hover(
+	$("#HUVEC_TA").hover(
 			function () {
 				//alert("yes");
 				$('#Clumn-C').css({
 	    			background: "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))" 
 					});
 				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html("<br><br><br><papaya>Endothelial cell benchmark dose is not available. <br>" + 
-					"Endothelial cell endpoint experiment is not available.<br>" + 
-					"Sample data files: <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/endo-1.pdf'>"+
-"<papaya><u>Endothelial cell Sample file 1.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/endo-2.pdf'>"+
-"<papaya><u>Endothelial cell Sample file 2.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
-'<a href="/database_project/test_data/endo-3.txt">' + 
-'<papaya><u>Endothelial cell Sample file 3.txt</u></papaya></a>'+
+				jQuery('#inside-C').html("<br><br><br><papaya>" + 
+					' <p  style="text-align: center;">HUVEC tube area </p><br>' + 
+						'<p style ="text-indent: 50px; text-align: justify;">' +
+						"" +
+						""+
 	
 					"<br><br><br><br><br>");
 					
@@ -387,81 +397,39 @@ $(document).ready(function(){
 				    //$(this).removeClass("button blue");
 				  }
 				);
-	$("#neuro").hover(
-			function () {
-				//alert("yes");
-				$('#Clumn-C').css({
-	    			background: "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))" 
-					});
-				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html("<br><br><br><papaya>Neuron benchmark dose is not available. <br>" + 
-					"Neuron endpoint experiment is not available.<br>" + 
-					"Sample data files: <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/neuro-1.pdf'>"+
-"<papaya><u>Neuron Sample file 1.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/neuro-2.pdf'>"+
-"<papaya><u>Neuron Sample file 2.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
-'<a href="/database_project/test_data/neuro-3.txt">' + 
-'<papaya><u>Neuron Sample file 3.txt</u></papaya></a>'+
-	
-					"<br><br><br><br><br>");
-					
-				},
-			function () {
-				    //$(this).removeClass("button blue");
-				  }
-				);
-	$("#skele").hover(
-			function () {
-				//alert("yes");
-				$('#Clumn-C').css({
-	    			background: "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))" 
-					});
-				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html("<br><br><br><papaya>Skeletal Myoblast benchmark dose is not available. <br>" + 
-					"Skeletal Myoblast endpoint experiment is not available.<br>" + 
-					"Sample data files: <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/skele-1.pdf'>"+
-"<papaya><u>Skeletal Myoblast Sample file 1.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/skele-2.pdf'>"+
-"<papaya><u>Skeletal Myoblast Sample file 2.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
-'<a href="/database_project/test_data/skele-3.txt">' + 
-'<papaya><u>Skeletal Myoblast Sample file 3.txt</u></papaya></a>'+
-	
-					"<br><br><br><br><br>");
-					
-				},
-			function () {
-				    //$(this).removeClass("button blue");
-				  }
-				);
-	$("#lymph").hover(
-			function () {
-				//alert("yes");
-				$('#Clumn-C').css({
-	    			background: "-webkit-gradient(linear, right top, left bottom, from(SaddleBrown), to(Maroon))" 
-					});
-				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html("<br><br><br><papaya>Lymphoblast benchmark dose is not available. <br>" + 
-					"Lymphoblast endpoint experiment is not available.<br>" + 
-					"Sample data files: <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/lymph-1.pdf'>"+
-"<papaya><u>Lymphoblast Sample file 1.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
-"<a href ='/database_project/test_data/lymph-2.pdf'>"+
-"<papaya><u>Lymphoblast Sample file 2.pdf</u></papaya></a><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
-'<a href="/database_project/test_data/lymph-3.txt">' + 
-'<papaya><u>Lymphoblast Sample file 3.txt</u></papaya></a>'+
-	
-					"<br><br><br><br><br>");
-					
-				},
-			function () {
-				    //$(this).removeClass("button blue");
-				  }
-				);
-	
+	*/
 	
 });		//end of $(document).ready(function(){}
+
+var endpoint_data = [];
+endpoint_data[1] = "<br><br><br><papaya>" + 
+	' <p  style="text-align: center;">iCadiomyocyte peak frequency 90 minutes. </p><br>' + 
+	'<p style ="text-indent: 50px; text-align: justify;">iCell cardiomyocytes (Catalogue #: CMC-100-010-001) including their respective plating ' +
+	"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
+	"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
+	"<br><br><br><br><br>";
+
+endpoint_data[2] = "<br><br><br><papaya>" + 
+	' <p  style="text-align: center;">iCadiomyocyte peak frequency 24 hours. </p><br>' + 
+	'<p style ="text-indent: 50px; text-align: justify;">iCell cardiomyocytes (Catalogue #: CMC-100-010-001) including their respective plating ' +
+	"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
+	"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
+	"<br><br><br><br><br>";
+
+endpoint_data[3] = "<br><br><br><papaya>" + 
+	' <p  style="text-align: center;">HUVEC total cell number </p><br>' + 
+	'<p style ="text-indent: 50px; text-align: justify;">' +
+	"" +
+	""+
+	"<br><br><br><br><br>"; 
+	
+endpoint_data[4] = "<br><br><br><papaya>" + 
+	' <p  style="text-align: center;">HUVEC tube area </p><br>' + 
+	'<p style ="text-indent: 50px; text-align: justify;">' +
+	"" +
+	""+
+	"<br><br><br><br><br>";
+
 </script>
 
 </div><!-- end of class main -->--%>
