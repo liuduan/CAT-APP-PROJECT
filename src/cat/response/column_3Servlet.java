@@ -1,11 +1,18 @@
 package cat.response;
 
 import java.io.IOException;
+import java.sql.Connection;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.catapp.action.shellCommands;
+import com.catapp.connection.DBConnection;
+import com.catapp.entity.User;
 
 /**
  * Servlet implementation class column_3
@@ -27,6 +34,44 @@ public class column_3Servlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("column_3Servlet"); 
+		
+
+		String chemical_n = request.getParameter("chemical");	// receiving the post value
+		request.setAttribute("chemical", chemical_n);			// submit vlue to following page:
+			
+		String endpoint_n = request.getParameter("endpoint");	// receiving the post value
+		request.setAttribute("endpoint", endpoint_n);			// submit vlue to following page:
+		
+		String endpoint_string = "";
+		switch(endpoint_n){
+			case "1": endpoint_string = "Peak_freq_90min"; break;
+			case "2": endpoint_string = "Peak_freq_24hr"; break;
+			case "3": endpoint_string = "HUVEC_total_cell"; break;
+			case "4": endpoint_string = "HUVEC_tube_area"; break;
+		}
+		
+		/*
+		if ( endpoint_n.equals("2")){
+			System.out.println("true "); 
+			endpoint_string ="Peak_freq_24hr";
+			}
+		*/
+		
+		System.out.println("endpoint_string: " + endpoint_string); 
+		
+		String copy_command = "cmd.exe /c copy C:\\4_R\\Demonstration\\" + endpoint_string + "\\Figs\\";
+		copy_command += endpoint_string + chemical_n + ".png C:\\7-eclipse-Workspase\\Cat-App\\WebContent\\resources\\R-images";
+		
+		System.out.println(copy_command); 
+		
+		shellCommands obj = new shellCommands();
+		String output = obj.executeCommand(copy_command);
+
+		System.out.println(output);
+		
+		
+		
 		getServletContext().getRequestDispatcher("/WEB-INF/Response/Column_3.jsp").forward(request, response);
 	}
 

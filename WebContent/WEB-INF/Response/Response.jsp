@@ -12,9 +12,6 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-
-<link rel="stylesheet" type="text/css" href=
-	"/database_project/scripts/external/font-awesome/css/font-awesome.min.css" />
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -27,7 +24,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<link href="/CAT-APP-PROJECT/resources/css/font-awesome.css" rel="stylesheet" />
 <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet" />
 
 
@@ -257,12 +253,7 @@ $(document).ready(function(){
 				jQuery('#inside-C').html('');
 				jQuery('#inside-C').html(endpoint_data[endpoint_row_n]);
 				// alert("remainder: " + chem_row_n%3);
-
-
-
-
-				
-			    
+  
 				if (background == background_A) {
 					background = background_B;
 					} else {
@@ -270,136 +261,96 @@ $(document).ready(function(){
 				
 				$('#Clumn-C').css({background: background });
 
-
-
-
-
-				
 				}		// end of endpoint selected == false
 			},			// end of mouse over table 2 function part 1.
 			function () {
+				if(endpoint_selected == false){
 			    // $(this).css("background","");
 			    $(this).removeClass("Highlighted_rows");
 			    $("#chem_properties").removeClass("Highlighted_rows");
-			  	}
+			  	}}
 			);		// end of mouse over table 2 leaving function
 
 	$("#table_1 tr").not(':first-child').click(
 		function () {
 			chemical_selected = true;
-		    $("#table_1 tr").removeClass("Highlighted_rows");
-			$(this).addClass("Highlighted_rows");
-			chem_row_n = $(this).find(".row_number").text();
-			
+			if (!endpoint_selected){
+		    	$("#table_1 tr").removeClass("Highlighted_rows");
+				$(this).addClass("Highlighted_rows");
+				chem_row_n = $(this).index()-1;	//$(this).find(".row_number").text();
+				// alert(chem_row_n);
+				jQuery('#inside-C').html('');
+				jQuery('#inside-C').html(column3_data[chem_row_n]);
+				}
+			else{
+				// alert("chem_row_n: " + chem_row_n + ", endpoint_row_n: " + endpoint_row_n);
+				$("#chem_properties").removeClass("Highlighted_rows");
+				$("#table_1 tr").removeClass("Highlighted_rows");
+				$(this).addClass("Highlighted_rows");
+				chem_row_n = $(this).index()-1;	//$(this).find(".row_number").text();
+				column_3_curve(chem_row_n, endpoint_row_n)
+
+				}
 			});
 
-	$("#table_2 tr").click(
+	$("#table_2 tr").not(':first-child').click(
 		function () {
 			endpoint_selected = true;
-			});
+			if (!chemical_selected){
+				$("#table_2 tr").removeClass("Highlighted_rows");
+				$(this).addClass("Highlighted_rows");
+	    		endpoint_row_n = $(this).index();
+				// alert(endpoint_row_n);
+			
+				jQuery('#inside-C').html('');
+				jQuery('#inside-C').html(endpoint_data[endpoint_row_n]);
+				// alert("remainder: " + chem_row_n%3);
+
+				if (background == background_A) {
+					background = background_B;
+					} else {
+						background = background_A;}
+			
+				$('#Clumn-C').css({background: background });
+				}		//end of if (!chemical_selected){}
+			else{
+				// alert("chem_row_n: " + chem_row_n + ", endpoint_row_n: " + endpoint_row_n);
+				$("#chem_properties").removeClass("Highlighted_rows");
+				$("#table_2 tr").removeClass("Highlighted_rows");
+				$(this).addClass("Highlighted_rows");
+				endpoint_row_n = $(this).index();
+				column_3_curve(chem_row_n, endpoint_row_n)
+				}		// end of else
+			});		// end of $("#table_2 tr").not(':first-child').click()
 
 			
 	$("#chem_properties").hover(
 		function () {
-			//alert("yes");
-			$('#Clumn-C').css({
-    			background: "-webkit-gradient(linear, left top, left bottom, from(DarkGrey), to(Black))" 
-				});
-			jQuery('#inside-C').html('');
-			jQuery('#inside-C').html(column3_data[chem_row_n]);
-			},
+			if (!chemical_selected || !endpoint_selected){
+				//alert("yes");
+				$('#Clumn-C').css({
+    				background: "-webkit-gradient(linear, left top, left bottom, from(DarkGrey), to(Black))" 
+					});
+				jQuery('#inside-C').html('');
+				jQuery('#inside-C').html(column3_data[chem_row_n]);
+				}},		// end of the hover function
 		function () {
 			    //$(this).removeClass("button blue");
 			  }
-			);
+			);			// end of the $("#chem_properties").hover()
 
-
-	/*
-	$("#cardio90").hover(
-		function () {
-			if(endpoint_selected == false){
-				//alert("yes");
-				$('#Clumn-C').css({
-	    			background: "-webkit-gradient(linear, left top, left bottom, from(SeaGreen), to(MidnightBlue))" 
-					});
-				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html("<br><br><br><papaya>" + 
-				' <p  style="text-align: center;">iCadiomyocyte peak frequency 90 minutes. </p><br>' + 
-				'<p style ="text-indent: 50px; text-align: justify;">iCell cardiomyocytes (Catalogue #: CMC-100-010-001) including their respective plating ' +
-				"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
-				"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
-	
-					"<br><br><br><br><br>");
-					
-			}},
-			function () {
-				    //$(this).removeClass("button blue");
-				  }
-				);
-	$("#cardio24").hover(
-		function () {
-			if(endpoint_selected == false){
-				//alert("yes");
-				$('#Clumn-C').css({
-	    			background: "-webkit-gradient(linear, left top, left bottom, from(DarkSlateBlue), to(DarkBlue))" 
-					});
-				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html("<br><br><br><papaya>" + 
-						' <p  style="text-align: center;">iCadiomyocyte peak frequency 24 hours. </p><br>' + 
-					'<p style ="text-indent: 50px; text-align: justify;">iCell cardiomyocytes (Catalogue #: CMC-100-010-001) including their respective plating ' +
-					"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
-					"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
-	
-					"<br><br><br><br><br>");
-					
-				}},
-			function () {
-				    //$(this).removeClass("button blue");
-				  }
-				);
-	$("#HUVEC_TC").hover(
-			function () {
-				//alert("yes");
-				$('#Clumn-C').css({
-	    			background: "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))" 
-					});
-				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html("<br><br><br><papaya>" + 
-						' <p  style="text-align: center;">HUVEC total cell number </p><br>' + 
-						'<p style ="text-indent: 50px; text-align: justify;">' +
-						"" +
-						""+
-	
-					"<br><br><br><br><br>");
-					
-				},
-			function () {
-				    //$(this).removeClass("button blue");
-				  }
-				);
-	$("#HUVEC_TA").hover(
-			function () {
-				//alert("yes");
-				$('#Clumn-C').css({
-	    			background: "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))" 
-					});
-				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html("<br><br><br><papaya>" + 
-					' <p  style="text-align: center;">HUVEC tube area </p><br>' + 
-						'<p style ="text-indent: 50px; text-align: justify;">' +
-						"" +
-						""+
-	
-					"<br><br><br><br><br>");
-					
-				},
-			function () {
-				    //$(this).removeClass("button blue");
-				  }
-				);
-	*/
-	
 });		//end of $(document).ready(function(){}
+
+function column_3_curve(chem_row_n, endpoint_row_n){
+    $.post("Column_3",{				// "Column_3" is the url
+   		chemical: chem_row_n,
+    	endpoint: endpoint_row_n
+    	},
+    	function(data, status){
+    		jQuery('#inside-C').html('');
+			jQuery('#inside-C').html(data);
+    		});			// end of seccessful function and $.post()
+	}		// end of function column_3_curve()
 
 var endpoint_data = [];
 endpoint_data[1] = "<br><br><br><papaya>" + 

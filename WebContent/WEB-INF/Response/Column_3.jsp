@@ -1,13 +1,32 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
-</head>
-<body>
-Column 3
-</body>
-</html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<Papaya>
+Column 3<br>
+chemical: ${chemical}<br>
+endpoint: ${endpoint}<br>
+
+
+<c:choose>
+    <c:when test="${endpoint == '1'}">
+    	1
+       <c:set var="endpoint_string" scope="session" value="Peak_freq_90min" />
+    </c:when>
+    <c:when test="${endpoint == '2'}">
+    	2
+       <c:set var="endpoint_string" scope="session" value="Peak_freq_24hr" />
+    </c:when>
+    <c:when test="${endpoint == '3'}">
+    	 3
+       <c:set var="endpoint_string" scope="session" value="HUVEC_total_cell" />
+    </c:when>
+    <c:when test="${endpoint == '4'}">
+    	 4
+       <c:set var="endpoint_string" scope="session" value="HUVEC_tube_area" />
+    </c:when>
+</c:choose>
+<br>
+endpoint_string: ${endpoint_string}<br>
+
+<img src="${pageContext.request.contextPath}/resources/R-images/${endpoint_string}${chemical}.png">
+</Papaya>
