@@ -15,29 +15,14 @@
 
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#home"><Gray>Response curve</Gray></a></li>
-  <li><a data-toggle="tab" href="#menu1"><Gray>Chemical properties</Gray></a></li>
+  <li><a data-toggle="tab" href="#menu1" id="menue_property"><Gray>Chemical properties</Gray></a></li>
   <li><a data-toggle="tab" href="#menu2"><Gray>Assay</Gray></a></li>
   <li><a data-toggle="tab" href="#menu3"><Gray>Credit</Gray></a></li>
 </ul>
 
 <div class="tab-content">
-  <div id="home" class="tab-pane fade">
-    <h3>HOME</h3>
-    <p>Some content.</p>
-  </div>
-  <div id="menu1" class="tab-pane fade">
-    <h3>Menu 1</h3>
-    <p>Some content in menu 1.</p>
-  </div>
-  <div id="menu2" class="tab-pane fade">
-    <h3>Menu 2</h3>
-    <p>Some content in menu 2.</p>
-  </div>
-  <div id="menu3" class="tab-pane fade">
-    <h3>Menu 2</h3>
-    <p>Some content in menu 2.</p>
-  </div>
-</div>
+  <div id="home" class="tab-pane fade in active">
+   
 <Papaya>
 <p style="text-align: right; font-size: 11px;">(chemical #: ${chemical}, endpoint #: ${endpoint})</p>
 
@@ -100,8 +85,44 @@ System.out.println("String: " + image_path);
     %>
 
 
+  </div> <!-- end of id="home" -->
+  
+  <div id="menu1" class="tab-pane fade">
+    ${chemical_properties}
+    <papaya><h3>Chemical properties</h3>
+    <p>Chemical properties should be here.</p></papaya>
+  </div>
+  
 
-
+  <div id="menu2" class="tab-pane fade">
+    <papaya><h3>Assay method</h3>
+    <p>Future assay method will be here.</p></papaya>
+  </div>
+  <div id="menu3" class="tab-pane fade">
+    <papaya><h3></h3>
+    <p>The assays were done in Dr. Ivan Rusyn lab at Texas A&M University. </p>
+    <p>The R program for dose response curves is from Dr. Fred Wright at the North Carolina State University. </p></papaya>
+  </div>
+</div>
 
 
 </Papaya>
+<script>
+
+
+
+$("menue_property").click(
+	function () {
+		// alert("It is: "+ ${chemical});
+		// jQuery('#menu1').html('');
+		jQuery('#menu1').html("${chemical_properties}");
+		
+		})
+
+
+
+
+
+
+
+</script>

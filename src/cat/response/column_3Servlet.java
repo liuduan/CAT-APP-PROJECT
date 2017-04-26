@@ -43,6 +43,13 @@ public class column_3Servlet extends HttpServlet {
 		String endpoint_n = request.getParameter("endpoint");	// receiving the post value
 		request.setAttribute("endpoint", endpoint_n);			// submit vlue to following page:
 		
+		String chemical_properties = request.getParameter("chemical_properties");	// receiving the post value
+		request.setAttribute("chemical_properties", chemical_properties);			// submit vlue to following page:
+		
+		System.out.println("column_3Servlet: " + chemical_properties); 
+		
+		
+		
 		String endpoint_string = "";
 		switch(endpoint_n){
 			case "1": endpoint_string = "Peak_freq_90min"; break;

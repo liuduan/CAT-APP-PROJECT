@@ -215,15 +215,14 @@ SELECT * from chemicals;
 
 
 <script>
-var chem_row_n = "";
-var endpoint_row_n = "";
+var chem_row_n;
+var endpoint_row_n;
 var source_div ="";
 var background_A = "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))";
 var background_B = "-webkit-gradient(linear, left top, left bottom, from(DarkCyan), to(DarkBlue))";
 var background = background_A;
 var chemical_selected = false;
 var endpoint_selected = false;
-
 $(document).ready(function(){
 	$("#table_1 tr").not(':first-child').hover(
 	  function () {								// mouse on function
@@ -264,7 +263,6 @@ $(document).ready(function(){
 			if(endpoint_selected == false){
 				// $(this).css("background","yellow");
 				$(this).addClass("Highlighted_rows");
-
 		    	
 		    	endpoint_row_n = $(this).index();
 				// alert(endpoint_row_n);
@@ -279,7 +277,6 @@ $(document).ready(function(){
 						background = background_A;}
 				
 				$('#Column-C').css({background: background });
-
 				}		// end of endpoint selected == false
 			},			// end of mouse over table 2 function part 1.
 			function () {
@@ -289,7 +286,6 @@ $(document).ready(function(){
 			    $("#chem_properties").removeClass("Highlighted_rows");
 			  	}}
 			);		// end of mouse over table 2 leaving function
-
 	$("#table_1 tr").not(':first-child').click(
 		function () {
 			chemical_selected = true;
@@ -308,10 +304,8 @@ $(document).ready(function(){
 				$(this).addClass("Highlighted_rows");
 				chem_row_n = $(this).index()-1;	//$(this).find(".row_number").text();
 				column_3_curve(chem_row_n, endpoint_row_n)
-
 				}
 			});
-
 	$("#table_2 tr").not(':first-child').click(
 		function () {
 			endpoint_selected = true;
@@ -324,7 +318,6 @@ $(document).ready(function(){
 				jQuery('#inside-C').html('');
 				jQuery('#inside-C').html(endpoint_data[endpoint_row_n]);
 				// alert("remainder: " + chem_row_n%3);
-
 				if (background == background_A) {
 					background = background_B;
 					} else {
@@ -341,7 +334,6 @@ $(document).ready(function(){
 				column_3_curve(chem_row_n, endpoint_row_n)
 				}		// end of else
 			});		// end of $("#table_2 tr").not(':first-child').click()
-
 			
 	$("#chem_properties").hover(
 		function () {
@@ -357,9 +349,7 @@ $(document).ready(function(){
 			    //$(this).removeClass("button blue");
 			  }
 			);			// end of the $("#chem_properties").hover()
-
 });		//end of $(document).ready(function(){}
-
 function column_3_curve(chem_row_n, endpoint_row_n){
     $.post("Column_3",{				// "Column_3" is the url
    		chemical: chem_row_n,
@@ -370,7 +360,6 @@ function column_3_curve(chem_row_n, endpoint_row_n){
 			jQuery('#inside-C').html(data);
     		});			// end of seccessful function and $.post()
 	}		// end of function column_3_curve()
-
 var endpoint_data = [];
 endpoint_data[1] = "<br><br><br><papaya>" + 
 	' <p  style="text-align: center;">iCadiomyocyte peak frequency 90 minutes. </p><br>' + 
@@ -378,14 +367,12 @@ endpoint_data[1] = "<br><br><br><papaya>" +
 	"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
 	"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
 	"<br><br><br><br><br>";
-
 endpoint_data[2] = "<br><br><br><papaya>" + 
 	' <p  style="text-align: center;">iCadiomyocyte peak frequency 24 hours. </p><br>' + 
 	'<p style ="text-indent: 50px; text-align: justify;">iCell cardiomyocytes (Catalogue #: CMC-100-010-001) including their respective plating ' +
 	"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
 	"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
 	"<br><br><br><br><br>";
-
 endpoint_data[3] = "<br><br><br><papaya>" + 
 	' <p  style="text-align: center;">HUVEC total cell number </p><br>' + 
 	'<p style ="text-indent: 50px; text-align: justify;">' + 
@@ -400,7 +387,6 @@ endpoint_data[4] = "<br><br><br><papaya>" +
 	"cell culture images were captured, and the tube area were calculated" +
 	"by a trained computer software."+
 	"<br><br><br><br><br>";
-
 </script>
 
 </div><!-- end of class main -->--%>
