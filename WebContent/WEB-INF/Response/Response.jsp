@@ -69,6 +69,7 @@ a:active {
 }
 /*font colours*/
 Papaya{	color: PapayaWhip; }
+Gray{	color: #9c9d9d; }
 	
 data{color: LightGreen;  }
 data2{color: DarkGreen; font-size: 20px;  }
@@ -95,7 +96,7 @@ data2{color: DarkGreen; font-size: 20px;  }
 <h3 align="center" style="color: DarkSlateBlue; font-weight: bold;">CAT-APP Data Dashboard</h3>
 <div class="container">
 	<div class="row">
-		<div class="col-lg-3" id="Clumn-A" style="background-color:lavender;height:500px;">
+		<div class="col-lg-3" id="Column-A" style="background-color:lavender;height:550px;">
 		
 
 
@@ -110,7 +111,7 @@ SELECT * from chemicals;
 <c:if test="${Chemicals_first_row_id != null}">
 
 <br />
-<table id = "table_1" style="display: block;  height: 460px;  overflow-y: scroll;">
+<table id = "table_1" style="display: block;  height: 500px;  overflow-y: scroll;">
   <tr>
   	<th style="width:90px;">CAS</th>
     <th>Substance Name</th>
@@ -155,7 +156,7 @@ SELECT * from chemicals;
 
 		<!-- end of class="col-lg-3"  -->
 		</div>
-		<div class="col-lg-3" id="Clumn-B" style="background-color:lavenderblush;">
+		<div class="col-lg-3" id="Column-B" style="background-color:lavenderblush; height:550px;">
 			<br><br><br><br><span style = "font-size: 13px; font-weight: bold;">
 			<table id = "table_2" >
 			<tr><td><div id = "chem_properties">Chemical & physic properties.<br></div></td></tr>
@@ -165,17 +166,35 @@ SELECT * from chemicals;
 			<tr><td><div id = "HUVEC_TC">HUVEC total cells <br></div></td></tr>
 			<tr><td><div id = "HUVEC_TA">HUVEC Tube Area<br></div></td></tr>
 			</table>
-			<span style = "color: LightGray;">
+			<span style = "color: #909191;">
 			iMacrophages test<br>
 			iHepatocytes test<br>
 
 			iEndothelial Cell test<br>
 			iNeuron test<br>
 			iSkeletal Myoblast test<br>
-			iLymphoblast test<br></span></span>
+			iLymphoblast test<br>
+			===========<br>
+			A-375 Skin Melanoma<br>
+			A549 Lung Carcinoma<br>
+			HepG2 Hepatocyte Carcinoma<br>
+			HepaRG Hepatocyte Carcinoma<br>
+			MCF7 Breast Adenocarcinoma<br>
+			
+			HT-29 Colon Adenocarcinoma<br>
+			LN-229 Glioblastoma<br>
+			HEK10205f Human Epidermal Keratinocytes; Foetal<br>
+			HLMVEC Human Lung Microvascular Endothelial Cells<br>
+			HMePC Human Mammary Epithelial Cell<br>
+			SH-SY5Y Neuroblastoma<br>
+			
+			
+			
+			
+			</span></span>
 			<br><br><br><br><br><br><br><br>
 		</div>
-		<div class="col-lg-6" id="Clumn-C" style="background-color:lavender; height:500px; border-radius: 25px;">
+		<div class="col-lg-6" id="Column-C" style="background-color:lavender; height:550px; border-radius: 25px;">
 			<div id="inside-C"> <br><br><br><br>
 				<data2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Chemical details<br><br>
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Benchmark doses<br><br>
@@ -227,7 +246,7 @@ $(document).ready(function(){
 			if (chem_row_n%3 == 2) {
 				background = "-webkit-gradient(linear, left top, right bottom, from(Black), to(DarkGrey))";} 
 		
-			$('#Clumn-C').css({
+			$('#Column-C').css({
 		    	background: background });
 		}		// end of if chemical selected == false
 	  },		// end of mouse over chemicals
@@ -259,7 +278,7 @@ $(document).ready(function(){
 					} else {
 						background = background_A;}
 				
-				$('#Clumn-C').css({background: background });
+				$('#Column-C').css({background: background });
 
 				}		// end of endpoint selected == false
 			},			// end of mouse over table 2 function part 1.
@@ -311,7 +330,7 @@ $(document).ready(function(){
 					} else {
 						background = background_A;}
 			
-				$('#Clumn-C').css({background: background });
+				$('#Column-C').css({background: background });
 				}		//end of if (!chemical_selected){}
 			else{
 				// alert("chem_row_n: " + chem_row_n + ", endpoint_row_n: " + endpoint_row_n);
@@ -328,7 +347,7 @@ $(document).ready(function(){
 		function () {
 			if (!chemical_selected || !endpoint_selected){
 				//alert("yes");
-				$('#Clumn-C').css({
+				$('#Column-C').css({
     				background: "-webkit-gradient(linear, left top, left bottom, from(DarkGrey), to(Black))" 
 					});
 				jQuery('#inside-C').html('');
@@ -369,16 +388,17 @@ endpoint_data[2] = "<br><br><br><papaya>" +
 
 endpoint_data[3] = "<br><br><br><papaya>" + 
 	' <p  style="text-align: center;">HUVEC total cell number </p><br>' + 
-	'<p style ="text-indent: 50px; text-align: justify;">' +
-	"" +
+	'<p style ="text-indent: 50px; text-align: justify;">' + 
+	"Total viable HUVEC cells were numerated 24 hours after chemical treatment with different concentrations." +
 	""+
 	"<br><br><br><br><br>"; 
 	
 endpoint_data[4] = "<br><br><br><papaya>" + 
 	' <p  style="text-align: center;">HUVEC tube area </p><br>' + 
 	'<p style ="text-indent: 50px; text-align: justify;">' +
-	"" +
-	""+
+	"Human umbilical vein cells were used in this assay, and 18 hours after chemical treatment, " + 
+	"cell culture images were captured, and the tube area were calculated" +
+	"by a trained computer software."+
 	"<br><br><br><br><br>";
 
 </script>

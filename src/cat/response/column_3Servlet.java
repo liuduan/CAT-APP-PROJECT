@@ -51,12 +51,7 @@ public class column_3Servlet extends HttpServlet {
 			case "4": endpoint_string = "HUVEC_tube_area"; break;
 		}
 		
-		/*
-		if ( endpoint_n.equals("2")){
-			System.out.println("true "); 
-			endpoint_string ="Peak_freq_24hr";
-			}
-		*/
+	
 		
 		System.out.println("endpoint_string: " + endpoint_string); 
 		
@@ -65,10 +60,10 @@ public class column_3Servlet extends HttpServlet {
 		
 		System.out.println(copy_command); 
 		
-		shellCommands obj = new shellCommands();
-		String output = obj.executeCommand(copy_command);
+		// shellCommands obj = new shellCommands();
+		// String output = obj.executeCommand(copy_command);
 
-		System.out.println(output);
+		// System.out.println(output);
 		
 		
 		
