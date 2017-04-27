@@ -95,12 +95,13 @@ System.out.println("String: " + image_path);
   
 
   <div id="menu2" class="tab-pane fade">
-    <papaya><h3>Assay method</h3>
-    <p>Future assay method will be here.</p></papaya>
+  
+    <papaya>${endpoint_data}. Assay method
+    </papaya>
   </div>
   <div id="menu3" class="tab-pane fade">
-    <papaya><h3></h3>
-    <p>The assays were done in Dr. Ivan Rusyn lab at Texas A&M University. </p>
+    <papaya><h3></h3><br><br>
+    <p style="text-indent: 50px;">The assays were done in Dr. Ivan Rusyn lab at Texas A&M University. </p>
     <p>The R program for dose response curves is from Dr. Fred Wright at the North Carolina State University. </p></papaya>
   </div>
 </div>

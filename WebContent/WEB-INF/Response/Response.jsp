@@ -11,6 +11,7 @@
 
 
 <head>
+<meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -93,7 +94,7 @@ data2{color: DarkGreen; font-size: 20px;  }
      url="jdbc:mysql://localhost:3306/response"
      user="root"  password="vibscatapp"/>
      <br></br>
-<h3 align="center" style="color: DarkSlateBlue; font-weight: bold;">CAT-APP Data Dashboard</h3>
+<h3 align="center" style="color: DarkSlateBlue; font-weight: bold;">Data Analysis Dashboard</h3>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3" id="Column-A" style="background-color:lavender;height:550px;">
@@ -118,7 +119,7 @@ SELECT * from chemicals;
   </tr>
   
  <%! int i = 0; %> 
- <script> var column3_data = [];</script>
+ <script> var column3_data = ["a", "b", "c"];</script>
   <c:forEach var="Chemicals" items="${Chemicals_result.rows}">
   	<!-- var="user"	// can be any variable name. -->
   	<!-- "result" is the object name from search results. -->
@@ -157,7 +158,7 @@ SELECT * from chemicals;
 		<!-- end of class="col-lg-3"  -->
 		</div>
 		<div class="col-lg-3" id="Column-B" style="background-color:lavenderblush; height:550px;">
-			<br><br><br><br><span style = "font-size: 13px; font-weight: bold;">
+			<br><br><span style = "font-size: 13px; font-weight: bold;">
 			<table id = "table_2" >
 			<tr><td><div id = "chem_properties">Chemical & physic properties.<br></div></td></tr>
 			
@@ -196,10 +197,18 @@ SELECT * from chemicals;
 		</div>
 		<div class="col-lg-6" id="Column-C" style="background-color:lavender; height:550px; border-radius: 25px;">
 			<div id="inside-C"> <br><br><br><br>
-				<data2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Chemical details<br><br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Benchmark doses<br><br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Endpoints<br><br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Project files<br><br><br></data>
+				<data2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Chemical details<br>				
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Assay methods<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Dose response curves<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Project files<br><br>
+				
+				&nbsp; &nbsp; &nbsp;  More to come: <br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Departure point data<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Assay images<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Benchmark Dose Software processing<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Toxpie comparason for chemicals and assays<br>
+				
+				
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			</div>
 		</div>
@@ -211,11 +220,15 @@ SELECT * from chemicals;
 <br/>
 
 
+<p onclick="window.location.reload(true);">...</p>
+
+<button type="button" id="reset-2" class="btn btn-primary">Reset</button>
 
 
 
 <script>
 var chem_row_n;
+var chem_row_n2 = 0;
 var endpoint_row_n;
 var source_div ="";
 var background_A = "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))";
@@ -224,6 +237,35 @@ var background = background_A;
 var chemical_selected = false;
 var endpoint_selected = false;
 $(document).ready(function(){
+	
+	
+	$("#table_1 tr").not(':first-child').click(
+		function () {
+			// alert("" + column3_data[2]);
+			chemical_selected = true;
+			if (!endpoint_selected){
+		    	$("#table_1 tr").removeClass("Highlighted_rows");
+				$(this).addClass("Highlighted_rows");
+				chem_row_n2 = $(this).index()-1;	//$(this).find(".row_number").text();
+				// alert((typeof chem_row_n2) + "-----" + chem_row_n2 + column3_data[2]);
+				jQuery('#inside-C').html('');
+				// var row_n = Number(chem_row_n);
+				jQuery('#inside-C').html(column3_data[chem_row_n2]);
+				}
+			else{
+				// alert("chem_row_n: " + chem_row_n + ", endpoint_row_n: " + endpoint_row_n);
+				$("#chem_properties").removeClass("Highlighted_rows");
+				$("#table_1 tr").removeClass("Highlighted_rows");
+				$(this).addClass("Highlighted_rows");
+				chem_row_n = $(this).index()-1;	//$(this).find(".row_number").text();
+				column_3_curve(chem_row_n, endpoint_row_n)
+				}
+			});
+	
+
+
+
+	
 	$("#table_1 tr").not(':first-child').hover(
 	  function () {								// mouse on function
 		if (chemical_selected == false){
@@ -231,9 +273,9 @@ $(document).ready(function(){
 	    	$(this).addClass("Highlighted_rows");
 	    
 	    	$("#chem_properties").addClass("Highlighted_rows");
-	    	chem_row_n = $(this).find(".row_number").text();
+	    	chem_row_n = Number($(this).find(".row_number").text());
 			// alert(chem_row_n);
-			source_div = "c" + chem_row_n;
+			source_div = "c" + String(chem_row_n);
 			jQuery('#inside-C').html('');
 			jQuery('#inside-C').html(column3_data[chem_row_n]);
 			// alert("remainder: " + chem_row_n%3);
@@ -247,14 +289,17 @@ $(document).ready(function(){
 		
 			$('#Column-C').css({
 		    	background: background });
+			// alert("end of over " + column3_data[2]);
 		}		// end of if chemical selected == false
 	  },		// end of mouse over chemicals
 	  function () {
+		// alert("start leaving " + column3_data[2]);
 		if (chemical_selected == false){
 	    	// $(this).css("background","");
 	    	$(this).removeClass("Highlighted_rows");
 	    	$("#chem_properties").removeClass("Highlighted_rows");
 			}
+		// alert("end of leaving " + column3_data[2]);
 	  	}
 	);		// end of $table_1 tr
 	
@@ -286,26 +331,7 @@ $(document).ready(function(){
 			    $("#chem_properties").removeClass("Highlighted_rows");
 			  	}}
 			);		// end of mouse over table 2 leaving function
-	$("#table_1 tr").not(':first-child').click(
-		function () {
-			chemical_selected = true;
-			if (!endpoint_selected){
-		    	$("#table_1 tr").removeClass("Highlighted_rows");
-				$(this).addClass("Highlighted_rows");
-				chem_row_n = $(this).index()-1;	//$(this).find(".row_number").text();
-				// alert(chem_row_n);
-				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html(column3_data[chem_row_n]);
-				}
-			else{
-				// alert("chem_row_n: " + chem_row_n + ", endpoint_row_n: " + endpoint_row_n);
-				$("#chem_properties").removeClass("Highlighted_rows");
-				$("#table_1 tr").removeClass("Highlighted_rows");
-				$(this).addClass("Highlighted_rows");
-				chem_row_n = $(this).index()-1;	//$(this).find(".row_number").text();
-				column_3_curve(chem_row_n, endpoint_row_n)
-				}
-			});
+
 	$("#table_2 tr").not(':first-child').click(
 		function () {
 			endpoint_selected = true;
@@ -353,13 +379,29 @@ $(document).ready(function(){
 function column_3_curve(chem_row_n, endpoint_row_n){
     $.post("Column_3",{				// "Column_3" is the url
    		chemical: chem_row_n,
-    	endpoint: endpoint_row_n
+    	endpoint: endpoint_row_n,
+    	chemical_properties: column3_data[chem_row_n],
+    	endpoint_data: endpoint_data[endpoint_row_n]
     	},
     	function(data, status){
     		jQuery('#inside-C').html('');
 			jQuery('#inside-C').html(data);
     		});			// end of seccessful function and $.post()
 	}		// end of function column_3_curve()
+
+
+	$("#reset-2").click(
+		function () {
+			alert("a");
+			endpoint_selected = false;
+			chemical_selected = false;
+			$("#table_2 tr").removeClass("Highlighted_rows");
+			$("#table_1 tr").removeClass("Highlighted_rows");
+			});		// end of $("#reset").click()
+
+
+
+	
 var endpoint_data = [];
 endpoint_data[1] = "<br><br><br><papaya>" + 
 	' <p  style="text-align: center;">iCadiomyocyte peak frequency 90 minutes. </p><br>' + 
@@ -387,9 +429,11 @@ endpoint_data[4] = "<br><br><br><papaya>" +
 	"cell culture images were captured, and the tube area were calculated" +
 	"by a trained computer software."+
 	"<br><br><br><br><br>";
+
 </script>
 
-</div><!-- end of class main -->--%>
+
+
 </body>
 
 </html>

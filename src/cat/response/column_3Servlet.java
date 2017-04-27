@@ -46,6 +46,11 @@ public class column_3Servlet extends HttpServlet {
 		String chemical_properties = request.getParameter("chemical_properties");	// receiving the post value
 		request.setAttribute("chemical_properties", chemical_properties);			// submit vlue to following page:
 		
+		String endpoint_data = request.getParameter("endpoint_data");	// receiving the post value
+		request.setAttribute("endpoint_data", endpoint_data);			// submit vlue to following page:
+		
+		
+		
 		System.out.println("column_3Servlet: " + chemical_properties); 
 		
 		

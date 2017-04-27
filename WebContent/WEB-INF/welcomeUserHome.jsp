@@ -119,7 +119,9 @@ SELECT * from users where Email = "<%=Email%>";
                     </div>
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">ANALYTICAL</h4>
-                        
+                         <form action="Response/Response" method="post">
+						<input type="submit" class="btn btn-success" style=" border-radius: 5px;" value="Response Curves">
+						</form>
                         <div class="btn-group">
         		<div class="col-md-3">
                         <form action="CatAppDownloadPageServlet" method="post">
