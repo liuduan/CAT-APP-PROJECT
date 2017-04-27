@@ -67,15 +67,16 @@ public class column_3Servlet extends HttpServlet {
 		
 		System.out.println("endpoint_string: " + endpoint_string); 
 		
-		String copy_command = "cmd.exe /c copy C:\\4_R\\Demonstration\\" + endpoint_string + "\\Figs\\";
-		copy_command += endpoint_string + chemical_n + ".png C:\\7-eclipse-Workspase\\Cat-App\\WebContent\\resources\\R-images";
+		String R_command = "cmd.exe /c C:\\\"Program Files\"\\R\\R-3.3.3\\bin\\Rscript C:\\4_R\\Demonstration\\";
+		R_command +=  endpoint_string + "\\Script_Data.R";
 		
-		System.out.println(copy_command); 
 		
-		// shellCommands obj = new shellCommands();
-		// String output = obj.executeCommand(copy_command);
+		System.out.println(R_command); 
+		
+		shellCommands obj = new shellCommands();
+		String output = obj.executeCommand(R_command);
 
-		// System.out.println(output);
+		System.out.println(output);
 		
 		
 		

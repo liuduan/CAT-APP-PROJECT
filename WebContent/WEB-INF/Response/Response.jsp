@@ -148,6 +148,7 @@ SELECT * from chemicals;
   	
   </tr>
   </c:forEach>
+   <% i = 0; %> 
 </table> 
  		
  </c:if>
@@ -206,7 +207,8 @@ SELECT * from chemicals;
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Departure point data<br>
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Assay images<br>
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Benchmark Dose Software processing<br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Toxpie comparason for chemicals and assays<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Toxpie comparison for chemicals and assays<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Comparison to commonly known chemicals<br>
 				
 				
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -220,14 +222,13 @@ SELECT * from chemicals;
 <br/>
 
 
-<p onclick="window.location.reload(true);">...</p>
-
 <button type="button" id="reset-2" class="btn btn-primary">Reset</button>
+<p onclick="window.location.reload(true);">...</p>
 
 
 
 <script>
-var chem_row_n;
+var chem_row_n = 0;
 var chem_row_n2 = 0;
 var endpoint_row_n;
 var source_div ="";
@@ -246,7 +247,7 @@ $(document).ready(function(){
 			if (!endpoint_selected){
 		    	$("#table_1 tr").removeClass("Highlighted_rows");
 				$(this).addClass("Highlighted_rows");
-				chem_row_n2 = $(this).index()-1;	//$(this).find(".row_number").text();
+				chem_row_n2 = $(this).index()-2;	//$(this).find(".row_number").text();
 				// alert((typeof chem_row_n2) + "-----" + chem_row_n2 + column3_data[2]);
 				jQuery('#inside-C').html('');
 				// var row_n = Number(chem_row_n);
@@ -258,6 +259,7 @@ $(document).ready(function(){
 				$("#table_1 tr").removeClass("Highlighted_rows");
 				$(this).addClass("Highlighted_rows");
 				chem_row_n = $(this).index()-1;	//$(this).find(".row_number").text();
+				// alert("in click, chem_row_n: " + chem_row_n);
 				column_3_curve(chem_row_n, endpoint_row_n)
 				}
 			});
@@ -376,7 +378,9 @@ $(document).ready(function(){
 			  }
 			);			// end of the $("#chem_properties").hover()
 });		//end of $(document).ready(function(){}
+
 function column_3_curve(chem_row_n, endpoint_row_n){
+	// alert(chem_row_n + "endpoint:" + endpoint_row_n);
     $.post("Column_3",{				// "Column_3" is the url
    		chemical: chem_row_n,
     	endpoint: endpoint_row_n,
@@ -392,11 +396,12 @@ function column_3_curve(chem_row_n, endpoint_row_n){
 
 	$("#reset-2").click(
 		function () {
-			alert("a");
+			//alert("a");
 			endpoint_selected = false;
 			chemical_selected = false;
 			$("#table_2 tr").removeClass("Highlighted_rows");
 			$("#table_1 tr").removeClass("Highlighted_rows");
+			// window.location.reload(true);
 			});		// end of $("#reset").click()
 
 
