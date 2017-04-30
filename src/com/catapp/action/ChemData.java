@@ -16,18 +16,19 @@ public class ChemData {
 		PreparedStatement lPstmt = null;
 		ResultSet lRst 			 = null;
 		try{
-			
+			if(pTableName!="celllines"){
+				
+				lPhenotypeMap.put(0l, "---Select One---");
+			}
 			String lBuilder = "select entity_id,name,dsc from xxx where rowstate!=-1 ";
 			lBuilder =lBuilder.replaceAll("xxx", pTableName);
 			lPstmt =pConnection.prepareStatement(lBuilder);
 			lRst = lPstmt.executeQuery();
 			while(lRst.next()){
-				if(lRst.getLong(1)>=7){
-					lPhenotypeMap.put(lRst.getLong(1), lRst.getString(2)+" "+lRst.getString(3));
-				}else{
+				
 					lPhenotypeMap.put(lRst.getLong(1), lRst.getString(2));
 					
-				}
+				
 			}
 			
 		}catch(Exception e){
@@ -70,6 +71,7 @@ public class ChemData {
 	
 	public HashMap<Long,String> getTimePoints(){
 		HashMap<Long,String> lTPMap =new HashMap<Long,String>();
+		lTPMap.put(0l, "---Select One---");
 		lTPMap.put(1l, "15 min");
 		lTPMap.put(2l, "30 min");
 		lTPMap.put(3l, "60 min");
@@ -124,6 +126,47 @@ public class ChemData {
 			}
 		}
 		return lReturnString;
+	}
+	public HashMap<String,String>getChemicalNames(Connection pConnection){
+		HashMap<String,String>lChemicalMap = new HashMap<String,String>();
+		PreparedStatement lPstmt 		   = null;
+		ResultSet lRst 			           = null;
+		try{
+			String lBuilder = "select cas_number,name From chemical_cas_concawe_mapping";
+			
+			lPstmt =pConnection.prepareStatement(lBuilder);
+			lRst = lPstmt.executeQuery();
+			while(lRst.next()){
+				lChemicalMap.put(lRst.getString(1), lRst.getString(2));	
+			}
+			
+		}catch(Exception e){
+			logger.error("Error Occured while getting chemical names",e);
+		}
+		return lChemicalMap;
+	}
+	public HashMap<String,String>getCasNames(Connection pConnection, Long pFlag){
+		HashMap<String,String>lChemicalMap = new HashMap<String,String>();
+		PreparedStatement lPstmt 		   = null;
+		ResultSet lRst 			           = null;
+		try{
+			String lBuilder = "select cat_app_id,cas_number,concawe_id From chemical_cas_concawe_mapping";
+			
+			lPstmt =pConnection.prepareStatement(lBuilder);
+			lRst = lPstmt.executeQuery();
+			while(lRst.next()){
+				if(pFlag==1){
+					lChemicalMap.put(lRst.getString(1), lRst.getString(2));	
+					
+				}else{
+					lChemicalMap.put(lRst.getString(1), lRst.getString(3));	
+				}
+			}
+			
+		}catch(Exception e){
+			logger.error("Error Occured while getting chemical names",e);
+		}
+		return lChemicalMap;
 	}
 
 }

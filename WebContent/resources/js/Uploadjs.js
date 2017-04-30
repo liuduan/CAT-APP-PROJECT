@@ -380,7 +380,548 @@ function showExcelFiles() {
     jQuery("#pdf").hide();
  }
 
+function getAssayNames(){
+	
+	var lCellLines=$('input[name=celllines]:checked').val();
+		
+
+		if(lCellLines==2){
+			assay.options[4].hidden=true;
+			assay.options[5].hidden=true;
+			assay.options[6].hidden=true;
+			assay.options[7].hidden=true;
+			assay.options[8].hidden=true;
+			assay.options[9].hidden=true;
+			assay.options[10].hidden=true;
+			assay.options[11].hidden=true;
+			assay.options[12].hidden=true;
+			assay.options[13].hidden=true;
+			assay.options[14].hidden=true;
+			assay.options[15].hidden=true;
+			
+		} else if (lCellLines==1){
+			
+			assay.options[1].hidden=true;
+			assay.options[5].hidden=true;
+			assay.options[6].hidden=true;
+			assay.options[7].hidden=true;
+			assay.options[8].hidden=true;
+			assay.options[11].hidden=true;
+			assay.options[12].hidden=true;
+			assay.options[13].hidden=true;
+			assay.options[14].hidden=true;
+			assay.options[15].hidden=true;
+			
+		}
+		else if (lCellLines==3 ){
+			
+			assay.options[1].hidden=true;
+			assay.options[4].hidden=true;
+			assay.options[5].hidden=true;
+			assay.options[6].hidden=true;
+			assay.options[7].hidden=true;
+			assay.options[8].hidden=true;
+			assay.options[12].hidden=true;
+			assay.options[13].hidden=true;
+			assay.options[14].hidden=true;
+			assay.options[15].hidden=true;
+			
+		}
+		else if (lCellLines==4 ){
+					
+			assay.options[1].hidden=true;
+			assay.options[4].hidden=true;
+			assay.options[5].hidden=true;
+			assay.options[6].hidden=true;
+			assay.options[7].hidden=true;
+			assay.options[8].hidden=true;
+			assay.options[13].hidden=true;
+			assay.options[15].hidden=true;
+			assay.options[14].hidden=true;
+					
+				}
+		else if (lCellLines==5 ){
+			
+			assay.options[1].hidden=true;
+			assay.options[4].hidden=true;
+			assay.options[5].hidden=true;
+			assay.options[6].hidden=true;
+			assay.options[7].hidden=true;
+			assay.options[8].hidden=true;
+			assay.options[9].hidden=true;
+			assay.options[10].hidden=true;
+			assay.options[11].hidden=true;
+					
+				}
+		else if (lCellLines>6 || lCellLines<17 ){
+			
+			assay.options[1].hidden=true;
+			assay.options[2].hidden=true;
+			assay.options[3].hidden=true;
+			assay.options[9].hidden=true;
+			assay.options[10].hidden=true;
+			assay.options[11].hidden=true;
+			assay.options[12].hidden=true;
+			assay.options[13].hidden=true;
+			assay.options[14].hidden=true;
+			assay.options[15].hidden=true;
+			
+		}
+	 
 
 	
+}	
+function backRefresh(){
 	
+	assay.options[1].hidden=false;
+	assay.options[1].hidden=false;
+	assay.options[2].hidden=false;
+	assay.options[3].hidden=false;
+	assay.options[4].hidden=false;
+	assay.options[5].hidden=false;
+	assay.options[6].hidden=false;
+	assay.options[7].hidden=false;
+	assay.options[9].hidden=false;
+	assay.options[10].hidden=false;
+	assay.options[11].hidden=false;
+	assay.options[12].hidden=false;
+	assay.options[13].hidden=false;
+	assay.options[14].hidden=false;
+	assay.options[15].hidden=false;
+	jQuery("#assay").val(0);
+	jQuery("#assays").prop('disabled',true);
+	
+}
+function selectTimePoint(){
+	var lCellLines=$('input[name=celllines]:checked').val();
+	if(lCellLines>"6" || lCellLines<"17" ){
+		tp.options[1].hidden=true;
+		tp.options[2].hidden=true;
+		tp.options[3].hidden=true;
+		tp.options[4].hidden=true;
+		
+	}
 
+}
+function backRefreshTime(){
+	tp.options[1].hidden=false;
+	tp.options[2].hidden=false;
+	tp.options[3].hidden=false;
+	tp.options[4].hidden=false;
+	jQuery("#tp").val(0);
+	jQuery("#times").prop('disabled',true);
+}
+	
+function selectphenotypes(){
+	var lAssay=jQuery("#assay").val();
+	ph.options[1].hidden=true;
+	ph.options[2].hidden=true;
+	ph.options[3].hidden=true;
+	ph.options[4].hidden=true;
+	ph.options[5].hidden=true;
+	ph.options[6].hidden=true;
+	ph.options[7].hidden=true;
+	ph.options[8].hidden=true;
+	ph.options[9].hidden=true;
+	ph.options[10].hidden=true;
+	ph.options[11].hidden=true;
+	ph.options[12].hidden=true;
+	ph.options[13].hidden=true;
+	ph.options[14].hidden=true;
+	ph.options[15].hidden=true;
+	ph.options[16].hidden=true;
+	ph.options[17].hidden=true;
+	ph.options[18].hidden=true;
+	ph.options[19].hidden=true;
+	ph.options[20].hidden=true;
+	ph.options[21].hidden=true;
+	ph.options[22].hidden=true;
+	ph.options[23].hidden=true;
+	ph.options[24].hidden=true;
+	ph.options[25].hidden=true;
+	ph.options[26].hidden=true;
+	ph.options[27].hidden=true;
+	
+	if(lAssay==1){
+		ph.options[1].hidden=false;
+		ph.options[2].hidden=false;
+		ph.options[3].hidden=false;
+		ph.options[4].hidden=false;
+		ph.options[5].hidden=false;
+		ph.options[6].hidden=false;
+		ph.options[7].hidden=false;
+		ph.options[8].hidden=false;
+		
+	}else if(lAssay==2){
+		ph.options[8].hidden=false;
+		ph.options[9].hidden=false;
+		ph.options[28].hidden=false;
+		
+		
+	}else if(lAssay==3){
+		ph.options[10].hidden=false;
+		ph.options[11].hidden=false;
+		ph.options[12].hidden=false;
+		
+	}else if(lAssay==9){
+		ph.options[13].hidden=false;
+	
+		
+	}else if(lAssay==10){
+		ph.options[14].hidden=false;
+	
+		
+	}else if(lAssay==11){
+		ph.options[15].hidden=false;
+		ph.options[16].hidden=false;
+		ph.options[17].hidden=false;
+		ph.options[18].hidden=false;
+	
+		
+	}else if(lAssay==12){
+		ph.options[19].hidden=false;
+		ph.options[20].hidden=false;
+		ph.options[21].hidden=false;
+		ph.options[22].hidden=false;	
+	}else if(lAssay==13){
+		ph.options[23].hidden=false;	
+		
+	}else if(lAssay==14){
+		ph.options[24].hidden=false;
+		ph.options[26].hidden=false;
+		
+	}else if(lAssay==15){
+		ph.options[25].hidden=false;
+		ph.options[27].hidden=false;
+		
+	}
+   
+	
+}
+function refreshphenotype(){
+	
+    ph.options[1].hidden=false;
+	ph.options[2].hidden=false;
+	ph.options[3].hidden=false;
+	ph.options[4].hidden=false;
+	ph.options[5].hidden=false;
+	ph.options[6].hidden=false;
+	ph.options[7].hidden=false;
+	ph.options[8].hidden=false;
+	ph.options[9].hidden=false;
+	ph.options[10].hidden=false;
+	ph.options[11].hidden=false;
+	ph.options[12].hidden=false;
+	ph.options[13].hidden=false;
+	ph.options[14].hidden=false;
+	ph.options[15].hidden=false;
+	ph.options[16].hidden=false;
+	ph.options[17].hidden=false;
+	ph.options[18].hidden=false;
+	ph.options[19].hidden=false;
+	ph.options[20].hidden=false;
+	ph.options[21].hidden=false;
+	ph.options[22].hidden=false;
+	ph.options[23].hidden=false;
+	ph.options[24].hidden=false;
+	ph.options[25].hidden=false;
+	ph.options[26].hidden=false;
+	ph.options[27].hidden=false;
+	ph.options[28].hidden=false;
+	jQuery("#ph").val(0);
+	jQuery("#pheno").prop('disabled',true);
+}
+function getAssaysForDownload(){
+	var lCellLinesArray=[];
+	
+	$. each($("input[name='celllines']:checked"), function(){
+		lCellLinesArray.push($(this).val());
+	});
+	jQuery("#AssayHead").children().eq(0).hide();
+	jQuery("#AssayHead").children().eq(1).hide();
+	jQuery("#AssayHead").children().eq(2).hide();
+	jQuery("#AssayHead").children().eq(3).hide();
+	jQuery("#AssayHead").children().eq(4).hide();
+	jQuery("#AssayHead").children().eq(5).hide();
+	jQuery("#AssayHead").children().eq(6).hide();
+	jQuery("#AssayHead").children().eq(7).hide();
+	jQuery("#AssayHead").children().eq(8).hide();
+	jQuery("#AssayHead").children().eq(9).hide();
+	jQuery("#AssayHead").children().eq(10).hide();
+	jQuery("#AssayHead").children().eq(11).hide();
+	jQuery("#AssayHead").children().eq(12).hide();
+	jQuery("#AssayHead").children().eq(13).hide();
+	jQuery("#AssayHead").children().eq(14).hide();
+	jQuery("#AssayHead").children().eq(15).hide();
+	if(lCellLinesArray==0){
+		jQuery("#AssayHead").children().eq(0).show();
+		jQuery("#AssayHead").children().eq(1).show();
+		jQuery("#AssayHead").children().eq(2).show();
+		jQuery("#AssayHead").children().eq(3).show();
+		jQuery("#AssayHead").children().eq(4).show();
+		jQuery("#AssayHead").children().eq(5).show();
+		jQuery("#AssayHead").children().eq(6).show();
+		jQuery("#AssayHead").children().eq(7).show();
+		jQuery("#AssayHead").children().eq(8).show();
+		jQuery("#AssayHead").children().eq(9).show();
+		jQuery("#AssayHead").children().eq(10).show();
+		jQuery("#AssayHead").children().eq(11).show();
+		jQuery("#AssayHead").children().eq(12).show();
+		jQuery("#AssayHead").children().eq(13).show();
+		jQuery("#AssayHead").children().eq(14).show();
+		jQuery("#AssayHead").children().eq(15).show();
+		
+	}
+	
+	for(var i=0;i<lCellLinesArray.length;i++){
+		var lCellLines=lCellLinesArray[i];
+		if(lCellLines==2){
+			jQuery("#AssayHead").children().eq(0).show();
+			jQuery("#AssayHead").children().eq(1).show();
+			jQuery("#AssayHead").children().eq(2).show();
+		
+			
+		} else if (lCellLines==1){
+			
+			jQuery("#AssayHead").children().eq(9).show();
+			jQuery("#AssayHead").children().eq(10).show();
+			jQuery("#AssayHead").children().eq(2).show();
+			jQuery("#AssayHead").children().eq(3).show();
+			jQuery("#AssayHead").children().eq(4).show();
+			
+			
+		}
+		else if (lCellLines==3 ){
+			
+			jQuery("#AssayHead").children().eq(2).show();
+			jQuery("#AssayHead").children().eq(3).show();
+			jQuery("#AssayHead").children().eq(9).show();
+			jQuery("#AssayHead").children().eq(10).show();
+			
+			
+		}
+		else if (lCellLines==4 ){
+
+			jQuery("#AssayHead").children().eq(2).show();
+			jQuery("#AssayHead").children().eq(3).show();
+			jQuery("#AssayHead").children().eq(9).show();
+			jQuery("#AssayHead").children().eq(10).show();
+					
+				}
+		else if (lCellLines==5 ){
+		
+			
+			jQuery("#AssayHead").children().eq(2).show();
+			jQuery("#AssayHead").children().eq(3).show();
+			jQuery("#AssayHead").children().eq(12).show();
+			jQuery("#AssayHead").children().eq(13).show();
+			jQuery("#AssayHead").children().eq(14).show();
+			jQuery("#AssayHead").children().eq(15).show();
+			
+			
+					
+				}
+		else if (lCellLines>6 || lCellLines<17 ){
+
+			
+			jQuery("#AssayHead").children().eq(4).show();
+			jQuery("#AssayHead").children().eq(5).show();
+			jQuery("#AssayHead").children().eq(6).show();
+			jQuery("#AssayHead").children().eq(7).show();
+			jQuery("#AssayHead").children().eq(8).show();
+			
+		}else{
+			jQuery("#AssayHead").children().eq(1).show();
+			jQuery("#AssayHead").children().eq(2).show();
+			jQuery("#AssayHead").children().eq(3).show();
+			jQuery("#AssayHead").children().eq(4).show();
+			jQuery("#AssayHead").children().eq(5).show();
+			jQuery("#AssayHead").children().eq(6).show();
+			jQuery("#AssayHead").children().eq(7).show();
+			jQuery("#AssayHead").children().eq(8).show();
+			jQuery("#AssayHead").children().eq(9).show();
+			jQuery("#AssayHead").children().eq(10).show();
+			jQuery("#AssayHead").children().eq(11).show();
+			jQuery("#AssayHead").children().eq(12).show();
+			jQuery("#AssayHead").children().eq(13).show();
+			jQuery("#AssayHead").children().eq(14).show();
+			jQuery("#AssayHead").children().eq(15).show();
+			
+		}
+	}
+	
+}
+function getPhenotypes(){
+	var lPhenotypesArray=[];
+	
+	$. each($("input[name='assaynames']:checked"), function(){
+		lPhenotypesArray.push($(this).val());
+	});
+	jQuery("#phenohead").children().eq(0).hide();
+	jQuery("#phenohead").children().eq(1).hide();
+	jQuery("#phenohead").children().eq(2).hide();
+	jQuery("#phenohead").children().eq(3).hide();
+	jQuery("#phenohead").children().eq(4).hide();
+	jQuery("#phenohead").children().eq(5).hide();
+	jQuery("#phenohead").children().eq(6).hide();
+	jQuery("#phenohead").children().eq(7).hide();
+	jQuery("#phenohead").children().eq(8).hide();
+	jQuery("#phenohead").children().eq(9).hide();
+	jQuery("#phenohead").children().eq(10).hide();
+	jQuery("#phenohead").children().eq(11).hide();
+	jQuery("#phenohead").children().eq(12).hide();
+	jQuery("#phenohead").children().eq(13).hide();
+	jQuery("#phenohead").children().eq(14).hide();
+	jQuery("#phenohead").children().eq(15).hide();
+	jQuery("#phenohead").children().eq(16).hide();
+	jQuery("#phenohead").children().eq(17).hide();
+	jQuery("#phenohead").children().eq(18).hide();
+	jQuery("#phenohead").children().eq(19).hide();
+	jQuery("#phenohead").children().eq(20).hide();
+	jQuery("#phenohead").children().eq(21).hide();
+	jQuery("#phenohead").children().eq(22).hide();
+	jQuery("#phenohead").children().eq(23).hide();
+	jQuery("#phenohead").children().eq(24).hide();
+	jQuery("#phenohead").children().eq(25).hide();
+	jQuery("#phenohead").children().eq(26).hide();
+	jQuery("#phenohead").children().eq(27).hide();
+	jQuery("#phenohead").children().eq(28).hide();
+	
+	if(lPhenotypesArray==0){
+		jQuery("#phenohead").children().eq(0).show();
+		jQuery("#phenohead").children().eq(1).show();
+		jQuery("#phenohead").children().eq(2).show();
+		jQuery("#phenohead").children().eq(3).show();
+		jQuery("#phenohead").children().eq(4).show();
+		jQuery("#phenohead").children().eq(5).show();
+		jQuery("#phenohead").children().eq(6).show();
+		jQuery("#phenohead").children().eq(7).show();
+		jQuery("#phenohead").children().eq(8).show();
+		jQuery("#phenohead").children().eq(9).show();
+		jQuery("#phenohead").children().eq(10).show();
+		jQuery("#phenohead").children().eq(11).show();
+		jQuery("#phenohead").children().eq(12).show();
+		jQuery("#phenohead").children().eq(13).show();
+		jQuery("#phenohead").children().eq(14).show();
+		jQuery("#phenohead").children().eq(15).show();
+		jQuery("#phenohead").children().eq(16).show();
+		jQuery("#phenohead").children().eq(17).show();
+		jQuery("#phenohead").children().eq(18).show();
+		jQuery("#phenohead").children().eq(19).show();
+		jQuery("#phenohead").children().eq(20).show();
+		jQuery("#phenohead").children().eq(21).show();
+		jQuery("#phenohead").children().eq(22).show();
+		jQuery("#phenohead").children().eq(23).show();
+		jQuery("#phenohead").children().eq(24).show();
+		jQuery("#phenohead").children().eq(25).show();
+		jQuery("#phenohead").children().eq(26).show();
+		jQuery("#phenohead").children().eq(27).show();
+		jQuery("#phenohead").children().eq(28).show();
+		
+	}
+	
+for(var i=0;i<lPhenotypesArray.length;i++){
+	var lAssay=lPhenotypesArray[i];
+	if(lAssay==1){
+		jQuery("#phenohead").children().eq(1).show();
+		jQuery("#phenohead").children().eq(2).show();
+		jQuery("#phenohead").children().eq(3).show();
+		jQuery("#phenohead").children().eq(4).show();
+		jQuery("#phenohead").children().eq(5).show();
+		jQuery("#phenohead").children().eq(6).show();
+		jQuery("#phenohead").children().eq(7).show();
+		jQuery("#phenohead").children().eq(8).show();
+	
+		
+	}else if(lAssay==2){
+		jQuery("#phenohead").children().eq(8).show();
+		jQuery("#phenohead").children().eq(9).show();
+		jQuery("#phenohead").children().eq(28).show();
+		
+		
+	}else if(lAssay==3){
+		jQuery("#phenohead").children().eq(10).show();
+		jQuery("#phenohead").children().eq(11).show();
+		jQuery("#phenohead").children().eq(12).show();
+		
+	}else if(lAssay==6){
+		jQuery("#phenohead").children().eq(27).show();
+		jQuery("#phenohead").children().eq(28).show();
+		
+		
+	}
+	
+	else if(lAssay==9){
+		jQuery("#phenohead").children().eq(13).show();
+
+	
+		
+	}else if(lAssay==10){
+		jQuery("#phenohead").children().eq(14).show();
+	
+		
+	}else if(lAssay==11){
+		jQuery("#phenohead").children().eq(15).show();
+		jQuery("#phenohead").children().eq(16).show();
+		jQuery("#phenohead").children().eq(17).show();
+		jQuery("#phenohead").children().eq(18).show();
+		
+		
+	}else if(lAssay==12){
+		jQuery("#phenohead").children().eq(19).show();
+		jQuery("#phenohead").children().eq(20).show();
+		jQuery("#phenohead").children().eq(21).show();
+		jQuery("#phenohead").children().eq(22).show();
+	}else if(lAssay==13){
+		jQuery("#phenohead").children().eq(23).show();
+		
+	}else if(lAssay==14){
+		jQuery("#phenohead").children().eq(24).show();
+		jQuery("#phenohead").children().eq(26).show();
+		
+	}else if(lAssay==15){
+		jQuery("#phenohead").children().eq(25).show();
+		jQuery("#phenohead").children().eq(27).show();
+		
+	}
+   
+	}
+	
+	
+}
+function matchCasNumbers(){
+	
+	var lCATAPPID1;
+	var lCATAPPID2;
+	var lCount1=0;
+	$. each($("input[name='concawe']:checked"), function(){
+		if(lCount1==0){
+			lCATAPPID1=$(this).val();
+		}else{
+			lCATAPPID1=lCATAPPID1+","+$(this).val();
+			
+		}
+		lCount1++;
+	});
+	var lCount2=0;
+	$. each($("input[name='casnames']:checked"), function(){
+		if(lCount2==0){
+			lCATAPPID2=$(this).val();
+		}else{
+			lCATAPPID2=lCATAPPID2+","+$(this).val();
+			
+		}
+		lCount2++;
+	});
+
+	if(lCATAPPID1==lCATAPPID2){
+		
+	}else{
+		alert("Both the IDs do not match.Kindly select the corresponding CAS number.");
+		return false;
+	}
+}
+
+function closemessageheader(){
+	jQuery(".alert").hide();
+}

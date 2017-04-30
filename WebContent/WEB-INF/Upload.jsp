@@ -32,12 +32,58 @@
     height: 300px; /* or any value */
     overflow-y: auto;
 }
-	
+	 body {
+    background-image: url("/CAT-APP-PROJECT/resources/images/Catapp_logo_full.svg");
+ -webkit-background-size: 250%;
+    -moz-background-size: 250%;
+    -o-background-size: 250%;
+     background-size: 250%;
+  
+}
 	
 	
 	</style>
-    <body>
+    <body >
     <script type="text/javascript">
+    function changebuttonstats(){
+    	jQuery("#cellline").prop('disabled',false);
+    }
+  	function enablebutton(){
+  		jQuery("#assays").prop('disabled',false);
+  	}
+  	function enabletimebutton(){
+  		jQuery("#times").prop('disabled',false);
+  	}
+    function enablepheno(){
+    	jQuery("#pheno").prop('disabled',false);
+    }
+    function validateFile(){
+    	jQuery("#sequencesave").prop('disabled',false);
+    }
+    document.addEventListener("DOMContentLoaded", function(event) { 
+    	jQuery('input:file').change(
+	            function(){
+	                if (jQuery(this).val()) {
+	                	jQuery('input:submit').attr('disabled',false);
+	                    // or, as has been pointed out elsewhere:
+	                    // $('input:submit').removeAttr('disabled'); 
+	                } 
+	            }
+	            );
+    	});
+    /* $.noConflict();
+    jQuery(document).ready(
+    	    function(){
+    	    	jQuery('input:file').change(
+    	            function(){
+    	                if (jQuery(this).val()) {
+    	                	jQuery('input:submit').attr('disabled',false);
+    	                    // or, as has been pointed out elsewhere:
+    	                    // $('input:submit').removeAttr('disabled'); 
+    	                } 
+    	            }
+    	            );
+    	    }); */
     function stepJump(){
     	
     	//var step1Value='<c:out value="${sessionScope.cellLine}" />';
@@ -97,7 +143,7 @@
     			</div>
     			</div>
 				</c:if>
-				<c:if test="${param.success eq 2}">
+				<c:if test="${param.failure eq 2}">
 				 <div class="alert alert-danger">
       			<button  href="#" type="button" class="close"><i class="glyphicon glyphicon-remove-circle text-danger"></i></button>
       			<h4>Danger Alert</h4>
@@ -130,34 +176,43 @@
 										  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:15%">
 										    0%(start)
 										  </div>
+										  
 										</div>
+		                            	
 		                            		
 		                        		</div>
 		                        		
 		                            </div>
+		                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                            <button type="button" class="btn btn-next" id="cellline" onclick="getAssayNames()" disabled>Next</button>
 		                            <div class="form-bottom scrollable">
 				                    	<div class="form-group">
 				                    		
 											  
 											  <c:forEach var="cellline" items="${cell}">
-											  <c:choose>
-											  <c:when test="${cellline.key=='2'}">
-    												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>> &nbsp;<b><c:out value="${cellline.value}"/></b><br><br>
-											   </c:when>
+											 <%--  <c:choose> --%>
+											  <%-- <c:when test="${cellline.key=='2'}"> --%>
+    												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/> onclick="changebuttonstats()"> &nbsp;<b><c:out value="${cellline.value}"/></b><br><br>
+											   <%-- </c:when>
 											   <c:otherwise>
 											   <input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/> disabled> &nbsp;<b><c:out value="${cellline.value}"/></b><br><br>
 											   
-											   </c:otherwise>
-											   </c:choose>
+											   </c:otherwise> --%>
+											   <%-- </c:choose> --%>
 											  </c:forEach>
-				                 			<%String celllines=request.getParameter("celllines");%>
-				                 			<c:set var="cellLine" value="${celllines}" scope="session"  />
+				                 		
 				                 				
 				                        </div>
 				                        
-				                        <button type="button" class="btn btn-next">Next</button>
+				                       
 				                    </div>
+				                   
 			                    </fieldset>
+							
 			                    
 			                    <fieldset id="step2">
 		                        	<div class="form-top">
@@ -179,23 +234,24 @@
 		                            <div class="form-bottom">
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-email">Assay Name</label>
-				                        	<select name="assaydata" id="assay">
+				                        	
+				                        	<select name="assaydata" id="assay" onchange="enablebutton()">
     											<c:forEach var="assaynames" items="${assay}">
-    											<c:choose>
-    											<c:when test="${assaynames.key=='1' }">
+    											<%-- <c:choose> --%>
+    											<%-- <c:when test="${cellline.key=='2' }"> --%>
 										        <option value="${assaynames.key}"> ${assaynames.value}</option>
-										        </c:when>
-										        <c:otherwise>
+										       <%--  </c:when> --%>
+										        <%-- <c:otherwise>
 										         <option value="${assaynames.key}" disabled> ${assaynames.value}</option>
-										        </c:otherwise>
-										        </c:choose>
+										        </c:otherwise> --%>
+										        <%-- </c:choose> --%>
 										    	</c:forEach>
 												</select>
 
 				                        </div>
 				                      	
-				                        <button type="button" class="btn btn-previous">Previous</button>
-				                        <button type="button" class="btn btn-next" >Next</button>
+				                        <button type="button" class="btn btn-previous" onclick="backRefresh()">Previous</button>
+				                        <button type="button" class="btn btn-next" id="assays" onclick="selectTimePoint()" disabled>Next</button>
 				                         <!-- OR
 				                        <button type="button" class="btn btn-primary" onclick="stepJump()">Upload</button> -->
 				                    </div>
@@ -221,15 +277,15 @@
 		                            <div class="form-bottom">
 				                    	<div class="form-group">
 				                    		<label class="sr-only" for="form-facebook">Time-Point</label>
-				                        	<select name="timepoint" id="tp">
+				                        	<select name="timepoint" id="tp" onchange="enabletimebutton()">
     											<c:forEach var="timepoints" items="${time}">
 										        <option value="${timepoints.key}"> ${timepoints.value}</option>
 										    	</c:forEach>
 												</select>
 				                        </div>
 				                       
-				                        <button type="button" class="btn btn-previous">Previous</button>
-										<button type="button" class="btn btn-next">Next</button>
+				                        <button type="button" class="btn btn-previous" onclick="backRefreshTime()">Previous</button>
+										<button type="button" class="btn btn-next" id="times" onclick="selectphenotypes()" disabled>Next</button>
 				                        
 				                    </div>
 				                   </div> 
@@ -258,11 +314,12 @@
 		                            <div class="form-bottom">
 				                       <div class="form-group">
 				                    		<label class="sr-only" for="form-facebook">Phenotype</label>
-				                        <select name="phenotypes" id="ph">
+				                        <select name="phenotypes" id="ph" onchange="enablepheno()">
     											<c:forEach var="phenotypes" items="${pheno}">
 										        <option value="${phenotypes.key}"> ${phenotypes.value}</option>
 										    	</c:forEach>
 												</select>
+												<c:set var="pheno" scope="session" value="${pheno}"/>
 				                        </div>
 				                        <div class="form-group">
 											  <label class="sr-only" for="form-facebook">Select a Plate</label>
@@ -273,8 +330,8 @@
 				                        </div>
 										
 				                      
-				                        <button type="button" class="btn btn-previous">Previous</button>
-				                        <button type="button" class="btn btn-next">Next</button>
+				                        <button type="button" class="btn btn-previous" onclick="refreshphenotype()">Previous</button>
+				                        <button type="button" class="btn btn-next" id="pheno" onclick="selectphenotypes()" disabled>Next</button>
 				                    </div>
 				                   </div> 
 			                    </fieldset>
@@ -329,12 +386,12 @@
 				                       		<label class="sr-only" for="form-facebook">Desc:</label>
 				                        	<input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)"><br><br><br>
 				                    		<label class="sr-only" for="form-facebook">Upload File:</label>
-				                        	<input type="file"  id="uploadfile" name="file" size="40">
+				                        	<input type="file"  id="uploadfile" name="file" size="40" onclick="validateFile()">
 				                        	
 				                        </div>
 										
 										<button type="button" class="btn btn-previous">Previous</button>
-				                        <button type="submit" name="sequencesave"  class="btn btn-submit">Upload</button>
+				                        <button type="submit" name="sequencesave" id="sequencesave" class="btn btn-submit" disabled>Upload</button>
 				                        
 				                    </div>
 				                  </div>  
@@ -357,13 +414,16 @@
 
 
         <!-- Javascript -->
-       	<script src="resources/js/Uploadjs.js"></script>
-        <script src="resources/js/jquery-1.11.1.min.js"></script>
-        <script src="resources/js/bootstrap.min.js"></script>
-        <script src="resources/js/jquery.backstretch.min.js"></script>
-        <script src="resources/js/retina-1.1.0.min.js"></script>
-        <script src="resources/js/scripts.js"></script>
+       	<script src="/CAT-APP-PROJECT/resources/js/Uploadjs.js"></script>
+        <script src="/CAT-APP-PROJECT/resources/js/jquery-1.11.1.min.js"></script>
+        <script src="/CAT-APP-PROJECT/resources/js/bootstrap.min.js"></script>
+        <script src="/CAT-APP-PROJECT/resources/js/jquery.backstretch.min.js"></script>
+        <script src="/CAT-APP-PROJECT/resources/js/retina-1.1.0.min.js"></script>
+        <script src="/CAT-APP-PROJECT/resources/js/scripts.js"></script>
 		
+       
+        
+        
         
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>

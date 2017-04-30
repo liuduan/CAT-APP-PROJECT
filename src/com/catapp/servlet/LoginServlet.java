@@ -51,12 +51,12 @@ public class LoginServlet extends HttpServlet {
 	        				HttpSession session=request.getSession();  
 	        				session.setAttribute("email",email);
 	        				session.setAttribute("user", lUser);
-	        				User lUserToSave = new User();
+	        				/*User lUserToSave = new User();
 	        				lUserToSave.setEntityId(lUser.getEntityId());
 	        				lUserToSave.find(lConn, lUserToSave);
 	        				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	        				lUserToSave.setLast_login_time(timestamp);
-	        				lUserToSave.save(lConn, lUserToSave);
+	        				lUserToSave.save(lConn, lUserToSave);*/
 	        				request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
 	        				
 	        			}else{

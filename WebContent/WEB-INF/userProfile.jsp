@@ -116,6 +116,7 @@ $(document).ready(function() {
 </script>
 <jsp:include page="headerUserHome.jsp" />  
 <div class="container">
+<form action="UpdateUserServlet" method="post">
       <div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
            <br>
@@ -146,7 +147,7 @@ $(document).ready(function() {
                         <% String lastName = ((User)request.getSession().getAttribute("user")).getLast_name(); %>
    						 
     					<% if (lastName==null || lastName.isEmpty()) { %> 
-     					<td><input type="text" name="lastName" value="..."/></td>
+     					<td><input type="text" name="lastName" value=""/></td>
 
    						<% } else { %>
   						 <td><input type="text" name="lastName" value="<%=lastName.toString() %>"/></td>
@@ -157,7 +158,7 @@ $(document).ready(function() {
                         <% String inst = ((User)request.getSession().getAttribute("user")).getInstitution(); %>
    						 
     					<% if (inst==null || inst.isEmpty()) { %> 
-     					<td><input type="text" name="instName" value="..."/></td>
+     					<td><input type="text" name="instName" value=""/></td>
 
    						<% } else { %>
   						 <td><input type="text" name="instName" value="<%=inst.toString() %>"/></td>
@@ -179,7 +180,7 @@ $(document).ready(function() {
                         <% String phNo = ((User)request.getSession().getAttribute("user")).getPhone_number(); %>
    						 
     					<% if (phNo==null || phNo.isEmpty()) { %> 
-     					<td><input type="text" name="phNo" value="..."/></td>
+     					<td><input type="text" name="phNo" value=""/></td>
 
    						<% } else { %>
   						 <td><input type="text" name="phNo" value="<%=phNo.toString() %>"/></td>
@@ -195,23 +196,24 @@ $(document).ready(function() {
   						 <td><%=email %></td>
     					<% } %>
                       </tr>
-                      <tr>
-                        <td>Password</td>
-                        <td><a href="" data-toggle="modal" data-target="#chgPassword" data-whatever="">Change password</a>
+                      <!-- <tr>
+                        <td >Password</td>
+                        <td><a href="" data-toggle="modal" data-target="#chgPassword" data-whatever="" >Change password</a>
                         </td>
                         
                            
-                      </tr>
+                      </tr> -->
                      
                     </tbody>
                   </table>
                   
                   
                 </div>
+                
               </div>
             </div>
             
-            <div class="modal fade" id="chgPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<!--             <div class="modal fade" id="chgPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   					<div class="modal-dialog" role="document">
     						
     					<div class="modal-content">
@@ -242,7 +244,7 @@ $(document).ready(function() {
     				</div>
     				
   				</div>
-		</div>
+		</div> -->
             
                  <div class="panel-footer">
                         <span id="passSuccess"></span>
@@ -254,7 +256,8 @@ $(document).ready(function() {
           </div>
         </div>
       </div>
-      <div style="margin-left: 45%"><input type="submit" class="btn btn-primary" value="Submit" id="subProfileChange"/></div>
+      <div style="margin-left: 45%"><button type="submit" class="btn btn-primary"  id="subProfileChange">Submit</button></div>
+    </form>
     </div>
 <!-- jQuery -->
     <script src="/CAT-APP-PROJECT/resources/js/jquery.js"></script>

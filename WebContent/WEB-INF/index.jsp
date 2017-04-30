@@ -133,21 +133,21 @@ select#secqu, select#soflow-color {
 }
 
 .jumbotron { 
- background: url('/CAT-APP-PROJECT/resources/images/1.jpg') no-repeat center center fixed; 
+  background: url('/CAT-APP-PROJECT/resources/images/1.jpg') no-repeat center center fixed; 
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;
- width:100%;
+ width:100%; 
 }
 
 .jumbotroon { 
- background: url('/CAT-APP-PROJECT/resources/images/2.jpg') no-repeat center center fixed; 
+background: url('/CAT-APP-PROJECT/resources/images/2.jpg') no-repeat center center fixed; 
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;
- width:100%;
+ width:100%; 
 }
 
 .panel-default {
@@ -177,6 +177,13 @@ select#secqu, select#soflow-color {
     overflow-x:auto;
     word-wrap:normal;
     white-space:nowrap;
+}
+body {
+    background-image: url("/CAT-APP-PROJECT/resources/images/Catapp_logo_full.svg");
+  -webkit-background-size: 250%;
+        -moz-background-size: 250%;
+        -o-background-size: 250%;
+        background-size: 250%;
 }
 </style>
 </head>

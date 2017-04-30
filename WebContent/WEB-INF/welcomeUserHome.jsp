@@ -28,14 +28,34 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' type='text/css' />
      <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' type='text/css' />
+    <style type="text/css">
     
+    body {
+   background-image: url("/CAT-APP-PROJECT/resources/images/Catapp_Ideogram.svg"); 
+    /* background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("/CAT-APP-PROJECT/resources/images/Catapp_Ideogram.svg");
+  	 */-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+     background-size: 250%;
+   
+}
+    
+    
+    
+    
+    </style>
 </head>
 
 <body>
 
  <jsp:include page="headerUserHome.jsp" />   
   <div id="wrapper">
-       
+   
+   <%
+String login_msg=(String)request.getAttribute("success");  
+if(login_msg!=null)
+out.println("<font color=green size=4px>"+login_msg+"</font>");
+%>    
         
         <!-- /. NAV TOP  -->
         <!-- <nav class="navbar-default navbar-side" role="navigation">
@@ -114,7 +134,7 @@
             <!-- <div class="col-lg-12">
                 <h2 class="page-header">Projects</h2>
             </div> -->
-            <div style="margin-left:115px"class="col-md-3 col-sm-3">
+            <div class="col-md-4">
                 <div class="panel panel-default text-center"  style=" border-radius: 25px;">
                     <div class="panel-heading"  style=" border-radius: 20px;">
                         <img src="/CAT-APP-PROJECT/resources/images/piechart.jpg" class=" img-circle "  width ="150" height ="150" "/>
@@ -124,12 +144,19 @@
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">CAT-APP</h4>
                         
                         <div class="btn-group">
-        		<div class="col-md-3">
+        			<div class="col-md-3">
                         <form action="CatAppDownloadPageServlet" method="post">
                         <input type="submit" class="btn btn-primary" style=" border-radius: 5px;" value="Download">
 					</form>
 					</div>
-					<div class="col-md-3" style="margin-left:70px">
+					<div class="col-md-1"></div>
+					<div class="col-md-3">
+                        <form action="AnalysisPageAction" method="post">
+                        <input type="submit" class="btn btn-primary" style=" border-radius: 5px;" value="Analysis">
+						</form>
+					</div>
+					<div class="col-md-1"></div>
+					<div class="col-md-2">
 						 <form action="UploadServlet" method="post">
 						<input type="submit" class="btn btn-success" style=" border-radius: 5px;" value="Upload">
 						</form>
@@ -137,33 +164,37 @@
                 </div>
             </div>
             </div>
-            <div class="col-md-3 col-sm-3" >
+            <div class="col-md-3" >
                 <div class="panel panel-default text-center" style=" border-radius: 25px;">
                     <div class="panel-heading" style=" border-radius: 20px;" >
-                       <img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle " width ="150" height ="150" "/>
+                       <img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle " width ="150" height ="150" />
     				
                     </div>
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">ANALYTICAL</h4>
                         
                         <div class="btn-group">
-        		<div class="col-md-3">
-                        <form action="CatAppDownloadPageServlet" method="post">
-                        <!-- <input type="submit" class="btn btn-primary" value="Download"> -->
+        		<div class="col-md-1">
+                        <form action="UploadConcaweData" method="post">
+                       <input type="submit" class="btn btn-primary" style=" border-radius: 5px;" value="Download">
 					</form>
 					</div>
-					<div class="col-md-3" style="margin-left:70px">
-						 <form action="UploadServlet" method="post">
-						<!-- <input type="submit" class="btn btn-success" value="Upload"> -->
+						<div class="col-md-1"></div>
+						<div class="col-md-1"></div>
+						<div class="col-md-1"></div>
+						<div class="col-md-1"></div>
+					<div class="col-md-1">
+						 <form action="UploadConcaweData" method="post">
+					<input type="submit" class="btn btn-success" style=" border-radius: 5px;" value="Upload"> 
 						</form>
 				</div></div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-3">
                 <div class="panel panel-default text-center"  style=" border-radius: 25px;">
                     <div class="panel-heading"  style=" border-radius: 20px;">
-                       <img src="/CAT-APP-PROJECT/resources/images/leaf.png" class=" img-circle " width ="150" height ="150" "/>
+                       <img src="/CAT-APP-PROJECT/resources/images/leaf.png" class=" img-circle " width ="150" height ="150"/>
 				
                     </div>
                     <div class="panel-body">
