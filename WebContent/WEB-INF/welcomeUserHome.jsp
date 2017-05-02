@@ -106,7 +106,11 @@ SELECT * from users where Email = "<%=Email%>";
 						 <form action="UploadServlet" method="post">
 						<input type="submit" class="btn btn-success" style=" border-radius: 5px;" value="Upload">
 						</form>
-				</div></div>
+				</div>
+				         <br><br><a href="Response/Response">
+						<input type="submit" class="btn btn-danger" style=" border-radius: 5px;" value="Response Curves">
+						</a>
+				</div>
                 </div>
             </div>
             </div>
@@ -119,9 +123,7 @@ SELECT * from users where Email = "<%=Email%>";
                     </div>
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">ANALYTICAL</h4>
-                         <form action="Response/Response" method="post">
-						<input type="submit" class="btn btn-success" style=" border-radius: 5px;" value="Response Curves">
-						</form>
+
                         <div class="btn-group">
         		<div class="col-md-3">
                         <form action="CatAppDownloadPageServlet" method="post">

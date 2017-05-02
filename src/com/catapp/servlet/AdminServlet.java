@@ -96,17 +96,11 @@ public class AdminServlet extends HttpServlet {
     	
     	
     	
-    	
-    	
-    	
-    	
-    	
-    	
+
     	
     	
     	
 		if(session != null){
-			
 			String email="";
 			try{
 				if((User)request == null){
@@ -114,11 +108,7 @@ public class AdminServlet extends HttpServlet {
 			}catch(Exception e){
 				LOGGER.error("Error Occured while fetching user details", e);
 			}
-				
-				
-				
-			
-			
+
 			if(((User)request.getSession().getAttribute("user")).getEmail() != null){
 				email=((User)request.getSession().getAttribute("user")).getEmail().toString();
 			}
@@ -139,8 +129,10 @@ public class AdminServlet extends HttpServlet {
 			}
 
 		
-		// This line is go to "/WEB-INF/Adminpage.jsp" with all the parameters.
 		
+		
+		
+		// This line is go to "/WEB-INF/Adminpage.jsp" with all the parameters.
 	}
 
 	

@@ -11,13 +11,12 @@
 
 
 <head>
-<meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
 
 
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
@@ -76,14 +75,61 @@ data{color: LightGreen;  }
 data2{color: DarkGreen; font-size: 20px;  }
 </style>
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
 	style="background-size:250%">
+	
+
+CAT-APP Data
+ <a href="#" style="text-align: right;"><button type="button">User Home</button>  
+          <span class="glyphicon glyphicon-home"></span>
+        </a>
+<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="leftMenu">
+  <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div>
+
+<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="display:none;right:0;" id="rightMenu">
+  <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div>
+
+<div class="w3-teal">
+  <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu()">&#9776;</button>
+  <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button>
+  <div class="w3-container">
+    <h1>My Page</h1>
+  </div>
+</div>
+
+<div class="w3-container">
+<p>In this example, we demonstrate how to use two side navigations.</p>
+<p>We have created two "menu" buttons: one to open the side navigation from the left and one to open it from the right.</p>
+</div>
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 <div class="main" >
 
 
 
-<jsp:directive.include file="../header.jsp" />
+
 	<!--  search_term = ${search_term}-->
 	<spring:url value="/profile" var="urlProfile" />
 	<spring:url value="/import" var="urlImport" />
@@ -97,7 +143,7 @@ data2{color: DarkGreen; font-size: 20px;  }
 <h3 align="center" style="color: DarkSlateBlue; font-weight: bold;">Data Analysis Dashboard</h3>
 <div class="container">
 	<div class="row">
-		<div class="col-lg-3" id="Column-A" style="background-color:lavender;height:550px;">
+		<div class="col-lg-3" id="Column-A" style="background-color:lavender;height:600px;">
 		
 
 
@@ -112,7 +158,7 @@ SELECT * from chemicals;
 <c:if test="${Chemicals_first_row_id != null}">
 
 <br />
-<table id = "table_1" style="display: block;  height: 500px;  overflow-y: scroll;">
+<table id = "table_1" style="display: block;  height: 550px;  overflow-y: scroll;">
   <tr>
   	<th style="width:90px;">CAS</th>
     <th>Substance Name</th>
@@ -140,8 +186,8 @@ SELECT * from chemicals;
  				" <h4><Papaya>Substance Name: </Papaya><data>${Chemicals.substance_name}</data><br></h4>" + 
  				" <h4><Papaya>Chemical Name: </Papaya><data>${Chemicals.chem_name}</data><br></h4>" + 
  				" <h4><Papaya>Source: </Papaya><data>${Chemicals.chem_source}</data><br></h4>" + 
- 				" <h4><Papaya>Substance Description: <br></Papaya><data>" + 
- 				" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ${Chemicals.substance_description}</data><br></h4>";
+ 				" <h4><Papaya>Substance Description: <br></Papaya></h4> <data>" + 
+ 				" <h4 style = 'text-align: justfy'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ${Chemicals.substance_description}</h4></data><br>";
  		</script>
  	</div>
   <% i=i+1; %>
@@ -158,7 +204,7 @@ SELECT * from chemicals;
 
 		<!-- end of class="col-lg-3"  -->
 		</div>
-		<div class="col-lg-3" id="Column-B" style="background-color:lavenderblush; height:550px;">
+		<div class="col-lg-3" id="Column-B" style="background-color:lavenderblush; height:600px;">
 			<br><br><span style = "font-size: 13px; font-weight: bold;">
 			<table id = "table_2" >
 			<tr><td><div id = "chem_properties">Chemical & physic properties.<br></div></td></tr>
@@ -196,7 +242,7 @@ SELECT * from chemicals;
 			</span></span>
 			<br><br><br><br><br><br><br><br>
 		</div>
-		<div class="col-lg-6" id="Column-C" style="background-color:lavender; height:550px; border-radius: 25px;">
+		<div class="col-lg-6" id="Column-C" style="background-color:lavender; height:600px; border-radius: 25px;">
 			<div id="inside-C"> <br><br><br><br>
 				<data2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Chemical details<br>				
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Assay methods<br>
@@ -219,11 +265,11 @@ SELECT * from chemicals;
 	</div>
 <!-- end of class="container" -->
 
-<br/>
 
+<br></br>
 
 <button type="button" id="reset-2" class="btn btn-primary">Reset</button>
-<p onclick="window.location.reload(true);">...</p>
+...
 
 
 
@@ -247,11 +293,11 @@ $(document).ready(function(){
 			if (!endpoint_selected){
 		    	$("#table_1 tr").removeClass("Highlighted_rows");
 				$(this).addClass("Highlighted_rows");
-				chem_row_n2 = $(this).index()-2;	//$(this).find(".row_number").text();
+				chem_row_n = $(this).index()-2;	//$(this).find(".row_number").text();
 				// alert((typeof chem_row_n2) + "-----" + chem_row_n2 + column3_data[2]);
 				jQuery('#inside-C').html('');
 				// var row_n = Number(chem_row_n);
-				jQuery('#inside-C').html(column3_data[chem_row_n2]);
+				jQuery('#inside-C').html(column3_data[chem_row_n]);
 				}
 			else{
 				// alert("chem_row_n: " + chem_row_n + ", endpoint_row_n: " + endpoint_row_n);
@@ -380,9 +426,9 @@ $(document).ready(function(){
 });		//end of $(document).ready(function(){}
 
 function column_3_curve(chem_row_n, endpoint_row_n){
-	// alert(chem_row_n + "endpoint:" + endpoint_row_n);
+	// alert(chem_row_n + "===================================" + column3_data[chem_row_n-1]);
     $.post("Column_3",{				// "Column_3" is the url
-   		chemical: chem_row_n,
+   		chemical: chem_row_n + 1,
     	endpoint: endpoint_row_n,
     	chemical_properties: column3_data[chem_row_n],
     	endpoint_data: endpoint_data[endpoint_row_n]

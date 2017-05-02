@@ -123,10 +123,12 @@ SELECT * from assay_data where (phenotype = "${endpoint_string2}" AND catapp_id 
 	Catapp Sample ID: ${Assay_data_result.rows[0].catapp_id}<br>
 	Chemical name: ${Assay_data_result.rows[0].chem_name}<br>
 	Assay: ${Assay_data_result.rows[0].phenotype}<br>
-	Dose 1000x: ${Assay_data_result.rows[0].Dose_1000x}<br>
-	Dose 100x: ${Assay_data_result.rows[0].Dose_100x}<br>
-	Dose 10x: ${Assay_data_result.rows[0].Dose_10x}<br>
-	Dose 1x: ${Assay_data_result.rows[0].Dose_1x}<br>
+	<table border=0>
+	<tr><td>Dose 1000x: </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_1000x, 0, 6)}</td><tr>
+	<tr><td>Dose 100x: </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_100x, 0, 6)}</td><tr>
+	<tr><td>Dose 10x: </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_10x, 0, 6)}</td><tr>
+	<tr><td>Dose 1x: </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_1x, 0, 6)}</td><tr>
+	</table>
 	
 	
 <sql:query dataSource="${snapshot}" var="Control_data_result">
