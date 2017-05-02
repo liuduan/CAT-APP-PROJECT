@@ -13,7 +13,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -75,35 +76,55 @@ data{color: LightGreen;  }
 data2{color: DarkGreen; font-size: 20px;  }
 </style>
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-</head>
-<body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
-	style="background-size:250%">
-	
 
-CAT-APP Data
- <a href="#" style="text-align: right;"><button type="button">User Home</button>  
-          <span class="glyphicon glyphicon-home"></span>
-        </a>
-<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="leftMenu">
-  <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+</head>
+<body style="background-color: #157fcc">
+<a href="${pageContext.request.contextPath}/BackToHomeServlet" class="btn btn-info btn-sm pull-right"
+	style="background-color:#3892d3; color: white; font-weight: bold;">
+<span class="glyphicon glyphicon-home"></span> User Home</a>
+
+<h3 align="center" style="color: white; font-weight: bold;">Data Analysis Dashboard</h3>
+
+
+
+
+<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" id="leftMenu">
+  <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large">
+  	<span class="glyphicon glyphicon-chevron-left"></span></button>
   <a href="#" class="w3-bar-item w3-button">Link 1</a>
   <a href="#" class="w3-bar-item w3-button">Link 2</a>
   <a href="#" class="w3-bar-item w3-button">Link 3</a>
 </div>
 
-<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="display:none;right:0;" id="rightMenu">
+<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="right:0;" id="rightMenu">
   <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
   <a href="#" class="w3-bar-item w3-button">Link 1</a>
   <a href="#" class="w3-bar-item w3-button">Link 2</a>
   <a href="#" class="w3-bar-item w3-button">Link 3</a>
 </div>
 
-<div class="w3-teal">
-  <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu()">&#9776;</button>
-  <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button>
-  <div class="w3-container">
+
+
+<div class="w3-container">
+  <div id="central_area" style="width:100%; margin-left:16%; margin-right:16%; 
+	background-color: #157fcc">
+	
+  	<button class="btn btn-info btn-sm" onclick="openLeftMenu()" 
+  		style="background-color: #3892d3">
+  		<span class="glyphicon glyphicon-chevron-right"></span> Open left menu</button>
+  	<button class="btn btn-info btn-sm pull-right" 
+  		onclick="openRightMenu()" style="background-color: #3892d3">
+  		<span class="glyphicon glyphicon-chevron-left"></span> Open right menu</button>
+    <br></br><br></br>
+  
+  In this example, we demonstrate how to use two side navigations.
+
+We have created two "menu" buttons: one to open the side navigation from the left and one to open it from the right.
+  
     <h1>My Page</h1>
+    In this example, we demonstrate how to use two side navigations.
+
+We have created two "menu" buttons: one to open the side navigation from the left and one to open it from the right.
   </div>
 </div>
 
@@ -113,6 +134,56 @@ CAT-APP Data
 </div>
 
 
+<script>
+var leftMenu_on = true;
+var rightMenu_on = true;
+function openLeftMenu() {
+	leftMenu_on = true;
+	if(rightMenu_on == true){
+		$("#central_area").css("width", "80%");
+		}
+	else{$("#central_area").css("width", "90%");
+		}
+	$("#central_area").css("marginLeft", "10%");
+	$("#leftMenu").css("width", "10%");
+    // $("$leftMenu").show();
+    document.getElementById("leftMenu").style.display = "block";   
+}
+function closeLeftMenu() {
+	leftMenu_on = false;
+	if(rightMenu_on == true){
+		$("#central_area").css("width", "90%");
+		}
+	else{$("#central_area").css("width", "100%");
+		}
+    document.getElementById("leftMenu").style.display = "none";
+    document.getElementById("central_area").style.marginLeft = "0%";
+}
+
+function openRightMenu() {
+	// document.getElementById("central_area").style.marginRight = "25%";
+	rightMenu_on = true;
+	if(leftMenu_on == true){
+		$("#central_area").css("width", "80%");
+		}
+	else{$("#central_area").css("width", "90%");}
+	
+	$("#central_area").css("margin-right", "10%");
+    document.getElementById("rightMenu").style.display = "block";    
+	document.getElementById("rightMenu").style.width = "10%";
+	
+}
+function closeRightMenu() {
+	rightMenu_on = false;
+	if(leftMenu_on == true){
+		$("#central_area").css("width", "90%");
+		}
+	else{$("#central_area").css("width", "100%");}
+	
+    document.getElementById("rightMenu").style.display = "none";
+    document.getElementById("central_area").style.marginRight = "0%";
+}
+</script>
 
 
 
@@ -130,17 +201,17 @@ CAT-APP Data
 
 
 
-	<!--  search_term = ${search_term}-->
-	<spring:url value="/profile" var="urlProfile" />
-	<spring:url value="/import" var="urlImport" />
-	<spring:url value="/export" var="urlExport" />
-	<spring:url value="/analysis/${projectId}" var="urlDisplayAnalysis" />
+
                 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/response"
      user="root"  password="vibscatapp"/>
      <br></br>
-<h3 align="center" style="color: DarkSlateBlue; font-weight: bold;">Data Analysis Dashboard</h3>
+
+
+
+
+
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3" id="Column-A" style="background-color:lavender;height:600px;">
@@ -200,11 +271,9 @@ SELECT * from chemicals;
  </c:if>
  
 </div> <!-- End of Chemicals Search -->
-
-
-		<!-- end of class="col-lg-3"  -->
-		</div>
-		<div class="col-lg-3" id="Column-B" style="background-color:lavenderblush; height:600px;">
+		</div><!-- end of class="col-lg-3" id="Column-A" -->
+		
+	<div class="col-lg-3" id="Column-B" style="background-color:lavenderblush; height:600px;">
 			<br><br><span style = "font-size: 13px; font-weight: bold;">
 			<table id = "table_2" >
 			<tr><td><div id = "chem_properties">Chemical & physic properties.<br></div></td></tr>
@@ -241,7 +310,8 @@ SELECT * from chemicals;
 			
 			</span></span>
 			<br><br><br><br><br><br><br><br>
-		</div>
+		</div><!-- end of class="col-lg-6" id="Column-B" -->
+		
 		<div class="col-lg-6" id="Column-C" style="background-color:lavender; height:600px; border-radius: 25px;">
 			<div id="inside-C"> <br><br><br><br>
 				<data2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Chemical details<br>				
@@ -258,12 +328,9 @@ SELECT * from chemicals;
 				
 				
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			</div>
-		</div>
-
-	<!-- end of class="row" -->
-	</div>
-<!-- end of class="container" -->
+			</div><!--  end of id="Column-C" -->
+		</div>	<!-- end of class="row" -->
+	</div> <!-- end of class="container" -->
 
 
 <br></br>
