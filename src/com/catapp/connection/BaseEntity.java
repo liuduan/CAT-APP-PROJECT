@@ -112,7 +112,7 @@ public abstract class BaseEntity implements IBaseEntity
 			if (rowstate == null)
 			{
 				rowStateFound = false;
-				lPreparedStatement = prepareInsertStatement(pConnection);
+				lPreparedStatement = prepareInsertStatement(pConnection,Statement.RETURN_GENERATED_KEYS);
 			}
 			else
 			{
@@ -865,7 +865,7 @@ public abstract class BaseEntity implements IBaseEntity
 
 	public String getPrimaryKey()
 	{
-		return getEntityId() + "-" + getDataCenterId();
+		return getEntityId()+"";
 	}
 
 	public void setPrimaryKeyValues(PreparedStatement pPreparedStatement) 
@@ -916,7 +916,7 @@ public abstract class BaseEntity implements IBaseEntity
 		}else{
 			fillAuditColumns(pUser);
 			rowStateFound = false;
-			this.setEntityId(1l);
+			//this.setEntityId(1l);
 			this.setRowstate(new Long(1));
 			//setPrimaryKeyValues(pPreparedStatement);
 			this.setInsertValues(pPreparedStatement);

@@ -53,7 +53,29 @@ public class LoginServlet extends HttpServlet {
 	       		System.out.println("lFlag is true.");
 	       		if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
 	        			
+<<<<<<< HEAD
 	       			System.out.println("It is approved.");
+=======
+	        		}else{
+	        			if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
+	        				
+	        				HttpSession session=request.getSession();  
+	        				session.setAttribute("email",email);
+	        				session.setAttribute("user", lUser);
+	        				/*User lUserToSave = new User();
+	        				lUserToSave.setEntityId(lUser.getEntityId());
+	        				lUserToSave.find(lConn, lUserToSave);
+	        				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+	        				lUserToSave.setLast_login_time(timestamp);
+	        				lUserToSave.save(lConn, lUserToSave);*/
+	        				request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
+	        				
+	        			}else{
+	        				
+	        				request.setAttribute("error","Your request is not approved yet.");
+	    		        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
+	        			}
+>>>>>>> SS-Master/master
 	        			
 	       			HttpSession session=request.getSession();  
 	       			session.setAttribute("email",email);

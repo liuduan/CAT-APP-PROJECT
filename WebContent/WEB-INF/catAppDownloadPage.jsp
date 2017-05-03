@@ -31,8 +31,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     
 </head>
+<<<<<<< HEAD
 <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
 	style="background-size:250%">
+=======
+<style type="text/css">
+body{
+   background-image: url("/CAT-APP-PROJECT/resources/images/Catapp_Ideogram.svg");
+  	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
+}
+
+  </style>
+<body>
+>>>>>>> SS-Master/master
 
 <script>
 </script>
@@ -55,17 +69,11 @@
                     <li>
                         <a href="#"><h4>Cell Lines</h4></a>
                        
-                        <ul class="nav nav-second-level">
+                        <ul class="nav nav-second-level" id="cellhead">
                             <li >
-                            
-							<!-- <a href="#"><label><input type="checkbox" id="CL" name ="CL" value="2">Cardiomyocytes</label></a>
-                                
-                            </li>
-                            <li>
-                                <a href="#"><label><input type="checkbox" id="CL" name ="CL" value="1">Hepatocytes</label></a>
-                            </li> -->
                               <c:forEach var="cellline" items="${cell}">
                               <c:choose>
+<<<<<<< HEAD
                               <c:when test="${cellline.key=='2'}">
                          		<li >
     								<a href="#"><label><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/>> &nbsp;<c:out value="${cellline.value}"/></label></a>
@@ -77,28 +85,46 @@
     									<input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/> disabled> &nbsp;<c:out value="${cellline.value}"/>
     									</span></label></a>
 									</li>
+=======
+                              <c:when test="${cellline.key=='0'}">
+                         							
+							 </c:when>
+							 <c:otherwise>
+    							<li >
+    								<a href="#"><label><input type="checkbox" name= "celllines" id= "celllines" value= <c:out value="${cellline.key}"/>> &nbsp;<c:out value="${cellline.value}"/></label></a>
+								</li>
+>>>>>>> SS-Master/master
 							 </c:otherwise>
 							</c:choose>
 						</c:forEach>
                         </ul>
                     </li>
 					<li>
+<<<<<<< HEAD
                         <a href="#"><h4>Assay Name</h4></a>
 						<ul class="nav nav-second-level">
+=======
+                        <a href="#" onclick="getAssaysForDownload()">Assay Name</a>
+						<ul class="nav nav-second-level" id="AssayHead">
+>>>>>>> SS-Master/master
                              <c:forEach var="assaynames" items="${assay}">
                              <c:choose>
-                             <c:when test="${assaynames.key=='1'}">
-                         							<li >
-    												<a href="#"><label><input type="checkbox" name= "assaynames" id= "assaynames" value= <c:out value="${assaynames.key}"/>  > &nbsp;<c:out value="${assaynames.value}"/></label></a>
-											 		</li>
+                             <c:when test="${assaynames.key=='0'}">
+                         							
 						
 						    </c:when>
 						    <c:otherwise>
+<<<<<<< HEAD
 						    	<li >
     								<a href="#"><label><span style="font-size:13px; color:lightgray;">
     									<input type="checkbox" name= "assaynames" id= "assaynames" value= <c:out value="${assaynames.key}"/> disabled  > 
     										&nbsp;<c:out value="${assaynames.value}"/>
     								</span></label></a></li>
+=======
+						   							<li>
+    												<a href="#"><label><input type="checkbox" name= "assaynames" id= "assaynames" value= <c:out value="${assaynames.key}"/>   > &nbsp;<c:out value="${assaynames.value}"/></label></a>
+											 		</li>
+>>>>>>> SS-Master/master
 						    </c:otherwise>
 						 </c:choose>
 						</c:forEach>
@@ -107,12 +133,28 @@
                     </li>
 					
                     <li>
+<<<<<<< HEAD
                         <a href="#"><h4>PhenoTypes</h4></a>
                         <ul class="nav nav-second-level">
                             <c:forEach var="phenotypes" items="${pheno}">
                          		<li ><a href="#"><label>
                          			<input type="checkbox" name= "phenotypes" id= "phenotypes" value= <c:out value="${phenotypes.key}"/>> 
                          				&nbsp;<c:out value="${phenotypes.value}"/></label></a></li>
+=======
+                        <a href="#" onclick="getPhenotypes()">PhenoTypes</a>
+                        <ul class="nav nav-second-level" id="phenohead">
+                            <c:forEach var="phenotypes" items="${pheno}">
+                              <c:choose>
+                             <c:when test="${phenotypes.key=='0'}">
+                             </c:when>
+                             <c:otherwise>
+                             <li >
+    							<a href="#"><label><input type="checkbox" name= "phenotypes" id= "phenotypes" value= <c:out value="${phenotypes.key}"/>> &nbsp;<c:out value="${phenotypes.value}"/></label></a>
+							</li>
+                             </c:otherwise>
+                             </c:choose>
+                         							
+>>>>>>> SS-Master/master
 						</c:forEach>
                         </ul>
                     </li>

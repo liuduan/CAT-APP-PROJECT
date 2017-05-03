@@ -24,33 +24,38 @@ public class SaveExceltoDB {
 		String lInsertQuery		     =       null;
 		PreparedStatement lPstmt     =       null;
 		try{
-			File lFile =new File(pFile.getFile_path()+File.separator+
+			File lFile =new File(pFile.getFile_path()+File.separator+"CM"+File.separator+
 					pFile.getPlate_id()+File.separator+pFile.getFile_name()+"."+pFile.getFile_type());
 			
 			FileInputStream fis = new FileInputStream(lFile);
 			XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
 			XSSFSheet mySheet = myWorkBook.getSheetAt(0);
-			lInsertQuery= "INSERT INTO file_data_mapping (file_record_id, rowno,"
-					+ " columnno,value,logged_date,logged_by,last_updated_date,"
+			lInsertQuery= "INSERT INTO plate_chemical_denormalized_value_mapping (cellline_id, assay,"
+					+ " timepoint,phenotype,plateconc,rowno,columnno,value,logged_date,logged_by,last_updated_date,"
 					+ " last_updated_by,is_active,rowstate) "
-		            + " VALUES(?,?,?,?,?,?,?,?,?)";
+		            + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			lPstmt=pConnection.prepareStatement(lInsertQuery);
 			int lLastRowNo=mySheet.getLastRowNum();
-			for(int i=4;i<=lLastRowNo;i++){
+			for(int i=3;i<=lLastRowNo;i++){
 				Row row =mySheet.getRow(i);
-				for (int j=1;j<row.getLastCellNum();j++){
+				for (int j=2;j<row.getLastCellNum();j++){
 					Cell cell = row.getCell(j);
 					if(cell!=null){
-						lPstmt=pConnection.prepareStatement(lInsertQuery);
-						lPstmt.setLong(1, pFile.getEntityId());
-						lPstmt.setInt(2, row.getRowNum());
+						lPstmt.setLong(1, pFile.getCell_line_id());
+						lPstmt.setLong(2, pFile.getAssay_type());
+						lPstmt.setLong(3, pFile.getTimepoint());
+						lPstmt.setLong(4, pFile.getPhenotype_id());
+						lPstmt.setLong(5, pFile.getPlate_id());
+						lPstmt.setInt(6, i+1);
 						int lColumnIndex= cell.getColumnIndex();
-						lPstmt.setString(3, CellReference.convertNumToColString(lColumnIndex));
-						lPstmt.setDouble(4, cell.getNumericCellValue());
-						lPstmt.setTimestamp(5,new Timestamp(System.currentTimeMillis()));
-						lPstmt.setNull(6, java.sql.Types.TIMESTAMP);
-						lPstmt.setNull(7, java.sql.Types.BIGINT);
-						lPstmt.setString(8, "Y");
-						lPstmt.setInt(9, 1);
+						lPstmt.setString(7, CellReference.convertNumToColString(lColumnIndex));
+						lPstmt.setDouble(8, cell.getNumericCellValue());
+						lPstmt.setTimestamp(9,new Timestamp(System.currentTimeMillis()));
+						lPstmt.setLong(10, pFile.getLoggedBy());
+						lPstmt.setNull(11, java.sql.Types.TIMESTAMP);
+						lPstmt.setNull(12, java.sql.Types.BIGINT);
+						lPstmt.setString(13, "Y");
+						lPstmt.setInt(14, 1);
 						lPstmt.addBatch();
 					}
 				}
@@ -67,9 +72,7 @@ public class SaveExceltoDB {
 		}
 		finally{
 			try{
-				if(pConnection!=null){
-					pConnection.close();
-				}
+			
 			}catch(Exception e1){
 				logger.error("Error Occured while closing connection",e1);
 			}

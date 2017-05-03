@@ -4,8 +4,12 @@ package com.catapp.servlet;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,8 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import com.catapp.action.ChemData;
 import com.catapp.action.SaveExceltoDB;
@@ -32,11 +34,15 @@ import com.catapp.entity.User;
 @WebServlet("/SaveFileFormServlet")
 public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+<<<<<<< HEAD
 
 
 	private final String UPLOAD_DIRECTORY = "C:/Users/CATAPP/serverfiles";
 
 
+=======
+	private final String UPLOAD_DIRECTORY = "C:/Users/ssingh/serverfiles";
+>>>>>>> SS-Master/master
 	public static final Logger logger = Logger.getLogger(SaveFileFormServlet.class.toString());
 
        
@@ -112,7 +118,12 @@ public class SaveFileFormServlet extends HttpServlet {
 								new ChemData().getTagNamesofInputs("assaynames",lConn).get(Long.valueOf(lAssayData))+"_"+
 								new ChemData().getTimePoints().get(Long.valueOf(lTimePoint))+"_"+
 								new ChemData().getTagNamesofInputs("phenotypes",lConn).get(Long.valueOf(lPhenoType));
-						//File lUploadedFile =new File(item.getName()); 
+						
+						boolean lExists =cmsCheckFileInDB(lFileName, lConn);
+						if(lExists){
+							RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp?failure=2");
+						    rd.forward(request, response);
+						}
 						String name = new File(item.getName()).getName();
 						if(name!=null){
 							if(name.indexOf(".")!=-1){
@@ -142,6 +153,7 @@ public class SaveFileFormServlet extends HttpServlet {
 			lFile.setPhenotype_id(Long.valueOf(lPhenoType));
 			lFile.setAssay_type(Long.valueOf(lAssayData));
 			lFile.setPlate_id(Long.valueOf(lPlate));
+			lFile.setTimepoint(Integer.valueOf(lTimePoint));
 			lFile.setFile_name(lFileName);
 			lFile.setFile_path(UPLOAD_DIRECTORY);
 			if(lDescription!=null){
@@ -153,16 +165,26 @@ public class SaveFileFormServlet extends HttpServlet {
 			//User lUser =new User();
 			//lUser.setEntityId(1l);
 			lFile.save(lConn, lUser);
+<<<<<<< HEAD
 
 			System.out.println("SaveFileFormServlet E \n");
+=======
+			//lFile.getF
+			
+>>>>>>> SS-Master/master
 			///// ************************* Excel Save in DB *************************************//////
 			
 			/*String lReturnResponse=new SaveExceltoDB().saveExcelDataToDb(lFile, lConn);
 			if(lReturnResponse=="success"){
 				
 			}else{
+<<<<<<< HEAD
 				lConn.rollback();
 			}*/
+=======
+				
+			}
+>>>>>>> SS-Master/master
 			
 		   ///// ************************* Excel Save in DB *************************************//////
 			System.out.println("SaveFileFormServlet X" + " \n");
@@ -213,4 +235,30 @@ public class SaveFileFormServlet extends HttpServlet {
 		
 	}
 
+<<<<<<< HEAD
 }
+=======
+	public boolean cmsCheckFileInDB(String pFileName,Connection pConnection){
+		boolean lExistsFlag      = false;
+		PreparedStatement lPstmt = null;
+		ResultSet lRst 			 = null;
+		try{
+			String lQuery= "select * From file_info where file_name=? and rowstate!=-1";
+			
+			lPstmt=pConnection.prepareStatement(lQuery);
+			lPstmt.setString(1, pFileName);
+			
+			lRst= lPstmt.executeQuery();
+			while(lRst.next()){
+				lExistsFlag=true;
+			}
+			
+		}catch(Exception e){
+			logger.log(Level.INFO, "validation error", e);
+		}
+		
+		return lExistsFlag;
+		
+	}
+}
+>>>>>>> SS-Master/master
