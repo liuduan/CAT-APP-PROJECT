@@ -79,6 +79,7 @@ data2{color: DarkGreen; font-size: 20px;  }
 
 </head>
 <body style="background-color: #157fcc">
+
 <a href="${pageContext.request.contextPath}/BackToHomeServlet" class="btn btn-info btn-sm pull-right"
 	style="background-color:#3892d3; color: white; font-weight: bold;">
 <span class="glyphicon glyphicon-home"></span> User Home</a>
@@ -87,27 +88,130 @@ data2{color: DarkGreen; font-size: 20px;  }
 
 
 
+																							<!-- Left Menu -->
+<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" id="leftMenu" 				
+	style="width:22%; height:630px; ">							
+  	
+  	<button class="btn btn-info btn-sm pull-right" 
+  		onclick="closeLeftMenu()" style="background-color: #3892d3">
+  		<span class="glyphicon glyphicon-chevron-left"></span> Close</button>
+  	<br>
+  	
+  	<div id="Column-A" style=" height:600px; padding: 9px;">
+		
 
-<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" id="leftMenu">
-  <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large">
-  	<span class="glyphicon glyphicon-chevron-left"></span></button>
-  <a href="#" class="w3-bar-item w3-button">Link 1</a>
-  <a href="#" class="w3-bar-item w3-button">Link 2</a>
-  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://localhost:3306/response"
+     user="root"  password="vibscatapp"/>
+
+
+
+ <div id="data-Chemicals-Search">
+<% String search_term = "87"; %>
+
+ <sql:query dataSource="${snapshot}" var="Chemicals_result">
+SELECT * from chemicals;
+</sql:query>
+
+<c:set var="Chemicals_first_row_id" value="${Chemicals_result.rows[0].entity_id}"/>
+<c:if test="${Chemicals_first_row_id != null}">
+
+
+<table id = "table_1" style="display: block;  height: 580px;  overflow-y: scroll;">
+  <tr>
+  	<th style="width:90px;">CAS</th>
+    <th>Substance Name</th>
+  </tr>
+  
+ <% int i = 0; %> 
+ <script> var column3_data = ["a", "b", "c"];</script>
+  <c:forEach var="Chemicals" items="${Chemicals_result.rows}">
+  	<!-- var="user"	// can be any variable name. -->
+  	<!-- "result" is the object name from search results. -->
+  	
+ 	<tr>
+ 		<td class="row_number"><%=i %></td>
+ 		<td>${Chemicals.CAS}</td>
+ 		<td>${fn:substring(Chemicals.substance_name, 0, 20)}</td>
+ 	
+ 	<div class="c-invis">
+ 		<script>
+ 			column3_data[<%=i %>] = "<br><h4><Papaya>CATAPP sample ID: </Papaya><data>${Chemicals.catapp_id}" + 
+ 				"</data><br></h4>" + 
+ 				"<h4><Papaya>Concawe ID: </Papaya><data>${Chemicals.concawe_id} </data><br></h4>" +
+ 				"<h4><Papaya>Category: </Papaya><data>${Chemicals.category} </data><br></h4>" +
+ 				"<h4><Papaya>CAS Number: </Papaya><data>${Chemicals.CAS}</data><br></h4>" + 
+ 				" <h4><Papaya>Ec Number: </Papaya><data>${Chemicals.ec}</data><br></h4>" + 
+ 				" <h4><Papaya>Substance Name: </Papaya><data>${Chemicals.substance_name}</data><br></h4>" + 
+ 				" <h4><Papaya>Chemical Name: </Papaya><data>${Chemicals.chem_name}</data><br></h4>" + 
+ 				" <h4><Papaya>Source: </Papaya><data>${Chemicals.chem_source}</data><br></h4>" + 
+ 				" <h4><Papaya>Substance Description: <br></Papaya></h4> <data>" + 
+ 				" <h4 style = 'text-align: justfy'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ${Chemicals.substance_description}</h4></data><br>";
+ 		</script>
+ 	</div>
+  <% i=i+1; %>
+  	
+  </tr>
+  </c:forEach>
+   <% i = 0; %> 
+</table> 
+ 		
+ </c:if>
+ 
+</div> <!-- End of Chemicals Search -->
+		</div><!-- end of class="col-lg-3" id="Column-A" -->
 </div>
 
-<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="right:0;" id="rightMenu">
-  <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
-  <a href="#" class="w3-bar-item w3-button">Link 1</a>
-  <a href="#" class="w3-bar-item w3-button">Link 2</a>
-  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="right:0; width:20%; height:630px; " 
+	id="rightMenu">
+																							<!-- right menu -->
+  	<button class="btn btn-info btn-sm" onclick="closeRightMenu()" 
+  		style="background-color: #3892d3">
+  		<span class="glyphicon glyphicon-chevron-right"></span> Close</button>
+  		
+	<div id="Column-B" style="padding: 9px">
+			<br><span style = "font-size: 13px; font-weight: bold;">
+			<table id = "table_2" >
+			<tr><td><div id = "chem_properties">Chemical & physic properties.<br></div></td></tr>
+			
+			<tr><td><div id = "cardio90">iCardio. 90 min Peak Frequency <br></div></td></tr>
+			<tr><td><div id = "cardio24">iCardio. 24 hr Peak Frequency<br></div></td></tr>
+			<tr><td><div id = "HUVEC_TC">HUVEC total cells <br></div></td></tr>
+			<tr><td><div id = "HUVEC_TA">HUVEC Tube Area<br></div></td></tr>
+			</table>
+			<span style = "color: #909191;">
+			iMacrophages test<br>
+			iHepatocytes test<br>
+
+			iEndothelial Cell test<br>
+			iNeuron test<br>
+			iSkeletal Myoblast test<br>
+			iLymphoblast test<br>
+			===========<br>
+			A-375 Skin Melanoma<br>
+			A549 Lung Carcinoma<br>
+			HepG2 Hepatocyte Carcinoma<br>
+			HepaRG Hepatocyte Carcinoma<br>
+			MCF7 Breast Adenocarcinoma<br>
+			
+			HT-29 Colon Adenocarcinoma<br>
+			LN-229 Glioblastoma<br>
+			HEK10205f Human Epidermal Keratinocytes; Foetal<br>
+			HLMVEC Human Lung Microvascular Endothelial Cells<br>
+			HMePC Human Mammary Epithelial Cell<br>
+			SH-SY5Y Neuroblastoma<br>
+						
+			</span></span>
+			
+		</div><!-- end of class="col-lg-6" id="Column-B" -->
 </div>
 
 
 
-<div class="w3-container">
-  <div id="central_area" style="width:100%; margin-left:16%; margin-right:16%; 
-	background-color: #157fcc">
+<div class="w3-container">									
+  <div id="central_area" style="width:58%; margin-left:22%; margin-right:20%; 	
+	background-color: #157fcc; ">												
+																							<!-- Central Area -->
 	
   	<button class="btn btn-info btn-sm" onclick="openLeftMenu()" 
   		style="background-color: #3892d3">
@@ -115,22 +219,31 @@ data2{color: DarkGreen; font-size: 20px;  }
   	<button class="btn btn-info btn-sm pull-right" 
   		onclick="openRightMenu()" style="background-color: #3892d3">
   		<span class="glyphicon glyphicon-chevron-left"></span> Open right menu</button>
-    <br></br><br></br>
-  
-  In this example, we demonstrate how to use two side navigations.
-
-We have created two "menu" buttons: one to open the side navigation from the left and one to open it from the right.
-  
-    <h1>My Page</h1>
-    In this example, we demonstrate how to use two side navigations.
-
-We have created two "menu" buttons: one to open the side navigation from the left and one to open it from the right.
+  	<div id="Column-C" style="background-color: white; height:600px; border-radius: 25px; padding: 9px;">
+			<div id="inside-C"> 
+				<br></br><br>
+				<data2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Chemical details<br>				
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Assay methods<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Dose response curves<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Project files<br><br>
+				
+				&nbsp; &nbsp; &nbsp;  More to come: <br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Departure point data<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Assay images<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Benchmark Dose Software processing<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Toxpie comparison for chemicals and assays<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Comparison to commonly known chemicals<br>
+				
+				</data2>
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</div><!--  end of id="inside-C" -->
+		</div>	<!--  end of id="Column-C" -->	
   </div>
 </div>
 
 <div class="w3-container">
-<p>In this example, we demonstrate how to use two side navigations.</p>
-<p>We have created two "menu" buttons: one to open the side navigation from the left and one to open it from the right.</p>
+<p>In this example, ....</p>
+
 </div>
 
 
@@ -195,142 +308,16 @@ function closeRightMenu() {
 	
 	
 	
-	
-<div class="main" >
 
 
 
 
 
                 
-<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/response"
-     user="root"  password="vibscatapp"/>
-     <br></br>
 
 
 
 
-
-<div class="container">
-	<div class="row">
-		<div class="col-lg-3" id="Column-A" style="background-color:lavender;height:600px;">
-		
-
-
- <div data-Chemicals-Search>
-<% String search_term = "87"; %>
-
- <sql:query dataSource="${snapshot}" var="Chemicals_result">
-SELECT * from chemicals;
-</sql:query>
-
-<c:set var="Chemicals_first_row_id" value="${Chemicals_result.rows[0].entity_id}"/>
-<c:if test="${Chemicals_first_row_id != null}">
-
-<br />
-<table id = "table_1" style="display: block;  height: 550px;  overflow-y: scroll;">
-  <tr>
-  	<th style="width:90px;">CAS</th>
-    <th>Substance Name</th>
-  </tr>
-  
- <%! int i = 0; %> 
- <script> var column3_data = ["a", "b", "c"];</script>
-  <c:forEach var="Chemicals" items="${Chemicals_result.rows}">
-  	<!-- var="user"	// can be any variable name. -->
-  	<!-- "result" is the object name from search results. -->
-  	
- 	<tr>
- 		<td class="row_number"><%=i %></td>
- 		<td>${Chemicals.CAS}</td>
- 		<td>${fn:substring(Chemicals.substance_name, 0, 20)}</td>
- 	
- 	<div class="c-invis">
- 		<script>
- 			column3_data[<%=i %>] = "<br><h4><Papaya>CATAPP sample ID: </Papaya><data>${Chemicals.catapp_id}" + 
- 				"</data><br></h4>" + 
- 				"<h4><Papaya>Concawe ID: </Papaya><data>${Chemicals.concawe_id} </data><br></h4>" +
- 				"<h4><Papaya>Category: </Papaya><data>${Chemicals.category} </data><br></h4>" +
- 				"<h4><Papaya>CAS Number: </Papaya><data>${Chemicals.CAS}</data><br></h4>" + 
- 				" <h4><Papaya>Ec Number: </Papaya><data>${Chemicals.ec}</data><br></h4>" + 
- 				" <h4><Papaya>Substance Name: </Papaya><data>${Chemicals.substance_name}</data><br></h4>" + 
- 				" <h4><Papaya>Chemical Name: </Papaya><data>${Chemicals.chem_name}</data><br></h4>" + 
- 				" <h4><Papaya>Source: </Papaya><data>${Chemicals.chem_source}</data><br></h4>" + 
- 				" <h4><Papaya>Substance Description: <br></Papaya></h4> <data>" + 
- 				" <h4 style = 'text-align: justfy'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ${Chemicals.substance_description}</h4></data><br>";
- 		</script>
- 	</div>
-  <% i=i+1; %>
-  	
-  </tr>
-  </c:forEach>
-   <% i = 0; %> 
-</table> 
- 		
- </c:if>
- 
-</div> <!-- End of Chemicals Search -->
-		</div><!-- end of class="col-lg-3" id="Column-A" -->
-		
-	<div class="col-lg-3" id="Column-B" style="background-color:lavenderblush; height:600px;">
-			<br><br><span style = "font-size: 13px; font-weight: bold;">
-			<table id = "table_2" >
-			<tr><td><div id = "chem_properties">Chemical & physic properties.<br></div></td></tr>
-			
-			<tr><td><div id = "cardio90">iCardiomyocyte 90 min Peak Frequency <br></div></td></tr>
-			<tr><td><div id = "cardio24">iCardiomyocyte 24 hr Peak Frequency<br></div></td></tr>
-			<tr><td><div id = "HUVEC_TC">HUVEC total cells <br></div></td></tr>
-			<tr><td><div id = "HUVEC_TA">HUVEC Tube Area<br></div></td></tr>
-			</table>
-			<span style = "color: #909191;">
-			iMacrophages test<br>
-			iHepatocytes test<br>
-
-			iEndothelial Cell test<br>
-			iNeuron test<br>
-			iSkeletal Myoblast test<br>
-			iLymphoblast test<br>
-			===========<br>
-			A-375 Skin Melanoma<br>
-			A549 Lung Carcinoma<br>
-			HepG2 Hepatocyte Carcinoma<br>
-			HepaRG Hepatocyte Carcinoma<br>
-			MCF7 Breast Adenocarcinoma<br>
-			
-			HT-29 Colon Adenocarcinoma<br>
-			LN-229 Glioblastoma<br>
-			HEK10205f Human Epidermal Keratinocytes; Foetal<br>
-			HLMVEC Human Lung Microvascular Endothelial Cells<br>
-			HMePC Human Mammary Epithelial Cell<br>
-			SH-SY5Y Neuroblastoma<br>
-			
-			
-			
-			
-			</span></span>
-			<br><br><br><br><br><br><br><br>
-		</div><!-- end of class="col-lg-6" id="Column-B" -->
-		
-		<div class="col-lg-6" id="Column-C" style="background-color:lavender; height:600px; border-radius: 25px;">
-			<div id="inside-C"> <br><br><br><br>
-				<data2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Chemical details<br>				
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Assay methods<br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Dose response curves<br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Project files<br><br>
-				
-				&nbsp; &nbsp; &nbsp;  More to come: <br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Departure point data<br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Assay images<br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Benchmark Dose Software processing<br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Toxpie comparison for chemicals and assays<br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Comparison to commonly known chemicals<br>
-				
-				
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			</div><!--  end of id="Column-C" -->
-		</div>	<!-- end of class="row" -->
-	</div> <!-- end of class="container" -->
 
 
 <br></br>
