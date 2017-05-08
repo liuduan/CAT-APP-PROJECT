@@ -53,58 +53,35 @@ public class LoginServlet extends HttpServlet {
 	       		System.out.println("lFlag is true.");
 	       		if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
 	        			
-<<<<<<< HEAD
+
 	       			System.out.println("It is approved.");
-=======
-	        		}else{
-	        			if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
+
+	        	
 	        				
-	        				HttpSession session=request.getSession();  
-	        				session.setAttribute("email",email);
-	        				session.setAttribute("user", lUser);
+	        		HttpSession session=request.getSession();  
+	        		session.setAttribute("email",email);
+	        		session.setAttribute("user", lUser);
+	        		System.out.println("After Session set..");
 	        				/*User lUserToSave = new User();
 	        				lUserToSave.setEntityId(lUser.getEntityId());
 	        				lUserToSave.find(lConn, lUserToSave);
 	        				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	        				lUserToSave.setLast_login_time(timestamp);
 	        				lUserToSave.save(lConn, lUserToSave);*/
-	        				request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
+	        		request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
 	        				
-	        			}else{
+	        		}else{
 	        				
-	        				request.setAttribute("error","Your request is not approved yet.");
-	    		        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
-	        			}
->>>>>>> SS-Master/master
-	        			
-	       			HttpSession session=request.getSession();  
-	       			session.setAttribute("email",email);
-	       			session.setAttribute("user", lUser);
-	       			
-	       			System.out.println("After Session set..");
-        			
-        			/*
-        			User lUserToSave = new User();
-        			lUserToSave.setEntityId(lUser.getEntityId());
-        			lUserToSave.find(lConn, lUserToSave);
-        			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        			lUserToSave.setLast_login_time(timestamp);
-        			lUserToSave.save(lConn, lUserToSave);
-        			*/
-        			
-        			request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
-        				
-	        			
-	       		}else{
-	       			System.out.println("not approved yet.");
-	       			request.setAttribute("error","Your request is not approved yet.");
-    	        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);          			
-	        		}
+	        			System.out.println("not approved yet.");
+		       			request.setAttribute("error","Your request is not approved yet.");
+	    	        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);          			
+	        			}		// end of if-else if(lUser.getApproved()...){}
 	        }else{
 	        	System.out.println("Invalid Username or Password");
 	        	request.setAttribute("error","Invalid Username or Password");
 		       	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
 	        	}
+	        
 	        	
 	    }catch(Exception e){
 	    	System.out.println("Invalid Username or Password 2");

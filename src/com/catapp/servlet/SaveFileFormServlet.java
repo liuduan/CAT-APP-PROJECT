@@ -34,15 +34,10 @@ import com.catapp.entity.User;
 @WebServlet("/SaveFileFormServlet")
 public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
 
 
 	private final String UPLOAD_DIRECTORY = "C:/Users/CATAPP/serverfiles";
 
-
-=======
-	private final String UPLOAD_DIRECTORY = "C:/Users/ssingh/serverfiles";
->>>>>>> SS-Master/master
 	public static final Logger logger = Logger.getLogger(SaveFileFormServlet.class.toString());
 
        
@@ -165,26 +160,20 @@ public class SaveFileFormServlet extends HttpServlet {
 			//User lUser =new User();
 			//lUser.setEntityId(1l);
 			lFile.save(lConn, lUser);
-<<<<<<< HEAD
+
 
 			System.out.println("SaveFileFormServlet E \n");
-=======
-			//lFile.getF
-			
->>>>>>> SS-Master/master
+
 			///// ************************* Excel Save in DB *************************************//////
 			
 			/*String lReturnResponse=new SaveExceltoDB().saveExcelDataToDb(lFile, lConn);
 			if(lReturnResponse=="success"){
 				
 			}else{
-<<<<<<< HEAD
+
 				lConn.rollback();
 			}*/
-=======
-				
-			}
->>>>>>> SS-Master/master
+
 			
 		   ///// ************************* Excel Save in DB *************************************//////
 			System.out.println("SaveFileFormServlet X" + " \n");
@@ -235,9 +224,6 @@ public class SaveFileFormServlet extends HttpServlet {
 		
 	}
 
-<<<<<<< HEAD
-}
-=======
 	public boolean cmsCheckFileInDB(String pFileName,Connection pConnection){
 		boolean lExistsFlag      = false;
 		PreparedStatement lPstmt = null;
@@ -261,4 +247,4 @@ public class SaveFileFormServlet extends HttpServlet {
 		
 	}
 }
->>>>>>> SS-Master/master
+

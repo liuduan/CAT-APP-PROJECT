@@ -35,27 +35,10 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' type='text/css' />
      <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' type='text/css' />
-    <style type="text/css">
-    
-<<<<<<< HEAD
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 
-=======
-    body {
-   background-image: url("/CAT-APP-PROJECT/resources/images/Catapp_Ideogram.svg"); 
-    /* background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("/CAT-APP-PROJECT/resources/images/Catapp_Ideogram.svg");
-  	 */-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-     background-size: 250%;
-   
-}
     
-    
-    
-    
-    </style>
->>>>>>> SS-Master/master
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
 </head>
 
 <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
@@ -68,7 +51,7 @@ String Email = smallTools.safeString(((User)request.getSession().getAttribute("u
 String Is_admin = smallTools.safeString(((User)request.getSession().getAttribute("user")).getIs_admin());
 %>
 
-<<<<<<< HEAD
+
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"
@@ -89,13 +72,10 @@ SELECT * from users where Email = "<%=Email%>";
     </c:otherwise>
 </c:choose>
 
- <br><br><br> 
+ <br><br>
 
  <div id="wrapper">
          
-=======
- <jsp:include page="headerUserHome.jsp" />   
-  <div id="wrapper">
    
    <%
 String login_msg=(String)request.getAttribute("success");  
@@ -103,49 +83,6 @@ if(login_msg!=null)
 out.println("<font color=green size=4px>"+login_msg+"</font>");
 %>    
         
-        <!-- /. NAV TOP  -->
-        <!-- <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu" style="background-color: white">
-                    <li class="text-center user-image-back" style="background-color: white">
-                       
-                        <img src="/CAT-APP-PROJECT/resources/images/find_user.png" class="img-responsive" />
-                     
-                    </li>
-                   
-                    <li style="margin-top:10px;margin-left: 10px">
-                    <b>Institution name<b></b> <br>
-                    Texas A&M University
-                 
-                    </li>
-                    <li style="margin-top:10px;margin-left: 10px">
-                    Last login <br>
-                    01/21/2017 20:08:09
-                 
-                    </li>
-                     
-                    <li style="margin-top:10px;margin-left: 10px">
-                    
-                    <b>Supervisor name</b><br>
-                    Liu Duan
-                 
-                    </li>
-                    <li style="margin-top:10px;margin-left: 10px">
-                    
-                    <b>Supervisor mail</b><br>
-                    liuduan@gmail.com
-               
-                 
-                    </li>
-				</ul>
-            </div>
-		
-        </nav> -->
-        
-        <!-- /. NAV SIDE  -->
-        <!-- <div id="page-wrapper"> -->
-           
->>>>>>> SS-Master/master
                 <div class="row">
                     <div class="col-md-12">
                         <% String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>
@@ -158,16 +95,16 @@ out.println("<font color=green size=4px>"+login_msg+"</font>");
 <br>
 										
 
-<<<<<<< HEAD
+
             <div style="margin-left:115px"class="col-md-3 col-sm-3">
-=======
+
         <!-- Content Row -->
-        <div class="row">
+       <!--  <div class="row">-->
             <!-- <div class="col-lg-12">
                 <h2 class="page-header">Projects</h2>
             </div> -->
-            <div class="col-md-4">
->>>>>>> SS-Master/master
+            <!-- <div class="col-md-4">-->
+
                 <div class="panel panel-default text-center"  style=" border-radius: 25px;">
                     <div class="panel-heading"  style=" border-radius: 20px;">
 
@@ -175,49 +112,39 @@ out.println("<font color=green size=4px>"+login_msg+"</font>");
                     </div>
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">CAT-APP</h4>
-                        
-                        <div class="btn-group">
-<<<<<<< HEAD
-        		<div class="col-md-3">
-                     <form action="CatAppDownloadPageServlet" method="post">
-=======
-        			<div class="col-md-3">
-                        <form action="CatAppDownloadPageServlet" method="post">
->>>>>>> SS-Master/master
+                   
+              <div class="row">
+
+        		<div class="col-md-4 col-lg-4">
+               		<form action="CatAppDownloadPageServlet" method="post">
                         <input type="submit" class="btn btn-primary" style=" border-radius: 5px;" value="Download">
-					</form>
-					
+						</form>
 					</div>
-					<div class="col-md-1"></div>
-					<div class="col-md-3">
-                        <form action="AnalysisPageAction" method="post">
+				<div class="col-md-4 col-lg-4">
+                    <form action="AnalysisPageAction" method="post">
                         <input type="submit" class="btn btn-primary" style=" border-radius: 5px;" value="Analysis">
 						</form>
 					</div>
-					<div class="col-md-1"></div>
-					<div class="col-md-2">
-						 <form action="UploadServlet" method="post">
+				<div class="col-md-4 col-lg-4">
+					<form action="UploadServlet" method="post">
 						<input type="submit" class="btn btn-success" style=" border-radius: 5px;" value="Upload">
 						</form>
-				</div>
-				         <br><br><a href="Response/Response">
+					</div>
+				<!--  <div class="col-md-1 col-lg-1">hj</div>-->
+				</div>		<!-- end of rows -->
+				    <br><a href="Response/Response">
 						<input type="submit" class="btn btn-danger" style=" border-radius: 5px;" value="Response Curves">
 						</a>
-				</div>
+				
                 </div>
             </div>
             </div>
             <div class="col-md-3" >
                 <div class="panel panel-default text-center" style=" border-radius: 25px;">
                     <div class="panel-heading" style=" border-radius: 20px;" >
-<<<<<<< HEAD
                        
     					<img src="${pageContext.request.contextPath}/resources/images/Oil.jpg" class=" img-circle "  width ="150" height ="150" "/>
     			
-=======
-                       <img src="/CAT-APP-PROJECT/resources/images/Oil.jpg" class=" img-circle " width ="150" height ="150" />
-    				
->>>>>>> SS-Master/master
                     </div>
                     <div class="panel-body">
                         <h4 style="font-size:1.4em; font-family:'Tahoma'">ANALYTICAL</h4>
@@ -240,18 +167,12 @@ out.println("<font color=green size=4px>"+login_msg+"</font>");
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-           
+
             <div class="col-md-3 col-sm-3">
                 <div class="panel panel-default text-center"  style=" border-radius: 25px;">
                     <div class="panel-heading"  style=" border-radius: 20px;">
                        <img src="${pageContext.request.contextPath}/resources/images/leaf.png" class=" img-circle " width ="150" height ="150" "/>
-=======
-            <div class="col-md-3">
-                <div class="panel panel-default text-center"  style=" border-radius: 25px;">
-                    <div class="panel-heading"  style=" border-radius: 20px;">
-                       <img src="/CAT-APP-PROJECT/resources/images/leaf.png" class=" img-circle " width ="150" height ="150"/>
->>>>>>> SS-Master/master
+
 				
                     </div>
                     <div class="panel-body">

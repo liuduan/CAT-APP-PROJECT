@@ -17,8 +17,9 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
+<script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 
@@ -28,7 +29,14 @@
 <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet" />
 
 
+
 <style>
+
+
+
+
+
+
 /* unvisited link */
 a:link {
     color: black;
@@ -55,12 +63,13 @@ a:active {
 	border-width: 8px;
 	border-color: CornflowerBlue;
 	border-style: solid;
-	border-radius: 10px;
+	border-radius: 4px;
 	height: 50px;
 	text-align: center;
 	text-shadow:2px 2px 5px SkyBlue;
 	font-size: 14;
 	font-weight: bold;
+	padding: 0px;
 }
 .c-invis {
     display: none;
@@ -80,9 +89,11 @@ data2{color: DarkGreen; font-size: 20px;  }
 </head>
 <body style="background-color: #157fcc">
 
+<span class="pull-right">&nbsp; &nbsp; </span>
 <a href="${pageContext.request.contextPath}/BackToHomeServlet" class="btn btn-info btn-sm pull-right"
 	style="background-color:#3892d3; color: white; font-weight: bold;">
-<span class="glyphicon glyphicon-home"></span> User Home</a>
+<span class="glyphicon glyphicon-home"></span> User Home</a> 
+
 
 <h3 align="center" style="color: white; font-weight: bold;">Data Analysis Dashboard</h3>
 
@@ -90,14 +101,12 @@ data2{color: DarkGreen; font-size: 20px;  }
 
 																							<!-- Left Menu -->
 <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" id="leftMenu" 				
-	style="width:22%; height:630px; ">							
+	style="width:22%; height:90%; border-radius: 10px;">							
   	
-  	<button class="btn btn-info btn-sm pull-right" 
-  		onclick="closeLeftMenu()" style="background-color: #3892d3">
-  		<span class="glyphicon glyphicon-chevron-left"></span> Close</button>
-  	<br>
+
+  
   	
-  	<div id="Column-A" style=" height:600px; padding: 9px;">
+  	<div id="Column-A" style=" min-height:600px; padding: 9px;">
 		
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
@@ -116,8 +125,8 @@ SELECT * from chemicals;
 <c:set var="Chemicals_first_row_id" value="${Chemicals_result.rows[0].entity_id}"/>
 <c:if test="${Chemicals_first_row_id != null}">
 
-
-<table id = "table_1" style="display: block;  height: 580px;  overflow-y: scroll;">
+<br>
+<table id = "table_1" style="display: block;  height: 90%;  ">
   <tr>
   	<th style="width:90px;">CAS</th>
     <th>Substance Name</th>
@@ -162,14 +171,12 @@ SELECT * from chemicals;
 		</div><!-- end of class="col-lg-3" id="Column-A" -->
 </div>
 
-<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="right:0; width:20%; height:630px; " 
-	id="rightMenu">
+<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="right:0; width:20%; 
+	height:90%; border-radius: 10px; " id="rightMenu">
 																							<!-- right menu -->
-  	<button class="btn btn-info btn-sm" onclick="closeRightMenu()" 
-  		style="background-color: #3892d3">
-  		<span class="glyphicon glyphicon-chevron-right"></span> Close</button>
+
   		
-	<div id="Column-B" style="padding: 9px">
+	<div id="Column-B" style="padding-left: 9px">
 			<br><span style = "font-size: 13px; font-weight: bold;">
 			<table id = "table_2" >
 			<tr><td><div id = "chem_properties">Chemical & physic properties.<br></div></td></tr>
@@ -206,20 +213,27 @@ SELECT * from chemicals;
 		</div><!-- end of class="col-lg-6" id="Column-B" -->
 </div>
 
-
-
-<div class="w3-container">									
-  <div id="central_area" style="width:58%; margin-left:22%; margin-right:20%; 	
-	background-color: #157fcc; ">												
+				
+<div id="central_area" style="height: 90vh; width:58%; margin-left:22%; margin-right:20%; 	
+	background-color: #157fcc; ">				<!-- background-color: #157fcc;  -->								
 																							<!-- Central Area -->
 	
-  	<button class="btn btn-info btn-sm" onclick="openLeftMenu()" 
-  		style="background-color: #3892d3">
+  	<button class="btn btn-info btn-sm" onclick="openLeftMenu()" id="button-open-left"
+  		style="background-color: #3892d3; display: none; ">
   		<span class="glyphicon glyphicon-chevron-right"></span> Open left menu</button>
-  	<button class="btn btn-info btn-sm pull-right" 
-  		onclick="openRightMenu()" style="background-color: #3892d3">
+  	<button class="btn btn-info btn-sm" id="button-close-left"
+  		onclick="closeLeftMenu()" style="background-color: #3892d3; ">
+  		<span class="glyphicon glyphicon-chevron-left"></span> Close</button>
+  		
+  	<button class="btn btn-info btn-sm pull-right" id="button-open-right"  	
+  		onclick="openRightMenu()" style="background-color: #3892d3; display: none; ">
   		<span class="glyphicon glyphicon-chevron-left"></span> Open right menu</button>
-  	<div id="Column-C" style="background-color: white; height:600px; border-radius: 25px; padding: 9px;">
+  		
+  	<button class="btn btn-info btn-sm pull-right" onclick="closeRightMenu()" id="button-close-right"
+  		style="background-color: #3892d3;">
+  		
+  		<span class="glyphicon glyphicon-chevron-right"></span> Close</button>
+  	<div id="Column-C" style="background-color: white; height: 96%; border-radius: 15px; padding: 9px;">
 			<div id="inside-C"> 
 				<br></br><br>
 				<data2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Chemical details<br>				
@@ -239,8 +253,8 @@ SELECT * from chemicals;
 			</div><!--  end of id="inside-C" -->
 		</div>	<!--  end of id="Column-C" -->	
   </div>
-</div>
 
+<br></br>
 <div class="w3-container">
 <p>In this example, ....</p>
 
@@ -250,51 +264,61 @@ SELECT * from chemicals;
 <script>
 var leftMenu_on = true;
 var rightMenu_on = true;
+
 function openLeftMenu() {
 	leftMenu_on = true;
 	if(rightMenu_on == true){
-		$("#central_area").css("width", "80%");
+		$("#central_area").css("width", "58%");
 		}
-	else{$("#central_area").css("width", "90%");
+	else{$("#central_area").css("width", "78%");
 		}
-	$("#central_area").css("marginLeft", "10%");
-	$("#leftMenu").css("width", "10%");
+	$("#central_area").css("marginLeft", "22%");
+	$("#leftMenu").css("width", "22%");
     // $("$leftMenu").show();
-    document.getElementById("leftMenu").style.display = "block";   
+    document.getElementById("leftMenu").style.display = "block";  
+    $("#button-open-left").hide();
+    $("#button-close-left").show();
+    
 }
 function closeLeftMenu() {
 	leftMenu_on = false;
 	if(rightMenu_on == true){
-		$("#central_area").css("width", "90%");
+		$("#central_area").css("width", "80%");
 		}
 	else{$("#central_area").css("width", "100%");
 		}
     document.getElementById("leftMenu").style.display = "none";
     document.getElementById("central_area").style.marginLeft = "0%";
+    $("#button-open-left").show();
+    $("#button-close-left").hide();
 }
 
 function openRightMenu() {
 	// document.getElementById("central_area").style.marginRight = "25%";
 	rightMenu_on = true;
 	if(leftMenu_on == true){
-		$("#central_area").css("width", "80%");
+		$("#central_area").css("width", "58%");
 		}
-	else{$("#central_area").css("width", "90%");}
+	else{$("#central_area").css("width", "80%");}
 	
-	$("#central_area").css("margin-right", "10%");
+	$("#central_area").css("margin-right", "20%");
     document.getElementById("rightMenu").style.display = "block";    
-	document.getElementById("rightMenu").style.width = "10%";
+	document.getElementById("rightMenu").style.width = "20%";
+    $("#button-open-right").hide();
+    $("#button-close-right").show();
 	
 }
 function closeRightMenu() {
 	rightMenu_on = false;
 	if(leftMenu_on == true){
-		$("#central_area").css("width", "90%");
+		$("#central_area").css("width", "78%");
 		}
 	else{$("#central_area").css("width", "100%");}
 	
     document.getElementById("rightMenu").style.display = "none";
     document.getElementById("central_area").style.marginRight = "0%";
+    $("#button-open-right").show();
+    $("#button-close-right").hide();
 }
 </script>
 
@@ -506,6 +530,7 @@ function column_3_curve(chem_row_n, endpoint_row_n){
 
 
 
+
 	
 var endpoint_data = [];
 endpoint_data[1] = "<br><br><br><papaya>" + 
@@ -535,8 +560,12 @@ endpoint_data[4] = "<br><br><br><papaya>" +
 	"by a trained computer software."+
 	"<br><br><br><br><br>";
 
+
+
+	
 </script>
 
+ 
 
 
 </body>

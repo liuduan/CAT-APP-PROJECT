@@ -49,16 +49,10 @@
 	
 	
 	</style>
-<<<<<<< HEAD
+
 <body background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
 	style="background-size:250%">
 
-
-
-
-=======
-    <body >
->>>>>>> SS-Master/master
     <script type="text/javascript">
     function changebuttonstats(){
     	jQuery("#cellline").prop('disabled',false);
@@ -218,18 +212,12 @@
 				                    		
 											  
 											  <c:forEach var="cellline" items="${cell}">
-<<<<<<< HEAD
-											  <c:choose>
-											  <c:when test="${cellline.key=='2'}">
-    												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>> 
-    												&nbsp;<b><c:out value="${cellline.value}"/></b><br>
-											   </c:when>
-=======
+
 											 <%--  <c:choose> --%>
 											  <%-- <c:when test="${cellline.key=='2'}"> --%>
     												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/> onclick="changebuttonstats()"> &nbsp;<b><c:out value="${cellline.value}"/></b><br><br>
 											   <%-- </c:when>
->>>>>>> SS-Master/master
+
 											   <c:otherwise>
 											   <input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/> disabled> 
 											   		<span style="font-size:13px; color:lightgray;"> &nbsp;<b><c:out value="${cellline.value}"/></b>
@@ -274,20 +262,13 @@
     											<%-- <c:choose> --%>
     											<%-- <c:when test="${cellline.key=='2' }"> --%>
 										        <option value="${assaynames.key}"> ${assaynames.value}</option>
-<<<<<<< HEAD
-										        </c:when>
-										        <c:otherwise>
-										         <option value="${assaynames.key}" disabled>
-										         	<span style="font-size:13px; color:lightgray;"> ${assaynames.value}</span></option>
-										        </c:otherwise>
-										        </c:choose>
-=======
+
 										       <%--  </c:when> --%>
 										        <%-- <c:otherwise>
 										         <option value="${assaynames.key}" disabled> ${assaynames.value}</option>
 										        </c:otherwise> --%>
 										        <%-- </c:choose> --%>
->>>>>>> SS-Master/master
+
 										    	</c:forEach>
 												</select>
 
@@ -427,15 +408,11 @@
 		                            <div class="form-bottom">
 				                       <div class="form-group">
 				                       		<label class="sr-only" for="form-facebook">Desc:</label>
-<<<<<<< HEAD
-				                        	<input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)">..<br><br><br>
-				                    		<label class="sr-only" for="form-facebook">Upload File:.</label>
-				                        	<input type="file"  id="uploadfile" name="file" size="40">
-=======
+
 				                        	<input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)"><br><br><br>
 				                    		<label class="sr-only" for="form-facebook">Upload File:</label>
 				                        	<input type="file"  id="uploadfile" name="file" size="40" onclick="validateFile()">
->>>>>>> SS-Master/master
+
 				                        	
 				                        </div>
 										

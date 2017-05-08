@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
+
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-=======
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="3.0">
->>>>>>> SS-Master/master
-  <display-name>CAT-APP-PROJECT</display-name>
+
+
+ <display-name>CAT-APP-PROJECT</display-name>
   <servlet>
     <servlet-name>AdminServlet</servlet-name>
     <servlet-class>com.catapp.servlet.AdminServlet</servlet-class>
@@ -51,15 +50,14 @@
     <servlet-class>com.catapp.servlet.DownloadFileServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-<<<<<<< HEAD
+
   <servlet>
     <display-name>catAppDownloadPageServlet</display-name>
     <servlet-name>catAppDownloadPageServlet</servlet-name>
     <servlet-class>com.catapp.servlet.CatAppDownloadPageServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-=======
->>>>>>> SS-Master/master
+
   <servlet>
     <display-name>UserManagementServlet</display-name>
     <servlet-name>UserManagementServlet</servlet-name>
@@ -78,7 +76,7 @@
     <servlet-class>com.catapp.servlet.SuccessServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-<<<<<<< HEAD
+
   <servlet>
     <display-name>responseServlet</display-name>
     <servlet-name>responseServlet</servlet-name>
@@ -102,16 +100,19 @@
   
   
   
-=======
->>>>>>> SS-Master/master
+
   <servlet-mapping>
     <servlet-name>responseServlet</servlet-name>
     <url-pattern>/Response/Response</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
+  
+  
+  
+ <servlet-mapping>
     <servlet-name>SuccessServlet</servlet-name>
     <url-pattern>/Success</url-pattern>
   </servlet-mapping>
+
   <servlet-mapping>
     <servlet-name>ManageActionServlet</servlet-name>
     <url-pattern>/ManageAction</url-pattern>
@@ -120,6 +121,7 @@
     <servlet-name>UserManagementServlet</servlet-name>
     <url-pattern>/UserManagement</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/Admin</url-pattern>
@@ -148,35 +150,24 @@
     <servlet-name>ViewDownloadServlet</servlet-name>
     <url-pattern>/ViewDownload</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
+
   <servlet-mapping>
     <servlet-name>catAppDownloadPageServlet</servlet-name>
     <url-pattern>/catAppDownloadPageServlet</url-pattern>
   </servlet-mapping>
-=======
->>>>>>> SS-Master/master
   <servlet-mapping>
     <servlet-name>DownloadFileServlet</servlet-name>
     <url-pattern>/Downloads</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
+
+
+
   <welcome-file-list>
     <welcome-file>Home</welcome-file>
-  </welcome-file-list>
-=======
-  <servlet-mapping>
-    <servlet-name>SuccessServlet</servlet-name>
-    <url-pattern>/Success</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UserManagementServlet</servlet-name>
-    <url-pattern>/UserManagement</url-pattern>
-  </servlet-mapping>
-  <welcome-file-list>
-    <welcome-file>Home</welcome-file>
+    <!-- <welcome-file>/WEB-INF/index.jsp</welcome-file> -->
   </welcome-file-list>
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
->>>>>>> SS-Master/master
+
 </web-app>

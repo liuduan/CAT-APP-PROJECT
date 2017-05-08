@@ -257,13 +257,11 @@ function searchFiles(){
 		        		
 		        		if(lTotalHtml==null){
 		        			lTFlag=1;
-<<<<<<< HEAD
 
-=======
 		        			lTotalHtml = '<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
 	        				+'<label>'+'File Name &nbsp;'  +'Uploaded Date &nbsp;' +'Description &nbsp;' + '</label>'+
 	        				'</div>';
->>>>>>> SS-Master/master
+
 		        			if(i==0){
 		        				
 		        				lTotalHtml= lTotalHtml+'<form action="DownloadFileServlet">'+
@@ -281,16 +279,11 @@ function searchFiles(){
 		        				'</div>';
 		        			}
 	        			}else{
-<<<<<<< HEAD
-	        				lTotalHtml=lTotalHtml+'<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
-
-	        		  		+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
-=======
 	        				lTotalHtml=lTotalHtml+'<div class="row well well-sm span12 " style="width:50%;margin-left: 5%">'
 	        				+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue
 	        				+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'
 	        				+lfileList[i].childNodes[2].firstChild.nodeValue+'&nbsp; &nbsp;'+lfileList[i].childNodes[3].firstChild.nodeValue +'&nbsp; &nbsp;'+lfileList[i].childNodes[4].firstChild.nodeValue+ '</label>'+
->>>>>>> SS-Master/master
+
 	        				'</div>';
 	        			}
 		        	}
@@ -906,9 +899,6 @@ for(var i=0;i<lPhenotypesArray.length;i++){
    
 	}
 	
-	
-<<<<<<< HEAD
-=======
 }
 function matchCasNumbers(){
 	
@@ -946,4 +936,4 @@ function matchCasNumbers(){
 function closemessageheader(){
 	jQuery(".alert").hide();
 }
->>>>>>> SS-Master/master
+

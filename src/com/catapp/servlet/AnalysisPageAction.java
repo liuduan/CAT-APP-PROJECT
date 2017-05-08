@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.dbcp.dbcp.DbcpException;
-
 import com.catapp.action.ChemData;
 import com.catapp.connection.DBConnection;
 

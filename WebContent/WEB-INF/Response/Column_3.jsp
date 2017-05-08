@@ -15,13 +15,40 @@
     <%@page import="javax.xml.bind.DatatypeConverter"%>
     <%@page import="java.awt.image.BufferedImage"%>
 
+<head>
+<style>
+.nav.nav-tabs  {
+    border-bottom: 6px solid #add2ed; 
+    zIndex: 1;
+}
 
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#home"><Gray>Response curve</Gray></a></li>
-  <li><a data-toggle="tab" href="#menu1" id="menue_property"><Gray>Chemical properties</Gray></a></li>
-  <li><a data-toggle="tab" href="#menu2"><Gray>Assay</Gray></a></li>
-  <li><a data-toggle="tab" href="#menu3"><Gray>Assay data</Gray></a></li>
-  <li><a data-toggle="tab" href="#menu4"><Gray>Credit</Gray></a></li>
+.nav.nav-tabs>li>a {
+	height: 30px;
+	margin-top: 0px;
+	padding-top: 6px;
+	color: white;
+	font-weight: bold;
+	background-color: #3892d3;
+}
+
+.nav.nav-tabs>li.active>a, .nav.nav-tabs>li.active>a:hover, 
+	nav.nav-tabs>li.active>a:focus, .nav.nav-tabs>li>a:hover {
+    color: #157fcc;
+    background-color: #add2ed;
+}
+</style>
+
+</head>
+
+
+
+
+<ul class="nav nav-tabs" >
+  <li class="active"><a data-toggle="tab" href="#home">Response curve</a></li>
+  <li><a data-toggle="tab" href="#menu1" id="menue_property">Chemical properties</a></li>
+  <li><a data-toggle="tab" href="#menu2">Assay</a></li>
+  <li><a data-toggle="tab" href="#menu3">Assay data</a></li>
+  <li><a data-toggle="tab" href="#menu4">Credit</a></li>
 </ul>
 
 <div class="tab-content">
@@ -83,17 +110,61 @@ System.out.println("String: " + image_path);
         baos.close();                                   
         String b64 = DatatypeConverter.printBase64Binary(imageInByteArray);
         %>
-        <img  class="img-responsive" src="data:image/jpg;base64, <%=b64%>" style="margin: auto;"/>                            
+        <div id = "draggable" style="margin: auto; text-align: center; z-index: 0;">
+         <img  id="response-curve" src="data:image/jpg;base64, <%=b64%>" />
+      </div>
+      
+      
+      
+      
+      
+           
         <% 
     }catch(IOException e){
-      System.out.println("Error: "+e);
-    } 
+      	System.out.println("Error: "+e);
+    	} 
+%>
 
 
-    %>
+
+<a href="#" ><span class="glyphicon glyphicon-plus" onclick="magnify()"
+	style="padding-left: 7px; position: absolute; top: 160px; left:23%;"></span></a>
+<a href="#" ><span class="glyphicon glyphicon-minus" onclick="shrink()"
+	style="padding-left: 5px; position: absolute; top: 190px; left: 23%;"></span></a>
+<a href="#" ><span class="glyphicon glyphicon-download-alt" 
+	style="padding-left: 5px; position: absolute; top: 220px; left: 23%;"></span></a>
 
 
-  </div> <!-- end of id="home" -->
+<script>
+var fig_width = 500;
+function magnify() {
+	// alert("hello");
+	fig_width = fig_width * 1.2;
+	$( "#response-curve" ).width(fig_width);
+	// class="img-responsive" 
+	}
+
+function shrink() {
+	// alert("hello");
+	fig_width = fig_width * 0.8;
+	$( "#response-curve" ).width(fig_width);
+	// class="img-responsive" 
+	}
+
+$(function() {
+    $( "#draggable" ).draggable(
+    	    { zIndex: 0});
+    
+ });
+
+
+
+</script>
+
+
+
+
+</div> <!-- end of id="home" -->
   
   <div id="menu1" class="tab-pane fade">
     ${chemical_properties}
