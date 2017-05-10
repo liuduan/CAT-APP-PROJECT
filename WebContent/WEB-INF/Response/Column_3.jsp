@@ -58,7 +58,7 @@
 </div>
 
 
-<div class="tab-content">
+<div class="tab-content" style="position: relative; top: -32px; ">
   <div id="home" class="tab-pane fade in active">
    
 <Papaya>
@@ -168,7 +168,7 @@ System.out.println("String: " + image_path);
   </div>
   
 
-  <div id="menu2" class="tab-pane fade">
+  <div id="menu2" class="tab-pane fade" style="position: relative; top: -32px; ">
   
     <papaya>${endpoint_data}
     </papaya>
@@ -184,7 +184,7 @@ System.out.println("String: " + image_path);
 <sql:query dataSource="${snapshot}" var="Assay_data_result">
 SELECT * from assay_data where (phenotype = "${endpoint_string2}" AND catapp_id = "${chemical}");
 </sql:query>
-	<br><br>
+	<br>
 	
 	
 	Catapp Sample ID: ${Assay_data_result.rows[0].catapp_id}<br>
@@ -211,9 +211,15 @@ SELECT * from assay_controls where phenotype = "${endpoint_string2}";
    ${fn:substring(row.control_value, 0, 6)},
 </c:forEach>    
    
+   <br>
+   	Control values:<br>
+<c:forEach var="row" items="${Control_data_result.rows}">  		
+   ${fn:substring(row.control_value, 0, 6)},
+</c:forEach>    
+   
     </papaya>
   </div>
-  <div id="menu4" class="tab-pane fade">
+  <div id="menu4" class="tab-pane fade" style="position: relative; top: -32px; ">
     <papaya><h3></h3><br><br>
     <p style="text-indent: 50px;">The assays were conducted in Dr. Ivan Rusyn lab at Texas A&M University. </p>
     <p>The R program for dose-response curves was written by Dr. Fred Wright at the North Carolina State 

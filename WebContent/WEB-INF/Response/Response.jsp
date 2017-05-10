@@ -224,7 +224,7 @@ SELECT * from chemicals;
 
 				
 <div id="central_area" style="height: 90vh; width:58%; margin-left:22%; margin-right:20%; z-index: 1; 	
-	background-color: #157fcc; border-width: 5px; border-color: white;">				<!-- background-color: #157fcc;  -->								
+	background-color: #157fcc;">				<!-- background-color: #157fcc;  -->								
 																							<!-- Central Area -->
 	
   	<button class="btn btn-info btn-sm" onclick="openLeftMenu()" id="button-open-left"
