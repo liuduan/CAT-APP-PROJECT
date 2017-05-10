@@ -29,6 +29,7 @@ public class responseServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println("before jsp"); 
 		
+		
 		getServletContext().getRequestDispatcher("/WEB-INF/Response/Response.jsp").forward(request, response);
 	}
 

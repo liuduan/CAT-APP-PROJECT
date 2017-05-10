@@ -14,8 +14,11 @@
     <%@page import="java.math.BigInteger"%>
     <%@page import="javax.xml.bind.DatatypeConverter"%>
     <%@page import="java.awt.image.BufferedImage"%>
+    <%@page import="sun.misc.BASE64Decoder"%>
+    <%@page import="java.awt.image.BufferedImage"%>
 
 <head>
+<script src="${pageContext.request.contextPath}/resources/js/Response/Column_3.js"></script>
 <style>
 .nav.nav-tabs  {
     border-bottom: 6px solid #add2ed; 
@@ -43,13 +46,17 @@
 
 
 
-<ul class="nav nav-tabs" >
+<ul class="nav nav-tabs" style="position: relative; z-index: 2; background-color: #157fcc; ">
   <li class="active"><a data-toggle="tab" href="#home">Response curve</a></li>
   <li><a data-toggle="tab" href="#menu1" id="menue_property">Chemical properties</a></li>
   <li><a data-toggle="tab" href="#menu2">Assay</a></li>
   <li><a data-toggle="tab" href="#menu3">Assay data</a></li>
   <li><a data-toggle="tab" href="#menu4">Credit</a></li>
 </ul>
+<div style="background-color: #157fcc; width: 105%; height: 49px; position: relative; top: -40px; 
+	padding: -9px; margin: -9px; z-index: 1; " id="blocking-piece">
+</div>
+
 
 <div class="tab-content">
   <div id="home" class="tab-pane fade in active">
@@ -102,21 +109,36 @@ System.out.println("String: " + image_path);
       // String imgName="C:\\4_R\\Demonstration\\Peak_Freq_24hr\\Figs\\Peak_freq_24hr1.png";
       String imgName = image_path;
       BufferedImage bImage = ImageIO.read(new File(imgName));//give the path of an image
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+      ByteArrayOutputStream baos = new ByteArrayOutputStream();
         // ImageIO.write( bImage, "jpg", baos );
-        ImageIO.write( bImage, "png", baos );
-        baos.flush();
-        byte[] imageInByteArray = baos.toByteArray();
-        baos.close();                                   
-        String b64 = DatatypeConverter.printBase64Binary(imageInByteArray);
-        %>
-        <div id = "draggable" style="margin: auto; text-align: center; z-index: 0;">
+      ImageIO.write( bImage, "png", baos );
+      baos.flush();
+      byte[] imageInByteArray = baos.toByteArray();
+      byte[] imageByte;
+
+      String b64 = DatatypeConverter.printBase64Binary(imageInByteArray);
+      
+  
+      BASE64Decoder decoder = new BASE64Decoder();
+      imageByte = decoder.decodeBuffer(b64);
+      
+      
+      baos.close();                                   
+
+     
+      
+        
+      %>
+        <div id = "draggable" style="text-align: center;">
          <img  id="response-curve" src="data:image/jpg;base64, <%=b64%>" />
       </div>
       
-      
-      
-      
+<%-- 
+      <form method="get" action="data:image/jpg, <%=imageByte(String)%>">
+<button type="submit"><span class="glyphicon glyphicon-download-alt" 
+	style="padding-left: 5px; position: absolute; top: 220px; left: 23%; color: white;"></span>Download!</button>
+</form>
+     --%> 
       
            
         <% 
@@ -125,41 +147,15 @@ System.out.println("String: " + image_path);
     	} 
 %>
 
-
+<div style="position: absolute; background-color: #157fcc; color: white; width: 40px; height: 70px; top: 140px; 
+	left:22%; margin: 8px; padding: 5; border-radius: 10px;"> 
 
 <a href="#" ><span class="glyphicon glyphicon-plus" onclick="magnify()"
-	style="padding-left: 7px; position: absolute; top: 160px; left:23%;"></span></a>
+	style="padding-left: 7px; position: absolute; top: 14px; left:6px; color: white;"></span></a>
 <a href="#" ><span class="glyphicon glyphicon-minus" onclick="shrink()"
-	style="padding-left: 5px; position: absolute; top: 190px; left: 23%;"></span></a>
-<a href="#" ><span class="glyphicon glyphicon-download-alt" 
-	style="padding-left: 5px; position: absolute; top: 220px; left: 23%;"></span></a>
-
-
-<script>
-var fig_width = 500;
-function magnify() {
-	// alert("hello");
-	fig_width = fig_width * 1.2;
-	$( "#response-curve" ).width(fig_width);
-	// class="img-responsive" 
-	}
-
-function shrink() {
-	// alert("hello");
-	fig_width = fig_width * 0.8;
-	$( "#response-curve" ).width(fig_width);
-	// class="img-responsive" 
-	}
-
-$(function() {
-    $( "#draggable" ).draggable(
-    	    { zIndex: 0});
-    
- });
-
-
-
-</script>
+	style="padding-left: 5px; position: absolute; top: 42px; left: 7px; color: white;"></span></a>
+	
+</div>
 
 
 
@@ -195,10 +191,13 @@ SELECT * from assay_data where (phenotype = "${endpoint_string2}" AND catapp_id 
 	Chemical name: ${Assay_data_result.rows[0].chem_name}<br>
 	Assay: ${Assay_data_result.rows[0].phenotype}<br>
 	<table border=0>
+	<tr><td>Point of departure: &nbsp; </td><td> ${fn:substring(Assay_data_result.rows[0].pod_sd1, 0, 6)} 
+		(At 1 Standard Deviation)</td><tr>
 	<tr><td>Dose 1000x: </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_1000x, 0, 6)}</td><tr>
 	<tr><td>Dose 100x: </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_100x, 0, 6)}</td><tr>
 	<tr><td>Dose 10x: </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_10x, 0, 6)}</td><tr>
 	<tr><td>Dose 1x: </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_1x, 0, 6)}</td><tr>
+	
 	</table>
 	
 	
@@ -224,22 +223,3 @@ SELECT * from assay_controls where phenotype = "${endpoint_string2}";
 
 
 </Papaya>
-<script>
-
-
-
-$("menue_property").click(
-	function () {
-		// alert("It is: "+ ${chemical});
-		// jQuery('#menu1').html('');
-		jQuery('#menu1').html("${chemical_properties}");
-		
-		})
-
-
-
-
-
-
-
-</script>

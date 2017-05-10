@@ -21,6 +21,8 @@
 <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
+<script src="${pageContext.request.contextPath}/resources/js/Response/Response.js"></script>
+
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -59,9 +61,9 @@ a:active {
 }
 /* Highlighted_rows*/
 .Highlighted_rows{
-	background-color: lightblue;
+	background-color: #add2ed; /* EPA lightblue */
 	border-width: 8px;
-	border-color: CornflowerBlue;
+	border-color: #157fcc;	/* EPA deep blue */
 	border-style: solid;
 	border-radius: 4px;
 	height: 50px;
@@ -84,18 +86,20 @@ Gray{	color: #9c9d9d; }
 data{color: LightGreen;  }
 data2{color: DarkGreen; font-size: 20px;  }
 </style>
-<title>Insert title here</title>
+<title>Response Curves</title>
 
 </head>
 <body style="background-color: #157fcc">
 
 <span class="pull-right">&nbsp; &nbsp; </span>
 <a href="${pageContext.request.contextPath}/BackToHomeServlet" class="btn btn-info btn-sm pull-right"
-	style="background-color:#3892d3; color: white; font-weight: bold;">
+	style="background-color:#3892d3; color: white; font-weight: bold; position: relative; z-index: 2;">
 <span class="glyphicon glyphicon-home"></span> User Home</a> 
 
-
-<h3 align="center" style="color: white; font-weight: bold;">Data Analysis Dashboard</h3>
+<div style="background-color: #157fcc; width: 100%; height: 85px; position: absolute; top: 0px; z-index: 1; ">
+</div>
+<h3 align="center" style="color: white; font-weight: bold; position: relative; z-index: 1; 
+	background-color: #157fcc;">	Data Analysis Dashboard</h3>
 
 
 
@@ -125,7 +129,12 @@ SELECT * from chemicals;
 <c:set var="Chemicals_first_row_id" value="${Chemicals_result.rows[0].entity_id}"/>
 <c:if test="${Chemicals_first_row_id != null}">
 
-<br>
+<input type="text" id="cas_Input" onkeyup="Search_cas()" placeholder="Search cas.." 
+	title="Type in a name" style="width: 80px;">
+	
+<input type="text" id="name_Input" onkeyup="Search_name()" placeholder="Search for names.." 
+	title="Type in a name" style="width: 150px;">
+
 <table id = "table_1" style="display: block;  height: 90%;  ">
   <tr>
   	<th style="width:90px;">CAS</th>
@@ -172,14 +181,14 @@ SELECT * from chemicals;
 </div>
 
 <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="right:0; width:20%; 
-	height:90%; border-radius: 10px; " id="rightMenu">
+	height:90%; border-radius: 10px; position:absolute; z-index: 2;" id="rightMenu">
 																							<!-- right menu -->
 
   		
 	<div id="Column-B" style="padding-left: 9px">
 			<br><span style = "font-size: 13px; font-weight: bold;">
 			<table id = "table_2" >
-			<tr><td><div id = "chem_properties">Chemical & physic properties.<br></div></td></tr>
+			<tr><td><div id = "chem_properties">Chemical & physic properties<br></div></td></tr>
 			
 			<tr><td><div id = "cardio90">iCardio. 90 min Peak Frequency <br></div></td></tr>
 			<tr><td><div id = "cardio24">iCardio. 24 hr Peak Frequency<br></div></td></tr>
@@ -214,27 +223,35 @@ SELECT * from chemicals;
 </div>
 
 				
-<div id="central_area" style="height: 90vh; width:58%; margin-left:22%; margin-right:20%; 	
-	background-color: #157fcc; ">				<!-- background-color: #157fcc;  -->								
+<div id="central_area" style="height: 90vh; width:58%; margin-left:22%; margin-right:20%; z-index: 1; 	
+	background-color: #157fcc; border-width: 5px; border-color: white;">				<!-- background-color: #157fcc;  -->								
 																							<!-- Central Area -->
 	
   	<button class="btn btn-info btn-sm" onclick="openLeftMenu()" id="button-open-left"
-  		style="background-color: #3892d3; display: none; ">
+  		style="background-color: #3892d3; display: none; position: relative; z-index: 1;">
   		<span class="glyphicon glyphicon-chevron-right"></span> Open left menu</button>
   	<button class="btn btn-info btn-sm" id="button-close-left"
-  		onclick="closeLeftMenu()" style="background-color: #3892d3; ">
+  		onclick="closeLeftMenu()" style="background-color: #3892d3; position: relative; z-index: 1;">
   		<span class="glyphicon glyphicon-chevron-left"></span> Close</button>
   		
   	<button class="btn btn-info btn-sm pull-right" id="button-open-right"  	
-  		onclick="openRightMenu()" style="background-color: #3892d3; display: none; ">
+  		onclick="openRightMenu()" style="background-color: #3892d3; display: none; position: relative; z-index: 1;">
   		<span class="glyphicon glyphicon-chevron-left"></span> Open right menu</button>
   		
   	<button class="btn btn-info btn-sm pull-right" onclick="closeRightMenu()" id="button-close-right"
-  		style="background-color: #3892d3;">
-  		
+  		style="background-color: #3892d3; position: relative; z-index: 1;">
   		<span class="glyphicon glyphicon-chevron-right"></span> Close</button>
-  	<div id="Column-C" style="background-color: white; height: 96%; border-radius: 15px; padding: 9px;">
-			<div id="inside-C"> 
+  		
+  	<div id="Column-C" style="background-color: white; height: 96%; border-radius: 25px; padding: 9px; 
+  		z-index: 1; border:5px solid #157fcc;">
+  	
+  	
+  	<!--  
+<div style="background-color: #157fcc; width: 100%; height: 50px; position: absolute; top: 94px; 
+	padding: -9px; margin: -9px; border-radius: 15px; z-index: 1; " id="blocking-piece">
+</div>-->
+
+		<div id="inside-C" style=""> 
 				<br></br><br>
 				<data2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Chemical details<br>				
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Assay methods<br>
@@ -256,71 +273,11 @@ SELECT * from chemicals;
 
 <br></br>
 <div class="w3-container">
-<p>In this example, ....</p>
+
 
 </div>
 
 
-<script>
-var leftMenu_on = true;
-var rightMenu_on = true;
-
-function openLeftMenu() {
-	leftMenu_on = true;
-	if(rightMenu_on == true){
-		$("#central_area").css("width", "58%");
-		}
-	else{$("#central_area").css("width", "78%");
-		}
-	$("#central_area").css("marginLeft", "22%");
-	$("#leftMenu").css("width", "22%");
-    // $("$leftMenu").show();
-    document.getElementById("leftMenu").style.display = "block";  
-    $("#button-open-left").hide();
-    $("#button-close-left").show();
-    
-}
-function closeLeftMenu() {
-	leftMenu_on = false;
-	if(rightMenu_on == true){
-		$("#central_area").css("width", "80%");
-		}
-	else{$("#central_area").css("width", "100%");
-		}
-    document.getElementById("leftMenu").style.display = "none";
-    document.getElementById("central_area").style.marginLeft = "0%";
-    $("#button-open-left").show();
-    $("#button-close-left").hide();
-}
-
-function openRightMenu() {
-	// document.getElementById("central_area").style.marginRight = "25%";
-	rightMenu_on = true;
-	if(leftMenu_on == true){
-		$("#central_area").css("width", "58%");
-		}
-	else{$("#central_area").css("width", "80%");}
-	
-	$("#central_area").css("margin-right", "20%");
-    document.getElementById("rightMenu").style.display = "block";    
-	document.getElementById("rightMenu").style.width = "20%";
-    $("#button-open-right").hide();
-    $("#button-close-right").show();
-	
-}
-function closeRightMenu() {
-	rightMenu_on = false;
-	if(leftMenu_on == true){
-		$("#central_area").css("width", "78%");
-		}
-	else{$("#central_area").css("width", "100%");}
-	
-    document.getElementById("rightMenu").style.display = "none";
-    document.getElementById("central_area").style.marginRight = "0%";
-    $("#button-open-right").show();
-    $("#button-close-right").hide();
-}
-</script>
 
 
 
@@ -344,226 +301,9 @@ function closeRightMenu() {
 
 
 
-<br></br>
-
-<button type="button" id="reset-2" class="btn btn-primary">Reset</button>
-...
 
 
 
-<script>
-var chem_row_n = 0;
-var chem_row_n2 = 0;
-var endpoint_row_n;
-var source_div ="";
-var background_A = "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))";
-var background_B = "-webkit-gradient(linear, left top, left bottom, from(DarkCyan), to(DarkBlue))";
-var background = background_A;
-var chemical_selected = false;
-var endpoint_selected = false;
-$(document).ready(function(){
-	
-	
-	$("#table_1 tr").not(':first-child').click(
-		function () {
-			// alert("" + column3_data[2]);
-			chemical_selected = true;
-			if (!endpoint_selected){
-		    	$("#table_1 tr").removeClass("Highlighted_rows");
-				$(this).addClass("Highlighted_rows");
-				chem_row_n = $(this).index()-2;	//$(this).find(".row_number").text();
-				// alert((typeof chem_row_n2) + "-----" + chem_row_n2 + column3_data[2]);
-				jQuery('#inside-C').html('');
-				// var row_n = Number(chem_row_n);
-				jQuery('#inside-C').html(column3_data[chem_row_n]);
-				}
-			else{
-				// alert("chem_row_n: " + chem_row_n + ", endpoint_row_n: " + endpoint_row_n);
-				$("#chem_properties").removeClass("Highlighted_rows");
-				$("#table_1 tr").removeClass("Highlighted_rows");
-				$(this).addClass("Highlighted_rows");
-				chem_row_n = $(this).index()-1;	//$(this).find(".row_number").text();
-				// alert("in click, chem_row_n: " + chem_row_n);
-				column_3_curve(chem_row_n, endpoint_row_n)
-				}
-			});
-	
-
-
-
-	
-	$("#table_1 tr").not(':first-child').hover(
-	  function () {								// mouse on function
-		if (chemical_selected == false){
-	    	// $(this).css("background","yellow");
-	    	$(this).addClass("Highlighted_rows");
-	    
-	    	$("#chem_properties").addClass("Highlighted_rows");
-	    	chem_row_n = Number($(this).find(".row_number").text());
-			// alert(chem_row_n);
-			source_div = "c" + String(chem_row_n);
-			jQuery('#inside-C').html('');
-			jQuery('#inside-C').html(column3_data[chem_row_n]);
-			// alert("remainder: " + chem_row_n%3);
-		
-			if (chem_row_n%3 == 0) {
-				background = "-webkit-gradient(linear, left top, left bottom, from(DarkSlateBlue), to(DarkBlue))";} 
-			if (chem_row_n%3 == 1) {
-				background = "-webkit-gradient(linear, right top, left bottom, from(DarkSlateGray), to(MidnightBlue))";} 
-			if (chem_row_n%3 == 2) {
-				background = "-webkit-gradient(linear, left top, right bottom, from(Black), to(DarkGrey))";} 
-		
-			$('#Column-C').css({
-		    	background: background });
-			// alert("end of over " + column3_data[2]);
-		}		// end of if chemical selected == false
-	  },		// end of mouse over chemicals
-	  function () {
-		// alert("start leaving " + column3_data[2]);
-		if (chemical_selected == false){
-	    	// $(this).css("background","");
-	    	$(this).removeClass("Highlighted_rows");
-	    	$("#chem_properties").removeClass("Highlighted_rows");
-			}
-		// alert("end of leaving " + column3_data[2]);
-	  	}
-	);		// end of $table_1 tr
-	
-	$("#table_2 tr").not(':first-child').hover(
-		function () {
-			if(endpoint_selected == false){
-				// $(this).css("background","yellow");
-				$(this).addClass("Highlighted_rows");
-		    	
-		    	endpoint_row_n = $(this).index();
-				// alert(endpoint_row_n);
-				
-				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html(endpoint_data[endpoint_row_n]);
-				// alert("remainder: " + chem_row_n%3);
-  
-				if (background == background_A) {
-					background = background_B;
-					} else {
-						background = background_A;}
-				
-				$('#Column-C').css({background: background });
-				}		// end of endpoint selected == false
-			},			// end of mouse over table 2 function part 1.
-			function () {
-				if(endpoint_selected == false){
-			    // $(this).css("background","");
-			    $(this).removeClass("Highlighted_rows");
-			    $("#chem_properties").removeClass("Highlighted_rows");
-			  	}}
-			);		// end of mouse over table 2 leaving function
-
-	$("#table_2 tr").not(':first-child').click(
-		function () {
-			endpoint_selected = true;
-			if (!chemical_selected){
-				$("#table_2 tr").removeClass("Highlighted_rows");
-				$(this).addClass("Highlighted_rows");
-	    		endpoint_row_n = $(this).index();
-				// alert(endpoint_row_n);
-			
-				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html(endpoint_data[endpoint_row_n]);
-				// alert("remainder: " + chem_row_n%3);
-				if (background == background_A) {
-					background = background_B;
-					} else {
-						background = background_A;}
-			
-				$('#Column-C').css({background: background });
-				}		//end of if (!chemical_selected){}
-			else{
-				// alert("chem_row_n: " + chem_row_n + ", endpoint_row_n: " + endpoint_row_n);
-				$("#chem_properties").removeClass("Highlighted_rows");
-				$("#table_2 tr").removeClass("Highlighted_rows");
-				$(this).addClass("Highlighted_rows");
-				endpoint_row_n = $(this).index();
-				column_3_curve(chem_row_n, endpoint_row_n)
-				}		// end of else
-			});		// end of $("#table_2 tr").not(':first-child').click()
-			
-	$("#chem_properties").hover(
-		function () {
-			if (!chemical_selected || !endpoint_selected){
-				//alert("yes");
-				$('#Column-C').css({
-    				background: "-webkit-gradient(linear, left top, left bottom, from(DarkGrey), to(Black))" 
-					});
-				jQuery('#inside-C').html('');
-				jQuery('#inside-C').html(column3_data[chem_row_n]);
-				}},		// end of the hover function
-		function () {
-			    //$(this).removeClass("button blue");
-			  }
-			);			// end of the $("#chem_properties").hover()
-});		//end of $(document).ready(function(){}
-
-function column_3_curve(chem_row_n, endpoint_row_n){
-	// alert(chem_row_n + "===================================" + column3_data[chem_row_n-1]);
-    $.post("Column_3",{				// "Column_3" is the url
-   		chemical: chem_row_n + 1,
-    	endpoint: endpoint_row_n,
-    	chemical_properties: column3_data[chem_row_n],
-    	endpoint_data: endpoint_data[endpoint_row_n]
-    	},
-    	function(data, status){
-    		jQuery('#inside-C').html('');
-			jQuery('#inside-C').html(data);
-    		});			// end of seccessful function and $.post()
-	}		// end of function column_3_curve()
-
-
-	$("#reset-2").click(
-		function () {
-			//alert("a");
-			endpoint_selected = false;
-			chemical_selected = false;
-			$("#table_2 tr").removeClass("Highlighted_rows");
-			$("#table_1 tr").removeClass("Highlighted_rows");
-			// window.location.reload(true);
-			});		// end of $("#reset").click()
-
-
-
-
-	
-var endpoint_data = [];
-endpoint_data[1] = "<br><br><br><papaya>" + 
-	' <p  style="text-align: center;">iCadiomyocyte peak frequency 90 minutes. </p><br>' + 
-	'<p style ="text-indent: 50px; text-align: justify;">iCell cardiomyocytes (Catalogue #: CMC-100-010-001) including their respective plating ' +
-	"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
-	"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
-	"<br><br><br><br><br>";
-endpoint_data[2] = "<br><br><br><papaya>" + 
-	' <p  style="text-align: center;">iCadiomyocyte peak frequency 24 hours. </p><br>' + 
-	'<p style ="text-indent: 50px; text-align: justify;">iCell cardiomyocytes (Catalogue #: CMC-100-010-001) including their respective plating ' +
-	"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
-	"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
-	"<br><br><br><br><br>";
-endpoint_data[3] = "<br><br><br><papaya>" + 
-	' <p  style="text-align: center;">HUVEC total cell number </p><br>' + 
-	'<p style ="text-indent: 50px; text-align: justify;">' + 
-	"Total viable HUVEC cells were numerated 24 hours after chemical treatment with different concentrations." +
-	""+
-	"<br><br><br><br><br>"; 
-	
-endpoint_data[4] = "<br><br><br><papaya>" + 
-	' <p  style="text-align: center;">HUVEC tube area </p><br>' + 
-	'<p style ="text-indent: 50px; text-align: justify;">' +
-	"Human umbilical vein cells were used in this assay, and 18 hours after chemical treatment, " + 
-	"cell culture images were captured, and the tube area were calculated" +
-	"by a trained computer software."+
-	"<br><br><br><br><br>";
-
-
-
-	
-</script>
 
  
 
