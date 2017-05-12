@@ -23,9 +23,10 @@ import com.catapp.entity.User;;
  */
 @WebServlet("/AdminServlet")
 public class AdminServlet extends HttpServlet {
-	private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
 	
+	private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
 	public User fetchUserDetails(String pEmail, Connection pConnection){
+		System.out.println("Hello World.. 1 ");
 		
 		PreparedStatement lPstmnt = null;
 		ResultSet lRst			  = null;
@@ -78,7 +79,7 @@ public class AdminServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		System.out.println("Hello World..");
+		System.out.println("Hello World.. 5");
 		
 		Connection lConn = new DBConnection().getConnection();
 		
@@ -91,13 +92,6 @@ public class AdminServlet extends HttpServlet {
     	
       	// back to normal
     	HttpSession session = request.getSession(false);
-    	
-    	
-    	
-    	
-    	
-
-    	
     	
     	
 		if(session != null){
@@ -125,7 +119,7 @@ public class AdminServlet extends HttpServlet {
 		else{
 			System.out.println("ping 3");
 			request.setAttribute("error","Current session is lost. Please log in");
-			request.getRequestDispatcher("/LoadDataForHome").include(request, response);  
+			request.getRequestDispatcher("/LogoutServlet").include(request, response);  
 			}
 
 		

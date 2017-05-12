@@ -133,7 +133,7 @@ out.println("<font color=green size=4px>"+login_msg+"</font>");
 				<!--  <div class="col-md-1 col-lg-1">hj</div>-->
 				</div>		<!-- end of rows -->
 				    <br><a href="Response/Response">
-						<input type="submit" class="btn btn-danger" style=" border-radius: 5px;" value="Response Curves">
+						<input type="submit" class="btn btn-danger" style=" border-radius: 5px;" value="Dose-Response">
 						</a>
 				
                 </div>

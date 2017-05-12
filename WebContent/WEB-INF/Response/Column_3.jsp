@@ -19,6 +19,11 @@
 
 <head>
 <script src="${pageContext.request.contextPath}/resources/js/Response/Column_3.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/Response/customScript_download.js"></script>	
+	
+	
+	
+	</script>	
 <style>
 .nav.nav-tabs  {
     border-bottom: 6px solid #add2ed; 
@@ -53,8 +58,8 @@
   <li><a data-toggle="tab" href="#menu3">Assay data</a></li>
   <li><a data-toggle="tab" href="#menu4">Credit</a></li>
 </ul>
-<div style="background-color: #157fcc; width: 105%; height: 49px; position: relative; top: -40px; 
-	padding: -9px; margin: -9px; z-index: 1; " id="blocking-piece">
+<div style="background-color: #157fcc; width: 105%; height: 50px; position: relative; top: -41px; 
+	padding: -9px; margin: -9px; margin-left: -14px; z-index: 1; " id="blocking-piece">
 </div>
 
 
@@ -147,9 +152,9 @@ System.out.println("String: " + image_path);
     	} 
 %>
 
-<div style="position: absolute; background-color: #157fcc; color: white; width: 40px; height: 70px; top: 140px; 
-	left:22%; margin: 8px; padding: 5; border-radius: 10px;"> 
-
+<div style="position: absolute; background-color: #157fcc; color: white; width: 40px; height: 70px; top: 25px; 
+	left:0%; margin: 8px; padding: 5; border-radius: 10px;"> 
+																							<!-- Picture div-->
 <a href="#" ><span class="glyphicon glyphicon-plus" onclick="magnify()"
 	style="padding-left: 7px; position: absolute; top: 14px; left:6px; color: white;"></span></a>
 <a href="#" ><span class="glyphicon glyphicon-minus" onclick="shrink()"
@@ -172,19 +177,24 @@ System.out.println("String: " + image_path);
   
     <papaya>${endpoint_data}
     </papaya>
-  </div>
-  <div id="menu3" class="tab-pane fade">
+  </div>		<!-- end of Assay div -->
+  
+  <div id="menu3" class="tab-pane fade" style="padding: 15px;">
+  																					<!-- Assay data div -->
 	<papaya>
-	
-	
 	<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/response"
      user="root"  password="vibscatapp"/>
 	
-<sql:query dataSource="${snapshot}" var="Assay_data_result">
-SELECT * from assay_data where (phenotype = "${endpoint_string2}" AND catapp_id = "${chemical}");
-</sql:query>
+	<sql:query dataSource="${snapshot}" var="Assay_data_result">
+		SELECT * from assay_data where (phenotype = "${endpoint_string2}" AND catapp_id = "${chemical}");
+	</sql:query>
 	<br>
+	
+	<button class="btn btn-info btn-md" onclick="$('#download_assay_data').table2CSV()" 
+  		style="background-color: #3892d3; position: absolute; right: 30px; top: 30px; z-index: 1;">
+  		<span class="glyphicon glyphicon-download-alt"></span> &nbsp; &nbsp; Export as CSV</button>
+	
 	
 	
 	Catapp Sample ID: ${Assay_data_result.rows[0].catapp_id}<br>
@@ -192,7 +202,7 @@ SELECT * from assay_data where (phenotype = "${endpoint_string2}" AND catapp_id 
 	Assay: ${Assay_data_result.rows[0].phenotype}<br>
 	<table border=0>
 	<tr><td>Point of departure: &nbsp; </td><td> ${fn:substring(Assay_data_result.rows[0].pod_sd1, 0, 6)} 
-		(At 1 Standard Deviation)</td><tr>
+		 (Log percentage dilution unit, at 1 standard deviation of the controls.)</td><tr>
 	<tr><td>Dose 1000x: </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_1000x, 0, 6)}</td><tr>
 	<tr><td>Dose 100x: </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_100x, 0, 6)}</td><tr>
 	<tr><td>Dose 10x: </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_10x, 0, 6)}</td><tr>
@@ -212,14 +222,34 @@ SELECT * from assay_controls where phenotype = "${endpoint_string2}";
 </c:forEach>    
    
    <br>
-   	Control values:<br>
-<c:forEach var="row" items="${Control_data_result.rows}">  		
-   ${fn:substring(row.control_value, 0, 6)},
-</c:forEach>    
    
+
+   
+   
+	<table id="download_assay_data" style="display: none;">
+   		<tr><td>downloaded_assay_data</td>
+   		<tr><td>Catapp_Sample_ID</td><td> ${Assay_data_result.rows[0].catapp_id}</td><tr>
+		<tr><td>Chemical_name</td><td>${Assay_data_result.rows[0].chem_name}</td><tr>
+		<tr><td>Assay</td><td>${Assay_data_result.rows[0].phenotype}</td><tr>
+   		<tr><td>Point_of_departure</td><td> ${fn:substring(Assay_data_result.rows[0].pod_sd1, 0, 6)} 
+		 	</td><td> (Log_percentage_dilution_unit_at_1_standard_deviation_of_controls)</td><tr>
+		<tr><td>Dose_1000x</td><td> ${fn:substring(Assay_data_result.rows[0].Dose_1000x, 0, 6)}</td><tr>
+		<tr><td>Dose_100x</td><td> ${fn:substring(Assay_data_result.rows[0].Dose_100x, 0, 6)}</td><tr>
+		<tr><td>Dose_10x</td><td> ${fn:substring(Assay_data_result.rows[0].Dose_10x, 0, 6)}</td><tr>
+		<tr><td>Dose 1x </td><td> ${fn:substring(Assay_data_result.rows[0].Dose_1x, 0, 6)}</td><tr>  		 
+		<c:forEach var="row" items="${Control_data_result.rows}">  		
+   			<tr><td>Control_values</td><td>${fn:substring(row.control_value, 0, 6)}</td><tr>
+			</c:forEach>    
+   	</table>
     </papaya>
-  </div>
+       
+
+  </div>		<!-- end of Assay data div -->
+  
+  
+  
   <div id="menu4" class="tab-pane fade" style="position: relative; top: -32px; ">
+  																				<!-- Credit div -->
     <papaya><h3></h3><br><br>
     <p style="text-indent: 50px;">The assays were conducted in Dr. Ivan Rusyn lab at Texas A&M University. </p>
     <p>The R program for dose-response curves was written by Dr. Fred Wright at the North Carolina State 

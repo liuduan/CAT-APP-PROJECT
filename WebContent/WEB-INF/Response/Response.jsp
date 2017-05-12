@@ -21,6 +21,17 @@
 <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
+
+
+
+
+
+<script type="text/javascript" src="http://www.kunalbabre.com/projects/table2CSV.js" > </script> 
+
+
+
+
+
 <script src="${pageContext.request.contextPath}/resources/js/Response/Response.js"></script>
 
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
