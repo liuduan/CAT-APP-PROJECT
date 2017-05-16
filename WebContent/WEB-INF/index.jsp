@@ -16,14 +16,15 @@
     <meta name="author" content="">
 
     <title>CAT-APP</title>
-	<link rel="shortcut icon" href="/CAT-APP-PROJECT/resources/images/logo2.ico" />
+	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/logo2.ico" />
     <!-- Bootstrap Core CSS -->
-    <link href="/CAT-APP-PROJECT/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/CAT-APP-PROJECT/resources/css/full-width-pics.css" rel="stylesheet">
-	<link href="/CAT-APP-PROJECT/resources/css/login.css" rel="stylesheet">
-	<link href="/CAT-APP-PROJECT/resources/css/circleAnimation.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/full-width-pics.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/login.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/circleAnimation.css" rel="stylesheet">
+	
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -78,13 +79,13 @@
     display:block;
 }
 .invalid {
-   	background:url(/CAT-APP-PROJECT/resources/images/cross.png) no-repeat 0 50%;
+   	background:url(${pageContext.request.contextPath}/resources/images/cross.png) no-repeat 0 50%;
     padding-left:22px;
     line-height:24px;
     color:#ec3f41;
 }
 .valid {
-    background:url(/CAT-APP-PROJECT/resources/images/tick.png) no-repeat 0 50%;
+    background:url(${pageContext.request.contextPath}/resources/images/tick.png) no-repeat 0 50%;
     padding-left:22px;
     line-height:24px;
     color:#3a7d34;
@@ -282,6 +283,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 				</form>
                 </div>
                 <div class="panel-footer">Not Registered? <a href="#register" class="" onclick="showRegistration()">Register here</a>
+                	${pageContext.request.contextPath}
                 </div>
             </div>
         </div>
@@ -597,12 +599,12 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
     </footer>
 
     <!-- jQuery -->
-    <script src="/CAT-APP-PROJECT/resources/js/jquery.js"></script>
-    <script src="/CAT-APP-PROJECT/resources/js/passwordStrength.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/passwordStrength.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/CAT-APP-PROJECT/resources/js/bootstrap.min.js"></script>
-    <script src="/CAT-APP-PROJECT/resources/js/homepage.js"></script>
+    <script src="${pageContext.request.contextPath}resources/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/homepage.js"></script>
     
 
 </body>

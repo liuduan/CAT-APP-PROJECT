@@ -225,8 +225,8 @@ SELECT * from assay_controls where phenotype = "${endpoint_string2}";
    
 
    
-   
-	<table id="download_assay_data" style="display: none;">
+
+	<table id="download_assay_data" style="font-size: 0.1px; z-index: -2;" > <!--  style="display: none;" -->
    		<tr><td>downloaded_assay_data</td>
    		<tr><td>Catapp_Sample_ID</td><td> ${Assay_data_result.rows[0].catapp_id}</td><tr>
 		<tr><td>Chemical_name</td><td>${Assay_data_result.rows[0].chem_name}</td><tr>
