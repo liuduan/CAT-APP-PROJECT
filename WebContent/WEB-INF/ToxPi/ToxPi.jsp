@@ -74,7 +74,7 @@ a:active {
 .Highlighted_rows{
 	background-color: #add2ed; /* EPA lightblue */
 	border-width: 8px;
-	border-color: #157fcc;	/* EPA deep blue */
+	border-color: SeaGreen;	
 	border-style: solid;
 	border-radius: 4px;
 	height: 50px;
@@ -100,17 +100,17 @@ data2{color: DarkGreen; font-size: 20px;  }
 <title>Response Curves</title>
 
 </head>
-<body style="background-color: #157fcc">
+<body style="background-color: SeaGreen">
 
 <span class="pull-right">&nbsp; &nbsp; </span>
 <a href="${pageContext.request.contextPath}/BackToHomeServlet" class="btn btn-info btn-sm pull-right"
 	style="background-color:#3892d3; color: white; font-weight: bold; position: relative; z-index: 2;">
 <span class="glyphicon glyphicon-home"></span> User Home</a> 
 
-<div style="background-color: #157fcc; width: 100%; height: 85px; position: absolute; top: 0px; z-index: 1; ">
+<div style="background-color: SeaGreen; width: 100%; height: 85px; position: absolute; top: 0px; z-index: 1; ">
 </div>
 <h3 align="center" style="color: white; font-weight: bold; position: relative; z-index: 1; 
-	background-color: #157fcc;">	CAT-APP ToxPi </h3>
+	background-color: SeaGreen;">	CAT-APP ToxPi </h3>
 
 
 
@@ -235,7 +235,7 @@ SELECT * from chemicals;
 
 				
 <div id="central_area" style="height: 90vh; width:58%; margin-left:22%; margin-right:20%; z-index: 1; 	
-	background-color: #157fcc;">				<!-- background-color: #157fcc;  -->								
+	background-color: SeaGreen;">				<!-- background-color: SeaGreen;  -->								
 																							<!-- Central Area -->
 	
   	<button class="btn btn-info btn-sm" onclick="openLeftMenu()" id="button-open-left"
@@ -254,11 +254,11 @@ SELECT * from chemicals;
   		<span class="glyphicon glyphicon-chevron-right"></span> Close</button>
   		
   	<div id="Column-C" style="background-color: white; height: 96%; border-radius: 25px; padding: 9px; 
-  		z-index: 1; border:5px solid #157fcc;">
+  		z-index: 1; border:5px solid SeaGreen;">
   	
   	
   	<!--  
-<div style="background-color: #157fcc; width: 100%; height: 50px; position: absolute; top: 94px; 
+<div style="background-color: SeaGreen; width: 100%; height: 50px; position: absolute; top: 94px; 
 	padding: -9px; margin: -9px; border-radius: 15px; z-index: 1; " id="blocking-piece">
 </div>-->
 
