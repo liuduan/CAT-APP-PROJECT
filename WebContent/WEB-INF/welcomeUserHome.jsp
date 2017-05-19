@@ -85,9 +85,9 @@ out.println("<font color=green size=4px>"+login_msg+"</font>");
         
                 <div class="row">
                     <div class="col-md-12">
-                        <% String First_name =((User)request.getSession().getAttribute("user")).getFirst_name().toString(); %>
-                        <% String Last_name =((User)request.getSession().getAttribute("user")).getLast_name().toString(); %>
-                        
+                        <% String First_name =smallTools.safeString(((User)request.getSession().getAttribute("user")).getFirst_name()); %>
+						<% String Last_name =smallTools.safeString(((User)request.getSession().getAttribute("user")).getLast_name()); %>
+                        	
                         <br>  
 						<h2 style="font-size:2.0em; font-family:'Tahoma';" align="center">Welcome <%=First_name %> <%=Last_name %> </h2>
 				
@@ -133,7 +133,7 @@ out.println("<font color=green size=4px>"+login_msg+"</font>");
 				<!--  <div class="col-md-1 col-lg-1">hj</div>-->
 				</div>		<!-- end of rows -->
 				    <br><a href="Response/Response">
-						<input type="submit" class="btn btn-danger" style=" border-radius: 5px;" value="Dose-Response">
+						<input type="submit" class="btn btn-danger" style=" border-radius: 5px;" value="Response Curves">
 						</a>
 				
                 </div>

@@ -6,7 +6,9 @@ public class smallTools {
 		String resultString;
 		if(o!=null){
 			resultString =o.toString(); }
-		else resultString = "";
+		else {resultString = "";
+			System.out.println("null object.");
+		}
 		return resultString;
 	}
 }

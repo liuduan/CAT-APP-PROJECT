@@ -292,7 +292,8 @@ endpoint_data[3] = "<br><br><br><papaya>" +
 	' <p  style="text-align: center;">HUVEC total cell number </p><br>' + 
 	'<p style ="text-indent: 50px; text-align: justify;">' + 
 	"Human umbilical vein endothelical cells (HUVEC) are derived from the endothelium of veins from the " +
-	"umbillical cord. Total viable HUVEC cells were numerated 24 hours after chemical treatment with different " +
+	"umbillical cord. HUVEC used in this assay is pooled Human Umbilical Vein endothelial cells, purchased from Lonza" + 
+	"Cat# C2519A, Lot# 0000433795. Total viable HUVEC cells were numerated 24 hours after chemical treatment with different " +
 	"concentrations." +
 	"<br><br><br><br><br>"; 
 	
@@ -300,8 +301,9 @@ endpoint_data[4] = "<br><br><br><papaya>" +
 	' <p  style="text-align: center;">HUVEC tube area </p><br>' + 
 	'<p style ="text-indent: 50px; text-align: justify;">' +
 	"Human umbilical vein endothelical cells (HUVEC) are derived from the endothelium of veins from the " +
-	"umbillical cord. " + 
-	"Human umbilical vein cells were used in this assay, and 18 hours after chemical treatment, " + 
+	"umbillical cord. HUVEC used in this assay is pooled Human Umbilical Vein endothelial cells, purchased from Lonza" + 
+	"Cat# C2519A, Lot# 0000433795. " +
+	"In this assay, 18 hours after chemical treatment, " + 
 	"cell culture images were captured, and the tube area were calculated" +
 	"by a trained computer software."+
 	"<br><br><br><br><br>";

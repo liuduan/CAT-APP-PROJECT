@@ -14,11 +14,11 @@
     <title>CAT-APP</title>
   
     <!-- Bootstrap Core CSS -->
-    <link href="/CAT-APP-PROJECT/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/CAT-APP-PROJECT/resources/css/full-width-pics.css" rel="stylesheet">
-	<link href="/CAT-APP-PROJECT/resources/css/login.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/full-width-pics.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/login.css" rel="stylesheet">
 	
     	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
@@ -122,11 +122,11 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="/CAT-APP-PROJECT/resources/js/jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/CAT-APP-PROJECT/resources/js/bootstrap.min.js"></script>
-    <script src="/CAT-APP-PROJECT/resources/js/homepage.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/homepage.js"></script>
 
 </body>
 

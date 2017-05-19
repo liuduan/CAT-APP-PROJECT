@@ -267,10 +267,10 @@ SELECT * from chemicals;
 				<data2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Chemical details<br>				
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Assay methods<br>
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Dose response curves<br>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Point of departure<br>
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Project files<br><br>
 				
 				&nbsp; &nbsp; &nbsp;  More to come: <br>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Departure point data<br>
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Assay images<br>
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Benchmark Dose Software processing<br>
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Toxpie comparison for chemicals and assays<br>
