@@ -83,7 +83,18 @@
     <servlet-class>cat.response.column_3Servlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-
+  <servlet>
+    <display-name>ToxPiServlet</display-name>
+    <servlet-name>ToxPiServlet</servlet-name>
+    <servlet-class>cat.ToxPi.ToxPiServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+  
+  
+  <servlet-mapping>
+    <servlet-name>ToxPiServlet</servlet-name>
+    <url-pattern>/ToxPi/ToxPi</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>column_3Servlet</servlet-name>
     <url-pattern>/Response/Column_3</url-pattern>
