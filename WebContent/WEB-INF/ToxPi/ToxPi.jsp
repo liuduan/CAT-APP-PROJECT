@@ -110,7 +110,7 @@ data2{color: DarkGreen; font-size: 20px;  }
 <div style="background-color: #157fcc; width: 100%; height: 85px; position: absolute; top: 0px; z-index: 1; ">
 </div>
 <h3 align="center" style="color: white; font-weight: bold; position: relative; z-index: 1; 
-	background-color: #157fcc;">	CAT-APP ToxPi</h3>
+	background-color: #157fcc;">	CAT-APP ToxPi </h3>
 
 
 
