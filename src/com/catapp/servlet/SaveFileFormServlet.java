@@ -100,6 +100,7 @@ public class SaveFileFormServlet extends HttpServlet {
 							lAssayData=item.getString();
 						}else if(item.getFieldName().equals("timepoint")){
 							lTimePoint=item.getString();
+							System.out.println("TimePoint String: " + lTimePoint);
 						}else if(item.getFieldName().equals("form-Plate")){
 							lPlate=item.getString();
 						}else if(item.getFieldName().equals("desc")){
@@ -116,8 +117,9 @@ public class SaveFileFormServlet extends HttpServlet {
 						
 						boolean lExists =cmsCheckFileInDB(lFileName, lConn);
 						if(lExists){
-							RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp?failure=2");
-						    rd.forward(request, response);
+							System.out.println("SaveFileFormServlet C \n");
+							//RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp?failure=2");
+						    //rd.forward(request, response);
 						}
 						String name = new File(item.getName()).getName();
 						if(name!=null){
@@ -191,8 +193,10 @@ public class SaveFileFormServlet extends HttpServlet {
 			    
 			    System.out.println("SaveFileFormServlet Y \n");
 			    
-			 	RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp?success=1");
+			    // getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
+			 	RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload?success=1");
 			    rd.forward(request, response);
+			    // return;
 			}else{
 				HashMap<Long,String>lPhenoMap =  new ChemData().getNamesofInputs("phenotypes",lConn);
 				HashMap<Long,String>lAssayMap =  new ChemData().getNamesofInputs("assaynames",lConn);
@@ -205,19 +209,23 @@ public class SaveFileFormServlet extends HttpServlet {
 			    
 			    System.out.println("SaveFileFormServlet Z" + " \n");
 			    
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp?success=2");
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload?success=2");
+				// RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload");
 			    rd.forward(request, response);
 			}
 			///// *************************** Data save ended ************************************////
 		}catch(Exception e){
+			System.out.println("SaveFileFormServlet Zz" + " \n");
 			logger.log(Level.INFO,"Error Occured while uploading the file.",e);
+			
 		}
 		
 		finally{
 			try{
-				
+				System.out.println("SaveFileFormServlet before close" + " \n");
 				lConn.close();
 			}catch (Exception e1){
+				System.out.println("SaveFileFormServlet after close" + " \n");
 				logger.log(Level.INFO,"Error Occured while closing the connection.",e1);
 			}
 		}

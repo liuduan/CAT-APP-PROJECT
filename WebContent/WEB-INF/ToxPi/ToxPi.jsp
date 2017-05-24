@@ -72,14 +72,14 @@ a:active {
 }
 /* Highlighted_rows*/
 .Highlighted_rows{
-	background-color: #add2ed; /* EPA lightblue */
+	background-color: PaleGreen; 
 	border-width: 8px;
 	border-color: SeaGreen;	
 	border-style: solid;
 	border-radius: 4px;
 	height: 50px;
 	text-align: center;
-	text-shadow:2px 2px 5px SkyBlue;
+	/*text-shadow:2px 2px 5px SkyBlue;*/
 	font-size: 14;
 	font-weight: bold;
 	padding: 0px;
@@ -104,7 +104,7 @@ data2{color: DarkGreen; font-size: 20px;  }
 
 <span class="pull-right">&nbsp; &nbsp; </span>
 <a href="${pageContext.request.contextPath}/BackToHomeServlet" class="btn btn-info btn-sm pull-right"
-	style="background-color:#3892d3; color: white; font-weight: bold; position: relative; z-index: 2;">
+	style="background-color:OliveDrab; color: white; font-weight: bold; position: relative; z-index: 2;">
 <span class="glyphicon glyphicon-home"></span> User Home</a> 
 
 <div style="background-color: SeaGreen; width: 100%; height: 85px; position: absolute; top: 0px; z-index: 1; ">
@@ -239,18 +239,18 @@ SELECT * from chemicals;
 																							<!-- Central Area -->
 	
   	<button class="btn btn-info btn-sm" onclick="openLeftMenu()" id="button-open-left"
-  		style="background-color: #3892d3; display: none; position: relative; z-index: 1;">
+  		style="background-color: OliveDrab; display: none; position: relative; z-index: 1;">
   		<span class="glyphicon glyphicon-chevron-right"></span> Open left menu</button>
   	<button class="btn btn-info btn-sm" id="button-close-left"
-  		onclick="closeLeftMenu()" style="background-color: #3892d3; position: relative; z-index: 1;">
+  		onclick="closeLeftMenu()" style="background-color: OliveDrab; position: relative; z-index: 1;">
   		<span class="glyphicon glyphicon-chevron-left"></span> Close</button>
   		
   	<button class="btn btn-info btn-sm pull-right" id="button-open-right"  	
-  		onclick="openRightMenu()" style="background-color: #3892d3; display: none; position: relative; z-index: 1;">
+  		onclick="openRightMenu()" style="background-color: OliveDrab; display: none; position: relative; z-index: 1;">
   		<span class="glyphicon glyphicon-chevron-left"></span> Open right menu</button>
   		
   	<button class="btn btn-info btn-sm pull-right" onclick="closeRightMenu()" id="button-close-right"
-  		style="background-color: #3892d3; position: relative; z-index: 1;">
+  		style="background-color: OliveDrab; position: relative; z-index: 1;">
   		<span class="glyphicon glyphicon-chevron-right"></span> Close</button>
   		
   	<div id="Column-C" style="background-color: white; height: 96%; border-radius: 25px; padding: 9px; 

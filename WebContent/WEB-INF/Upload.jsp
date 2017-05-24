@@ -38,15 +38,6 @@
     height: 300px; /* or any value */
     overflow-y: auto;
 }
-	 body {
-    background-image: url("/CAT-APP-PROJECT/resources/images/Catapp_logo_full.svg");
- -webkit-background-size: 250%;
-    -moz-background-size: 250%;
-    -o-background-size: 250%;
-     background-size: 250%;
-  
-}
-	
 	
 	</style>
 
@@ -215,7 +206,11 @@
 
 											 <%--  <c:choose> --%>
 											  <%-- <c:when test="${cellline.key=='2'}"> --%>
-    												<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/> onclick="changebuttonstats()"> &nbsp;<b><c:out value="${cellline.value}"/></b><br><br>
+    												<input type="radio" name= "celllines" 
+    													id= <c:out value="${cellline.value}"/> 
+    													value= <c:out value="${cellline.key}"/> 
+    													onclick="changebuttonstats()"> &nbsp;<b>
+    													<c:out value="${cellline.value}"/></b><br><br>
 											   <%-- </c:when>
 
 											   <c:otherwise>
@@ -300,6 +295,7 @@
 		                            </div>
 		                            <div class="form-bottom">
 				                    	<div class="form-group">
+				                    	time: ${time}
 				                    		<label class="sr-only" for="form-facebook">Time-Point</label>
 				                        	<select name="timepoint" id="tp" onchange="enabletimebutton()">
     											<c:forEach var="timepoints" items="${time}">
@@ -337,17 +333,24 @@
 		                            </div>
 		                            <div class="form-bottom">
 				                       <div class="form-group">
+				                       
 				                    		<label class="sr-only" for="form-facebook">Phenotype</label>
-				                        <select name="phenotypes" id="ph" onchange="enablepheno()">
-    											<c:forEach var="phenotypes" items="${pheno}">
-										        <option value="${phenotypes.key}"> ${phenotypes.value}</option>
-										    	</c:forEach>
-												</select>
+				                    		d: ${pheno}
+				                        <select name="phenotypes" id="ph2" onchange="enablepheno()">
+    										<c:forEach var="phenotypes2" items="${pheno}">
+    											<option value="${phenotypes2.key}"> ${phenotypes2.value}</option>
+										    </c:forEach>
+										</select>
+
 												<c:set var="pheno" scope="session" value="${pheno}"/>
+												e
 				                        </div>
+				                        
+				                        
 				                        <div class="form-group">
+				                        h
 											  <label class="sr-only" for="form-facebook">Select a Plate</label>
-											  <input type="radio" name="form-Plate" id="1"  value="1" checked>&nbsp;1x<br><br>
+											  <input type="radio" name="form-Plate" id="1"  value="1">&nbsp;1x<br><br>
 											  <input type="radio" name="form-Plate" id="2"  value="2"> &nbsp;10x<br><br>
 											  <input type="radio" name="form-Plate" id="3"  value="3"> &nbsp;100x <br><br>
 											  <input type="radio" name="form-Plate" id="4"  value="4"> &nbsp;1000x<br><br>
@@ -440,12 +443,12 @@
 
 
         <!-- Javascript -->
-       	<script src="/CAT-APP-PROJECT/resources/js/Uploadjs.js"></script>
-        <script src="/CAT-APP-PROJECT/resources/js/jquery-1.11.1.min.js"></script>
-        <script src="/CAT-APP-PROJECT/resources/js/bootstrap.min.js"></script>
-        <script src="/CAT-APP-PROJECT/resources/js/jquery.backstretch.min.js"></script>
-        <script src="/CAT-APP-PROJECT/resources/js/retina-1.1.0.min.js"></script>
-        <script src="/CAT-APP-PROJECT/resources/js/scripts.js"></script>
+       	<script src="${pageContext.request.contextPath}/resources/js/Uploadjs.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery-1.11.1.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.backstretch.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/retina-1.1.0.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 		
        
         
