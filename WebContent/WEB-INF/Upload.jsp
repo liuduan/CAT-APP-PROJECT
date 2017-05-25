@@ -27,6 +27,12 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/images/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="resources/images/apple-touch-icon-57-precomposed.png"> 
         
+        
+        
+ 
+<script src="${pageContext.request.contextPath}/resources/js/Uploadjs.js"></script>
+
+
 
 <link rel="stylesheet" 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -45,18 +51,7 @@
 	style="background-size:250%">
 
     <script type="text/javascript">
-    function changebuttonstats(){
-    	jQuery("#cellline").prop('disabled',false);
-    }
-  	function enablebutton(){
-  		jQuery("#assays").prop('disabled',false);
-  	}
-  	function enabletimebutton(){
-  		jQuery("#times").prop('disabled',false);
-  	}
-    function enablepheno(){
-    	jQuery("#pheno").prop('disabled',false);
-    }
+
     function validateFile(){
     	jQuery("#sequencesave").prop('disabled',false);
     }
@@ -71,25 +66,8 @@
 	            }
 	            );
     	});
-    /* $.noConflict();
-    jQuery(document).ready(
-    	    function(){
-    	    	jQuery('input:file').change(
-    	            function(){
-    	                if (jQuery(this).val()) {
-    	                	jQuery('input:submit').attr('disabled',false);
-    	                    // or, as has been pointed out elsewhere:
-    	                    // $('input:submit').removeAttr('disabled'); 
-    	                } 
-    	            }
-    	            );
-    	    }); */
+
     function stepJump(){
-    	
-    	//var step1Value='<c:out value="${sessionScope.cellLine}" />';
-    	//var step2Value='<c:out value="${cellline.value}"/>';
-    	//alert(step1Value);
-    	//alert(step2Value);
     	document.getElementById('step2').style.display="none";
     	document.getElementById('step3').style.display="none";
     	document.getElementById('step4').style.display="none";
@@ -105,350 +83,191 @@
     }
     
     </script>
-    <jsp:directive.include file="header.jsp" />
-    
-		<!-- 	<div align="right"><a href = "/database_project/Protected/ID_home">
-		<img src="/database_project/scripts/images/MB__home.png"/></a>&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</div> -->
-		<!-- Top menu -->
-		<!--  -->
-
-		<!-- 
-		<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					 <a class="navbar-brand" >Upload Files</a> 
-				</div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<!-- <div class="collapse navbar-collapse" id="top-navbar-1">
-					
-				</div>
-			</div>
-		</nav> -->
-
+<jsp:directive.include file="header.jsp" />
 
         <!-- Top content -->
         <!-- <div class="top-content"> -->
         	
            <!--  <div class="inner-bg"> -->
            
-           <br></br><br></br><br></br>
-                <div class="container">
-                <c:if test="${param.success eq 1}">
-                	<script type="text/javascript">
-							window.location = "${pageContext.request.contextPath}/Success"
-					</script>
-                	<div class="page-alerts">
-     					<div class="alert alert-success">
-      						<button  type="button" class="close">
-      							<i class="glyphicon glyphicon-remove-circle text-success"></i></button>
-      						<h4>Success</h4>
-      						<p>The file was uploaded successfully</p>
-    					</div>
-    				</div>
-				</c:if>
-				<c:if test="${param.failure eq 2}">
-				 <div class="alert alert-danger">
-      			<button  href="#" type="button" class="close"><i class="glyphicon glyphicon-remove-circle text-danger"></i></button>
-      			<h4>Danger Alert</h4>
-      			<p>Action has caused an error. Additional information <a class="alert-link" href="">Click Here</a> to read</p>
-   				 </div>
-     			<div> failure </div>
-				</c:if>
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text" >
-                            <h1><strong>UPLOAD</strong> Files in CAT-APP</h1>
-                            <div class="description">
-                            	<p>
-	                            	Give us Cell Types,Assay Name,Time Point, Phenotype name and Plate Id and you are <strong>good</strong> to go!
-                            	</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box" style="margin-top:-50px">
+<br></br><br></br>
+<div class="container">
+	<c:if test="${param.success eq 1}">
+    	<script type="text/javascript">
+			window.location = "${pageContext.request.contextPath}/Success"
+		</script>
+        <div class="page-alerts">
+     		<div class="alert alert-success">
+      			<button  type="button" class="close">
+      				<i class="glyphicon glyphicon-remove-circle text-success"></i></button>
+      			<h4>Success</h4>
+      			<p>The file was uploaded successfully</p>
+    		</div>
+    	</div>
+	</c:if>
+	<c:if test="${param.failure eq 2}">
+		<div class="alert alert-danger">
+      		<button  href="#" type="button" class="close"><i class="glyphicon glyphicon-remove-circle text-danger"></i></button>
+      		<h4>Danger Alert</h4>
+      		<p>Action has caused an error. Additional information <a class="alert-link" href="">Click Here</a> to read</p>
+   		</div>
+     	<div> failure </div>
+	</c:if>
+	
+	<h1><strong>UPLOAD</strong> Files in CAT-APP</h1>
+
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-3 form-box" style="margin-top:-50px; background-color: ;">
                         	
-                        	<form role="form" action="SaveFileFormServlet" method="post" class="registration-form" enctype="multipart/form-data">
-                        		
-                        		<fieldset>
-		                        	<div class="form-top ">
-		                        		<div class="form-top-left">
-		                        			<h3>Step 1 / 5:</h3> <h4>Please Select a Cell Line</h4>
-		                            		<!-- <h4>Cell Type:</h4><p>Somewhere to Start &#9786;</p> -->
-		                            		<div class="progress">
-										  <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
-										  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:15%">
-										    0%(start)
-										  </div>
-										  
-										</div>
-		                            	
-		                            		
-		                        		</div>
-		                        		
-		                            </div>
-		                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                            <button type="button" class="btn btn-next" id="cellline" onclick="getAssayNames()" disabled>Next</button>
-		                            <div class="form-bottom scrollable">
-				                    	<div class="form-group">
-				                    		
-											  
-											  <c:forEach var="cellline" items="${cell}">
+        	<form role="form" action="SaveFileFormServlet" method="post" class="registration-form" enctype="multipart/form-data">
+	
+            	<div id="step1">
+		        	<div class="form-top ">
+		            	<div class="form-top-left">
+		                	<h4>Step 1 / 5: Please Select a Cell Line. 
+		                	 <button type="button" onclick="should_alert()" class="list-inline">should alert</button>
+		            		<button type="button" onclick="getAssayNames()">should alert 3</button></h4>
+		                </div>
+		            </div>
+		       
 
-											 <%--  <c:choose> --%>
-											  <%-- <c:when test="${cellline.key=='2'}"> --%>
-    												<input type="radio" name= "celllines" 
-    													id= <c:out value="${cellline.value}"/> 
-    													value= <c:out value="${cellline.key}"/> 
-    													onclick="changebuttonstats()"> &nbsp;<b>
-    													<c:out value="${cellline.value}"/></b><br><br>
-											   <%-- </c:when>
-
-											   <c:otherwise>
-											   <input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/> disabled> 
-											   		<span style="font-size:13px; color:lightgray;"> &nbsp;<b><c:out value="${cellline.value}"/></b>
-											   		</span><br>
-											   
-											   </c:otherwise> --%>
-											   <%-- </c:choose> --%>
-											  </c:forEach>
-				                 		
-				                 				
-				                        </div>
-				                        
-				                       
-				                    </div>
-				                   
-			                    </fieldset>
+		            <div class="form-bottom scrollable">
+				    	<div class="form-group">
+					        <c:forEach var="cellline" items="${cell}">
+								<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> 
+    								value= <c:out value="${cellline.key}"/> 
+    								onclick="getAssayNames()" > &nbsp;<b>
+    							<c:out value="${cellline.value}"/></b><br><br>
+							</c:forEach>
+							<select name="assaydata" id="assay" onchange="selectTimePoint()">
+    							<c:forEach var="assaynames" items="${assay}">
+    								<option value="${assaynames.key}"> ${assaynames.value} .</option>
+								</c:forEach>
+							</select>
+				         </div>
+				     </div>
+				</div>
 							
 			                    
-			                    <fieldset id="step2">
-		                        	<div class="form-top">
-		                        		<div class="form-top-left">
-		                        			<h3>Step 2 / 5</h3>
-		                            		<h4>Input Assay Name:</h4>
-		                            		<p> A step ahead &#x1f44d;</p>
-		                            		<div class="progress">
-										  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
-										  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%">
-										    25% Complete (cellline done)
-										  </div>
-										  
-										</div>
-										<!-- <p><font color="red"> Click upload if time point and phenotype are unavailable</font></p>
-		                        		 --></div>
-		                        		
-		                            </div>
-		                            <div class="form-bottom">
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-email">Assay Name</label>
-				                        	
-				                        	<select name="assaydata" id="assay" onchange="enablebutton()">
-    											<c:forEach var="assaynames" items="${assay}">
-    											<%-- <c:choose> --%>
-    											<%-- <c:when test="${cellline.key=='2' }"> --%>
-										        <option value="${assaynames.key}"> ${assaynames.value}</option>
-
-										       <%--  </c:when> --%>
-										        <%-- <c:otherwise>
-										         <option value="${assaynames.key}" disabled> ${assaynames.value}</option>
-										        </c:otherwise> --%>
-										        <%-- </c:choose> --%>
-
-										    	</c:forEach>
-												</select>
-
-				                        </div>
-				                      	
-				                        <button type="button" class="btn btn-previous" onclick="backRefresh()">Previous</button>
-				                        <button type="button" class="btn btn-next" id="assays" onclick="selectTimePoint()" disabled>Next</button>
-				                         <!-- OR
-				                        <button type="button" class="btn btn-primary" onclick="stepJump()">Upload</button> -->
-				                    </div>
-			                    </fieldset>
+			   <div id="step2" style = "display:none;">
+		       		<div class="form-top">
+		            	<div class="form-top-left">
+		                	<h4>Step 2 / 5, Input Assay Name:</h4>
+		                </div>
+		            </div>
+		            <div class="form-bottom">
+				    	<div class="form-group">
+				        	<label class="sr-only" for="form-email">Assay Name</label>
+					        <select name="assaydata" id="assay" onchange="selectTimePoint()">
+    							<c:forEach var="assaynames" items="${assay}">
+    								<option value="${assaynames.key}"> ${assaynames.value}</option>
+								</c:forEach>
+							</select>
+						</div>
+				        <button type="button" class="btn btn-previous" onclick="backRefresh()">Previous</button>
+				        <button type="button" class="btn btn-next" id="assays" onclick="selectTimePoint()">Next</button>
+				        
+				     </div>
+			    </div>
 			                    
 			                    
-			                    <fieldset id="step3">
-			                      <div>
-		                        	<div class="form-top">
-		                        		<div class="form-top-left">
-		                        			<h3>Step 3 / 5</h3>
-		                            		<h4> Select a Time Point:</h4>
-		                            		<p> Bear with us &#x1f612;</p>
-		                            		<div class="progress">
-										  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
-										  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
-										    50% Complete (assay name done)
-										  </div>
-										</div>
-		                        		</div>
-		                        		
-		                            </div>
-		                            <div class="form-bottom">
-				                    	<div class="form-group">
-				                    	time: ${time}
-				                    		<label class="sr-only" for="form-facebook">Time-Point</label>
-				                        	<select name="timepoint" id="tp" onchange="enabletimebutton()">
-    											<c:forEach var="timepoints" items="${time}">
-										        <option value="${timepoints.key}"> ${timepoints.value}</option>
-										    	</c:forEach>
-												</select>
-				                        </div>
-				                       
-				                        <button type="button" class="btn btn-previous" onclick="backRefreshTime()">Previous</button>
-										<button type="button" class="btn btn-next" id="times" onclick="selectphenotypes()" disabled>Next</button>
-				                        
-				                    </div>
-				                   </div> 
-			                    </fieldset>
+			    <div id="step3" style = "display:none;">
+			    	<div>
+		            	<div class="form-top">
+		                	<div class="form-top-left">
+		                    	<h3>Step 3 / 5</h3>
+		                        <h4> Select a Time Point:</h4>
+		                    </div>
+		                 </div>
+		                 <div class="form-bottom">
+				         	<div class="form-group">
+				            	time: ${time}
+				            	<label class="sr-only" for="form-facebook">Time-Point</label>
+				              	<select name="timepoint" id="tp" onchange="selectphenotypes()">
+    								<c:forEach var="timepoints" items="${time}">
+										<option value="${timepoints.key}"> ${timepoints.value}</option>
+									</c:forEach>
+								</select>
+				          	</div>
+				          	<button type="button" class="btn btn-previous" onclick="backRefreshTime()">Previous</button>
+							<button type="button" class="btn btn-next" id="times" onclick="selectphenotypes()" disabled>Next</button>
+					  	</div>
+					</div> 
+			 	</div>
+				
+				<div id="step4" style = "display:none;">
+					<div>
+		            	<div class="form-top">
+		                	<div class="form-top-left">
+		                    	<h4>Step 4 / 5, Select Phenotype and Plate:</h4>
+		                  	</div>
+		                </div>
+		                <div class="form-bottom">
+				        	<div class="form-group">
+				             	<label class="sr-only" for="form-facebook">Phenotype</label>
+				                d: ${pheno}
+				             	<select name="phenotypes" id="ph2" onchange="step4_to_5()">
+    								<c:forEach var="phenotypes2" items="${pheno}">
+    									<option value="${phenotypes2.key}"> ${phenotypes2.value}</option>
+									</c:forEach>
+								</select>
+								<c:set var="pheno" scope="session" value="${pheno}"/>
+								e
+				            </div>
+				            <div class="form-group">
+				            	h
+								<label class="sr-only" for="form-facebook">Select a Plate</label>
+								<input type="radio" name="form-Plate" id="1"  value="1">&nbsp;1x<br><br>
+								<input type="radio" name="form-Plate" id="2"  value="2"> &nbsp;10x<br><br>
+								<input type="radio" name="form-Plate" id="3"  value="3"> &nbsp;100x <br><br>
+								<input type="radio" name="form-Plate" id="4"  value="4"> &nbsp;1000x<br><br>
+				          	</div>
+							<button type="button" class="btn btn-previous" onclick="refreshphenotype()">Previous</button>
+				            <button type="button" class="btn btn-next" id="pheno" onclick="selectphenotypes()" disabled>Next</button>
+				       	</div>
+				  	</div> 
+			  	</div>
+	
+				<div id="step5" style = "display:none;">
+					<div>   
+		            	<div class="form-top">
+		                	<div class="form-top-left">
+		                    	<h4>Step 5 / 5: Upload Files: </h4>
+		                    </div>	
+		              	</div>
+		               	<div class="form-bottom">
+				        	<div class="form-group">
+				             	<label class="sr-only" for="form-facebook">Desc:</label>
+				                <input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)"><br><br><br>
+				               	<label class="sr-only" for="form-facebook">Upload File:</label>
+				               	<input type="file"  id="uploadfile" name="file" size="40" onclick="validateFile()">
+							</div>
+							<button type="button" class="btn btn-previous">Previous</button>
+				            <button type="submit" name="sequencesave" id="sequencesave" class="btn btn-submit" disabled>Upload</button>
+				        </div>
+				   	</div>  
+			    </div>
 			                  
-			                  
-			                    
-								
-								<fieldset id="step4">
-								  <div>
-		                        	<div class="form-top">
-		                        		<div class="form-top-left">
-		                        			<h3>Step 4 / 5</h3>
-		                            		<h4>Select Phenotype and Plate:</h4>
-		                            		<p>We are close &#x1f64c;</p>
-		                            		<div class="progress">
-										  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-										  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
-										    75% Complete (time point done)
-										  </div>
-										</div>
-		                        		</div>
-		                        		
-		                        		
-		                            </div>
-		                            <div class="form-bottom">
-				                       <div class="form-group">
-				                       
-				                    		<label class="sr-only" for="form-facebook">Phenotype</label>
-				                    		d: ${pheno}
-				                        <select name="phenotypes" id="ph2" onchange="enablepheno()">
-    										<c:forEach var="phenotypes2" items="${pheno}">
-    											<option value="${phenotypes2.key}"> ${phenotypes2.value}</option>
-										    </c:forEach>
-										</select>
-
-												<c:set var="pheno" scope="session" value="${pheno}"/>
-												e
-				                        </div>
-				                        
-				                        
-				                        <div class="form-group">
-				                        h
-											  <label class="sr-only" for="form-facebook">Select a Plate</label>
-											  <input type="radio" name="form-Plate" id="1"  value="1">&nbsp;1x<br><br>
-											  <input type="radio" name="form-Plate" id="2"  value="2"> &nbsp;10x<br><br>
-											  <input type="radio" name="form-Plate" id="3"  value="3"> &nbsp;100x <br><br>
-											  <input type="radio" name="form-Plate" id="4"  value="4"> &nbsp;1000x<br><br>
-				                        </div>
-										
-				                      
-				                        <button type="button" class="btn btn-previous" onclick="refreshphenotype()">Previous</button>
-				                        <button type="button" class="btn btn-next" id="pheno" onclick="selectphenotypes()" disabled>Next</button>
-				                    </div>
-				                   </div> 
-			                    </fieldset>
-			                
-			                
-			                
-			                    <!-- <fieldset id="directJumpToUpload" style="display: none">
-			                    <div>
-		                        	<div class="form-top">
-		                        		<div class="form-top-left">
-		                        			<h3>Step 3 / 3</h3>
-		                        			<h4>Upload Files: </h4>
-		                            		<p>Here you are,Finally!!!</p>
-		                            		<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-										  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-										    100% Complete (Selection complete)
-										  </div>
-		                        		</div>
-		                        		
-		                            </div>
-		                            <div class="form-bottom">
-				                       <div class="form-group">
-				                       		<label class="sr-only" for="form-facebook">Desc:</label>
-				                        	<input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)"><br><br><br>
-				                    		<label class="sr-only" for="form-facebook">Upload File:</label>
-				                        	<input type="file"  id="uploadfile" name="file" size="40">
-				                        	
-				                        </div>
-										
-										<button type="button" class="btn btn-primary" onclick="backToStep2()">Previous</button>
-				                        <button type="submit" name="directsave" class="btn btn-submit">Upload</button>
-				                       </div> 
-				                    </div>
-			                    </fieldset> -->
-			                 
-								<fieldset id="step5">
-								  <div>   
-		                        	<div class="form-top">
-		                        		<div class="form-top-left">
-		                        			<h3>Step 5 / 5</h3>
-		                        			<h4>Upload Files: </h4>
-		                            		<p>Here you are,Finally!!!</p>
-		                            		<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-										  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-										    100% Complete (Selection complete)
-										  </div>
-		                        		</div>
-		                        		
-		                            </div>
-		                            <div class="form-bottom">
-				                       <div class="form-group">
-				                       		<label class="sr-only" for="form-facebook">Desc:</label>
-
-				                        	<input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)"><br><br><br>
-				                    		<label class="sr-only" for="form-facebook">Upload File:</label>
-				                        	<input type="file"  id="uploadfile" name="file" size="40" onclick="validateFile()">
-
-				                        	
-				                        </div>
-										
-										<button type="button" class="btn btn-previous">Previous</button>
-				                        <button type="submit" name="sequencesave" id="sequencesave" class="btn btn-submit" disabled>Upload</button>
-				                        
-				                    </div>
-				                  </div>  
-			                    </fieldset>
-			                  
-			                    
-			                 
-			                  
-			                    
-			                    
-		                    
-		                    </form>
-		                    
-                        </div>
-                    </div>
-                <!-- </div> -->
-           <!--  </div> -->
-            
-        </div>
+			</form>
+		</div>
+     </div>
+</div>
 
 
         <!-- Javascript -->
-       	<script src="${pageContext.request.contextPath}/resources/js/Uploadjs.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/jquery-1.11.1.min.js"></script>
+        
+
+
+
+<script src="${pageContext.request.contextPath}/resources/js/Uploadjs.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/jquery-1.11.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.backstretch.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/retina-1.1.0.min.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>     	
+
+
+
 		
        
         
