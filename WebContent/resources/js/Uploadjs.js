@@ -388,7 +388,7 @@ function showExcelFiles() {
  }
 
 function getAssayNames(){					// step 1 to 2
-	alert("getAssayName");
+	// alert("getAssayName");
 	var lCellLines=$('input[name=celllines]:checked').val();
 	$("#step2").show();
 	$("#step3").hide();
@@ -627,7 +627,9 @@ function step4_to_5(){		// step 4 to step 5
 	$("#step6").hide();
 }
 
-
+function step5_to_6(){		// step 5 to step 6
+	$("#step6").show();
+}
 
 
 function refreshphenotype(){

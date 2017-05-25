@@ -117,135 +117,117 @@
 	<h1><strong>UPLOAD</strong> Files in CAT-APP</h1>
 
 	<div class="row">
-		<div class="col-sm-8 col-sm-offset-3 form-box" style="margin-top:-50px; background-color: ;">
+		<div class="col-lg-1" style="background-color: ;"></div>
+		<div class="col-lg-10" style="background-color: ;">
                         	
         	<form role="form" action="SaveFileFormServlet" method="post" class="registration-form" enctype="multipart/form-data">
 	
-            	<div id="step1">
-		        	<div class="form-top ">
-		            	<div class="form-top-left">
-		                	<h4>Step 1 / 5: Please Select a Cell Line. 
-		                	 <button type="button" onclick="should_alert()" class="list-inline">should alert</button>
-		            		<button type="button" onclick="getAssayNames()">should alert 3</button></h4>
-		                </div>
-		            </div>
-		       
-
-		            <div class="form-bottom scrollable">
-				    	<div class="form-group">
-					        <c:forEach var="cellline" items="${cell}">
-								<input type="radio" name= "celllines" id= <c:out value="${cellline.value}"/> 
-    								value= <c:out value="${cellline.key}"/> 
-    								onclick="getAssayNames()" > &nbsp;<b>
-    							<c:out value="${cellline.value}"/></b><br><br>
-							</c:forEach>
-							<select name="assaydata" id="assay" onchange="selectTimePoint()">
-    							<c:forEach var="assaynames" items="${assay}">
-    								<option value="${assaynames.key}"> ${assaynames.value} .</option>
+            	<div id="step1" style = "background-color: ''; float: left ;">
+		            <div >
+		            	<h4>
+		            	<li style='vertical-align:middle;'>
+		            		Step 1 / 6. Please select a cell line: 
+							<select name= "celllines" onchange="getAssayNames()" style='vertical-align:middle;'>
+								<option value="audi" selected>Please select a cell line. </option>
+								<c:forEach var="cellline" items="${cell}">									
+    								<option id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>> 
+    									<c:out value="${cellline.value}"/>
+    								</option>
 								</c:forEach>
 							</select>
-				         </div>
+							
+						</li></h4>
 				     </div>
 				</div>
-							
+					
+				<br></br>		
 			                    
-			   <div id="step2" style = "display:none;">
-		       		<div class="form-top">
-		            	<div class="form-top-left">
-		                	<h4>Step 2 / 5, Input Assay Name:</h4>
-		                </div>
-		            </div>
-		            <div class="form-bottom">
-				    	<div class="form-group">
+			   <div id="step2" style = "display:none; float: left ;">
+			   		<h4>
+		            <li>
+				    	Step 2 / 6. Please select an assay name: 
 				        	<label class="sr-only" for="form-email">Assay Name</label>
 					        <select name="assaydata" id="assay" onchange="selectTimePoint()">
     							<c:forEach var="assaynames" items="${assay}">
     								<option value="${assaynames.key}"> ${assaynames.value}</option>
 								</c:forEach>
 							</select>
-						</div>
-				        <button type="button" class="btn btn-previous" onclick="backRefresh()">Previous</button>
-				        <button type="button" class="btn btn-next" id="assays" onclick="selectTimePoint()">Next</button>
-				        
-				     </div>
+								        
+				     </li></h4>
 			    </div>
 			                    
-			                    
-			    <div id="step3" style = "display:none;">
+			        <br></br>            
+			    <div id="step3" style = "display:none; float: left ;">
 			    	<div>
-		            	<div class="form-top">
-		                	<div class="form-top-left">
-		                    	<h3>Step 3 / 5</h3>
-		                        <h4> Select a Time Point:</h4>
-		                    </div>
-		                 </div>
-		                 <div class="form-bottom">
 				         	<div class="form-group">
-				            	time: ${time}
+				            	<!--  time: ${time}-->
 				            	<label class="sr-only" for="form-facebook">Time-Point</label>
+				            <h4>
+				            <li>
+				            	Step 3 / 6. Please select a time point:
 				              	<select name="timepoint" id="tp" onchange="selectphenotypes()">
     								<c:forEach var="timepoints" items="${time}">
 										<option value="${timepoints.key}"> ${timepoints.value}</option>
 									</c:forEach>
 								</select>
+							</li></h4>
 				          	</div>
-				          	<button type="button" class="btn btn-previous" onclick="backRefreshTime()">Previous</button>
-							<button type="button" class="btn btn-next" id="times" onclick="selectphenotypes()" disabled>Next</button>
-					  	</div>
 					</div> 
 			 	</div>
-				
-				<div id="step4" style = "display:none;">
+				<br></br>
+				<div id="step4" style = "display:none; float: left ;">
 					<div>
-		            	<div class="form-top">
-		                	<div class="form-top-left">
-		                    	<h4>Step 4 / 5, Select Phenotype and Plate:</h4>
-		                  	</div>
-		                </div>
-		                <div class="form-bottom">
-				        	<div class="form-group">
+		            	
+		               
+				        <div class="form-group">
 				             	<label class="sr-only" for="form-facebook">Phenotype</label>
-				                d: ${pheno}
+				                <!--  d: ${pheno}-->
+				             <h4>
+				             <li>
+				                Step 4 / 6. Please select a phenotype:
 				             	<select name="phenotypes" id="ph2" onchange="step4_to_5()">
     								<c:forEach var="phenotypes2" items="${pheno}">
     									<option value="${phenotypes2.key}"> ${phenotypes2.value}</option>
 									</c:forEach>
 								</select>
 								<c:set var="pheno" scope="session" value="${pheno}"/>
-								e
-				            </div>
-				            <div class="form-group">
-				            	h
-								<label class="sr-only" for="form-facebook">Select a Plate</label>
-								<input type="radio" name="form-Plate" id="1"  value="1">&nbsp;1x<br><br>
-								<input type="radio" name="form-Plate" id="2"  value="2"> &nbsp;10x<br><br>
-								<input type="radio" name="form-Plate" id="3"  value="3"> &nbsp;100x <br><br>
-								<input type="radio" name="form-Plate" id="4"  value="4"> &nbsp;1000x<br><br>
-				          	</div>
-							<button type="button" class="btn btn-previous" onclick="refreshphenotype()">Previous</button>
-				            <button type="button" class="btn btn-next" id="pheno" onclick="selectphenotypes()" disabled>Next</button>
+							</li></h4>
+				            
+				            
 				       	</div>
 				  	</div> 
 			  	</div>
 	
-				<div id="step5" style = "display:none;">
-					<div>   
-		            	<div class="form-top">
-		                	<div class="form-top-left">
-		                    	<h4>Step 5 / 5: Upload Files: </h4>
-		                    </div>	
-		              	</div>
-		               	<div class="form-bottom">
-				        	<div class="form-group">
-				             	<label class="sr-only" for="form-facebook">Desc:</label>
-				                <input type="text" name="desc" id="desc" value="" placeholder="Enter File desc(Optional)"><br><br><br>
-				               	<label class="sr-only" for="form-facebook">Upload File:</label>
-				               	<input type="file"  id="uploadfile" name="file" size="40" onclick="validateFile()">
-							</div>
-							<button type="button" class="btn btn-previous">Previous</button>
-				            <button type="submit" name="sequencesave" id="sequencesave" class="btn btn-submit" disabled>Upload</button>
-				        </div>
-				   	</div>  
+	
+				<div id="step5" style = "display:none; float: left ;">
+					<div class="form-group"  onchange="step5_to_6()"><h4>
+				        <label class="sr-only" for="form-facebook">Select a Plate</label>
+				        <li>
+				        Step 5 / 6. Please select a plate: &nbsp;
+						<input type="radio" name="form-Plate" id="11"  value="1" /> 1x &nbsp;&nbsp;&nbsp;
+						<input type="radio" name="form-Plate" id="21"  value="2" /> 10x &nbsp;&nbsp;&nbsp;
+						<input type="radio" name="form-Plate" id="31"  value="3" /> 100x &nbsp;&nbsp;&nbsp;
+						<input type="radio" name="form-Plate" id="41"  value="4" /> 1000x
+						</li>
+						</h4>
+					</div>
+				</div>
+	
+				<br></br>
+				<div id="step6" style = "display:none; background-color: ; margin: auto; margin-top: 100px;">
+					<h4><li>
+					Step 6 / 6: Upload files: 
+		            <div style = "background-color: ; margin: auto;">
+				     	<div class="form-group" style = "background-color: ;">
+				          	<label class="sr-only" for="form-facebook">Desc:</label>
+				            <input type="text" name="desc" id="desc" value="" placeholder="Enter File description (Optional)"><br><br>
+				           	<label class="sr-only" for="form-facebook">Upload File:</label>
+				           	<input type="file"  id="uploadfile" name="file" size="40" onclick="validateFile()">
+						</div>
+				        <button type="submit" name="sequencesave" id="sequencesave" class="btn btn-submit" disabled>Upload</button>
+				            
+				    </div>
+				   	</li></h4>
 			    </div>
 			                  
 			</form>
