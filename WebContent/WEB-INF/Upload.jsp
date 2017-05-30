@@ -157,7 +157,7 @@
 			    </div>
 			                    
 			        <br></br>            
-			    <div id="step3" style = "display:none; float: left ;">
+			    <div id="step3" style = "display:; float: left; background-color: ;">
 			    	<div>
 				         	<div class="form-group">
 				            	<!--  time: ${time}-->
@@ -175,11 +175,9 @@
 					</div> 
 			 	</div>
 				<br></br>
-				<div id="step4" style = "display:none; float: left ;">
-					<div>
-		            	
-		               
-				        <div class="form-group">
+				<div id="step4" style = "display:; background-color: ; text-align: left;">
+				        <div style = "background-color: ; text-align: left;">
+				       		&nbsp;
 				             	<label class="sr-only" for="form-facebook">Phenotype</label>
 				                <!--  d: ${pheno}-->
 				             <h4>
@@ -191,11 +189,8 @@
 									</c:forEach>
 								</select>
 								<c:set var="pheno" scope="session" value="${pheno}"/>
-							</li></h4>
-				            
-				            
+							</li></h4>			            
 				       	</div>
-				  	</div> 
 			  	</div>
 	
 	
@@ -214,20 +209,40 @@
 				</div>
 	
 				<br></br>
-				<div id="step6" style = "display:none; background-color: ; margin: auto; margin-top: 100px;">
-					<h4><li>
+				<div id="step6" style = "display:none; background-color: azure; margin: auto; margin-top: 5px; height: 270px; ">
+					  &nbsp;
+					<div>
+					<h4><li style="float: left;">
 					Step 6 / 6: Upload files: 
-		            <div style = "background-color: ; margin: auto;">
-				     	<div class="form-group" style = "background-color: ;">
-				          	<label class="sr-only" for="form-facebook">Desc:</label>
-				            <input type="text" name="desc" id="desc" value="" placeholder="Enter File description (Optional)"><br><br>
-				           	<label class="sr-only" for="form-facebook">Upload File:</label>
-				           	<input type="file"  id="uploadfile" name="file" size="40" onclick="validateFile()">
-						</div>
-				        <button type="submit" name="sequencesave" id="sequencesave" class="btn btn-submit" disabled>Upload</button>
-				            
+					<input type="text" name="desc" id="desc" value="" placeholder="Enter File description (Optional)" 
+						style="width: 450px;"/>
+					<br></br>
+					
+					</li></h4>
+					<br>
+					</div>
+					<br></br>
+					<div style="background-color:; text-align: left; margin-left: 50px;">
+						<h4>
+							Choose a file to upload: 
+							<div style="background-color: ; position: absolute; margin-left: 200px; margin-top: -20px">
+								<input type="file"  id="uploadfile" name="file" size="40" onclick="validateFile()"></input>
+							</div>
+						</h4>
+					</div>
+					
+					
+					
+					<div style="position: absolute; text-align: center; background-color: ; margin: auto; 
+						margin-top: 20px; margin-left: 45%;">
+						
+						<button type="submit" name="sequencesave" id="sequencesave" class="btn btn-submit" disabled >
+							Upload
+						</button>
+						<br></br><br></br><br></br><br></br>
 				    </div>
-				   	</li></h4>
+				    
+				   	
 			    </div>
 			                  
 			</form>
@@ -244,7 +259,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/Uploadjs.js"></script>
       <script src="${pageContext.request.contextPath}/resources/js/jquery-1.11.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/jquery.backstretch.min.js"></script>
+
         <script src="${pageContext.request.contextPath}/resources/js/retina-1.1.0.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>     	
 
