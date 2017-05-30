@@ -28,10 +28,6 @@
 
 <script type="text/javascript" src="http://www.kunalbabre.com/projects/table2CSV.js" > </script> 
 
-
-
-
-
 <script src="${pageContext.request.contextPath}/resources/js/Response/Response.js"></script>
 
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
@@ -40,7 +36,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet" />
-
 
 
 <style>

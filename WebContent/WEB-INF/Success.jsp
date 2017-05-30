@@ -21,24 +21,25 @@
     <meta name="author" content="">
 
     <title>CAT-APP</title>
-<link rel="shortcut icon" href="/CAT-APP-PROJECT/resources/images/logo2.ico" />
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/logo2.ico" />
     <!-- Bootstrap Core CSS -->
-    <link href="/CAT-APP-PROJECT/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/CAT-APP-PROJECT/resources/css/full-width-pics.css" rel="stylesheet">
-	<link href="/CAT-APP-PROJECT/resources/css/login.css" rel="stylesheet">
-	<link href="/CAT-APP-PROJECT/resources/css/font-awesome.css" rel="stylesheet" />
-	<link href="/CAT-APP-PROJECT/resources/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/css/full-width-pics.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/login.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/font-awesome.css" rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resources/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <!-- CUSTOM STYLES-->
-    <link href="/CAT-APP-PROJECT/resources/css/custom.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' type='text/css' />
      <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' type='text/css' />
     
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <style type="text/css">

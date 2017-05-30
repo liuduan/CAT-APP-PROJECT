@@ -12,20 +12,20 @@
 		<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/logo2.ico" />
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" />
      
-        <link rel="stylesheet" href="resources/css/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="resources/css/form-elements.css">
-        <link rel="stylesheet" href="resources/css/style.css"> 
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/form-elements.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 
 		 <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
       <!--   <link href="${pageContext.request.contextPath}/resources/css/custom.css" rel="stylesheet" /> -->
         <link href="${pageContext.request.contextPath}/resources/css/full-width-pics.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/resources/css/font-awesome.css" rel="stylesheet" />
         <link rel="shortcut icon" href="resources/images/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="resources/images/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resources/images/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/images/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="resources/images/apple-touch-icon-57-precomposed.png"> 
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-57-precomposed.png"> 
         
         
         
@@ -34,8 +34,9 @@
 
 
 
-<link rel="stylesheet" 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      
     </head>
@@ -126,7 +127,7 @@
 		            <div >
 		            	<h4>
 		            	<li style='vertical-align:middle;'>
-		            		Step 1 / 6. Please select a cell line: 
+		            		<span class="text-primary"><b>Step 1 / 6. Please select a cell line: </b></span>
 							<select name= "celllines" onchange="getAssayNames()" style='vertical-align:middle;'>
 								<option value="audi" selected>Please select a cell line. </option>
 								<c:forEach var="cellline" items="${cell}">									
@@ -145,7 +146,7 @@
 			   <div id="step2" style = "display:none; float: left ;">
 			   		<h4>
 		            <li>
-				    	Step 2 / 6. Please select an assay name: 
+				    	<span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
 				        	<label class="sr-only" for="form-email">Assay Name</label>
 					        <select name="assaydata" id="assay" onchange="selectTimePoint()">
     							<c:forEach var="assaynames" items="${assay}">
@@ -157,14 +158,14 @@
 			    </div>
 			                    
 			        <br></br>            
-			    <div id="step3" style = "display:; float: left; background-color: ;">
+			    <div id="step3" style = "display:none; float: left; background-color: ;">
 			    	<div>
 				         	<div class="form-group">
 				            	<!--  time: ${time}-->
 				            	<label class="sr-only" for="form-facebook">Time-Point</label>
 				            <h4>
 				            <li>
-				            	Step 3 / 6. Please select a time point:
+				            	<span class="text-primary"><b>Step 3 / 6. Please select a time point:</b></span>
 				              	<select name="timepoint" id="tp" onchange="selectphenotypes()">
     								<c:forEach var="timepoints" items="${time}">
 										<option value="${timepoints.key}"> ${timepoints.value}</option>
@@ -175,14 +176,14 @@
 					</div> 
 			 	</div>
 				<br></br>
-				<div id="step4" style = "display:; background-color: ; text-align: left;">
+				<div id="step4" style = "display:none; background-color: ; text-align: left;">
 				        <div style = "background-color: ; text-align: left;">
 				       		&nbsp;
 				             	<label class="sr-only" for="form-facebook">Phenotype</label>
 				                <!--  d: ${pheno}-->
 				             <h4>
 				             <li>
-				                Step 4 / 6. Please select a phenotype:
+				                <span class="text-primary"><b>Step 4 / 6. Please select a phenotype:</b></span>
 				             	<select name="phenotypes" id="ph2" onchange="step4_to_5()">
     								<c:forEach var="phenotypes2" items="${pheno}">
     									<option value="${phenotypes2.key}"> ${phenotypes2.value}</option>
@@ -198,7 +199,7 @@
 					<div class="form-group"  onchange="step5_to_6()"><h4>
 				        <label class="sr-only" for="form-facebook">Select a Plate</label>
 				        <li>
-				        Step 5 / 6. Please select a plate: &nbsp;
+				        <span class="text-primary"><b>Step 5 / 6. Please select a plate: &nbsp;</b></span>
 						<input type="radio" name="form-Plate" id="11"  value="1" /> 1x &nbsp;&nbsp;&nbsp;
 						<input type="radio" name="form-Plate" id="21"  value="2" /> 10x &nbsp;&nbsp;&nbsp;
 						<input type="radio" name="form-Plate" id="31"  value="3" /> 100x &nbsp;&nbsp;&nbsp;
@@ -213,7 +214,7 @@
 					  &nbsp;
 					<div>
 					<h4><li style="float: left;">
-					Step 6 / 6: Upload files: 
+					<span class="text-primary"><b>Step 6 / 6: Upload files: </b></span>
 					<input type="text" name="desc" id="desc" value="" placeholder="Enter File description (Optional)" 
 						style="width: 450px;"/>
 					<br></br>
