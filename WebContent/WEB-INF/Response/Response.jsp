@@ -196,10 +196,13 @@ SELECT * from chemicals;
 			<table id = "table_2" >
 			<tr><td><div id = "chem_properties">Chemical & physic properties<br></div></td></tr>
 			
-			<tr><td><div id = "cardio90">iCardio. 90 min Peak Frequency <br></div></td></tr>
-			<tr><td><div id = "cardio24">iCardio. 24 hr Peak Frequency<br></div></td></tr>
+			<tr><td><div id = "cardio90">iCardio. 90 min peak frequency <br></div></td></tr>
+			<tr><td><div id = "cardio24">iCardio. 24 hr peak frequency<br></div></td></tr>
+			<tr><td><div id = "cardio_Total_Cell_24h">iCardio. 24 hr total cells<br></div></td></tr>
 			<tr><td><div id = "HUVEC_TC">HUVEC total cells <br></div></td></tr>
-			<tr><td><div id = "HUVEC_TA">HUVEC Tube Area<br></div></td></tr>
+			<tr><td><div id = "HUVEC_TA">HUVEC tube area<br></div></td></tr>
+			<tr><td><div id = "HUVEC_Mito_24h">HUVEC 24 hr mitochondria<br></div></td></tr>
+			
 			</table>
 			<span style = "color: #909191;">
 			iMacrophages test<br>

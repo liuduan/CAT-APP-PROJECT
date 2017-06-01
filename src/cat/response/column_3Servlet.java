@@ -59,8 +59,11 @@ public class column_3Servlet extends HttpServlet {
 		switch(endpoint_n){
 			case "1": endpoint_string = "Peak_freq_90min"; break;
 			case "2": endpoint_string = "Peak_freq_24hr"; break;
-			case "3": endpoint_string = "HUVEC_total_cell"; break;
-			case "4": endpoint_string = "HUVEC_tube_area"; break;
+			case "3": endpoint_string = "Cardio_Total_Cell_24h"; break;
+			case "4": endpoint_string = "HUVEC_total_cell"; break;
+			case "5": endpoint_string = "HUVEC_tube_area"; break;
+			case "6": endpoint_string = "HUVEC_Mito_24h"; break;
+			
 		}
 		
 	

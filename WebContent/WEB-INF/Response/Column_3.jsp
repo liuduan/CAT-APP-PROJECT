@@ -82,14 +82,24 @@
        <c:set var="endpoint_name" scope="page" value="iCardiomyocyte Peak frequency 24 hours" />
     </c:when>
     <c:when test="${endpoint == '3'}">
+       <c:set var="endpoint_string" scope="page" value="Cardio_Total_Cell_24h" />
+       <c:set var="endpoint_string2" scope="page" value="Cardio_Total_Cell_24h" />
+       <c:set var="endpoint_name" scope="page" value="iCardiomyocyte total cells 24 hours" />
+    </c:when>
+    <c:when test="${endpoint == '4'}">
        <c:set var="endpoint_string" scope="page" value="HUVEC_total_cell" />
        <c:set var="endpoint_string2" scope="page" value="HUVEC_total_cell" />
        <c:set var="endpoint_name" scope="page" value="HUVEC viable cell 24 hours" />
     </c:when>
-    <c:when test="${endpoint == '4'}">
+    <c:when test="${endpoint == '5'}">
        <c:set var="endpoint_string" scope="page" value="HUVEC_tube_area" />
        <c:set var="endpoint_string2" scope="page" value="HUVEC_tube_area" />
        <c:set var="endpoint_name" scope="page" value="HUVEC tube area 18 hours" />
+    </c:when>
+    <c:when test="${endpoint == '6'}">
+       <c:set var="endpoint_string" scope="page" value="HUVEC_Mito_24h" />
+       <c:set var="endpoint_string2" scope="page" value="HUVEC_Mito_24h" />
+       <c:set var="endpoint_name" scope="page" value="HUVEC mitochondria 24 hours" />
     </c:when>
 </c:choose>
 
