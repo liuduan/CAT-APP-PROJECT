@@ -125,7 +125,8 @@
 	
             	<div id="step1" style = "background-color: ''; float: left ;">
 		            <div >
-		            	<h4>
+		            
+		            		<h4>
 		            	<li style='vertical-align:middle;'>
 		            		<span class="text-primary"><b>Step 1 / 6. Please select a cell line: </b></span>
 							<select name= "celllines" onchange="getAssayNames()" style='vertical-align:middle;'>
