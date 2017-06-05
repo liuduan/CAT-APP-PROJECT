@@ -147,198 +147,6 @@ function searchFiles(){
 		        	}				
 		        	//jQuery("#pagination").html(lPageHTML);
 		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	
-		        	/*var lExcel;
-		        	var lImages;
-		        	var lAllFiles;
-		        	var lTotalHtml;
-		        	var lPdf;
-		        	var lTFlag;
-		        	var lExFlag;
-		        	var lPdfFlag;
-		        	var lImgFlag;
-		        	var lErroDiv='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-        		  		+'<label> !! No Records !!</label>'+
-        				'</div>';
-		        	for(var i=0;i<lfileList.length;i++){
-		        		
-		        		if(lfileList[i].childNodes[0].firstChild.nodeValue == "xls"){
-		        			if(lExcel==null){
-		        				lExFlag=1;
-		        				lExcel="";
-		        				if(i==0){
-		        					
-		        					lExcel='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        						+'<label><input type="checkbox" name="optradio"  id ='
-		        						+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'
-		        						+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
-		        						'</div>';
-		        				}else{
-		        					lExcel='<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
-		        						+'<label><input type="checkbox" name="optradio"  id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
-		        						'</div>';
-		        				}
-		        			}else{
-		        				lExcel=lExcel+'<div class="row well well-sm span12 " style="width:50%;margin-left: 5%">'
-		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
-		        				'</div>';
-		        			}
-		        		}else if(lfileList[i].childNodes[0].firstChild.nodeValue=="pdf"){
-		        			if(lPdf==null){
-		        				lPdfFlag=1;
-		        				if(i==0){
-		        					lPdf='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        						+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
-		        						'</div>';
-		        					
-		        				}else{
-		        					lPdf='<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
-		        						+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
-		        						'</div>';
-		        				}
-		        			}else{
-		        				lPdf=lPdf+'<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
-		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
-		        				'</div>';
-		        			}
-		        			
-		        		}
-		        		
-		        		else if(lfileList[i].childNodes[0].firstChild.nodeValue=="jpeg" ||
-		        				lfileList[i].childNodes[0].firstChild.nodeValue=="jpg"){
-		        			if(lImages==null){
-		        				lImgFlag=1;
-		        				if(i==0){
-		        					lImages='<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        						+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
-		        						'</div>';
-		        				}else{
-		        					lImages='<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
-		        						+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;' +lfileList[i].childNodes[2].firstChild.nodeValue+ '</label>'+
-		        						'</div>';
-		        				}
-		        			}else{
-		        				lImages=lImages+'<div class="row well well-sm span12" style="width:50%;margin-left: 5%">'
-		        		  		+'<label><input type="checkbox" name="optradio" id ='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' value='+lfileList[i].childNodes[1].firstChild.nodeValue+ ' >&nbsp;'+lfileList[i].childNodes[2].firstChild.nodeValue+'</label>'+
-		        				'</div>';
-		        			}
-		        			
-		        		}
-		        		
-		        		if(lTotalHtml==null){
-		        			lTFlag=1;
-		        			lTotalHtml = '<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-	        				+'<label>'+'File Name &nbsp;'  +'Uploaded Date &nbsp;' +'Description &nbsp;' + '</label>'+
-	        				'</div>';
-		        			if(i==0){
-		        				
-		        				lTotalHtml= lTotalHtml+'<form action="DownloadFileServlet">'+
-		        				'<div class="row well well-sm span12 spacer" style="width:50%;margin-left: 5%">'
-		        				+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue
-		        				+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'
-		        				+lfileList[i].childNodes[2].firstChild.nodeValue+'&nbsp; &nbsp;'+lfileList[i].childNodes[3].firstChild.nodeValue +'&nbsp; &nbsp;'+lfileList[i].childNodes[4].firstChild.nodeValue+ '</label>'+
-		        				'</div>';
-		        			}else{
-		        				lTotalHtml= lTotalHtml+'<form action="DownloadFileServlet">'+
-		        				'<div class="row well well-sm span12 " style="width:50%;margin-left: 5%">'
-		        				+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue
-		        				+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'
-		        				+lfileList[i].childNodes[2].firstChild.nodeValue+'&nbsp; &nbsp;'+lfileList[i].childNodes[3].firstChild.nodeValue +'&nbsp; &nbsp;'+lfileList[i].childNodes[4].firstChild.nodeValue+ '</label>'+
-		        				'</div>';
-		        			}
-	        			}else{
-	        				lTotalHtml=lTotalHtml+'<div class="row well well-sm span12 " style="width:50%;margin-left: 5%">'
-	        				+'<label><input type="checkbox" name="optradio"  value ='+lfileList[i].childNodes[1].firstChild.nodeValue
-	        				+ ' id='+lfileList[i].childNodes[1].firstChild.nodeValue+ '>&nbsp;'
-	        				+lfileList[i].childNodes[2].firstChild.nodeValue+'&nbsp; &nbsp;'+lfileList[i].childNodes[3].firstChild.nodeValue +'&nbsp; &nbsp;'+lfileList[i].childNodes[4].firstChild.nodeValue+ '</label>'+
-	        				'</div>';
-	        			}
-		        	}
-		        	
-		        	if(lExFlag =="1"){
-		        		lExcel = lExcel+ '<div class="row">'+
-		        		'<div class="col-xs-3 col-sm-3 col-md-3">'+
-		        		'<input type="submit" class="btn btn-lg btn-success btn-block" value="Download">'+
-		        		'</form>'+
-		        		
-		        		'</div>'+
-		        		'</div>';
-		        		jQuery("#excelFiles").html(lExcel);
-		        	}else{
-		        		jQuery("#excelFiles").html(lErroDiv);
-		        	}
-		        	if(lImgFlag=="1"){
-		        		lImages = lImages+ '<div class="row">'+
-		        		'<div class="col-xs-3 col-sm-3 col-md-3">'+
-		        		'<input type="submit" class="btn btn-lg btn-success btn-block" value="Download">'+
-		        		'</form>'+
-		        		'</div>'+
-		        		'</div>';
-		        		jQuery("#images").html(lImages);
-		        	}else{
-		        		
-		        		jQuery("#images").html(lErroDiv);
-		        		
-		        	}
-		        	if(lPdfFlag=="1"){
-		        		
-		        		lPdf = lPdf + '<div class="row">'+
-		        		'<div class="col-xs-3 col-sm-3 col-md-3">'+
-		        		'<input type="submit" class="btn btn-lg btn-success btn-block" value="Download">'+
-		        		'</form>'+
-		        		'</div>'+
-		        		'</div>';
-		        		jQuery("#flatFiles").html(lPdf);
-		        	}else{
-		        		jQuery("#flatFiles").html(lErroDiv);
-		        	}
-		        	if(lTFlag=="1"){
-		        		lTotalHtml= lTotalHtml+ '<div class="row">'+
-		        		'<div class="col-xs-3 col-sm-3 col-md-3">'+
-		        		'<input type="submit" class="btn btn-lg btn-success btn-block" value="Download">'+
-		        		
-		        		'</form>'+
-		        		'</div>'+
-		        		'</div>';
-		        		jQuery("#allFiles").html(lTotalHtml);
-		        		
-		        	}else{
-		        		jQuery("#allFiles").html(lErroDiv);
-		        		
-		        	}*/
-		         
 		        }
 		          
 		    });
@@ -388,101 +196,47 @@ function showExcelFiles() {
  }
 
 function getAssayNames(){					// step 1 to 2
-	// alert("getAssayName");
-	var lCellLines=$('input[name=celllines]:checked').val();
+	// alert("");
 	$("#step2").show();
+	
+	var Cellline = $('#cellline option:selected').val();
+	// alert("cellline: " + Cellline);
+
+	if(Cellline == "CM"){
+		// alert("hello");
+		$(".assaydata").hide();	
+		$("#CM").show();
+		}else if (Cellline == "HEP"){
+			$(".assaydata").hide();	
+			$("#HEP").show();			
+			// alert("hello 2");
+		} else if (Cellline == "ENDO" || Cellline == "HUV" ){
+			$(".assaydata").hide();	
+			$("#ENDO_HUV").show();	
+			// alert("hello 3");
+		} else if (Cellline == "Neur"){
+			$(".assaydata").hide();	
+			$("#Neur").show();	
+			// alert("hello 4");
+		}else if (Cellline == "Macro"){
+			$(".assaydata").hide();	
+			$("#Macro").show();	
+			// alert("hello 5");
+		}else if (Cellline == "A375" || Cellline == "A549" || Cellline == "HepG2" || Cellline == "HepaRG" || 
+				Cellline == "MCF7" || Cellline == "HT29" || Cellline == "LN229" || Cellline == "HEK10205f" || 
+				Cellline == "HLMVEC" || Cellline == "HMePC" || Cellline == "SH-SY5Y"){
+			$(".assaydata").hide();	
+			$("#England").show();	
+			// alert("hello 6");
+			}
+	
 	$("#step3").hide();
 	$("#step4").hide();
 	$("#step5").hide();
 	$("#step6").hide();
-		
+	 }	
 
-		if(lCellLines==2){
-			assay.options[4].hidden=true;
-			assay.options[5].hidden=true;
-			assay.options[6].hidden=true;
-			assay.options[7].hidden=true;
-			assay.options[8].hidden=true;
-			assay.options[9].hidden=true;
-			assay.options[10].hidden=true;
-			assay.options[11].hidden=true;
-			assay.options[12].hidden=true;
-			assay.options[13].hidden=true;
-			assay.options[14].hidden=true;
-			assay.options[15].hidden=true;
-			
-		} else if (lCellLines==1){
-			
-			assay.options[1].hidden=true;
-			assay.options[5].hidden=true;
-			assay.options[6].hidden=true;
-			assay.options[7].hidden=true;
-			assay.options[8].hidden=true;
-			assay.options[11].hidden=true;
-			assay.options[12].hidden=true;
-			assay.options[13].hidden=true;
-			assay.options[14].hidden=true;
-			assay.options[15].hidden=true;
-			
-		}
-		else if (lCellLines==3 ){
-			
-			assay.options[1].hidden=true;
-			assay.options[4].hidden=true;
-			assay.options[5].hidden=true;
-			assay.options[6].hidden=true;
-			assay.options[7].hidden=true;
-			assay.options[8].hidden=true;
-			assay.options[12].hidden=true;
-			assay.options[13].hidden=true;
-			assay.options[14].hidden=true;
-			assay.options[15].hidden=true;
-			
-		}
-		else if (lCellLines==4 ){
-					
-			assay.options[1].hidden=true;
-			assay.options[4].hidden=true;
-			assay.options[5].hidden=true;
-			assay.options[6].hidden=true;
-			assay.options[7].hidden=true;
-			assay.options[8].hidden=true;
-			assay.options[13].hidden=true;
-			assay.options[15].hidden=true;
-			assay.options[14].hidden=true;
-					
-				}
-		else if (lCellLines==5 ){
-			
-			assay.options[1].hidden=true;
-			assay.options[4].hidden=true;
-			assay.options[5].hidden=true;
-			assay.options[6].hidden=true;
-			assay.options[7].hidden=true;
-			assay.options[8].hidden=true;
-			assay.options[9].hidden=true;
-			assay.options[10].hidden=true;
-			assay.options[11].hidden=true;
-					
-				}
-		else if (lCellLines>6 || lCellLines<17 ){
-			
-			assay.options[1].hidden=true;
-			assay.options[2].hidden=true;
-			assay.options[3].hidden=true;
-			assay.options[9].hidden=true;
-			assay.options[10].hidden=true;
-			assay.options[11].hidden=true;
-			assay.options[12].hidden=true;
-			assay.options[13].hidden=true;
-			assay.options[14].hidden=true;
-			assay.options[15].hidden=true;
-			
-		}
-	 
 
-	
-}	
 function backRefresh(){
 	
 	assay.options[1].hidden=false;

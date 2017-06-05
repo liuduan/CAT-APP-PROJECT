@@ -129,13 +129,26 @@
 		            		<h4>
 		            	<li style='vertical-align:middle;'>
 		            		<span class="text-primary"><b>Step 1 / 6. Please select a cell line: </b></span>
-							<select name= "celllines" onchange="getAssayNames()" style='vertical-align:middle;'>
-								<option value="audi" selected>Please select a cell line. </option>
-								<c:forEach var="cellline" items="${cell}">									
-    								<option id= <c:out value="${cellline.value}"/> value= <c:out value="${cellline.key}"/>> 
-    									<c:out value="${cellline.value}"/>
-    								</option>
-								</c:forEach>
+							<select name= "celllines" id = "cellline" onchange="getAssayNames()" style='vertical-align:middle;'>
+								<option value="N/A" selected>Please select a cell line </option>
+								<option value="CM">1. iCell® Cardiomyocytes </option>
+								<option value="HEP">2. iCell® Hepatocytes 2.0 </option>
+								<option value="ENDO">3. iCell Endothelial Cells </option>
+								<option value="HUV">4. Human Umbilical Vein Endothelial Cells </option>
+								<option value="Neur">5. iCell Neurons </option>
+								<option value="Macro">6. iCell Macrophages </option>
+								<option value="A375">7. A-375 Skin Melanoma </option>
+								<option value="A549">8. A549 Lung Carcinoma </option>
+								<option value="HepG2">9. HepG2 Hepatocyte Carcinoma </option>
+								<option value="HepaRG">10. HepaRG Hepatocyte Carcinoma </option>
+								<option value="MCF7">11. MCF7 Breast Adenocarcinoma </option>
+								<option value="HT29">12. HT-29 Colon Adenocarcinoma </option>
+								<option value="LN229">13. LN-229 Glioblastoma </option>
+								<option value="HEK10205f">14. HEK10205f Human Epidermal Keratinocytes; Foetal </option>
+								<option value="HLMVEC">15. HLMVEC Human Lung Microvascular Endothelial Cells </option>
+								<option value="HMePC">16. HMePC Human Mammary Epithelial Cell </option>
+								<option value="SH-SY5Y">17. SH-SY5Y Neuroblastoma </option>
+
 							</select>
 							
 						</li></h4>
@@ -143,19 +156,80 @@
 				</div>
 					
 				<br></br>		
-			                    
+			                   ${assay}
 			   <div id="step2" style = "display:none; float: left ;">
-			   		<h4>
-		            <li>
-				    	<span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<label class="sr-only" for="form-email">Assay Name</label>
-					        <select name="assaydata" id="assay" onchange="selectTimePoint()">
-    							<c:forEach var="assaynames" items="${assay}">
-    								<option value="${assaynames.key}"> ${assaynames.value}</option>
-								</c:forEach>
+			   		<div id="CM" class="assaydata" style="display: none;">
+				      	<h4><li>
+				        	<span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
+				        	<select name='assaydata' id='assay' onchange='selectTimePoint()'>
+								<option value='Ca2'>Ca2_ flux</option>
+								<option value='Hoechst'>Nuclei staining</option>
+								<option value='Mito'>Mitochondrial Integrity</option>
 							</select>
+						</li></h4>
+					</div>
+					<div id="HEP" class="assaydata" style="display: none;">
+						<h4><li>
+							<span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
+				        	<select name='assaydata' id='assay2' onchange='selectTimePoint()'>
+								<option value='Hoechst'>Nuclei staining</option>
+								<option value='Mito'>Mitochondrial Integrity</option>
+								<option value='CalceinAM'>Cell Viability</option>
+								<option value='LipidTOX'>Lipid Accumulation</option>
+							</select>
+							</li></h4>
+					</div>	
+					<div id="ENDO_HUV" class="assaydata" style="display: none; float: left;">
+						<h4><li>
+					    <span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
+				        	<select name='assaydata' id='assay4' onchange='selectTimePoint()'>
+								<option value='Hoechst'>Nuclei staining</option>
+								<option value='Mito'>Mitochondrial Integrity</option>
+								<option value='CalceinAM'>Cell Viability</option>
+								<option value='TubForm'>Tube Formation</option>
+							</select>
+							</li></h4>
+					</div>	
+					<div id="Neur" class="assaydata" style="display: none; float: left;">
+					    <h4><li>
+					    <span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
+				        	<select name='assaydata' id='assay5' onchange='selectTimePoint()'>
+								<option value='Hoechst'>Nuclei staining</option>
+								<option value='Mito'>Mitochondrial Integrity</option>
+								<option value='CalceinAM'>Cell Viability</option>
+								<option value='NeurOut'>Neurite Outgrowth</option>
+							</select>
+							</li></h4>
+					</div>	
+					<div id="Macro" class="assaydata" style="display: none; float: left;">
+					    <h4><li>
+					    <span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
+				        	<select name='assaydata' id='assay6' onchange='selectTimePoint()'>
+								<option value='Hoechst'>Nuclei staining</option>
+								<option value='Mito'>Mitochondrial Integrity</option>
+								<option value='CalceinAM'>Cell Viability</option>
+								<option value='Phag'>Phagocytosis</option>
+								<option value='Cyto'>Cytokines</option>
+								<option value='MacroOut'>Macroite Outgrowth</option>
+							</select>
+						</li></h4>
+					</div>
+					<div id="England" class="assaydata" style="display: none; float: left;">
+					    <h4><li>
+					    <span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
+				        	<select name='assaydata' id='assay7' onchange='selectTimePoint()'>
+								<option value='CMFDA'>Cell membrane integrity</option>
+								<option value='ROS'>Reactive Oxygen Species</option>
+								<option value='CASP'>Apoptosis</option>
+								<option value='PROT'>Protein synthesis inhibition</option>
+								<option value='ATP'>ATP Quantitation Assay</option>
+							</select>
+							</li></h4>
+					</div>
+
+
 								        
-				     </li></h4>
+				     
 			    </div>
 			                    
 			        <br></br>            

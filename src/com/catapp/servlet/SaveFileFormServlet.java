@@ -134,9 +134,17 @@ public class SaveFileFormServlet extends HttpServlet {
 							lFile.mkdirs();
 						}
 						
+						System.out.println("SaveFileFormServlet C2 lUploadPath: " + lUploadPath + ", " + name);
+						System.out.println("SaveFileFormServlet C2 name: " + name);
+						// write file here.
 						item.write( new File(lUploadPath + File.separator + name));
 						File lFile1 = new File(lUploadPath + File.separator + name);
+						
+						System.out.println("SaveFileFormServlet C3");
+						System.out.println("SaveFileFormServlet replaced name: " + lFileName+"."+lFileExtension);
+						// rename is here.
 						lFile1.renameTo(new File(lUploadPath + File.separator + lFileName+"."+lFileExtension));
+						System.out.println("SaveFileFormServlet C4");
 					}
 				}
 				
@@ -150,6 +158,7 @@ public class SaveFileFormServlet extends HttpServlet {
 			lFile.setPhenotype_id(Long.valueOf(lPhenoType));
 			lFile.setAssay_type(Long.valueOf(lAssayData));
 			lFile.setPlate_id(Long.valueOf(lPlate));
+			System.out.println("SaveFileFormServlet D2 Time Point: " + lTimePoint);
 			lFile.setTimepoint(Integer.valueOf(lTimePoint));
 			lFile.setFile_name(lFileName);
 			lFile.setFile_path(UPLOAD_DIRECTORY);
