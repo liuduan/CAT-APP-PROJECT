@@ -130,7 +130,6 @@
 		            	<li style='vertical-align:middle;'>
 		            		<span class="text-primary"><b>Step 1 / 6. Please select a cell line: </b></span>
 							<select name= "celllines" id = "cellline" onchange="getAssayNames()" style='vertical-align:middle;'>
-								<option value="N/A" selected>Please select a cell line </option>
 								<option value="CM">1. iCell® Cardiomyocytes </option>
 								<option value="HEP">2. iCell® Hepatocytes 2.0 </option>
 								<option value="ENDO">3. iCell Endothelial Cells </option>
@@ -150,61 +149,66 @@
 								<option value="SH-SY5Y">17. SH-SY5Y Neuroblastoma </option>
 
 							</select>
-							
+							<a href="#" onclick="getAssayNames()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 				     </div>
 				</div>
 					
 				<br></br>		
-			                   ${assay}
+			    <!--  ${assay}-->
 			   <div id="step2" style = "display:none; float: left ;">
-			   		<div id="CM" class="assaydata" style="display: none;">
+			   		<div id="CM_assays" class="all_assays" style="display: none;">
 				      	<h4><li>
 				        	<span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='assaydata' id='assay' onchange='selectTimePoint()'>
-								<option value='Ca2'>Ca2_ flux</option>
+				        	<select name='CM_assays' id='assay' onchange='selectphenotypes()'>
+				        		<option value='NA'>----</option>
+								<option value='Ca2'>Ca2+ flux</option>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 							</select>
 						</li></h4>
 					</div>
-					<div id="HEP" class="assaydata" style="display: none;">
+					<div id="HEP_assays" class="all_assays" style="display: none;">
 						<h4><li>
 							<span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='assaydata' id='assay2' onchange='selectTimePoint()'>
+				        	<select name='HEP_assays id='assay2' onchange='selectphenotypes()'>
+				        		<option value='NA'>----</option>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 								<option value='CalceinAM'>Cell Viability</option>
 								<option value='LipidTOX'>Lipid Accumulation</option>
 							</select>
-							</li></h4>
+						</li></h4>
 					</div>	
-					<div id="ENDO_HUV" class="assaydata" style="display: none; float: left;">
+					<div id="ENDO_HUV_assays" class="all_assays" style="display: none; float: left;">
 						<h4><li>
 					    <span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='assaydata' id='assay4' onchange='selectTimePoint()'>
+				        	<select name='ENDO_HUV_assays' id='assay4' onchange='selectphenotypes()'>
+				        		<option value='NA'>----</option>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 								<option value='CalceinAM'>Cell Viability</option>
 								<option value='TubForm'>Tube Formation</option>
 							</select>
-							</li></h4>
+						</li></h4>
 					</div>	
-					<div id="Neur" class="assaydata" style="display: none; float: left;">
+					<div id="Neur_assays" class="all_assays" style="display: none; float: left;">
 					    <h4><li>
 					    <span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='assaydata' id='assay5' onchange='selectTimePoint()'>
+				        	<select name='Neur_assays' id='assay5' onchange='selectphenotypes()'>
+				        		<option value='NA'>----</option>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 								<option value='CalceinAM'>Cell Viability</option>
 								<option value='NeurOut'>Neurite Outgrowth</option>
 							</select>
-							</li></h4>
+						</li></h4>
 					</div>	
-					<div id="Macro" class="assaydata" style="display: none; float: left;">
+					<div id="Macro_assays" class="all_assays" style="display: none; float: left;">
 					    <h4><li>
 					    <span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='assaydata' id='assay6' onchange='selectTimePoint()'>
+				        	<select name='Macro_assays' id='assay6' onchange='selectphenotypes()'>
+				        		<option value='NA'>----</option>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 								<option value='CalceinAM'>Cell Viability</option>
@@ -214,61 +218,131 @@
 							</select>
 						</li></h4>
 					</div>
-					<div id="England" class="assaydata" style="display: none; float: left;">
+					<div id="England_assays" class="all_assays" style="display: none; float: left;">
 					    <h4><li>
-					    <span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='assaydata' id='assay7' onchange='selectTimePoint()'>
+					    	<span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
+				        	<select name='England_assays' id='assay7' onchange='selectphenotypes()'>
+								<option value='NA'>----</option>
 								<option value='CMFDA'>Cell membrane integrity</option>
 								<option value='ROS'>Reactive Oxygen Species</option>
 								<option value='CASP'>Apoptosis</option>
 								<option value='PROT'>Protein synthesis inhibition</option>
 								<option value='ATP'>ATP Quantitation Assay</option>
 							</select>
-							</li></h4>
+						</li></h4>
 					</div>
-
-
-								        
-				     
 			    </div>
-			                    
-			        <br></br>            
-			    <div id="step3" style = "display:none; float: left; background-color: ;">
-			    	<div>
-				         	<div class="form-group">
-				            	<!--  time: ${time}-->
-				            	<label class="sr-only" for="form-facebook">Time-Point</label>
-				            <h4>
-				            <li>
-				            	<span class="text-primary"><b>Step 3 / 6. Please select a time point:</b></span>
-				              	<select name="timepoint" id="tp" onchange="selectphenotypes()">
-    								<c:forEach var="timepoints" items="${time}">
-										<option value="${timepoints.key}"> ${timepoints.value}</option>
-									</c:forEach>
-								</select>
-							</li></h4>
-				          	</div>
-					</div> 
-			 	</div>
+			                
+			              
+			                
+			                
 				<br></br>
-				<div id="step4" style = "display:none; background-color: ; text-align: left;">
-				        <div style = "background-color: ; text-align: left;">
-				       		&nbsp;
-				             	<label class="sr-only" for="form-facebook">Phenotype</label>
-				                <!--  d: ${pheno}-->
-				             <h4>
-				             <li>
-				                <span class="text-primary"><b>Step 4 / 6. Please select a phenotype:</b></span>
-				             	<select name="phenotypes" id="ph2" onchange="step4_to_5()">
-    								<c:forEach var="phenotypes2" items="${pheno}">
-    									<option value="${phenotypes2.key}"> ${phenotypes2.value}</option>
-									</c:forEach>
-								</select>
-								<c:set var="pheno" scope="session" value="${pheno}"/>
-							</li></h4>			            
-				       	</div>
+				<div id="step3" style = "display:none; background-color: ; float: left;">
+					<!--  d: ${pheno}-->
+					<label class="sr-only" for="form-facebook">Phenotype</label>
+				    <div id="Ca2_pheno" class="all_phenotypes">
+				    	<h4> <li>
+				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
+				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+    							<option value="PF">Peak Frequency</option>
+    							<option value="PW">Peak Width</option>
+    							<option value="PW10">Peak Width at 10% Amplitude</option>
+    							<option value="PA">Peak Amplitude</option>
+    							<option value="PS">Peak Spacing</option>
+    							<option value="PRT">Peak Rise Time</option>
+    							<option value="PDT">Peak Decay Time</option>
+							</select>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>			            
+				    </div>
+				    <div id="Hoechst_2_pheno" class="all_phenotypes">
+				    	<h4> <li>
+				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
+				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+    							<option value="TC">Total cell number</option>
+    							<option value="NMA">Nuclei Mean Area</option>
+							</select>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>			            
+				    </div>
+				    <div id="Mito_pheno" class="all_phenotypes">
+				    	<h4> <li>
+				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
+				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+    							<option value="posMT">Number of Cells with Intact Mitochondria</option>
+    							<option value="MT_MSA">Mitochondria Mean Stain Area</option>
+    							<option value="MT_ACMA">All Cells Mean Area</option>
+							</select>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>			            
+				    </div>
+				     <div id="Hoechst_3_pheno" class="all_phenotypes">
+				    	<h4> <li>
+				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
+				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+    							<option value="TC">Total cell number</option>
+    							<option value="NI">Nuclei Intensity</option>
+    							<option value="NMA">Nuclei Mean Area</option>
+							</select>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>			            
+				    </div>
+				    <div id="TubForm" class="all_phenotypes">
+				    	<h4> <li>
+				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
+				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+    							<option value="TTL">Total Tube Length</option>
+    							<option value="MTL">Mean Tube Length</option>
+    							<option value="TTA">Total Tube Area</option>
+    							<option value="BrPt">Branch Points</option>
+							</select>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>			            
+				    </div>
+				    <div id="NeurOut" class="all_phenotypes">
+				    	<h4> <li>
+				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
+				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+    							<option value="TotOut">Total Outgrowth</option>
+    							<option value="MeOutCe">Mean Outgrowth per Cell</option>
+    							<option value="TotBra">Total Branches</option>
+    							<option value="TotPr">Total Processes</option>
+							</select>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>			            
+				    </div>
+				    
 			  	</div>
 	
+			                   
+			                    
+			        <br></br>            
+			    <div id="step4" style = "display:none; float: left; background-color: ;">
+			    	<div id="timepoints_4" class="all_time_div" style="display:;">
+				         <h4><li>
+				            <span class="text-primary"><b>Step 4 / 6. Please select a time point:</b></span>
+				           	<select name="timepoint" id="tp" onchange="step4_to_5()">
+								<option value="30min">30 minutes</option>
+								<option value="60min">60 minutes</option>
+								<option value="90min">90 minutes</option>
+								<option value="24hr">24 hours</option>
+							</select>
+							<a href="#" onclick="step4_to_5()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>
+					</div> 
+					<div id="timepoints_2" class="all_time_div" style="display:;">
+				         <h4><li>
+				            <span class="text-primary"><b>Step 4 / 6. Please select a time point:</b></span>
+				           	<select name="timepoint" id="tp" onchange="step4_to_5()">
+								<option value="90min">90 minutes</option>
+								<option value="24hr">24 hours</option>
+							</select>
+							<a href="#" onclick="step4_to_5()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>
+					</div> 
+			 	</div>
+			 	
+			 	
 	
 				<div id="step5" style = "display:none; float: left ;">
 					<div class="form-group"  onchange="step5_to_6()"><h4>

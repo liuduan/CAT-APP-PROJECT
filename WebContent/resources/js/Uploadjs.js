@@ -197,44 +197,162 @@ function showExcelFiles() {
 
 function getAssayNames(){					// step 1 to 2
 	// alert("");
-	$("#step2").show();
-	
+
 	var Cellline = $('#cellline option:selected').val();
 	// alert("cellline: " + Cellline);
 
 	if(Cellline == "CM"){
 		// alert("hello");
-		$(".assaydata").hide();	
-		$("#CM").show();
+		$(".all_assays").hide();	
+		$("#CM_assays").show();
 		}else if (Cellline == "HEP"){
-			$(".assaydata").hide();	
-			$("#HEP").show();			
+			$(".all_assays").hide();	
+			$("#HEP_assays").show();			
 			// alert("hello 2");
 		} else if (Cellline == "ENDO" || Cellline == "HUV" ){
-			$(".assaydata").hide();	
-			$("#ENDO_HUV").show();	
+			$(".all_assays").hide();	
+			$("#ENDO_HUV_assays").show();	
 			// alert("hello 3");
 		} else if (Cellline == "Neur"){
-			$(".assaydata").hide();	
-			$("#Neur").show();	
+			$(".all_assays").hide();	
+			$("#Neur_assays").show();	
 			// alert("hello 4");
 		}else if (Cellline == "Macro"){
-			$(".assaydata").hide();	
-			$("#Macro").show();	
+			$(".all_assays").hide();	
+			$("#Macro_assays").show();	
 			// alert("hello 5");
 		}else if (Cellline == "A375" || Cellline == "A549" || Cellline == "HepG2" || Cellline == "HepaRG" || 
 				Cellline == "MCF7" || Cellline == "HT29" || Cellline == "LN229" || Cellline == "HEK10205f" || 
 				Cellline == "HLMVEC" || Cellline == "HMePC" || Cellline == "SH-SY5Y"){
-			$(".assaydata").hide();	
-			$("#England").show();	
+			$(".all_assays").hide();	
+			$("#England_assays").show();	
 			// alert("hello 6");
 			}
-	
+	$("#step2").show();
 	$("#step3").hide();
 	$("#step4").hide();
 	$("#step5").hide();
 	$("#step6").hide();
 	 }	
+
+
+function selectphenotypes(){		// step 2 to step 3){
+	alert("selectphenotypes.");
+	var Cellline = $('#cellline option:selected').val();
+	
+	var assay = "";
+	// alert("assay: " + assay);
+	if (Cellline == "CM"){
+		assay = $("select[name*='CM_assays'] option:selected").val();
+		if(assay =="Ca2"){
+			$(".all_phenotypes").hide();	
+			$("#Ca2_pheno").show();	
+			// alert("hello 5");
+		} else if(assay =="Hoechst"){
+			$(".all_phenotypes").hide();	
+			$("#Hoechst_2_pheno").show();	
+		} else{
+			$(".all_phenotypes").hide();	
+			$("#Mito_pheno").show();	
+			}
+		$("#step3").show();
+		}
+	if (Cellline == "HEP"){
+		alert("selectphenotypes 1-2.");
+		assay = $("select[name*='HEP_assays'] option:selected").val();
+		if(assay =="Hoechst"){
+			alert("selectphenotypes 2.");
+			$(".all_phenotypes").hide();	
+			$("#Hoechst_3_pheno").show();	
+			$("#step3").show();
+		}else if(assay =="Mito"){
+			$(".all_phenotypes").hide();	
+			$("#Mito_pheno").show();
+			$("#step3").show();
+		}else{selectTimePoint();
+			}
+		}
+	if (Cellline == "ENDO" || Cellline == "HUV"){
+		assay = $("select[name*='ENDO_HUV_assays'] option:selected").val();
+		if(assay =="Hoechst"){
+			$(".all_phenotypes").hide();	
+			$("#Hoechst_3_pheno").show();	
+			$("#step3").show();
+		}else if(assay =="Mito"){
+			$(".all_phenotypes").hide();	
+			$("#Mito_pheno").show();
+			$("#step3").show();
+		}else if(assay =="TubForm"){
+			$(".all_phenotypes").hide();	
+			$("#TubForm").show();
+			$("#step3").show();
+		}else{selectTimePoint();
+			}
+		}
+	if (Cellline == "Neur"){
+		assay = $("select[name*='Neur_assays'] option:selected").val();
+		if(assay =="Hoechst"){
+			$(".all_phenotypes").hide();	
+			$("#Hoechst_3_pheno").show();	
+			$("#step3").show();
+		}else if(assay =="Mito"){
+			$(".all_phenotypes").hide();	
+			$("#Mito_pheno").show();
+			$("#step3").show();
+		}else if(assay =="NeurOut"){
+			$(".all_phenotypes").hide();	
+			$("#NeurOut").show();
+			$("#step3").show();
+		}else{selectTimePoint();
+			}
+		}
+	
+	
+	// alert("selecting phenotypes");
+	$("#step4").hide();
+	$("#step5").hide();
+	$("#step6").hide();
+
+	
+}
+
+
+
+
+function selectTimePoint(){							// step 3 to 4
+	alert("select time point.");
+	var Cellline = $('#cellline option:selected').val();
+	var assay = $("select[name*='CM_assay'] option:selected").val();
+	// alert("assay: " + assay);
+	if (Cellline == "CM"){
+		if(assay =="Ca2"){
+			$(".all_time_div").hide();	
+			$("#timepoints_4").show();	
+			// alert("hello 5");
+		} else{
+			$(".all_time_div").hide();	
+			$("#timepoints_2").show();	
+			}
+		$("#step4").show();
+		$("#step5").hide();
+		$("#step6").hide();
+	} else if (Cellline == "HEP" || Cellline == "ENDO" || Cellline == "HUV" || 
+		Cellline == "Neur" || Cellline == "Macro"){
+		step4_to_5();
+		}
+	else{step5_to_6();}	
+}
+
+
+
+function step4_to_5(){		// step 4 to step 5
+	$("#step5").show();
+	$("#step6").hide();
+}
+
+function step5_to_6(){		// step 5 to step 6
+	$("#step6").show();
+}
 
 
 function backRefresh(){
@@ -258,23 +376,8 @@ function backRefresh(){
 	jQuery("#assays").prop('disabled',true);	
 }
 
-function selectTimePoint(){							// step 2 to 3
-	// alert("select time point.");
-	var lCellLines=$('input[name=celllines]:checked').val();
-	$("#step3").show();
-	$("#step4").hide();
-	$("#step5").hide();
-	$("#step6").hide();
 
-	if(lCellLines>"6" || lCellLines<"17" ){
-		tp.options[1].hidden=true;
-		tp.options[2].hidden=true;
-		tp.options[3].hidden=true;
-		tp.options[4].hidden=true;
-		
-	}
 
-}
 function backRefreshTime(){
 	tp.options[1].hidden=false;
 	tp.options[2].hidden=false;
@@ -284,106 +387,7 @@ function backRefreshTime(){
 	jQuery("#times").prop('disabled',true);
 }
 	
-function selectphenotypes(){		// step 3 to step 4){
-	var lAssay=jQuery("#assay").val();
-	$("#step4").show();
-	$("#step5").hide();
-	$("#step6").hide();
-	
 
-	ph.options[1].hidden=true;
-	ph.options[2].hidden=true;
-	ph.options[3].hidden=true;
-	ph.options[4].hidden=true;
-	ph.options[5].hidden=true;
-	ph.options[6].hidden=true;
-	ph.options[7].hidden=true;
-	ph.options[8].hidden=true;
-	ph.options[9].hidden=true;
-	ph.options[10].hidden=true;
-	ph.options[11].hidden=true;
-	ph.options[12].hidden=true;
-	ph.options[13].hidden=true;
-	ph.options[14].hidden=true;
-	ph.options[15].hidden=true;
-	ph.options[16].hidden=true;
-	ph.options[17].hidden=true;
-	ph.options[18].hidden=true;
-	ph.options[19].hidden=true;
-	ph.options[20].hidden=true;
-	ph.options[21].hidden=true;
-	ph.options[22].hidden=true;
-	ph.options[23].hidden=true;
-	ph.options[24].hidden=true;
-	ph.options[25].hidden=true;
-	ph.options[26].hidden=true;
-	ph.options[27].hidden=true;
-	
-	if(lAssay==1){
-		ph.options[1].hidden=false;
-		ph.options[2].hidden=false;
-		ph.options[3].hidden=false;
-		ph.options[4].hidden=false;
-		ph.options[5].hidden=false;
-		ph.options[6].hidden=false;
-		ph.options[7].hidden=false;
-		ph.options[8].hidden=false;
-		
-	}else if(lAssay==2){
-		ph.options[8].hidden=false;
-		ph.options[9].hidden=false;
-		ph.options[28].hidden=false;
-		
-		
-	}else if(lAssay==3){
-		ph.options[10].hidden=false;
-		ph.options[11].hidden=false;
-		ph.options[12].hidden=false;
-		
-	}else if(lAssay==9){
-		ph.options[13].hidden=false;
-	
-		
-	}else if(lAssay==10){
-		ph.options[14].hidden=false;
-	
-		
-	}else if(lAssay==11){
-		ph.options[15].hidden=false;
-		ph.options[16].hidden=false;
-		ph.options[17].hidden=false;
-		ph.options[18].hidden=false;
-	
-		
-	}else if(lAssay==12){
-		ph.options[19].hidden=false;
-		ph.options[20].hidden=false;
-		ph.options[21].hidden=false;
-		ph.options[22].hidden=false;	
-	}else if(lAssay==13){
-		ph.options[23].hidden=false;	
-		
-	}else if(lAssay==14){
-		ph.options[24].hidden=false;
-		ph.options[26].hidden=false;
-		
-	}else if(lAssay==15){
-		ph.options[25].hidden=false;
-		ph.options[27].hidden=false;
-		
-	}
-   
-	
-}
-
-function step4_to_5(){		// step 4 to step 5
-	$("#step5").show();
-	$("#step6").hide();
-}
-
-function step5_to_6(){		// step 5 to step 6
-	$("#step6").show();
-}
 
 
 function refreshphenotype(){
