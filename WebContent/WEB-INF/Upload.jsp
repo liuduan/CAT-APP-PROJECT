@@ -129,7 +129,7 @@
 		            		<h4>
 		            	<li style='vertical-align:middle;'>
 		            		<span class="text-primary"><b>Step 1 / 6. Please select a cell line: </b></span>
-							<select name= "celllines" id = "cellline" onchange="getAssayNames()" style='vertical-align:middle;'>
+							<select name= "cellline" id = "cellline" onchange="getAssayNames()" style='vertical-align:middle;'>
 								<option value="CM">1. iCell® Cardiomyocytes </option>
 								<option value="HEP">2. iCell® Hepatocytes 2.0 </option>
 								<option value="ENDO">3. iCell Endothelial Cells </option>
@@ -147,10 +147,11 @@
 								<option value="HLMVEC">15. HLMVEC Human Lung Microvascular Endothelial Cells </option>
 								<option value="HMePC">16. HMePC Human Mammary Epithelial Cell </option>
 								<option value="SH-SY5Y">17. SH-SY5Y Neuroblastoma </option>
-
 							</select>
+							
 							<a href="#" onclick="getAssayNames()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
+						<button type="submit">submit</button>
 				     </div>
 				</div>
 					
@@ -160,55 +161,54 @@
 			   		<div id="CM_assays" class="all_assays" style="display: none;">
 				      	<h4><li>
 				        	<span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='CM_assays' id='assay' onchange='selectphenotypes()'>
-				        		<option value='NA'>----</option>
+				        	<select id='CM_assay_select' onchange='selectphenotypes()'>
 								<option value='Ca2'>Ca2+ flux</option>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 							</select>
+							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>
 					<div id="HEP_assays" class="all_assays" style="display: none;">
 						<h4><li>
 							<span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='HEP_assays id='assay2' onchange='selectphenotypes()'>
-				        		<option value='NA'>----</option>
+				        	<select id='HEP_assay_select' onchange='selectphenotypes()'>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 								<option value='CalceinAM'>Cell Viability</option>
 								<option value='LipidTOX'>Lipid Accumulation</option>
 							</select>
+							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>	
 					<div id="ENDO_HUV_assays" class="all_assays" style="display: none; float: left;">
 						<h4><li>
 					    <span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='ENDO_HUV_assays' id='assay4' onchange='selectphenotypes()'>
-				        		<option value='NA'>----</option>
+				        	<select id='ENDO_HUV_assay_select' onchange='selectphenotypes()'>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 								<option value='CalceinAM'>Cell Viability</option>
 								<option value='TubForm'>Tube Formation</option>
 							</select>
+							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>	
 					<div id="Neur_assays" class="all_assays" style="display: none; float: left;">
 					    <h4><li>
 					    <span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='Neur_assays' id='assay5' onchange='selectphenotypes()'>
-				        		<option value='NA'>----</option>
+				        	<select id='Neur_assay_select' onchange='selectphenotypes()'>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 								<option value='CalceinAM'>Cell Viability</option>
 								<option value='NeurOut'>Neurite Outgrowth</option>
 							</select>
+							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>	
 					<div id="Macro_assays" class="all_assays" style="display: none; float: left;">
 					    <h4><li>
 					    <span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='Macro_assays' id='assay6' onchange='selectphenotypes()'>
-				        		<option value='NA'>----</option>
+				        	<select id='Macro_assay_select' onchange='selectphenotypes()'>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 								<option value='CalceinAM'>Cell Viability</option>
@@ -216,19 +216,20 @@
 								<option value='Cyto'>Cytokines</option>
 								<option value='MacroOut'>Macroite Outgrowth</option>
 							</select>
+							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>
 					<div id="England_assays" class="all_assays" style="display: none; float: left;">
 					    <h4><li>
 					    	<span class="text-primary"><b>Step 2 / 6. Please select an assay name: </b></span>
-				        	<select name='England_assays' id='assay7' onchange='selectphenotypes()'>
-								<option value='NA'>----</option>
+				        	<select id='England_assay_select' onchange='selectphenotypes()'>
 								<option value='CMFDA'>Cell membrane integrity</option>
 								<option value='ROS'>Reactive Oxygen Species</option>
 								<option value='CASP'>Apoptosis</option>
 								<option value='PROT'>Protein synthesis inhibition</option>
 								<option value='ATP'>ATP Quantitation Assay</option>
 							</select>
+							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>
 			    </div>
@@ -243,7 +244,7 @@
 				    <div id="Ca2_pheno" class="all_phenotypes">
 				    	<h4> <li>
 				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
-				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+				            <select id="Ca2_pheno_select" onchange="selectTimePoint()">
     							<option value="PF">Peak Frequency</option>
     							<option value="PW">Peak Width</option>
     							<option value="PW10">Peak Width at 10% Amplitude</option>
@@ -258,7 +259,7 @@
 				    <div id="Hoechst_2_pheno" class="all_phenotypes">
 				    	<h4> <li>
 				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
-				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+				            <select id="Hoechst_2_pheno_select" onchange="selectTimePoint()">
     							<option value="TC">Total cell number</option>
     							<option value="NMA">Nuclei Mean Area</option>
 							</select>
@@ -268,7 +269,7 @@
 				    <div id="Mito_pheno" class="all_phenotypes">
 				    	<h4> <li>
 				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
-				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+				            <select id="Mito_pheno_select" onchange="selectTimePoint()">
     							<option value="posMT">Number of Cells with Intact Mitochondria</option>
     							<option value="MT_MSA">Mitochondria Mean Stain Area</option>
     							<option value="MT_ACMA">All Cells Mean Area</option>
@@ -279,7 +280,7 @@
 				     <div id="Hoechst_3_pheno" class="all_phenotypes">
 				    	<h4> <li>
 				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
-				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+				            <select id="Hoechst_3_pheno_select" onchange="selectTimePoint()">
     							<option value="TC">Total cell number</option>
     							<option value="NI">Nuclei Intensity</option>
     							<option value="NMA">Nuclei Mean Area</option>
@@ -287,10 +288,10 @@
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
 				    </div>
-				    <div id="TubForm" class="all_phenotypes">
+				    <div id="TubForm_pheno" class="all_phenotypes">
 				    	<h4> <li>
 				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
-				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+				            <select id="TubForm_pheno_select" onchange="selectTimePoint()">
     							<option value="TTL">Total Tube Length</option>
     							<option value="MTL">Mean Tube Length</option>
     							<option value="TTA">Total Tube Area</option>
@@ -299,14 +300,44 @@
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
 				    </div>
-				    <div id="NeurOut" class="all_phenotypes">
+				    <div id="NeurOut_pheno" class="all_phenotypes">
 				    	<h4> <li>
 				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
-				            <select name="phenotypes" id="ph2" onchange="selectTimePoint()">
+				            <select id="NeurOut_pheno_select" onchange="selectTimePoint()">
     							<option value="TotOut">Total Outgrowth</option>
     							<option value="MeOutCe">Mean Outgrowth per Cell</option>
     							<option value="TotBra">Total Branches</option>
     							<option value="TotPr">Total Processes</option>
+							</select>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>			            
+				    </div>
+				    <div id="Phag_pheno" class="all_phenotypes">
+				    	<h4> <li>
+				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
+				            <select id="pheno_Phag_select" onchange="selectTimePoint()">
+    							<option value="PhagCe">Phagocytic Cells</option>
+    							<option value="PhagAr">Phagocytic Area</option>
+							</select>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>			            
+				    </div>
+				    <div id="Cyto_pheno" class="all_phenotypes">
+				    	<h4> <li>
+				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
+				            <select id="Cyto_pheno_select" onchange="selectTimePoint()">
+    							<option value="Il6">Il-6</option>
+    							<option value="Il1a">Il-1a</option>
+							</select>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>			            
+				    </div>
+				    <div id="MacroOut_pheno" class="all_phenotypes">
+				    	<h4> <li>
+				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
+				            <select id="MacroOut_pheno_select" onchange="selectTimePoint()">
+    							<option value="MIP1a">MIP-1a</option>
+    							<option value="TNFa">TNF-a</option>
 							</select>
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
@@ -321,7 +352,7 @@
 			    	<div id="timepoints_4" class="all_time_div" style="display:;">
 				         <h4><li>
 				            <span class="text-primary"><b>Step 4 / 6. Please select a time point:</b></span>
-				           	<select name="timepoint" id="tp" onchange="step4_to_5()">
+				           	<select id="timepoints_4_select" onchange="step4_to_5()">
 								<option value="30min">30 minutes</option>
 								<option value="60min">60 minutes</option>
 								<option value="90min">90 minutes</option>
@@ -333,7 +364,7 @@
 					<div id="timepoints_2" class="all_time_div" style="display:;">
 				         <h4><li>
 				            <span class="text-primary"><b>Step 4 / 6. Please select a time point:</b></span>
-				           	<select name="timepoint" id="tp" onchange="step4_to_5()">
+				           	<select id="timepoints_2_select" onchange="step4_to_5()">
 								<option value="90min">90 minutes</option>
 								<option value="24hr">24 hours</option>
 							</select>
@@ -343,16 +374,16 @@
 			 	</div>
 			 	
 			 	
-	
+				<br></br>    
 				<div id="step5" style = "display:none; float: left ;">
 					<div class="form-group"  onchange="step5_to_6()"><h4>
 				        <label class="sr-only" for="form-facebook">Select a Plate</label>
 				        <li>
 				        <span class="text-primary"><b>Step 5 / 6. Please select a plate: &nbsp;</b></span>
-						<input type="radio" name="form-Plate" id="11"  value="1" /> 1x &nbsp;&nbsp;&nbsp;
-						<input type="radio" name="form-Plate" id="21"  value="2" /> 10x &nbsp;&nbsp;&nbsp;
-						<input type="radio" name="form-Plate" id="31"  value="3" /> 100x &nbsp;&nbsp;&nbsp;
-						<input type="radio" name="form-Plate" id="41"  value="4" /> 1000x
+						<input type="radio" name="dilution" id="11"  value="x1" /> 1x &nbsp;&nbsp;&nbsp;
+						<input type="radio" name="dilution" id="21"  value="x10" /> 10x &nbsp;&nbsp;&nbsp;
+						<input type="radio" name="dilution" id="31"  value="x100" /> 100x &nbsp;&nbsp;&nbsp;
+						<input type="radio" name="dilution" id="41"  value="x1000" /> 1000x
 						</li>
 						</h4>
 					</div>
@@ -371,11 +402,12 @@
 					</li></h4>
 					<br>
 					</div>
-					<br></br>
+					<br>.</br>
 					<div style="background-color:; text-align: left; margin-left: 50px;">
 						<h4>
 							Choose a file to upload: 
-							<div style="background-color: ; position: absolute; margin-left: 200px; margin-top: -20px">
+							<div style="background-color: ; position: relative; left: 100px; top: 20px;
+								margin-left: 200px; margin-top: -20px">
 								<input type="file"  id="uploadfile" name="file" size="40" onclick="validateFile()"></input>
 							</div>
 						</h4>

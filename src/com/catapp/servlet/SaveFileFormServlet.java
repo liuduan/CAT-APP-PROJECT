@@ -68,50 +68,57 @@ public class SaveFileFormServlet extends HttpServlet {
 		System.out.println("SaveFileFormServlet A \n");
 		
 		logger.info("File Save Started");
-		String lCellLine  = request.getParameter("celllines");
-		String lPhenoType = request.getParameter("phenotypes");
-		String lAssayData = request.getParameter("assaydata");
+		
+		String lCellLine  = request.getParameter("cellline");		// not getting data.
+		String lAssay = request.getParameter("assay");
+		String lPhenoType = request.getParameter("phenotype");
 		String lTimePoint = request.getParameter("timepoint");
-		String lPlate 	  = request.getParameter("form-Plate");
+		String lDilution  = request.getParameter("dilution");
 		Connection lConn  = null;
 		String lFileName  = null;
 		String lFileExtension = null;
 		String lDescription = null;
 		User lUser =(User)request.getSession().getAttribute("user");
-		//String lPlateInfo = request.getParameter("form-Plate1");
+		//String lDilutionInfo = request.getParameter("form-Plate1");
 		try{
 			
 			System.out.println("SaveFileFormServlet B \n");
 			lConn = new DBConnection().getConnection();
-			if(ServletFileUpload.isMultipartContent(request)){
+			if(ServletFileUpload.isMultipartContent(request)){		
 				
 				System.out.println("SaveFileFormServlet C \n");
 				List<FileItem> multiparts = new ServletFileUpload( new DiskFileItemFactory()).parseRequest(request);
 				for(FileItem item : multiparts){
 					logger.info("Inside For Loop");
 					if(item.isFormField()){
-						if(item.getFieldName().equals("celllines")){
+						if(item.getFieldName().equals("cellline")){
 							lCellLine=item.getString();
-						}else if(item.getFieldName().equals("phenotypes")){
+							System.out.println("Cell Line 3: " + lCellLine);
+						}else if(item.getFieldName().equals("assay")){
+							lAssay=item.getString();
+							System.out.println("assay: " + lAssay);
+						}else if(item.getFieldName().equals("phenotype")){
 							lPhenoType=item.getString();
-						}else if(item.getFieldName().equals("phenotypes")){
-							lPhenoType=item.getString();
-						}else if(item.getFieldName().equals("assaydata")){
-							lAssayData=item.getString();
+							System.out.println("PhenoType: " + lPhenoType);
 						}else if(item.getFieldName().equals("timepoint")){
 							lTimePoint=item.getString();
-							System.out.println("TimePoint String: " + lTimePoint);
-						}else if(item.getFieldName().equals("form-Plate")){
-							lPlate=item.getString();
+							System.out.println("TimePoint: " + lTimePoint);
+						}else if(item.getFieldName().equals("dilution")){
+							lDilution=item.getString();
+							System.out.println("Dilution: " + lDilution);
 						}else if(item.getFieldName().equals("desc")){
 							lDescription=item.getString();
+							System.out.println("Description: " + lDescription);
 						}
 						
 					}
+					
+					
+					//====================================================
 					if(!item.isFormField()){
-						
+						/*
 						lFileName = new ChemData().getTagNamesofInputs("celllines",lConn).get(Long.valueOf(lCellLine))+"_"+
-								new ChemData().getTagNamesofInputs("assaynames",lConn).get(Long.valueOf(lAssayData))+"_"+
+								new ChemData().getTagNamesofInputs("assaynames",lConn).get(Long.valueOf(lAssay))+"_"+
 								new ChemData().getTimePoints().get(Long.valueOf(lTimePoint))+"_"+
 								new ChemData().getTagNamesofInputs("phenotypes",lConn).get(Long.valueOf(lPhenoType));
 						
@@ -121,27 +128,44 @@ public class SaveFileFormServlet extends HttpServlet {
 							//RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp?failure=2");
 						    //rd.forward(request, response);
 						}
+						
 						String name = new File(item.getName()).getName();
 						if(name!=null){
 							if(name.indexOf(".")!=-1){
 								lFileExtension =name.split("\\.")[1];
 							}
 						}
+						//
+						// String name = "";
+						
 						String lUploadPath = UPLOAD_DIRECTORY+File.separator+
-								new ChemData().getTagNames(Long.valueOf(lCellLine))+File.separator+lPlate;
+								new ChemData().getTagNames(Long.valueOf(lCellLine))+File.separator+lDilution;
 						File lFile = new File(lUploadPath);
-						if(!lFile.exists()){
-							lFile.mkdirs();
-						}
+						
+						// if(!lFile.exists()){
+						// 	lFile.mkdirs();
+						// }
+						*/
+						
+						String lUploadPath = "C:/Users/CATAPP/serverfiles/CM/1";
+						String name = "yue";
+						lFileExtension = "xlsx";
 						
 						System.out.println("SaveFileFormServlet C2 lUploadPath: " + lUploadPath + ", " + name);
 						System.out.println("SaveFileFormServlet C2 name: " + name);
+						System.out.println("File.separator: " + File.separator);
+						
+						
+						
 						// write file here.
 						item.write( new File(lUploadPath + File.separator + name));
 						File lFile1 = new File(lUploadPath + File.separator + name);
 						
 						System.out.println("SaveFileFormServlet C3");
 						System.out.println("SaveFileFormServlet replaced name: " + lFileName+"."+lFileExtension);
+						
+						
+						lFileName = "efg";
 						// rename is here.
 						lFile1.renameTo(new File(lUploadPath + File.separator + lFileName+"."+lFileExtension));
 						System.out.println("SaveFileFormServlet C4");
@@ -156,8 +180,8 @@ public class SaveFileFormServlet extends HttpServlet {
 			ChemFile lFile = new ChemFile();
 			lFile.setCell_line_id(Long.valueOf(lCellLine));
 			lFile.setPhenotype_id(Long.valueOf(lPhenoType));
-			lFile.setAssay_type(Long.valueOf(lAssayData));
-			lFile.setPlate_id(Long.valueOf(lPlate));
+			lFile.setAssay_type(Long.valueOf(lAssay));
+			lFile.setPlate_id(Long.valueOf(lDilution));
 			System.out.println("SaveFileFormServlet D2 Time Point: " + lTimePoint);
 			lFile.setTimepoint(Integer.valueOf(lTimePoint));
 			lFile.setFile_name(lFileName);

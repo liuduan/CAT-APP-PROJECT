@@ -204,27 +204,33 @@ function getAssayNames(){					// step 1 to 2
 	if(Cellline == "CM"){
 		// alert("hello");
 		$(".all_assays").hide();	
+		$('#CM_assay_select').attr('name', 'assay');
 		$("#CM_assays").show();
 		}else if (Cellline == "HEP"){
 			$(".all_assays").hide();	
+			$('#HEP_assay_select').attr('name', 'assay');
 			$("#HEP_assays").show();			
 			// alert("hello 2");
 		} else if (Cellline == "ENDO" || Cellline == "HUV" ){
 			$(".all_assays").hide();	
+			$('#ENDO_HUV_assay_select').attr('name', 'assay');
 			$("#ENDO_HUV_assays").show();	
 			// alert("hello 3");
 		} else if (Cellline == "Neur"){
 			$(".all_assays").hide();	
+			$('#Neur_assay_select').attr('name', 'assay');
 			$("#Neur_assays").show();	
 			// alert("hello 4");
 		}else if (Cellline == "Macro"){
 			$(".all_assays").hide();	
+			$('#Macro_assay_select').attr('name', 'assay');
 			$("#Macro_assays").show();	
 			// alert("hello 5");
 		}else if (Cellline == "A375" || Cellline == "A549" || Cellline == "HepG2" || Cellline == "HepaRG" || 
 				Cellline == "MCF7" || Cellline == "HT29" || Cellline == "LN229" || Cellline == "HEK10205f" || 
 				Cellline == "HLMVEC" || Cellline == "HMePC" || Cellline == "SH-SY5Y"){
 			$(".all_assays").hide();	
+			$('#England_assay_select').attr('name', 'assay');
 			$("#England_assays").show();	
 			// alert("hello 6");
 			}
@@ -237,99 +243,144 @@ function getAssayNames(){					// step 1 to 2
 
 
 function selectphenotypes(){		// step 2 to step 3){
-	alert("selectphenotypes.");
+	// alert("selectphenotypes.");
 	var Cellline = $('#cellline option:selected').val();
 	
 	var assay = "";
-	// alert("assay: " + assay);
-	if (Cellline == "CM"){
-		assay = $("select[name*='CM_assays'] option:selected").val();
-		if(assay =="Ca2"){
-			$(".all_phenotypes").hide();	
-			$("#Ca2_pheno").show();	
-			// alert("hello 5");
-		} else if(assay =="Hoechst"){
-			$(".all_phenotypes").hide();	
-			$("#Hoechst_2_pheno").show();	
-		} else{
-			$(".all_phenotypes").hide();	
-			$("#Mito_pheno").show();	
-			}
-		$("#step3").show();
-		}
-	if (Cellline == "HEP"){
-		alert("selectphenotypes 1-2.");
-		assay = $("select[name*='HEP_assays'] option:selected").val();
-		if(assay =="Hoechst"){
-			alert("selectphenotypes 2.");
-			$(".all_phenotypes").hide();	
-			$("#Hoechst_3_pheno").show();	
-			$("#step3").show();
-		}else if(assay =="Mito"){
-			$(".all_phenotypes").hide();	
-			$("#Mito_pheno").show();
-			$("#step3").show();
-		}else{selectTimePoint();
-			}
-		}
-	if (Cellline == "ENDO" || Cellline == "HUV"){
-		assay = $("select[name*='ENDO_HUV_assays'] option:selected").val();
-		if(assay =="Hoechst"){
-			$(".all_phenotypes").hide();	
-			$("#Hoechst_3_pheno").show();	
-			$("#step3").show();
-		}else if(assay =="Mito"){
-			$(".all_phenotypes").hide();	
-			$("#Mito_pheno").show();
-			$("#step3").show();
-		}else if(assay =="TubForm"){
-			$(".all_phenotypes").hide();	
-			$("#TubForm").show();
-			$("#step3").show();
-		}else{selectTimePoint();
-			}
-		}
-	if (Cellline == "Neur"){
-		assay = $("select[name*='Neur_assays'] option:selected").val();
-		if(assay =="Hoechst"){
-			$(".all_phenotypes").hide();	
-			$("#Hoechst_3_pheno").show();	
-			$("#step3").show();
-		}else if(assay =="Mito"){
-			$(".all_phenotypes").hide();	
-			$("#Mito_pheno").show();
-			$("#step3").show();
-		}else if(assay =="NeurOut"){
-			$(".all_phenotypes").hide();	
-			$("#NeurOut").show();
-			$("#step3").show();
-		}else{selectTimePoint();
-			}
-		}
-	
-	
-	// alert("selecting phenotypes");
 	$("#step4").hide();
 	$("#step5").hide();
-	$("#step6").hide();
 
+	// alert("assay: " + assay);
 	
+	if (Cellline == "A375" || Cellline == "A549" || Cellline == "HepG2" || Cellline == "HepaRG" || 
+			Cellline == "MCF7" || Cellline == "HT29" || Cellline == "LN229" || Cellline == "HEK10205f" || 
+			Cellline == "HLMVEC" || Cellline == "HMePC" || Cellline == "SH-SY5Y"){
+		$("#step3").hide();	
+		$("#step6").show();
+	}else{
+		if (Cellline == "CM"){
+			assay = $("#CM_assay_select option:selected").val();
+			// alert("assay: " + assay);
+			if(assay =="Ca2"){
+				$('#Ca2_pheno_select').attr('name', 'phenotype');
+				$(".all_phenotypes").hide();	
+				$("#Ca2_pheno").show();	
+			} else if(assay =="Hoechst"){
+				$(".all_phenotypes").hide();	
+				$('#Hoechst_2_pheno_select').attr('name', 'phenotype');
+				$("#Hoechst_2_pheno").show();	
+			} else{
+				$(".all_phenotypes").hide();	
+				$("#Mito_pheno").show();	
+				}
+			$("#step3").show();
+			}
+		if (Cellline == "HEP"){
+			// alert("selectphenotypes 1-2.");
+			assay = $("#HEP_assay_select option:selected").val();
+			if(assay =="Hoechst"){
+				// alert("selectphenotypes 2.");
+				$(".all_phenotypes").hide();	
+				$('#Hoechst_3_pheno_select').attr('name', 'phenotype');
+				$("#Hoechst_3_pheno").show();	
+				$("#step3").show();
+			}else if(assay =="Mito"){
+				$(".all_phenotypes").hide();	
+				$('#Mito_pheno_select').attr('name', 'phenotype');
+				$("#Mito_pheno").show();
+				$("#step3").show();
+			}else{selectTimePoint();
+				}
+			}
+		if (Cellline == "ENDO" || Cellline == "HUV"){
+			assay = $("#ENDO_HUV_assay_select option:selected").val();
+			if(assay =="Hoechst"){
+				$(".all_phenotypes").hide();	
+				$('#Hoechst_3_pheno_select').attr('name', 'phenotype');
+				$("#Hoechst_3_pheno").show();	
+				$("#step3").show();
+			}else if(assay =="Mito"){
+				$(".all_phenotypes").hide();	
+				$('#Mito_pheno_select').attr('name', 'phenotype');
+				$("#Mito_pheno").show();
+				$("#step3").show();
+			}else if(assay =="TubForm"){
+				$(".all_phenotypes").hide();	
+				$('#TubForm_pheno_select').attr('name', 'phenotype');
+				$("#TubForm_pheno").show();
+				$("#step3").show();
+			}else{selectTimePoint();
+				}
+			}
+		if (Cellline == "Neur"){
+			assay = $("#Neur_assay_select option:selected").val();
+			if(assay =="Hoechst"){
+				$(".all_phenotypes").hide();	
+				$('#Hoechst_3_pheno_select').attr('name', 'phenotype');
+				$("#Hoechst_3_pheno").show();	
+				$("#step3").show();
+			}else if(assay =="Mito"){
+				$(".all_phenotypes").hide();	
+				$('#Mito_pheno_select').attr('name', 'phenotype');
+				$("#Mito_pheno").show();
+				$("#step3").show();
+			}else if(assay =="NeurOut"){
+				$(".all_phenotypes").hide();	
+				$('#NeurOut_pheno_select').attr('name', 'phenotype');
+				$("#NeurOut_pheno").show();
+				$("#step3").show();
+			}else{
+				// alert("else");
+				$("#step3").hide();
+				selectTimePoint();
+				// alert("else 2.0");
+			}
+		}
+		if (Cellline == "Macro"){
+			assay = $("#Macro_assay_select option:selected").val();
+			if(assay =="Hoechst"){
+				$(".all_phenotypes").hide();	
+				$('#Hoechst_3_pheno_select').attr('name', 'phenotype');
+				$("#Hoechst_3_pheno").show();	
+				$("#step3").show();
+			}else if(assay =="Phag"){
+				$(".all_phenotypes").hide();	
+				$('#Phag_pheno_select').attr('name', 'phenotype');
+				$("#Phag_pheno").show();
+				$("#step3").show();
+			}else if(assay =="Cyto"){
+				$(".all_phenotypes").hide();	
+				$('#Cyto_pheno_select').attr('name', 'phenotype');
+				$("#Cyto_pheno").show();
+				$("#step3").show();
+			}else if(assay =="MacroOut"){
+				$(".all_phenotypes").hide();	
+				$('#MacroOut_pheno_select').attr('name', 'phenotype');
+				$("#MacroOut_pheno").show();
+				$("#step3").show();
+			}else{
+				$("#step3").hide();
+				selectTimePoint();
+				}
+			}
+		}
 }
 
 
-
-
 function selectTimePoint(){							// step 3 to 4
-	alert("select time point.");
+	// alert("select time point.");
 	var Cellline = $('#cellline option:selected').val();
-	var assay = $("select[name*='CM_assay'] option:selected").val();
+	var assay = "";
 	// alert("assay: " + assay);
 	if (Cellline == "CM"){
+		assay = $("#CM_assay_select option:selected").val();
 		if(assay =="Ca2"){
+			$('#timepoints_4_select').attr('name', 'timepoint');
 			$(".all_time_div").hide();	
 			$("#timepoints_4").show();	
 			// alert("hello 5");
 		} else{
+		    $('#timepoints_2_select').attr('name', 'timepoint');
 			$(".all_time_div").hide();	
 			$("#timepoints_2").show();	
 			}
