@@ -403,20 +403,23 @@
 					<br>
 					</div>
 					<br>.</br>
-					<div style="background-color:; text-align: left; margin-left: 50px;">
+					<div style="position: absolute; left: 15%; text-align: center; background-color: beige; margin: auto; 
+						margin-top: 10px; margin-left: 45%;">
+						 &nbsp;
 						<h4>
 							Choose a file to upload: 
-							<div style="background-color: ; position: relative; left: 100px; top: 20px;
-								margin-left: 200px; margin-top: -20px">
+							<div style="background-color: beige; float:left;  position: relative; left: 50px; top: 10px;
+								margin-left: 200px; margin-top: 5px">
 								<input type="file"  id="uploadfile" name="file" size="40" onclick="validateFile()"></input>
 							</div>
 						</h4>
+						
 					</div>
 					
 					
 					
-					<div style="position: absolute; text-align: center; background-color: ; margin: auto; 
-						margin-top: 20px; margin-left: 45%;">
+					<div style="position: absolute; text-align: center; background-color: lightblue; margin: auto; 
+						margin-top: 10px; margin-left: 45%;">
 						
 						<button type="submit" name="sequencesave" id="sequencesave" class="btn btn-submit" disabled >
 							Upload

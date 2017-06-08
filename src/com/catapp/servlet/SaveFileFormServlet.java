@@ -27,6 +27,7 @@ import com.catapp.action.SaveExceltoDB;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.ChemFile;
 import com.catapp.entity.User;
+import com.mysql.jdbc.Statement;
 
 /**
  * Servlet implementation class SaveFileFormServlet
@@ -174,6 +175,10 @@ public class SaveFileFormServlet extends HttpServlet {
 				
 				
 			}		
+			
+			// Save_file_info2DB(String pFileName,Connection pConnection);
+			Save_file_info2DB("query_string_here.", lConn);
+			
 			///// *************************** Data save started ************************************/////
 			System.out.println("SaveFileFormServlet D \n");
 			
@@ -215,7 +220,7 @@ public class SaveFileFormServlet extends HttpServlet {
 			
 
 			if(lFile.getEntityId()!=null){
-				HashMap<Long,String>lPhenoMap =  new ChemData().getNamesofInputs("phenotypes",lConn);
+				HashMap<Long,String>lPhenoMap =  new ChemData().getNamesofInputs("phenotype",lConn);
 				HashMap<Long,String>lAssayMap =  new ChemData().getNamesofInputs("assaynames",lConn);
 				HashMap<Long,String>lCellMap  =  new ChemData().getNamesofInputs("celllines",lConn);
 				HashMap<Long,String>lTimMap   =  new ChemData().getTimePoints();
@@ -285,7 +290,38 @@ public class SaveFileFormServlet extends HttpServlet {
 		}
 		
 		return lExistsFlag;
+	}
+	
+	public boolean Save_file_info2DB(String pFileName,Connection pConnection){
+		boolean lExistsFlag      = false;
+		PreparedStatement lPstmt = null;
+		ResultSet lRst 			 = null;
 		
+		System.out.println("SaveFileFormServlet before D");
+		try{
+			// String lQuery= "select * From file_info where file_name=? and rowstate!=-1";
+			String lQuery= "INSERT INTO file_info (file_name, file_path, cell_line_id) " + 
+					"VALUES ('Hello', 'C:/Users', 2)";
+			
+			// String lQuery= "select * from file_info";
+			lPstmt=pConnection.prepareStatement(lQuery);
+			// lPstmt.setString(1, pFileName);
+			
+			// lRst= lPstmt.executeUpdate();
+			// while(lRst.next()){
+			//	lExistsFlag=true;
+			// }
+			
+			java.sql.Statement statement = pConnection.createStatement();
+			statement.executeUpdate(lQuery);
+			
+			
+			
+		}catch(Exception e){
+			logger.log(Level.INFO, "validation error", e);
+		}
+		
+		return lExistsFlag;
 	}
 }
 
