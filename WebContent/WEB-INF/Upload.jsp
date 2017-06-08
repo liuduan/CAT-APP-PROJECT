@@ -151,7 +151,7 @@
 							
 							<a href="#" onclick="getAssayNames()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
-						<button type="submit">submit</button>
+						<!--  <button type="submit">submit</button>-->
 				     </div>
 				</div>
 					

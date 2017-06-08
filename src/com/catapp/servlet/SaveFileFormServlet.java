@@ -23,7 +23,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.catapp.action.ChemData;
-import com.catapp.action.SaveExceltoDB;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.ChemFile;
 import com.catapp.entity.User;
@@ -75,15 +74,18 @@ public class SaveFileFormServlet extends HttpServlet {
 		String lPhenoType = request.getParameter("phenotype");
 		String lTimePoint = request.getParameter("timepoint");
 		String lDilution  = request.getParameter("dilution");
-		Connection lConn  = null;
-		String lFileName  = null;
-		String lFileExtension = null;
 		String lDescription = null;
+		String original_name = "";
+		String lFileExtension = null;
+		String lFileName  = null;
+		String lUploadPath = "C:/Users/CATAPP/serverfiles/CM/1";
+		Connection lConn  = null;
 		User lUser =(User)request.getSession().getAttribute("user");
 		//String lDilutionInfo = request.getParameter("form-Plate1");
 		try{
 			
 			System.out.println("SaveFileFormServlet B \n");
+			
 			lConn = new DBConnection().getConnection();
 			if(ServletFileUpload.isMultipartContent(request)){		
 				
@@ -116,6 +118,7 @@ public class SaveFileFormServlet extends HttpServlet {
 					
 					
 					//====================================================
+					
 					if(!item.isFormField()){
 						/*
 						lFileName = new ChemData().getTagNamesofInputs("celllines",lConn).get(Long.valueOf(lCellLine))+"_"+
@@ -130,12 +133,7 @@ public class SaveFileFormServlet extends HttpServlet {
 						    //rd.forward(request, response);
 						}
 						
-						String name = new File(item.getName()).getName();
-						if(name!=null){
-							if(name.indexOf(".")!=-1){
-								lFileExtension =name.split("\\.")[1];
-							}
-						}
+						
 						//
 						// String name = "";
 						
@@ -148,38 +146,61 @@ public class SaveFileFormServlet extends HttpServlet {
 						// }
 						*/
 						
-						String lUploadPath = "C:/Users/CATAPP/serverfiles/CM/1";
-						String name = "yue";
-						lFileExtension = "xlsx";
+						original_name = new File(item.getName()).getName();		// file name
+						if(original_name!=null){
+							if(original_name.indexOf(".")!=-1){
+								lFileExtension =original_name.split("\\.")[1];			// file extension
+							}
+						}
 						
-						System.out.println("SaveFileFormServlet C2 lUploadPath: " + lUploadPath + ", " + name);
-						System.out.println("SaveFileFormServlet C2 name: " + name);
+						
+						lUploadPath = "C:/Users/CATAPP/serverfiles/" + lCellLine + "/1";	
+							// works only for CM, cardiomyocyte (2017-6-8) 
+						
+						
+						System.out.println("SaveFileFormServlet C2 lUploadPath: " + lUploadPath + ", " + original_name);
+						System.out.println("SaveFileFormServlet C2 name: " + original_name);
+						System.out.println("SaveFileFormServlet C2 extension: " + lFileExtension);
 						System.out.println("File.separator: " + File.separator);
 						
 						
+						lFileName = lCellLine + "_" + lAssay + "_" + lPhenoType + "_" + 
+								lTimePoint + "_" + lDilution + "." + lFileExtension;
 						
 						// write file here.
-						item.write( new File(lUploadPath + File.separator + name));
-						File lFile1 = new File(lUploadPath + File.separator + name);
+						item.write( new File(lUploadPath + File.separator + lFileName));
+						File lFile1 = new File(lUploadPath + File.separator + original_name);
 						
 						System.out.println("SaveFileFormServlet C3");
 						System.out.println("SaveFileFormServlet replaced name: " + lFileName+"."+lFileExtension);
-						
-						
-						lFileName = "efg";
+
 						// rename is here.
 						lFile1.renameTo(new File(lUploadPath + File.separator + lFileName+"."+lFileExtension));
 						System.out.println("SaveFileFormServlet C4");
+						
+						
+						
+						
 					}
 				}
 				
 				
 			}		
 			
+		///// *************************** save file info ************************************/////
 			// Save_file_info2DB(String pFileName,Connection pConnection);
-			Save_file_info2DB("query_string_here.", lConn);
+			String insert_record_str = "INSERT INTO file_info (cell_line_id, assay_type, phenotype_id, " +
+					"timepoint, Dilution, description, Original_name, file_name, file_type, file_path) " + 
+					"VALUES ('" + lCellLine + "', '" + lAssay + "', '" + lPhenoType + "', '" + 
+					lTimePoint + "', '" + lDilution + "', '" + lDescription  + "', '" + original_name + 
+					"', '" + lFileName + "', '" + lFileExtension + "', '" + lUploadPath + "')";
+			Save_file_info2DB(insert_record_str, lConn);
+			
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload?success=1");
+		    rd.forward(request, response);
 			
 			///// *************************** Data save started ************************************/////
+		    /*
 			System.out.println("SaveFileFormServlet D \n");
 			
 			ChemFile lFile = new ChemFile();
@@ -203,7 +224,7 @@ public class SaveFileFormServlet extends HttpServlet {
 
 
 			System.out.println("SaveFileFormServlet E \n");
-
+			*/
 			///// ************************* Excel Save in DB *************************************//////
 			
 			/*String lReturnResponse=new SaveExceltoDB().saveExcelDataToDb(lFile, lConn);
@@ -216,6 +237,7 @@ public class SaveFileFormServlet extends HttpServlet {
 
 			
 		   ///// ************************* Excel Save in DB *************************************//////
+		    /*
 			System.out.println("SaveFileFormServlet X" + " \n");
 			
 
@@ -232,7 +254,7 @@ public class SaveFileFormServlet extends HttpServlet {
 			    System.out.println("SaveFileFormServlet Y \n");
 			    
 			    // getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
-			 	RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload?success=1");
+			 	rd = getServletContext().getRequestDispatcher("/Upload?success=1");
 			    rd.forward(request, response);
 			    // return;
 			}else{
@@ -247,11 +269,12 @@ public class SaveFileFormServlet extends HttpServlet {
 			    
 			    System.out.println("SaveFileFormServlet Z" + " \n");
 			    
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload?success=2");
+				rd = getServletContext().getRequestDispatcher("/Upload?success=2");
 				// RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload");
 			    rd.forward(request, response);
 			}
-			///// *************************** Data save ended ************************************////
+			*/
+			///// *************************** Data save ended ************************************ ////
 		}catch(Exception e){
 			System.out.println("SaveFileFormServlet Zz" + " \n");
 			logger.log(Level.INFO,"Error Occured while uploading the file.",e);
@@ -292,31 +315,16 @@ public class SaveFileFormServlet extends HttpServlet {
 		return lExistsFlag;
 	}
 	
-	public boolean Save_file_info2DB(String pFileName,Connection pConnection){
+	public boolean Save_file_info2DB(String insert_record_str, Connection pConnection){
 		boolean lExistsFlag      = false;
-		PreparedStatement lPstmt = null;
 		ResultSet lRst 			 = null;
 		
 		System.out.println("SaveFileFormServlet before D");
 		try{
-			// String lQuery= "select * From file_info where file_name=? and rowstate!=-1";
-			String lQuery= "INSERT INTO file_info (file_name, file_path, cell_line_id) " + 
-					"VALUES ('Hello', 'C:/Users', 2)";
-			
-			// String lQuery= "select * from file_info";
-			lPstmt=pConnection.prepareStatement(lQuery);
-			// lPstmt.setString(1, pFileName);
-			
-			// lRst= lPstmt.executeUpdate();
-			// while(lRst.next()){
-			//	lExistsFlag=true;
-			// }
-			
+						
 			java.sql.Statement statement = pConnection.createStatement();
-			statement.executeUpdate(lQuery);
-			
-			
-			
+			statement.executeUpdate(insert_record_str);
+	
 		}catch(Exception e){
 			logger.log(Level.INFO, "validation error", e);
 		}
