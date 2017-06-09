@@ -3,6 +3,7 @@ package com.catapp.servlet;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -154,7 +155,7 @@ public class SaveFileFormServlet extends HttpServlet {
 						}
 						
 						
-						lUploadPath = "C:/Users/CATAPP/serverfiles/" + lCellLine + "/1";	
+						lUploadPath = "C:\\Users\\CATAPP\\serverfiles\\" + lCellLine + "\\1";	
 							// works only for CM, cardiomyocyte (2017-6-8) 
 						
 						
@@ -165,14 +166,14 @@ public class SaveFileFormServlet extends HttpServlet {
 						
 						
 						lFileName = lCellLine + "_" + lAssay + "_" + lPhenoType + "_" + 
-								lTimePoint + "_" + lDilution + "." + lFileExtension;
+								lTimePoint + "_" + lDilution + "." + original_name;
 						
 						// write file here.
 						item.write( new File(lUploadPath + File.separator + lFileName));
 						File lFile1 = new File(lUploadPath + File.separator + original_name);
 						
 						System.out.println("SaveFileFormServlet C3");
-						System.out.println("SaveFileFormServlet replaced name: " + lFileName+"."+lFileExtension);
+						System.out.println("SaveFileFormServlet replaced name: " + lFileName);
 
 						// rename is here.
 						lFile1.renameTo(new File(lUploadPath + File.separator + lFileName+"."+lFileExtension));
@@ -277,6 +278,8 @@ public class SaveFileFormServlet extends HttpServlet {
 			///// *************************** Data save ended ************************************ ////
 		}catch(Exception e){
 			System.out.println("SaveFileFormServlet Zz" + " \n");
+			  PrintWriter out = response.getWriter();
+			  out.println("Sorry, errors occured while uploading the file.");	// print directly to the web page.
 			logger.log(Level.INFO,"Error Occured while uploading the file.",e);
 			
 		}
