@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,16 +22,12 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.catapp.action.ChemData;
 import com.catapp.connection.DBConnection;
-import com.catapp.entity.ChemFile;
-import com.catapp.entity.User;
-import com.mysql.jdbc.Statement;
 
 /**
  * Servlet implementation class SaveFileFormServlet
  */
-@WebServlet("/SaveFileFormServlet")
+@WebServlet("/ToDatabaseServlet")
 public class ToDatabaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -90,13 +85,8 @@ public class ToDatabaseServlet extends HttpServlet {
 				for(FileItem item : multiparts){
 					logger.info("Inside For Loop");
 
-					
-					
-					//====================================================
-					
 					if(!item.isFormField()){
-						
-						
+
 						original_name = new File(item.getName()).getName();		// file name
 						if(original_name!=null){
 							if(original_name.indexOf(".")!=-1){
@@ -197,4 +187,3 @@ public class ToDatabaseServlet extends HttpServlet {
 		return lExistsFlag;
 	}
 }
-
