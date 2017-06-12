@@ -384,6 +384,7 @@
 						<input type="radio" name="dilution" id="21"  value="x10" /> 10x &nbsp;&nbsp;&nbsp;
 						<input type="radio" name="dilution" id="31"  value="x100" /> 100x &nbsp;&nbsp;&nbsp;
 						<input type="radio" name="dilution" id="41"  value="x1000" /> 1000x
+						<a href="#" onclick="step5_to_6()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li>
 						</h4>
 					</div>
@@ -433,6 +434,53 @@
 			    </div>
 			                  
 			</form>
+			
+			<br></br>
+			=====================================================================
+			
+			<form role="form" action="ToDatabaseServlet" method="post" class="registration-form" enctype="multipart/form-data">
+
+				<br></br>
+				<div id="step6-2" style = "background-color: azure; margin: auto; margin-top: 5px; height: 270px; ">
+					  &nbsp;
+					<div>
+					<h4><li style="float: left;">
+					<span class="text-primary"><b>Upload directly to a database: </b></span>
+				
+					<br></br>
+					
+					</li></h4>
+					<br>
+					</div>
+					<br>.</br>
+					<div style=" margin:0; padding:0; font-size:100%; line-height:1; 
+						position: absolute; left: 5%; text-align: left; background-color: ; margin: auto; 
+						margin-top: 10px; text-align: left;">
+						<font size="4" style="position:absolute; left: 5px; ">Please Choose a file to upload: </font>
+						
+							<div style="background-color: ; float:left;  position: relative; left: 50px; top: 10px;
+								margin-left: 220px; margin-top: -25px">
+								<h4>
+								<input type="file"  id="uploadfile-2" name="file_2" size="40" onclick="validateFile()"></input>
+								</h4>
+							</div>
+					</div>
+
+					<div style="position: absolute; text-align: center; background-color:; margin: auto; 
+						margin-top: 80px; margin-left: 45%;">
+						
+						<button type="submit" name="sequencesave" id="sequencesave" class="btn btn-submit">
+							Upload directly to a database
+						</button>
+						<br></br><br></br><br></br><br></br>
+				    </div>
+				    
+				   	
+			    </div>
+			                  
+			</form>
+			
+			
 		</div>
      </div>
 </div>

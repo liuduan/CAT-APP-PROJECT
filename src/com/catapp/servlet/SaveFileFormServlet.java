@@ -75,11 +75,11 @@ public class SaveFileFormServlet extends HttpServlet {
 		String lPhenoType = request.getParameter("phenotype");
 		String lTimePoint = request.getParameter("timepoint");
 		String lDilution  = request.getParameter("dilution");
-		String lDescription = null;
+		String lDescription = "";
 		String original_name = "";
-		String lFileExtension = null;
-		String lFileName  = null;
-		String lUploadPath = "C:/Users/CATAPP/serverfiles/CM/1";
+		String lFileExtension = "";
+		String lFileName  = "";
+		String lUploadPath = "C:/Users/CATAPP/serverfiles/CM/1/a";
 		Connection lConn  = null;
 		User lUser =(User)request.getSession().getAttribute("user");
 		//String lDilutionInfo = request.getParameter("form-Plate1");
@@ -155,7 +155,7 @@ public class SaveFileFormServlet extends HttpServlet {
 						}
 						
 						
-						lUploadPath = "C:\\Users\\CATAPP\\serverfiles\\" + lCellLine + "\\1";	
+						lUploadPath = "C:\\Users\\CATAPP\\serverfiles\\" + "CM\\1\\" + lCellLine;	
 							// works only for CM, cardiomyocyte (2017-6-8) 
 						
 						

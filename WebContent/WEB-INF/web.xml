@@ -89,7 +89,18 @@
     <servlet-class>cat.ToxPi.ToxPiServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+    <servlet>
+    <display-name>ToDatabaseServlet</display-name>
+    <servlet-name>ToDatabaseServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.ToDatabaseServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
   
+  
+  <servlet-mapping>
+    <servlet-name>ToDatabaseServlet</servlet-name>
+    <url-pattern>/ToDatabaseServlet</url-pattern>
+  </servlet-mapping>
   
   <servlet-mapping>
     <servlet-name>ToxPiServlet</servlet-name>
