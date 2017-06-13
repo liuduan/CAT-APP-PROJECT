@@ -438,7 +438,7 @@
 			<br></br>
 			=====================================================================
 			
-			<form role="form" action="ToDatabaseServlet" method="post" class="registration-form" enctype="multipart/form-data">
+			<form role="form" action="ToDatabaseServlet"  method="post" class="registration-form" enctype="multipart/form-data">
 
 				<br></br>
 				<div id="step6-2" style = "background-color: azure; margin: auto; margin-top: 5px; height: 270px; ">
