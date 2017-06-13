@@ -24,6 +24,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.catapp.action.ChemData;
+import com.catapp.action.shellCommands;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.ChemFile;
 import com.catapp.entity.User;
@@ -36,9 +37,6 @@ import com.mysql.jdbc.Statement;
 public class ToDatabaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-
-	private final String UPLOAD_DIRECTORY = "C:/Users/CATAPP/serverfiles";
-
 	public static final Logger logger = Logger.getLogger(SaveFileFormServlet.class.toString());
        
     /**
@@ -63,36 +61,31 @@ public class ToDatabaseServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// doGet(request, response);
-		System.out.println("SaveFileFormServlet A \n");
+		System.out.println("ToDatabaseServlet A \n");
 		logger.info("File Save Started");
 		
 
 		String original_name = "";
 		String lFileExtension = "";
 		String lFileName  = "";
-		String lUploadPath = "C:/Users/CATAPP/serverfiles/CM/1/a";
+		String lUploadPath = "";
 		Connection lConn  = null;
 
 		
 		try{
 			
-			System.out.println("SaveFileFormServlet B \n");
+			System.out.println("ToDatabaseServlet B \n");
 			
 			lConn = new DBConnection().getConnection();
 			if(ServletFileUpload.isMultipartContent(request)){		
 				
-				System.out.println("SaveFileFormServlet C \n");
+				System.out.println("ToDatabaseServlet C \n");
 				List<FileItem> multiparts = new ServletFileUpload( new DiskFileItemFactory()).parseRequest(request);
 				for(FileItem item : multiparts){
 					logger.info("Inside For Loop");
-
-					
-					
-					//====================================================
 					
 					if(!item.isFormField()){
-						
-						
+
 						original_name = new File(item.getName()).getName();		// file name
 						if(original_name!=null){
 							if(original_name.indexOf(".")!=-1){
@@ -100,40 +93,66 @@ public class ToDatabaseServlet extends HttpServlet {
 							}
 						}
 						
-						lUploadPath = "C:\\Users\\CATAPP\\serverfiles\\CM\\1\\CM";	
+						lUploadPath = "C:\\Users\\CATAPP\\serverfiles\\CM\\1\\CM\\Data-test.csv";	
 						
-						System.out.println("SaveFileFormServlet C2 lUploadPath: " + lUploadPath + ", " + original_name);
+						System.out.println("ToDatabaseServlet C2 lUploadPath: " + lUploadPath);
 
 						lFileName = original_name;
 						
 						// write file here.
-						item.write( new File(lUploadPath + File.separator + lFileName));
-						File lFile1 = new File(lUploadPath + File.separator + original_name);
+						item.write( new File(lUploadPath));
+						// File lFile1 = new File(lUploadPath + File.separator + original_name);
 
-						System.out.println("SaveFileFormServlet replaced name: " + lFileName);
+						System.out.println("ToDatabaseServlet replaced name: " + lFileName);
 
 						// rename is here.
-						lFile1.renameTo(new File(lUploadPath + File.separator + lFileName+"."+lFileExtension));
-						System.out.println("SaveFileFormServlet C4");
+						// lFile1.renameTo(new File(lUploadPath + File.separator + lFileName+"."+lFileExtension));
+						System.out.println("ToDatabaseServlet C4");
+						
+					///// ************************* Save in DB *************************************//////
+						
+						   ///// ************************* Excel Save in DB *************************************//////
+						    
+							
+						
+						
+						String R_command = "cmd.exe /c C:\\\"Program Files\"\\R\\R-3.3.3\\bin\\Rscript " + 
+							"C:\\4_R\\R-from-Fabian\\MySQL-test.R";
+							// + "C:\\4_R\\R-from-Fabian\\" + original_name;
+						
+						
+						
+						
+						
+						System.out.println(R_command); 
+						
+						// R_command = "cmd.exe /c dir";
+						// R_command = "cmd.exe /c C:\\\"Program Files\"\\R\\R-3.3.3\\bin\\Rscript ";
+						
+						shellCommands obj = new shellCommands();
+						System.out.println("ToDatabaseServlet C5");
+						String output = ""; 
+						obj.executeCommand(R_command);
+						System.out.println("ToDatabaseServlet C6");
+						
+						System.out.println("output: " + output); 
+						
+					///// *************************** Data save ended ************************************ ////
+
+				
 	
 					}
 				}
 				
 			}		
+
 			
-		///// *************************** save file info ************************************/////
-			// Save_file_info2DB(String pFileName,Connection pConnection);
-	
 			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload?success=1");
 		    rd.forward(request, response);
 			
 			
-			///// ************************* Excel Save in DB *************************************//////
-			
-		   ///// ************************* Excel Save in DB *************************************//////
-		    
-			///// *************************** Data save ended ************************************ ////
+
 		}catch(Exception e){
 			System.out.println("SaveFileFormServlet Zz" + " \n");
 			  PrintWriter out = response.getWriter();
