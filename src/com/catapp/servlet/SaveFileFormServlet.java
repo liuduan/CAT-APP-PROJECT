@@ -155,7 +155,7 @@ public class SaveFileFormServlet extends HttpServlet {
 						}
 						
 						
-						lUploadPath = "C:\\Users\\CATAPP\\serverfiles\\" + "CM\\1\\" + lCellLine;	
+						lUploadPath = "C:\\Users\\CATAPP\\serverfiles\\CM\\1\\" + lCellLine;	
 							// works only for CM, cardiomyocyte (2017-6-8) 
 						
 						
@@ -166,7 +166,7 @@ public class SaveFileFormServlet extends HttpServlet {
 						
 						
 						lFileName = lCellLine + "_" + lAssay + "_" + lPhenoType + "_" + 
-								lTimePoint + "_" + lDilution + "." + original_name;
+								lTimePoint + "_" + lDilution + "_" + original_name;
 						
 						// write file here.
 						item.write( new File(lUploadPath + File.separator + lFileName));
@@ -190,11 +190,13 @@ public class SaveFileFormServlet extends HttpServlet {
 			
 		///// *************************** save file info ************************************/////
 			// Save_file_info2DB(String pFileName,Connection pConnection);
+			String Path_for_SQL = "C:/Users/CATAPP/serverfiles/CM/1/" + lCellLine;	
+			
 			String insert_record_str = "INSERT INTO file_info (cell_line_id, assay_type, phenotype_id, " +
 					"timepoint, Dilution, description, Original_name, file_name, file_type, file_path) " + 
 					"VALUES ('" + lCellLine + "', '" + lAssay + "', '" + lPhenoType + "', '" + 
 					lTimePoint + "', '" + lDilution + "', '" + lDescription  + "', '" + original_name + 
-					"', '" + lFileName + "', '" + lFileExtension + "', '" + lUploadPath + "')";
+					"', '" + lFileName + "', '" + lFileExtension + "', '" + Path_for_SQL + "')";
 			Save_file_info2DB(insert_record_str, lConn);
 			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload?success=1");

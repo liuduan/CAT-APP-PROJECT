@@ -136,7 +136,7 @@ out.println("<font color=green size=4px>"+login_msg+"</font>");
 						<input type="submit" class="btn btn-danger" style=" border-radius: 5px;" value="Response Curves">
 						</a>
 					<a href="ToxPi/ToxPi">
-						<input type="submit" class="btn btn-danger" style=" border-radius: 5px;" value="ToxPi">
+						<input type="submit" class="btn btn-danger" style=" border-radius: 5px;" value="under-Test">
 						</a>
                 </div>
             </div>

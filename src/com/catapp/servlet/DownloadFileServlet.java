@@ -55,6 +55,10 @@ public class DownloadFileServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String [] lFiles					= request.getParameterValues("optradio");
+		
+		System.out.println("DownloadFileServlet lFiles:\n" + lFiles[0]);
+		
+		
 		String lButtonClick					= null;
 		if(request.getParameterValues("download")!=null){
 			lButtonClick="Download";
