@@ -6,6 +6,48 @@ function should_alert(){
 
 var i = 0;
 function show_hide_cell_lines(){
+	var selected_celllines = [];
+	var data_string = '';
+	var i = 0;
+	$('#cell_lines > input[type=checkbox]').each(function () {
+		if($(this).prop('checked') == true){
+			selected_celllines[$(this).prop('name')] = $(this).prop('value');
+		   	alert("CM26: " + $(this).prop('value'));
+		   	i = i + 1;
+		   	data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
+		}
+	});
+	
+	alert("data_string: " + data_string);
+	// data_string = "CM=CM&HEP=HEP"
+	$.ajax({
+	  url: "http://localhost:8080/CAT-APP-PROJECT/Download_InternalServlet",
+	  data: data_string,
+	  type: 'post',
+	  success: function(data) {
+	    alert(data);
+	    $("#Assays").replaceWith(data);
+	  }
+	});
+	
+	
+	
+	
+	
+	$("#cell_lines2").find("checkbox").each(function(){
+		alert("CM2");
+	    if ($(this).prop('checked')==true){ 
+	    	alert("CM2");
+	    }
+	});
+	
+	
+	
+	
+	
+	
+	
+	
 	if (i==0){
 		$("#cell_lines").hide();
 		i=1;

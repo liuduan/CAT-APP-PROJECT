@@ -64,29 +64,29 @@
 
 	<h4 id ="cell_line_title" onclick="show_hide_cell_lines()" style="color: Blue ;"><b><u>Please select cell lines:</u></b></h4>
 	<div style="color:LightSteelBlue; margin:20px; " id = "cell_lines">
-		<span id="CM_B"><input type="checkbox" id="CM" disabled name="CM" value="CM">1. iCell Cardiomyocytes<br></span>
-		<span id="HEP_B"><input type="checkbox" disabled id="HEP" name="HEP" value="HEP">2. iCell Hepatocytes 2.0<br></span>
-		<span id="ENDO_B"><input type="checkbox" disabled id="ENDO" name="ENDO" value="ENDO">3. iCell Endothelial Cells<br></span>
-		<span id="HUV_B"><input type="checkbox" disabled id="HUV" name="HUV" value="HUV">4. Human Umbilical Vein Endothelial Cells<br></span>
-		<span id="Neur_B"><input type="checkbox" disabled id="Neur" name="Neur" value="Neur">5. iCell Neurons<br></span>
-		<span id="Macro_B"><input type="checkbox" disabled id="Macro" name="Macro" value="Macro">6. iCell Macrophages<br></span>
-		<span id="A375_B"><input type="checkbox" disabled id="A375" name="A375" value="A375">7. A-375 Skin Melanoma<br></span>
-		<span id="A549_B"><input type="checkbox" disabled id="A549" name="A549" value="A549">8. A549 Lung Carcinoma<br></span>
-		<span id="HepG2_B"><input type="checkbox" disabled id="HepG2" name="HepG2" value="HepG2">9. HepG2 Hepatocyte Carcinoma<br></span>
-		<span id="HepaRG_B"><input type="checkbox" disabled id="HepaRG" name="HepaRG" value="HepaRG">10. HepaRG Hepatocyte Carcinoma<br></span>
-		<span id="MCF7_B"><input type="checkbox" disabled id="MCF7" name="MCF7" value="MCF7">11. MCF7 Breast Adenocarcinoma<br></span>
-		<span id="HT29_B"><input type="checkbox" disabled id="HT29" name="HT29" value="HT29">12. HT-29 Colon Adenocarcinoma<br></span>
-		<span id="LN229_B"><input type="checkbox" disabled id="LN229" name="LN229" value="LN229">13. LN-229 Glioblastoma<br></span>
-		<span id="HEK10205f_B"><input type="checkbox" disabled id="HEK10205f" name="HEK10205f" value="HEK10205f">14. HEK10205f Human Epidermal Keratinocytes; Foetal<br></span>
-		<span id="HLMVEC_B"><input type="checkbox" disabled id="HLMVEC" name="HLMVEC" value="HLMVEC">15. HLMVEC Human Lung Microvascular Endothelial Cells<br></span>
-		<span id="HMePC_B"><input type="checkbox" disabled id="HMePC" name="HMePC" value="HMePC">16. HMePC Human Mammary Epithelial Cell<br></span>
-		<span id="SH-SY5Y_B"><input type="checkbox" disabled id="SH-SY5Y" name="SH-SY5Y" value="SH-SY5Y">17. SH-SY5Y Neuroblastoma<br></span>
+		<input type="checkbox" id="CM" disabled name="CM" value="CM"><span id="CM_B">1. iCell Cardiomyocytes<br></span>
+		<input type="checkbox" disabled id="HEP" name="HEP" value="HEP"><span id="HEP_B">2. iCell Hepatocytes 2.0<br></span>
+		<input type="checkbox" disabled id="ENDO" name="ENDO" value="ENDO"><span id="ENDO_B">3. iCell Endothelial Cells<br></span>
+		<input type="checkbox" disabled id="HUV" name="HUV" value="HUV"><span id="HUV_B">4. Human Umbilical Vein Endothelial Cells<br></span>
+		<input type="checkbox" disabled id="Neur" name="Neur" value="Neur"><span id="Neur_B">5. iCell Neurons<br></span>
+		<input type="checkbox" disabled id="Macro" name="Macro" value="Macro"><span id="Macro_B">6. iCell Macrophages<br></span>
+		<input type="checkbox" disabled id="A375" name="A375" value="A375"><span id="A375_B">7. A-375 Skin Melanoma<br></span>
+		<input type="checkbox" disabled id="A549" name="A549" value="A549"><span id="A549_B">8. A549 Lung Carcinoma<br></span>
+		<input type="checkbox" disabled id="HepG2" name="HepG2" value="HepG2"><span id="HepG2_B">9. HepG2 Hepatocyte Carcinoma<br></span>
+		<input type="checkbox" disabled id="HepaRG" name="HepaRG" value="HepaRG"><span id="HepaRG_B">10. HepaRG Hepatocyte Carcinoma<br></span>
+		<input type="checkbox" disabled id="MCF7" name="MCF7" value="MCF7"><span id="MCF7_B">11. MCF7 Breast Adenocarcinoma<br></span>
+		<input type="checkbox" disabled id="HT29" name="HT29" value="HT29"><span id="HT29_B">12. HT-29 Colon Adenocarcinoma<br></span>
+		<input type="checkbox" disabled id="LN229" name="LN229" value="LN229"><span id="LN229_B">13. LN-229 Glioblastoma<br></span>
+		<input type="checkbox" disabled id="HEK10205f" name="HEK10205f" value="HEK10205f"><span id="HEK10205f_B">14. HEK10205f Human Epidermal Keratinocytes; Foetal<br></span>
+		<input type="checkbox" disabled id="HLMVEC" name="HLMVEC" value="HLMVEC"><span id="HLMVEC_B">15. HLMVEC Human Lung Microvascular Endothelial Cells<br></span>
+		<input type="checkbox" disabled id="HMePC" name="HMePC" value="HMePC"><span id="HMePC_B">16. HMePC Human Mammary Epithelial Cell<br></span>
+		<input type="checkbox" disabled id="SH-SY5Y" name="SH-SY5Y" value="SH-SY5Y"><span id="SH-SY5Y_B">17. SH-SY5Y Neuroblastoma<br></span>
 	</div>
 </div>		<!-- end of the cell line selection -->
 
 <h4 id ="assay_title" onclick="assays()" style="color: Blue;margin-left: 40px;"><b><u>Please select assays:</u></b></h4>
 <div id="Assays" style = "display:none; margin-left: 40px;">
-	
+	Download page.
 	
 	<div id="CM_assays" class="all_assays" style="color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCell cardiomyocyte assays:</span><br>

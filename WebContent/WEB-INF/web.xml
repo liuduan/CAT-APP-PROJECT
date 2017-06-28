@@ -95,6 +95,17 @@
     <servlet-class>com.catapp.servlet.ToDatabaseServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+  <servlet>
+    <display-name>Download_InternalServlet</display-name>
+    <servlet-name>Download_InternalServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.Download_Internal</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Download_InternalServlet</servlet-name>
+    <url-pattern>/Download_InternalServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ToDatabaseServlet</servlet-name>
     <url-pattern>/ToDatabaseServlet</url-pattern>
