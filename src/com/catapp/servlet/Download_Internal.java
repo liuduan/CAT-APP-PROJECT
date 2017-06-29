@@ -32,20 +32,30 @@ public class Download_Internal extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("Download_Internal, Servlet" );
-		ArrayList<String> places = new ArrayList<>(Arrays.asList("Buenos Aires", "Córdoba", "La Plata"));
-		System.out.println("First element of the ArrayList: "+places.get(0));
+		ArrayList<String> all_cell_lines = new ArrayList<>(Arrays.asList("CM", "HEP", "ENDO", "HUV", "Neur", "Macro", 
+				"A375", "A549", "HepG2", "HepaRG", "MCF7", "HT29", "LN229", "HEK10205f", "HLMVEC", "HMePC", 
+				"SH-SY5Y"));
+		ArrayList<String> selected_cell_lines = new ArrayList<String>();
 		
-		String received_value = request.getParameter("CM");	// receiving the post value
-		request.setAttribute("CM", received_value);			// submit vlue to following page:
+		 for(int x = 0; x < 17; x = x + 1) {
+	         // System.out.println("cell lines: "+ cell_lines.get(x));
+	         String received_value = request.getParameter(all_cell_lines.get(x));	// receiving the post value
+	         if (received_value != null){
+	        	 System.out.println("received value: "+ received_value);
+	        	 selected_cell_lines.add(received_value);
+	         }
+	      }
+		 
+		 request.setAttribute("selected_cell_lines", selected_cell_lines);	// submit value to jsp page:
+		 
+		 ArrayList<String> England_cell_lines = new ArrayList<>(Arrays.asList("A375", "A549", "HepG2", "HepaRG", 
+				 "MCF7", "HT29", "LN229", "HEK10205f", "HLMVEC", "HMePC", "SH-SY5Y"));
+		 request.setAttribute("England_cell_lines", England_cell_lines);	// submit value to jsp page.
+		 
+		// String received_value = request.getParameter("CM");	// receiving the post value
+		// request.setAttribute("CM", received_value);			// submit value to following page:
 		
-		System.out.println("Download_Internal, Servlet: " + received_value);
-		
-		
-		received_value = request.getParameter("HT29");	// receiving the post value
-		request.setAttribute("HT29", received_value);			// submit vlue to following page:
-		
-		System.out.println("Download_Internal, Servlet: " + received_value);
-		
+		// System.out.println("Download_Internal, Servlet: " + received_value);	
 		
 		
 		getServletContext().getRequestDispatcher("/WEB-INF/Download_Internal.jsp").forward(request, response);

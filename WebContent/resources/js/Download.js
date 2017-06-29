@@ -3,6 +3,13 @@ function should_alert(){
 }
 
 
+$(".cell_lines").change(function() {
+    if(this.checked) {
+        // alert("cell lines selected.");
+        $('#next_to_assays').show();
+    }
+});
+
 
 var i = 0;
 function show_hide_cell_lines(){
@@ -12,8 +19,7 @@ function show_hide_cell_lines(){
 	$('#cell_lines > input[type=checkbox]').each(function () {
 		if($(this).prop('checked') == true){
 			selected_celllines[$(this).prop('name')] = $(this).prop('value');
-		   	alert("CM26: " + $(this).prop('value'));
-		   	i = i + 1;
+		   	// alert("CM26: " + $(this).prop('value'));
 		   	data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
 		}
 	});
@@ -25,7 +31,7 @@ function show_hide_cell_lines(){
 	  data: data_string,
 	  type: 'post',
 	  success: function(data) {
-	    alert(data);
+	    // alert(data);
 	    $("#Assays").replaceWith(data);
 	  }
 	});
@@ -55,12 +61,19 @@ function show_hide_cell_lines(){
 		$("#cell_lines").show();
 		i=0;
 		}
-	}
+}	// end of show_hide_cell_lines(){}
+
+
+
+
+function cell_lines_selected(){
+	
+}
 
 function assays(){
 	$("#cell_lines").hide();
 	$("#Assays").show();
-	}
+}
 
 
 

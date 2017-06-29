@@ -30,8 +30,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' type='text/css' />
     
 </head>
+	<!-- function located line 57 -->
 <body onload="enalbe_cell_lines()" 
 	background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
 	style="background-size:250%">
@@ -53,7 +55,7 @@
 	</c:forEach> 
 
 	<script type="text/javascript">
-		function enalbe_cell_lines(){
+		function enalbe_cell_lines(){			////////////////////////// enable_cell_lines()
 			<c:forEach var="row" items="${result.rows}">  
 				$("#${row.cell_line_id}").removeAttr("disabled");
 				$("#${row.cell_line_id}_B").css({'color': 'DarkCyan ', 'font-size': '105%', 'font-weight': 'bold' });
@@ -62,25 +64,31 @@
 		
 	</script>
 
-	<h4 id ="cell_line_title" onclick="show_hide_cell_lines()" style="color: Blue ;"><b><u>Please select cell lines:</u></b></h4>
+	<h4 id ="cell_line_title" style="color: Blue ;"><b><u>Please select cell lines:</u></b>
+		<a href="#" onclick="show_hide_cell_lines()" id="next_to_assays" style="display: none;">
+			<button type="button" class="btn btn-xs btn-success"> Next
+ 				<span class="glyphicon glyphicon-chevron-right">
+				</button>
+		</a></h4>
+	
 	<div style="color:LightSteelBlue; margin:20px; " id = "cell_lines">
-		<input type="checkbox" id="CM" disabled name="CM" value="CM"><span id="CM_B">1. iCell Cardiomyocytes<br></span>
-		<input type="checkbox" disabled id="HEP" name="HEP" value="HEP"><span id="HEP_B">2. iCell Hepatocytes 2.0<br></span>
-		<input type="checkbox" disabled id="ENDO" name="ENDO" value="ENDO"><span id="ENDO_B">3. iCell Endothelial Cells<br></span>
-		<input type="checkbox" disabled id="HUV" name="HUV" value="HUV"><span id="HUV_B">4. Human Umbilical Vein Endothelial Cells<br></span>
-		<input type="checkbox" disabled id="Neur" name="Neur" value="Neur"><span id="Neur_B">5. iCell Neurons<br></span>
-		<input type="checkbox" disabled id="Macro" name="Macro" value="Macro"><span id="Macro_B">6. iCell Macrophages<br></span>
-		<input type="checkbox" disabled id="A375" name="A375" value="A375"><span id="A375_B">7. A-375 Skin Melanoma<br></span>
-		<input type="checkbox" disabled id="A549" name="A549" value="A549"><span id="A549_B">8. A549 Lung Carcinoma<br></span>
-		<input type="checkbox" disabled id="HepG2" name="HepG2" value="HepG2"><span id="HepG2_B">9. HepG2 Hepatocyte Carcinoma<br></span>
-		<input type="checkbox" disabled id="HepaRG" name="HepaRG" value="HepaRG"><span id="HepaRG_B">10. HepaRG Hepatocyte Carcinoma<br></span>
-		<input type="checkbox" disabled id="MCF7" name="MCF7" value="MCF7"><span id="MCF7_B">11. MCF7 Breast Adenocarcinoma<br></span>
-		<input type="checkbox" disabled id="HT29" name="HT29" value="HT29"><span id="HT29_B">12. HT-29 Colon Adenocarcinoma<br></span>
-		<input type="checkbox" disabled id="LN229" name="LN229" value="LN229"><span id="LN229_B">13. LN-229 Glioblastoma<br></span>
-		<input type="checkbox" disabled id="HEK10205f" name="HEK10205f" value="HEK10205f"><span id="HEK10205f_B">14. HEK10205f Human Epidermal Keratinocytes; Foetal<br></span>
-		<input type="checkbox" disabled id="HLMVEC" name="HLMVEC" value="HLMVEC"><span id="HLMVEC_B">15. HLMVEC Human Lung Microvascular Endothelial Cells<br></span>
-		<input type="checkbox" disabled id="HMePC" name="HMePC" value="HMePC"><span id="HMePC_B">16. HMePC Human Mammary Epithelial Cell<br></span>
-		<input type="checkbox" disabled id="SH-SY5Y" name="SH-SY5Y" value="SH-SY5Y"><span id="SH-SY5Y_B">17. SH-SY5Y Neuroblastoma<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="CM" name="CM" value="CM"><span id="CM_B">1. iCell Cardiomyocytes<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="HEP" name="HEP" value="HEP"><span id="HEP_B">2. iCell Hepatocytes 2.0<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="ENDO" name="ENDO" value="ENDO"><span id="ENDO_B">3. iCell Endothelial Cells<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="HUV" name="HUV" value="HUV"><span id="HUV_B">4. Human Umbilical Vein Endothelial Cells<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="Neur" name="Neur" value="Neur"><span id="Neur_B">5. iCell Neurons<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="Macro" name="Macro" value="Macro"><span id="Macro_B">6. iCell Macrophages<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="A375" name="A375" value="A375"><span id="A375_B">7. A-375 Skin Melanoma<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="A549" name="A549" value="A549"><span id="A549_B">8. A549 Lung Carcinoma<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="HepG2" name="HepG2" value="HepG2"><span id="HepG2_B">9. HepG2 Hepatocyte Carcinoma<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="HepaRG" name="HepaRG" value="HepaRG"><span id="HepaRG_B">10. HepaRG Hepatocyte Carcinoma<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="MCF7" name="MCF7" value="MCF7"><span id="MCF7_B">11. MCF7 Breast Adenocarcinoma<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="HT29" name="HT29" value="HT29"><span id="HT29_B">12. HT-29 Colon Adenocarcinoma<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="LN229" name="LN229" value="LN229"><span id="LN229_B">13. LN-229 Glioblastoma<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="HEK10205f" name="HEK10205f" value="HEK10205f"><span id="HEK10205f_B">14. HEK10205f Human Epidermal Keratinocytes; Foetal<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="HLMVEC" name="HLMVEC" value="HLMVEC"><span id="HLMVEC_B">15. HLMVEC Human Lung Microvascular Endothelial Cells<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="HMePC" name="HMePC" value="HMePC"><span id="HMePC_B">16. HMePC Human Mammary Epithelial Cell<br></span>
+		<input type="checkbox" disabled class="cell_lines" id="SH-SY5Y" name="SH-SY5Y" value="SH-SY5Y"><span id="SH-SY5Y_B">17. SH-SY5Y Neuroblastoma<br></span>
 	</div>
 </div>		<!-- end of the cell line selection -->
 
@@ -88,43 +96,7 @@
 <div id="Assays" style = "display:none; margin-left: 40px;">
 	Download page.
 	
-	<div id="CM_assays" class="all_assays" style="color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >iCell cardiomyocyte assays:</span><br>
-		<span id="Ca2_B">		<input type="checkbox" disabled id="Ca2_B" name="Ca2_B" value='Ca2'>Ca2+ flux<br></span>
-		<span id="Hoechst_B">	<input type="checkbox" disabled id="Hoechst" name="Hoechst" value='Hoechst'>Nuclei staining<br></span>
-		<span id="Mito_B">		<input type="checkbox" disabled id="Mito" name="Mito" value='Mito'>Mitochondrial Integrity<br></span>
-	</div><br>
-	<div id="HEP_assays" class="all_assays" style="display: ; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >iCell hepatocyte assays:</span><br>
-		<span id="Hoechst_B">	<input type="checkbox" disabled id="Hoechst" name="Hoechst" value='Hoechst'>Nuclei staining<br></span>
-		<span id="Mito_B">		<input type="checkbox" disabled id="Mito" 	name="Mito" value='Mito'>Mitochondrial Integrity<br></span>
-		<span id="CalceinAM_B">	<input type="checkbox" disabled id="CalceinAM" name="CalceinAM" value='CalceinAM'>Cell Viability<br></span>
-		<span id="LipidTOX_B">	<input type="checkbox" disabled id="LipidTOX" name="LipidTOX" value='LipidTOX'>Lipid Accumulation<br></span>
-	</div>	<br>
-	<div id="ENDO_HUV_assays" class="all_assays" style="display: ; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >HUVEC assays:</span><br>
-		<span id="Hoechst_B">	<input type="checkbox" disabled id="Hoechst" name="Hoechst" value='Hoechst'>Nuclei staining<br></span>
-		<span id="Mito_B">		<input type="checkbox" disabled id="Mito" 	name="Mito" value='Mito'>Mitochondrial Integrity<br></span>
-		<span id="CalceinAM_B">	<input type="checkbox" disabled id="CalceinAM" name="CalceinAM" value='CalceinAM'>Cell Viability<br></span>
-		<span id="TubForm_B">	<input type="checkbox" disabled id="TubForm" name="TubForm" value='TubForm'>Tube Formation<br></span>
-	</div>	<br>
-	<div id="Neur_assays" class="all_assays" style="display: ; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >iCell neuron assays:</span><br>
-		<span id="Hoechst_B">	<input type="checkbox" disabled id="Hoechst" name="Hoechst" value='Hoechst'>Nuclei staining<br></span>
-		<span id="Mito_B">		<input type="checkbox" disabled id="Mito" 	name="Mito" value='Mito'>Mitochondrial Integrity<br></span>
-		<span id="CalceinAM_B">	<input type="checkbox" disabled id="CalceinAM" name="CalceinAM" value='CalceinAM'>Cell Viability<br></span>
-		<span id="NeurOut_B">	<input type="checkbox" disabled id="NeurOut" name="NeurOut" value='NeurOut'>Neurite Outgrowth<br></span>
-	</div>	<br>
-	<div id="Macro_assays" class="all_assays" style="display: ; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >iCell macrophage assays:</span><br>
-		<span id="Hoechst_B">	<input type="checkbox" disabled id="Hoechst" name="Hoechst" value='Hoechst'>Nuclei staining<br></span>
-		<span id="Mito_B">		<input type="checkbox" disabled id="Mito" 	name="Mito" value='Mito'>Mitochondrial Integrity<br></span>
-		<span id="CalceinAM_B">	<input type="checkbox" disabled id="CalceinAM" name="CalceinAM" value='CalceinAM'>Cell Viability<br></span>
-		<span id="Phag_B">	<input type="checkbox" disabled id="Phag" name="Phag" value='Phag'>Phagocytosis<br></span>
-		<span id="Cyto_B">	<input type="checkbox" disabled id="Cyto" name="Cyto" value='Cyto'>Cytokines<br></span>
-		<span id="MacroOut_B">	<input type="checkbox" disabled id="MacroOut" name="MacroOut" value='MacroOut'>Macroite Outgrowth<br></span>
-	</div>	<br>
-	<div id="England_assays" class="all_assays" style="display: ; color:LightSteelBlue; margin-left: 20px;">
+	<div id="England_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >Assays for cell lines 7 - 17:</span><br>
 		<span id="CMFDA_B">	<input type="checkbox" disabled id="CMFDA" name="CMFDA" value='CMFDA'>Cell membrane integrity<br></span>
 		<span id="ROS_B">	<input type="checkbox" disabled id="ROS" name="ROS" value='ROS'>Reactive Oxygen Species<br></span>
@@ -139,7 +111,7 @@
 
 
 
-
+<br>
 ==========================================================================
 <form action="DownloadFileServlet">
 
