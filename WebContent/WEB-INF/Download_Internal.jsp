@@ -17,15 +17,42 @@
 	background="${pageContext.request.contextPath}/resources/images/Catapp_logo_full-blur.svg"
 	style="background-size:250%">
 	
+<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+    url="jdbc:mysql://localhost:3306/catapp"
+    user="root"  password="vibscatapp"/>
+ 
+<sql:query dataSource="${snapshot}" var="result">
+	select distinct assay_type from file_info where cell_line_id = 'HT29'; 
+</sql:query>
+
+
+<c:forEach var="row" items="${result.rows}">  
+	Assay found for HT29: <c:out value="${row.assay_type}"/>, 
+</c:forEach> 
+
+
+
 <script>
 $(document).ready(function(){
-    // alert("ready function.");
+    alert("ready function.");
     $("#Assays").show();
     // $(".all_assays").hide();
 
     var selected_cell_lines;
-    // alert("${N_cell_lines}");
+    alert("${N_cell_lines}");
     <c:forEach var="element" items="${selected_cell_lines}" varStatus="status">
+
+    	<sql:query dataSource="${snapshot}" var="result2">
+    		select distinct assay_type from file_info where cell_line_id = 'HT29'; 
+    	</sql:query>
+    	<c:forEach var="row" items="${result2.rows}">  
+    		Assay found for HT29: <c:out value="${row.assay_type}"/>, 
+    		$("#${element}_${row.assay_type}").removeAttr("disabled");
+			$("#${element}_${row.assay_type}_B").css({'color': 'DarkCyan ', 'font-size': '105%', 'font-weight': 'bold' });
+    	</c:forEach> 
+
+
+    
     	$("#${element}_assays").show();
    	</c:forEach>
 });
@@ -45,9 +72,9 @@ function myFunction() {
 	
 	<div id="CM_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCell cardiomyocyte assays:</span><br>
-		<span id="Ca2_B">		<input type="checkbox" disabled id="Ca2_B" name="Ca2_B" value='Ca2'>Ca2+ flux<br></span>
-		<span id="Hoechst_B">	<input type="checkbox" disabled id="Hoechst" name="Hoechst" value='Hoechst'>Nuclei staining<br></span>
-		<span id="Mito_B">		<input type="checkbox" disabled id="Mito" name="Mito" value='Mito'>Mitochondrial Integrity<br></span>
+		<input type="checkbox" disabled id="CM_Ca2" name="CM_Ca2" value='CM_Ca2'>			<span id="CM_Ca2_B">Ca2+ flux<br></span>
+		<input type="checkbox" disabled id="CM_Hoechst" name="CM_Hoechst" value='CM_Hoechst'><span id="CM_Hoechst_B">Nuclei staining<br></span>
+		<input type="checkbox" disabled id="CM_Mito" name="CM_Mito" value='CM_Mito'>		<span id="CM_Mito_B">Mitochondrial Integrity<br></span>
 	</div><br>
 	<div id="HEP_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCell hepatocyte assays:</span><br>
@@ -65,10 +92,14 @@ function myFunction() {
 	</div>	<br>
 	<div id="HUV_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >HUVEC assays:</span><br>
-		<span id="Hoechst_B">	<input type="checkbox" disabled id="Hoechst" name="Hoechst" value='Hoechst'>Nuclei staining<br></span>
-		<span id="Mito_B">		<input type="checkbox" disabled id="Mito" 	name="Mito" value='Mito'>Mitochondrial Integrity<br></span>
-		<span id="CalceinAM_B">	<input type="checkbox" disabled id="CalceinAM" name="CalceinAM" value='CalceinAM'>Cell Viability<br></span>
-		<span id="TubForm_B">	<input type="checkbox" disabled id="TubForm" name="TubForm" value='TubForm'>Tube Formation<br></span>
+		<input type="checkbox" disabled id="HUV_Hoechst" name="HUV_Hoechst" value='HUV_Hoechst'>	
+			<span id="HUV_Hoechst_B">	Nuclei staining<br></span>
+		<input type="checkbox" disabled id="HUV_Mito" 	name="HUV_Mito" value='HUV_Mito'>			
+			<span id="HUV_Mito_B">		Mitochondrial Integrity<br></span>
+		<input type="checkbox" disabled id="HUV_CalceinAM" name="HUV_CalceinAM" value='HUV_CalceinAM'>
+			<span id="HUV_CalceinAM_B">	Cell Viability<br></span>
+		<input type="checkbox" disabled id="HUV_TubForm" name="HUV_TubForm" value='HUV_TubForm'>	
+			<span id="HUV_TubForm_B">	Tube Formation<br></span>
 	</div>	<br>
 	<div id="Neur_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCell neuron assays:</span><br>
@@ -89,11 +120,16 @@ function myFunction() {
 	<c:forEach var="element" items="${England_cell_lines}" varStatus="status">
 		<div id="${element}_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 			<span style="color:black; font-weight: bold;" >Cell line ${element} assays:</span><br>
-			<span id="CMFDA_B">	<input type="checkbox" disabled id="CMFDA" name="CMFDA" value='CMFDA'>Cell membrane integrity<br></span>
-			<span id="ROS_B">	<input type="checkbox" disabled id="ROS" name="ROS" value='ROS'>Reactive Oxygen Species<br></span>
-			<span id="CASP_B">	<input type="checkbox" disabled id="CASP" name="CASP" value='CASP'>Apoptosis<br></span>
-			<span id="PROT_B">	<input type="checkbox" disabled id="PROT" name="PROT" value='PROT'>Protein synthesis inhibition<br></span>
-			<span id="ATP_B">	<input type="checkbox" disabled id="ATP" name="ATP" value='ATP'>ATP Quantitation Assay<br></span>
+			<input type="checkbox" disabled id="${element}_CMFDA" name="${element}_CMFDA" value='${element}_CMFDA'>
+				<span id="${element}_CMFDA_B">Cell membrane integrity<br></span>
+			<input type="checkbox" disabled id="${element}_ROS" name="${element}_ROS" value='${element}_ROS'>
+				<span id="${element}_ROS_B">Reactive Oxygen Species<br></span>
+			<input type="checkbox" disabled id="${element}_CASP" name="${element}_CASP" value='${element}_CASP'>
+				<span id="${element}_CASP_B">Apoptosis<br></span>
+			<input type="checkbox" disabled id="${element}_PROT" name="${element}_PROT" value='${element}_PROT'>
+				<span id="${element}_PROT_B">Protein synthesis inhibition<br></span>
+			<input type="checkbox" disabled id="${element}_ATP" name="${element}_ATP" value='${element}_ATP'>
+				<span id="${element}_ATP_B">ATP Quantitation Assay<br></span>
 		</div>
 	</c:forEach>
 </div>	<!-- end of div for assays. -->
