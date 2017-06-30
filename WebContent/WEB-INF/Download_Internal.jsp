@@ -20,7 +20,7 @@
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
     url="jdbc:mysql://localhost:3306/catapp"
     user="root"  password="vibscatapp"/>
- 
+<%-- 
 <sql:query dataSource="${snapshot}" var="result">
 	select distinct assay_type from file_info where cell_line_id = 'HT29'; 
 </sql:query>
@@ -29,7 +29,7 @@
 <c:forEach var="row" items="${result.rows}">  
 	Assay found for HT29: <c:out value="${row.assay_type}"/>, 
 </c:forEach> 
-
+--%>
 
 
 <script>
@@ -39,20 +39,17 @@ $(document).ready(function(){
     // $(".all_assays").hide();
 
     var selected_cell_lines;
-    alert("${N_cell_lines}");
+    // alert("still ready function.");
     <c:forEach var="element" items="${selected_cell_lines}" varStatus="status">
-
-    	<sql:query dataSource="${snapshot}" var="result2">
-    		select distinct assay_type from file_info where cell_line_id = 'HT29'; 
+    	alert("element (cell line): " + "${element}");
+    	<sql:query dataSource="${snapshot}" var="result">
+    		select distinct assay_type from file_info where cell_line_id = "${element}"; 
     	</sql:query>
-    	<c:forEach var="row" items="${result2.rows}">  
-    		Assay found for HT29: <c:out value="${row.assay_type}"/>, 
-    		$("#${element}_${row.assay_type}").removeAttr("disabled");
-			$("#${element}_${row.assay_type}_B").css({'color': 'DarkCyan ', 'font-size': '105%', 'font-weight': 'bold' });
+    	<c:forEach var="row" items="${result.rows}">  
+			$("#${element}_${row.assay_type}").removeAttr("disabled");
+    		$("#${element}_${row.assay_type}_B").css({'color': 'DarkCyan ', 'font-size': '105%', 'font-weight': 'bold' });
     	</c:forEach> 
 
-
-    
     	$("#${element}_assays").show();
    	</c:forEach>
 });
@@ -72,24 +69,38 @@ function myFunction() {
 	
 	<div id="CM_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCell cardiomyocyte assays:</span><br>
-		<input type="checkbox" disabled id="CM_Ca2" name="CM_Ca2" value='CM_Ca2'>			<span id="CM_Ca2_B">Ca2+ flux<br></span>
-		<input type="checkbox" disabled id="CM_Hoechst" name="CM_Hoechst" value='CM_Hoechst'><span id="CM_Hoechst_B">Nuclei staining<br></span>
-		<input type="checkbox" disabled id="CM_Mito" name="CM_Mito" value='CM_Mito'>		<span id="CM_Mito_B">Mitochondrial Integrity<br></span>
-	</div><br>
+		<input type="checkbox" disabled id="CM_Ca2" name="CM_Ca2" value='CM_Ca2'>			
+			<span id="CM_Ca2_B">Ca2+ flux<br></span>
+		<input type="checkbox" disabled id="CM_Hoechst" name="CM_Hoechst" value='CM_Hoechst'>
+			<span id="CM_Hoechst_B">Nuclei staining<br></span>
+		<input type="checkbox" disabled id="CM_Mito" name="CM_Mito" value='CM_Mito'>		
+			<span id="CM_Mito_B">Mitochondrial Integrity<br></span>
+		<br>
+	</div>
 	<div id="HEP_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCell hepatocyte assays:</span><br>
-		<span id="Hoechst_B">	<input type="checkbox" disabled id="Hoechst" name="Hoechst" value='Hoechst'>Nuclei staining<br></span>
-		<span id="Mito_B">		<input type="checkbox" disabled id="Mito" 	name="Mito" value='Mito'>Mitochondrial Integrity<br></span>
-		<span id="CalceinAM_B">	<input type="checkbox" disabled id="CalceinAM" name="CalceinAM" value='CalceinAM'>Cell Viability<br></span>
-		<span id="LipidTOX_B">	<input type="checkbox" disabled id="LipidTOX" name="LipidTOX" value='LipidTOX'>Lipid Accumulation<br></span>
-	</div>	<br>
+		<input type="checkbox" disabled id="HEP_Hoechst" name="HEP_Hoechst" value='HEP_Hoechst'>
+			<span id="HEP_Hoechst_B">	Nuclei staining<br></span>
+		<input type="checkbox" disabled id="HEP_Mito" 	name="HEP_Mito" value='HEP_Mito'>
+			<span id="HEP_Mito_B">		Mitochondrial Integrity<br></span>
+		<input type="checkbox" disabled id="HEP_CalceinAM" name="HEP_CalceinAM" value='HEP_CalceinAM'>
+			<span id="HEP_CalceinAM_B">	Cell Viability<br></span>
+		<input type="checkbox" disabled id="HEP_LipidTOX" name="HEP_LipidTOX" value='HEP_LipidTOX'>
+			<span id="HEP_LipidTOX_B">	Lipid Accumulation<br></span>
+		<br>
+	</div>
 	<div id="ENDO_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >ENDO and HUVEC assays:</span><br>
-		<span id="Hoechst_B">	<input type="checkbox" disabled id="Hoechst" name="Hoechst" value='Hoechst'>Nuclei staining<br></span>
-		<span id="Mito_B">		<input type="checkbox" disabled id="Mito" 	name="Mito" value='Mito'>Mitochondrial Integrity<br></span>
-		<span id="CalceinAM_B">	<input type="checkbox" disabled id="CalceinAM" name="CalceinAM" value='CalceinAM'>Cell Viability<br></span>
-		<span id="TubForm_B">	<input type="checkbox" disabled id="TubForm" name="TubForm" value='TubForm'>Tube Formation<br></span>
-	</div>	<br>
+		<input type="checkbox" disabled id="ENDO_Hoechst" name="ENDO_Hoechst" value='ENDO_Hoechst'>
+			<span id="ENDO_Hoechst_B">	Nuclei staining<br></span>
+		<input type="checkbox" disabled id="ENDO_Mito" 	name="ENDO_Mito" value='ENDO_Mito'>
+			<span id="ENDO_Mito_B">		Mitochondrial Integrity<br></span>
+		<input type="checkbox" disabled id="ENDO_CalceinAM" name="ENDO_CalceinAM" value='ENDO_CalceinAM'>
+			<span id="ENDO_CalceinAM_B">	Cell Viability<br></span>
+		<input type="checkbox" disabled id="ENDO_TubForm" name="ENDO_TubForm" value='ENDO_TubForm'>
+			<span id="ENDO_TubForm_B">	Tube Formation<br></span>
+		<br>
+	</div>
 	<div id="HUV_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >HUVEC assays:</span><br>
 		<input type="checkbox" disabled id="HUV_Hoechst" name="HUV_Hoechst" value='HUV_Hoechst'>	
@@ -100,14 +111,16 @@ function myFunction() {
 			<span id="HUV_CalceinAM_B">	Cell Viability<br></span>
 		<input type="checkbox" disabled id="HUV_TubForm" name="HUV_TubForm" value='HUV_TubForm'>	
 			<span id="HUV_TubForm_B">	Tube Formation<br></span>
-	</div>	<br>
+		<br>
+	</div>
 	<div id="Neur_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCell neuron assays:</span><br>
 		<span id="Hoechst_B">	<input type="checkbox" disabled id="Hoechst" name="Hoechst" value='Hoechst'>Nuclei staining<br></span>
 		<span id="Mito_B">		<input type="checkbox" disabled id="Mito" 	name="Mito" value='Mito'>Mitochondrial Integrity<br></span>
 		<span id="CalceinAM_B">	<input type="checkbox" disabled id="CalceinAM" name="CalceinAM" value='CalceinAM'>Cell Viability<br></span>
 		<span id="NeurOut_B">	<input type="checkbox" disabled id="NeurOut" name="NeurOut" value='NeurOut'>Neurite Outgrowth<br></span>
-	</div>	<br>
+		<br>
+	</div>
 	<div id="Macro_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCell macrophage assays:</span><br>
 		<span id="Hoechst_B">	<input type="checkbox" disabled id="Hoechst" name="Hoechst" value='Hoechst'>Nuclei staining<br></span>
@@ -116,7 +129,8 @@ function myFunction() {
 		<span id="Phag_B">	<input type="checkbox" disabled id="Phag" name="Phag" value='Phag'>Phagocytosis<br></span>
 		<span id="Cyto_B">	<input type="checkbox" disabled id="Cyto" name="Cyto" value='Cyto'>Cytokines<br></span>
 		<span id="MacroOut_B">	<input type="checkbox" disabled id="MacroOut" name="MacroOut" value='MacroOut'>Macroite Outgrowth<br></span>
-	</div>	<br>
+		<br>
+	</div>
 	<c:forEach var="element" items="${England_cell_lines}" varStatus="status">
 		<div id="${element}_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 			<span style="color:black; font-weight: bold;" >Cell line ${element} assays:</span><br>
@@ -130,6 +144,7 @@ function myFunction() {
 				<span id="${element}_PROT_B">Protein synthesis inhibition<br></span>
 			<input type="checkbox" disabled id="${element}_ATP" name="${element}_ATP" value='${element}_ATP'>
 				<span id="${element}_ATP_B">ATP Quantitation Assay<br></span>
+			<br>
 		</div>
 	</c:forEach>
 </div>	<!-- end of div for assays. -->
