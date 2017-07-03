@@ -50,10 +50,11 @@
 	<sql:query dataSource="${snapshot}" var="result">
 		select distinct cell_line_id from file_info; 
 	</sql:query>
+	<%--
 	<c:forEach var="row" items="${result.rows}">  
 		<c:out value="${row.cell_line_id}"/>, 
 	</c:forEach> 
-
+ 	--%>
 	<script type="text/javascript">
 		function enalbe_cell_lines(){			////////////////////////// enable_cell_lines()
 			<c:forEach var="row" items="${result.rows}">  
@@ -92,21 +93,17 @@
 	</div>
 </div>		<!-- end of the cell line selection -->
 
-<h4 id ="assay_title" onclick="assays()" style="color: Blue;margin-left: 40px;"><b><u>Please select assays:</u></b></h4>
-<div id="Assays" style = "display:none; margin-left: 40px;">
-	Download page.
+
+<div id="Assays_A" style = "display:; margin-left: 40px;">
+	Download page, Assays div.
 	
-	<div id="England_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >Assays for cell lines 7 - 17:</span><br>
-		<span id="CMFDA_B">	<input type="checkbox" disabled id="CMFDA" name="CMFDA" value='CMFDA'>Cell membrane integrity<br></span>
-		<span id="ROS_B">	<input type="checkbox" disabled id="ROS" name="ROS" value='ROS'>Reactive Oxygen Species<br></span>
-		<span id="CASP_B">	<input type="checkbox" disabled id="CASP" name="CASP" value='CASP'>Apoptosis<br></span>
-		<span id="PROT_B">	<input type="checkbox" disabled id="PROT" name="PROT" value='PROT'>Protein synthesis inhibition<br></span>
-		<span id="ATP_B">	<input type="checkbox" disabled id="ATP" name="ATP" value='ATP'>ATP Quantitation Assay<br></span>
-	</div>
+	
 </div>	<!-- end of div for assays. -->
 
-
+<div id="Phenotypes_A" style = "display:; margin-left: 40px;">
+	Download page, phenotypes div.
+	
+</div>	<!-- end of div for Phenotypes. -->
 
 
 

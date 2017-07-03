@@ -13,6 +13,7 @@ $(".cell_lines").change(function() {
 
 var i = 0;
 function show_hide_cell_lines(){
+	// alert("show_hide_cell_lines()");
 	var selected_celllines = [];
 	var data_string = '';
 	var i = 0;
@@ -24,7 +25,7 @@ function show_hide_cell_lines(){
 		}
 	});
 	
-	alert("data_string: " + data_string);
+	// alert("data_string: " + data_string);
 	// data_string = "CM=CM&HEP=HEP"
 	$.ajax({
 	  url: "http://localhost:8080/CAT-APP-PROJECT/Download_InternalServlet",
@@ -32,7 +33,7 @@ function show_hide_cell_lines(){
 	  type: 'post',
 	  success: function(data) {
 	    // alert(data);
-	    $("#Assays").replaceWith(data);
+	    $("#Assays_A").replaceWith(data);
 	  }
 	});
 	
@@ -62,6 +63,55 @@ function show_hide_cell_lines(){
 		i=0;
 		}
 }	// end of show_hide_cell_lines(){}
+
+
+$(".all_assays").change(function() {
+    if(this.checked) {
+        // alert("cell lines selected.");
+        $('#next_to_phenotypes').show();
+    }
+});
+
+
+function show_hide_assays(){
+	alert("show_hide_assays()");
+	var selected_assays = [];
+	var data_string = '';
+	
+	$('#Assays > input[type=checkbox]').each(function () {
+		if($(this).prop('checked') == true){
+			selected_assays[$(this).prop('name')] = $(this).prop('value');
+		   	// alert("CM26: " + $(this).prop('value'));
+		   	data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
+		}
+	});
+	
+	alert("data_string: " + data_string);
+	// data_string = "CM=CM&HEP=HEP"
+	$.ajax({
+	  url: "http://localhost:8080/CAT-APP-PROJECT/Download_Internal_BServlet",
+	  data: data_string,
+	  type: 'post',
+	  success: function(data) {
+	    // alert(data);
+	    $("#Phenotypes_A").replaceWith(data);
+	  }
+	});		// end of ajax()
+	
+	alert("Hello, Sir.");
+	
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
