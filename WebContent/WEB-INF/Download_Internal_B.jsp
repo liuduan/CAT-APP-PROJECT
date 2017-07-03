@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 <h4 id ="phenotype_title" onclick="assays()" style="color: Blue; margin-left: 40px;">
 	<b><u>Please select phenotypes:</u></b>
-		<a href="#" onclick="show_hide_assays()" id="next_to_phenotypes" style="display: none;">
+		<a href="#" onclick="show_hide_phenos()" id="next_to_phenotypes" style="display: none;">
 			<button type="button" class="btn btn-xs btn-success"> Next
  				<span class="glyphicon glyphicon-chevron-right"></span>
 				</button>
@@ -30,7 +30,7 @@ $(document).ready(function(){
 <div id="Phenotypes" style = "display:; margin-left: 40px;">
 	<div id="Ca2_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCardiomyocyte Ca2+ flux phenotypes:</span><br>
-		<input type="checkbox" disabled class="all_phenos" id="CM_Ca2_PF" name="PF" value="PF">			
+		<input type="checkbox" disabled class="all_phenos" id="CM_Ca2_PF" name="PF" value="PF"></input>			
 			<span id="CM_Ca2_PF_B">Peak Frequency<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="CM_Ca2_PW" name="PW" value="PW">			
 			<span id="CM_Ca2_PW_B">Peak Width<br></span>
@@ -149,7 +149,7 @@ $(document).ready(function(){
 	
 	
 	
-<div id="Neur_Hoechst_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
+	<div id="Neur_Hoechst_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iNeuron Nuclei Staining phenotypes:</span><br>
 		<input type="checkbox" disabled class="all_phenos" id="Neur_Hoechst_TC" name="TC" value="TC">			
 			<span id="Neur_Hoechst_TC_B">Total cell number<br></span>
@@ -206,36 +206,22 @@ $(document).ready(function(){
 		<input type="checkbox" disabled class="all_phenos" id="Macr_PhagAr" name="PhagAr" value="PhagAr">			
 			<span id="Macr_PhagAr_B">Mean Outgrowth per Cell<br></span>
 	</div>
+	<div id="Macr_Cyto_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
+		<span style="color:black; font-weight: bold;" >iMacrophage Cytokine Phenotypes:</span><br>
+		<input type="checkbox" disabled class="all_phenos" id="_Il6" name="Il6" value="Il6">			
+			<span id="Macr_Cyto_Il6_B">Il-6<br></span>
+		<input type="checkbox" disabled class="all_phenos" id="Macr_Il1a" name="Il1a" value="Il1a">			
+			<span id="Macr_Il1a_B">Il-1a<br></span>
+	</div>
+	<div id="Macr_MacroOut_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
+		<span style="color:black; font-weight: bold;" >iMacrophage Cytokine Phenotypes:</span><br>
+		<input type="checkbox" disabled class="all_phenos" id="_MIP1a" name="MIP1a" value="MIP1a">			
+			<span id="Macr_MacroOut_MIP1a_B">MIP-1a<br></span>
+		<input type="checkbox" disabled class="all_phenos" id="Macr_TNFa" name="TNFa" value="TNFa">			
+			<span id="Macr_MacroOut_TNFa_B">TNF-1a<br></span>
+	</div>
 
-
-
-				    <div id="Cyto_pheno" class="all_phenotypes">
-				    	<h4> <li>
-				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
-				            <select id="Cyto_pheno_select" onchange="selectTimePoint()">
-    							<option value="Il6">Il-6</option>
-    							<option value="Il1a">Il-1a</option>
-							</select>
-							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
-						</li></h4>			            
-				    </div>
-				    <div id="MacroOut_pheno" class="all_phenotypes">
-				    	<h4> <li>
-				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
-				            <select id="MacroOut_pheno_select" onchange="selectTimePoint()">
-    							<option value="MIP1a">MIP-1a</option>
-    							<option value="TNFa">TNF-a</option>
-							</select>
-							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
-						</li></h4>			            
-				    </div>
-				    
-			  	</div>
-	
-			                   
-	
-	
-</div>	<!-- end of div for assays. -->
+</div>	<!-- end of div for phenotypes. -->
 
 </body>
 </html>

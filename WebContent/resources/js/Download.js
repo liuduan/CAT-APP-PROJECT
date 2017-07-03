@@ -48,13 +48,7 @@ function show_hide_cell_lines(){
 	    }
 	});
 	
-	
-	
-	
-	
-	
-	
-	
+
 	if (i==0){
 		$("#cell_lines").hide();
 		i=1;
@@ -74,11 +68,11 @@ $(".all_assays").change(function() {
 
 
 function show_hide_assays(){
-	alert("show_hide_assays()");
+	// alert("show_hide_assays()");
 	var selected_assays = [];
 	var data_string = '';
 	
-	$('#Assays > input[type=checkbox]').each(function () {
+	$('.all_assays > input[type=checkbox]').each(function () {
 		if($(this).prop('checked') == true){
 			selected_assays[$(this).prop('name')] = $(this).prop('value');
 		   	// alert("CM26: " + $(this).prop('value'));
@@ -98,7 +92,7 @@ function show_hide_assays(){
 	  }
 	});		// end of ajax()
 	
-	alert("Hello, Sir.");
+	// alert("Hello, Sir.");
 	
 }
 
