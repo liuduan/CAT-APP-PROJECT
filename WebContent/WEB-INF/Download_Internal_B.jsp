@@ -44,6 +44,7 @@ $(document).ready(function(){
 			<span id="CM_Ca2_PRT_B">Peak Rise Time<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="CM_Ca2_PDT" name="PDT" value="PDT">			
 			<span id="CM_Ca2_PDT_B">Peak Decay Time<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="CM_Hoechst_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCardiomyocyte Nuclei Staining phenotypes:</span><br>
@@ -51,6 +52,7 @@ $(document).ready(function(){
 			<span id="CM_Hoechst_TC_B">Total cell number<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="CM_Hoechst_NMA" name="NMA" value="NMA">			
 			<span id="CM_Hoechst_NMA_B">Nuclei Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="CM_Mito_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCardiomyocyte Mitochondrial Integrity phenotypes:</span><br>
@@ -60,6 +62,7 @@ $(document).ready(function(){
 			<span id="CM_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="CM_Mito_ACMA" name="ACMA" value="ACMA">			
 			<span id="CM_Mito_ACMA_B">All Cells Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	
 	
@@ -72,6 +75,7 @@ $(document).ready(function(){
 			<span id="HEP_Hoechst_NI_B">Nuclei Intensity<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="HEP_Hoechst_NMA" name="NMA" value="NMA">			
 			<span id="HEP_Hoechst_NMA_B">Nuclei Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="HEP_Mito_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iHepatocyte Mitochondrial Integrity phenotypes:</span><br>
@@ -81,6 +85,7 @@ $(document).ready(function(){
 			<span id="HEP_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="HEP_Mito_ACMA" name="ACMA" value="ACMA">			
 			<span id="HEP_Mito_ACMA_B">All Cells Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	
 	
@@ -93,6 +98,7 @@ $(document).ready(function(){
 			<span id="ENDO_Hoechst_NI_B">Nuclei Intensity<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="ENDO_Hoechst_NMA" name="NMA" value="NMA">			
 			<span id="ENDO_Hoechst_NMA_B">Nuclei Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="ENDO_Mito_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iEndothelial Cells Mitochondrial Integrity phenotypes:</span><br>
@@ -102,6 +108,7 @@ $(document).ready(function(){
 			<span id="ENDO_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="ENDO_Mito_ACMA" name="ACMA" value="ACMA">			
 			<span id="ENDO_Mito_ACMA_B">All Cells Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="ENDO_TubForm_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iEndothelial Cells Tube Formation Phenotypes:</span><br>
@@ -113,6 +120,7 @@ $(document).ready(function(){
 			<span id="ENDO_TubForm_TTA_B">Total Tube Area<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="ENDO_TubForm_BrPt" name="BrPt" value="BrPt">			
 			<span id="ENDO_TubForm_BrPt_B">Branch Points<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	
 	
@@ -125,6 +133,7 @@ $(document).ready(function(){
 			<span id="HUV_Hoechst_NI_B">Nuclei Intensity<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="HUV_Hoechst_NMA" name="NMA" value="NMA">			
 			<span id="HUV_Hoechst_NMA_B">Nuclei Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="HUV_Mito_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >HUVEC Mitochondrial Integrity phenotypes:</span><br>
@@ -134,6 +143,7 @@ $(document).ready(function(){
 			<span id="HUV_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="HUV_Mito_ACMA" name="ACMA" value="ACMA">			
 			<span id="HUV_Mito_ACMA_B">All Cells Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="HUV_TubForm_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >HUVEC Tube Formation Phenotypes:</span><br>
@@ -145,6 +155,7 @@ $(document).ready(function(){
 			<span id="HUV_TubForm_TTA_B">Total Tube Area<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="HUV_TubForm_BrPt" name="BrPt" value="BrPt">			
 			<span id="HUV_TubForm_BrPt_B">Branch Points<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	
 	
@@ -157,6 +168,7 @@ $(document).ready(function(){
 			<span id="Neur_Hoechst_NI_B">Nuclei Intensity<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="Neur_Hoechst_NMA" name="NMA" value="NMA">			
 			<span id="Neur_Hoechst_NMA_B">Nuclei Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="Neur_Mito_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iNeuron Mitochondrial Integrity phenotypes:</span><br>
@@ -166,6 +178,7 @@ $(document).ready(function(){
 			<span id="Neur_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="Neur_Mito_ACMA" name="ACMA" value="ACMA">			
 			<span id="Neur_Mito_ACMA_B">All Cells Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="Neur_NeurOut_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iNeuron Neurite Outgrowth Phenotypes:</span><br>
@@ -177,6 +190,7 @@ $(document).ready(function(){
 			<span id="Neur_TotBra_B">Total Branches<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="Neur_TotPr" name="TotPr" value="TotPr">			
 			<span id="Neur_TotPr_B">Total Branches<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 
 	
@@ -189,6 +203,7 @@ $(document).ready(function(){
 			<span id="Macr_Hoechst_NI_B">Nuclei Intensity<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="Macr_Hoechst_NMA" name="NMA" value="NMA">			
 			<span id="Macr_Hoechst_NMA_B">Nuclei Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="Macr_Mito_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iMacrophage Mitochondrial Integrity phenotypes:</span><br>
@@ -198,6 +213,7 @@ $(document).ready(function(){
 			<span id="Macr_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="Macr_Mito_ACMA" name="ACMA" value="ACMA">			
 			<span id="Macr_Mito_ACMA_B">All Cells Mean Area<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="Macr_Phag_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iMacrophage Phagocytosis Phenotypes:</span><br>
@@ -205,6 +221,7 @@ $(document).ready(function(){
 			<span id="Macr_PhagCe_B">Total Outgrowth<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="Macr_PhagAr" name="PhagAr" value="PhagAr">			
 			<span id="Macr_PhagAr_B">Mean Outgrowth per Cell<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="Macr_Cyto_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iMacrophage Cytokine Phenotypes:</span><br>
@@ -212,6 +229,7 @@ $(document).ready(function(){
 			<span id="Macr_Cyto_Il6_B">Il-6<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="Macr_Il1a" name="Il1a" value="Il1a">			
 			<span id="Macr_Il1a_B">Il-1a<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 	<div id="Macr_MacroOut_phenos" class="all_phenos" style="display:; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iMacrophage Cytokine Phenotypes:</span><br>
@@ -219,6 +237,7 @@ $(document).ready(function(){
 			<span id="Macr_MacroOut_MIP1a_B">MIP-1a<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="Macr_TNFa" name="TNFa" value="TNFa">			
 			<span id="Macr_MacroOut_TNFa_B">TNF-1a<br></span>
+		<input type="checkbox" disabled class="all_phenos"><span>TempOseq<br></span>
 	</div>
 
 </div>	<!-- end of div for phenotypes. -->

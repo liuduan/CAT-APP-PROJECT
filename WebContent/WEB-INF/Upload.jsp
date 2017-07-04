@@ -252,6 +252,7 @@
     							<option value="PS">Peak Spacing</option>
     							<option value="PRT">Peak Rise Time</option>
     							<option value="PDT">Peak Decay Time</option>
+    							<option value="SEQ">TempOseq</option>
 							</select>
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
@@ -262,6 +263,7 @@
 				            <select id="Hoechst_2_pheno_select" onchange="selectTimePoint()">
     							<option value="TC">Total cell number</option>
     							<option value="NMA">Nuclei Mean Area</option>
+    							<option value="SEQ">TempOseq</option>
 							</select>
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
@@ -273,6 +275,7 @@
     							<option value="posMT">Number of Cells with Intact Mitochondria</option>
     							<option value="MT_MSA">Mitochondria Mean Stain Area</option>
     							<option value="MT_ACMA">All Cells Mean Area</option>
+    							<option value="SEQ">TempOseq</option>
 							</select>
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
@@ -284,6 +287,7 @@
     							<option value="TC">Total cell number</option>
     							<option value="NI">Nuclei Intensity</option>
     							<option value="NMA">Nuclei Mean Area</option>
+    							<option value="SEQ">TempOseq</option>
 							</select>
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
@@ -296,6 +300,7 @@
     							<option value="MTL">Mean Tube Length</option>
     							<option value="TTA">Total Tube Area</option>
     							<option value="BrPt">Branch Points</option>
+    							<option value="SEQ">TempOseq</option>
 							</select>
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
@@ -308,6 +313,7 @@
     							<option value="MeOutCe">Mean Outgrowth per Cell</option>
     							<option value="TotBra">Total Branches</option>
     							<option value="TotPr">Total Processes</option>
+    							<option value="SEQ">TempOseq</option>
 							</select>
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
@@ -318,6 +324,7 @@
 				            <select id="pheno_Phag_select" onchange="selectTimePoint()">
     							<option value="PhagCe">Phagocytic Cells</option>
     							<option value="PhagAr">Phagocytic Area</option>
+    							<option value="SEQ">TempOseq</option>
 							</select>
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
@@ -328,6 +335,7 @@
 				            <select id="Cyto_pheno_select" onchange="selectTimePoint()">
     							<option value="Il6">Il-6</option>
     							<option value="Il1a">Il-1a</option>
+    							<option value="SEQ">TempOseq</option>
 							</select>
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
@@ -338,6 +346,7 @@
 				            <select id="MacroOut_pheno_select" onchange="selectTimePoint()">
     							<option value="MIP1a">MIP-1a</option>
     							<option value="TNFa">TNF-a</option>
+    							<option value="SEQ">TempOseq</option>
 							</select>
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
