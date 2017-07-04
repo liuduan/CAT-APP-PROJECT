@@ -101,6 +101,11 @@
        <c:set var="endpoint_string2" scope="page" value="HUVEC_Mito_24h" />
        <c:set var="endpoint_name" scope="page" value="HUVEC mitochondria 24 hours" />
     </c:when>
+    <c:when test="${endpoint == '7'}">
+       <c:set var="endpoint_string" scope="page" value="Peak_freq_90min_Fly_Fly" />
+       <c:set var="endpoint_string2" scope="page" value="Cardio_peak_freq_90min" />
+       <c:set var="endpoint_name" scope="page" value="Fly & Fly iCardiomyocyte Peak frequency 90 minutes" />
+    </c:when>
 </c:choose>
 
 

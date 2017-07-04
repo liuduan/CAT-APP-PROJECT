@@ -331,6 +331,15 @@ endpoint_data[6] = "<br><br><br><papaya>" +
 	"by a trained computer software."+
 	"<br><br><br><br><br>";
 
+endpoint_data[7] = "<br><br><br><papaya>" + 
+	' <p  style="text-align: center;">Fly & Fly, iCadiomyocyte peak frequency 90 minutes. </p><br>' + 
+	'<p style ="text-indent: 50px; text-align: justify;">Fly & Fly. The Dose-Response data are read from database. '+ 
+	'Also, the Dose-Response data are loaded from the upload web page to the database.<br>' +
+	'<p style ="text-indent: 50px; text-align: justify;">iCell cardiomyocytes (Catalogue #: CMC-100-010-001) including their respective plating ' +
+	"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
+	"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
+	"<br><br><br><br><br>";
+
 
 	
 
