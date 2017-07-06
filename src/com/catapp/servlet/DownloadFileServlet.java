@@ -56,8 +56,7 @@ public class DownloadFileServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String [] lFiles					= request.getParameterValues("optradio");
 		
-		System.out.println("DownloadFileServlet lFiles:\n" + lFiles[0]);
-		
+		System.out.println("DownloadFileServlet A, lFiles: " + lFiles[0]);
 		
 		String lButtonClick					= null;
 		if(request.getParameterValues("download")!=null){
@@ -69,34 +68,41 @@ public class DownloadFileServlet extends HttpServlet {
 		PreparedStatement lPstmt 			= null;
 		ResultSet lRst					    = null;
 		Connection lConn 					= null;
-
-		File lLocalFile 					= new File("C:\\Users\\CATAPP\\serverfiles");
+		File lLocalFile 					= new File("C:\\Users\\CATAPP\\serverfiles\\CM\\1");
 		String lFolderLoc 					= null;
+		String file_name 					= "";
 		if(lLocalFile.exists()){
-			lFolderLoc ="C:\\Users\\CATAPP\\serverfiles";
+			lFolderLoc ="C:\\Users\\CATAPP\\serverfiles\\CM\\1";
 		}else{
 			// Write code as per the server //
 		}
 		try{
 			if(lFiles.length>0){
 				
+				System.out.println("DownloadFileServlet B, how many files: " + lFiles.length);
+				
 				ArrayList<Long>lParameter = new ArrayList<Long>() ;
 				for(int i=0;i<lFiles.length;i++){
-						lParameter.add(Long.parseLong(lFiles[i]));
-					
+					lParameter.add(Long.parseLong(lFiles[i]));
+					System.out.println("DownloadFileServlet C, entity_id: " + lFiles[i]);
 				}
 				
 				
 				lConn=new DBConnection().getConnection();
-				StringBuilder lBuild = new StringBuilder("select * From file_info where rowstate!=-1 and entity_id in (");
-									   lBuild.append(new ChemData().generateQForparameter(lParameter.size()));
+				String to_be_file_id = new ChemData().generateQForparameter(lParameter.size());
+				StringBuilder lBuild = new StringBuilder("select * From file_info where entity_id in (");
+									   lBuild.append(to_be_file_id);
 									   lBuild.append(")");
+									   
+				System.out.println("DownloadFileServlet D, in the query, to_be_file_id: " + to_be_file_id);
 									   
 				lPstmt = lConn.prepareStatement(lBuild.toString());
 				
 				for(int i=0;i<lParameter.size();i++){
 					
 					lPstmt.setLong(i+1, lParameter.get(i));
+					
+					System.out.println("DownloadFileServlet E, entity_id: " + lParameter.get(i));
 					
 				}
 				
@@ -105,19 +111,33 @@ public class DownloadFileServlet extends HttpServlet {
 				String lFileName ="";
 				String lFileType ="";
 				while(lRst.next()){
-					 lFileName = lRst.getString("file_name");
+					lFileName = lRst.getString("file_name");
+					System.out.println("DownloadFileServlet F, File Name: " + lFileName);
 					//lFileName ="test";
 					lFileType = lRst.getString("file_type");
-					String lCellLine = new ChemData().getTagNames(lRst.getLong("cell_line_id"));
-					String lPlate =lRst.getString("plate_id");
+					
+					System.out.println("DownloadFileServlet G, File type: " + lFileType);
+					
+					// String lCellLine = new ChemData().getTagNames(lRst.getLong("cell_line_id"));
+					String lCellLine = lRst.getString("cell_line_id");
+					// String lPlate =lRst.getString("plate_id");
+					// String lPlate = "";
+					
+					String[] parts = lFileName.split("\\.");
+					file_name  = parts[0]; // 004
+					
+					System.out.println("DownloadFileServlet G2, file_name: " + file_name);
 
-					lFileFromServer.add(lFolderLoc+"\\"+lCellLine+"\\"+lPlate+"\\"+lFileName+"."+"xlsx");
+					lFileFromServer.add(lFolderLoc + "\\" + lCellLine + "\\" + file_name + "." +lFileType);
+					
+					System.out.println("DownloadFileServlet H, File: " + 
+							lFolderLoc + "\\" + lCellLine + "\\" + file_name + "." +lFileType);
 				}
 				
 				if(lFileFromServer.size()>0 && lFileFromServer.size()==1){
 					
 					if(lButtonClick!=null && lButtonClick=="Download"){
-						response.setHeader("Content-disposition","attachment; filename="+ lFileName+"."+lFileType);
+						response.setHeader("Content-disposition","attachment; filename="+ file_name+"."+lFileType);
 						response.setContentType(lFileType);
 						
 						OutputStream out = response.getOutputStream();

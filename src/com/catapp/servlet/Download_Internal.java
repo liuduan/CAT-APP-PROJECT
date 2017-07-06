@@ -32,9 +32,9 @@ public class Download_Internal extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("Download_Internal, Servlet" );
-		ArrayList<String> all_cell_lines = new ArrayList<>(Arrays.asList("CM", "HEP", "ENDO", "HUV", "Neur", "Macro", 
-				"A375", "A549", "HepG2", "HepaRG", "MCF7", "HT29", "LN229", "HEK10205f", "HLMVEC", "HMePC", 
-				"SH-SY5Y"));
+		ArrayList<String> all_cell_lines = new ArrayList<>(Arrays.asList("CM", "HEP", "ENDO", "HUV", "Neur", 
+				"Macro", "A375", "A549", "HepG2", "HepaRG", "MCF7", "HT29", "LN229", "HEK10205f", "HLMVEC", 
+				"HMePC", "SH-SY5Y"));
 		ArrayList<String> selected_cell_lines = new ArrayList<String>();
 		
 		 for(int x = 0; x < 17; x = x + 1) {

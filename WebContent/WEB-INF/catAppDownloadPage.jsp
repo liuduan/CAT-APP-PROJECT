@@ -108,17 +108,29 @@
 
 
 
+
 <br>
 ==========================================================================
 <form action="DownloadFileServlet">
-
-	<input type="checkbox" name ="optradio" id="pd" value="1">id = 1
-	<input type="checkbox" name ="optradio" id="pd" value="2">id = 2
+	<div id = "file_list">
+	<input type="checkbox" name ="optradio" id="pd" value="63">id = 63
+	<input type="checkbox" name ="optradio" id="pd" value="68">id = 68
+	</div>
 	<input type="submit" name="download" style="border-radius: 5px;" value="Download">
 	<input type="submit" name="json" style="border-radius: 5px;" value="Convert to JSON">
 </form>
 
+<button id = "append" type="button" class="btn btn-xs btn-success"> Append</button>
+	<br>
+	
+<script type="text/javascript">
+$("#append").click(function() {
+    
+	$('#file_list').append('<input type="checkbox" name ="optradio" id="pd" value="65">id = 3');
 
+});
+</script>
+===================================================================================<br>
 
 
 

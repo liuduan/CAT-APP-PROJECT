@@ -98,6 +98,12 @@ function show_hide_assays(){
 
 
 
+$(".all_phenos").change(function() {
+    if(this.checked) {
+        // alert("cell lines selected.");
+        $('#after_phenotypes').show();
+    }
+});
 
 
 

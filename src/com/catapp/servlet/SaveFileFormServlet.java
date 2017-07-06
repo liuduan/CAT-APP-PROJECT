@@ -155,22 +155,26 @@ public class SaveFileFormServlet extends HttpServlet {
 						}
 						
 						
+						String modified_file_name = original_name.replaceAll(" ", "-");
+						System.out.println("SaveFileFormServlet C1 modified file name: " + modified_file_name );
+						
+						
 						lUploadPath = "C:\\Users\\CATAPP\\serverfiles\\CM\\1\\" + lCellLine;	
 							// works only for CM, cardiomyocyte (2017-6-8) 
 						
 						
-						System.out.println("SaveFileFormServlet C2 lUploadPath: " + lUploadPath + ", " + original_name);
-						System.out.println("SaveFileFormServlet C2 name: " + original_name);
+						System.out.println("SaveFileFormServlet C2 lUploadPath: " + lUploadPath + ", " + modified_file_name);
+						System.out.println("SaveFileFormServlet C2 name: " + modified_file_name);
 						System.out.println("SaveFileFormServlet C2 extension: " + lFileExtension);
 						System.out.println("File.separator: " + File.separator);
 						
 						
 						lFileName = lCellLine + "_" + lAssay + "_" + lPhenoType + "_" + 
-								lTimePoint + "_" + lDilution + "_" + original_name;
+								lTimePoint + "_" + lDilution + "_" + modified_file_name;
 						
 						// write file here.
 						item.write( new File(lUploadPath + File.separator + lFileName));
-						File lFile1 = new File(lUploadPath + File.separator + original_name);
+						File lFile1 = new File(lUploadPath + File.separator + modified_file_name);
 						
 						System.out.println("SaveFileFormServlet C3");
 						System.out.println("SaveFileFormServlet replaced name: " + lFileName);
