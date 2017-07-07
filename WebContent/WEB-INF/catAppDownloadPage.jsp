@@ -120,16 +120,6 @@
 	<input type="submit" name="json" style="border-radius: 5px;" value="Convert to JSON">
 </form>
 
-<button id = "append" type="button" class="btn btn-xs btn-success"> Append</button>
-	<br>
-	
-<script type="text/javascript">
-$("#append").click(function() {
-    
-	$('#file_list').append('<input type="checkbox" name ="optradio" id="pd" value="65">id = 3');
-
-});
-</script>
 ===================================================================================<br>
 
 

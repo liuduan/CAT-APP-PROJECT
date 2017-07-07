@@ -80,7 +80,7 @@ function show_hide_assays(){
 		}
 	});
 	
-	alert("data_string: " + data_string);
+	// alert("data_string: " + data_string);
 	// data_string = "CM=CM&HEP=HEP"
 	$.ajax({
 	  url: "http://localhost:8080/CAT-APP-PROJECT/Download_Internal_BServlet",
@@ -140,7 +140,7 @@ function list_files(){
 		}
 	});
 
-	alert("list_files function, data_string: " + data_string);
+	// alert("list_files function, data_string: " + data_string);
 	
 	var selected_phenos = [];
 	$('.all_phenos > input[type=checkbox]').each(function () {
@@ -152,6 +152,20 @@ function list_files(){
 	});
 
 	alert("list_files function, data_string with phenos: " + data_string);
+	
+	$.ajax({
+		  url: "http://localhost:8080/CAT-APP-PROJECT/Download_Internal_C",
+		  data: data_string,
+		  type: 'post',
+		  success: function(data) {
+		    // alert(data);
+		    $("#file_list").replaceWith(data);
+		  }
+		});		// end of ajax()
+	
+	
+	
+	
 }
 
 

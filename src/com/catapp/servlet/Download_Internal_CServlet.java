@@ -56,6 +56,8 @@ public class Download_Internal_CServlet extends HttpServlet {
 	         }
 	      }
 		
+		System.out.println("selected_England_assays: "+ request.getParameter(selected_England_assays.get(1)));
+		
 		request.setAttribute("selected_England_assays", selected_England_assays);	// submit value to jsp page:
 		
 		
