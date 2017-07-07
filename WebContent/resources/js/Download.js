@@ -128,6 +128,40 @@ function assays(){
 
 
 
+function list_files(){
+	var selected_assays = [];
+	var data_string = '';
+
+	$('.all_assays > input[type=checkbox]').each(function () {
+		if($(this).prop('checked') == true){
+			selected_assays[$(this).prop('name')] = $(this).prop('value');
+			// alert("CM26: " + $(this).prop('value'));
+			data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
+		}
+	});
+
+	alert("list_files function, data_string: " + data_string);
+	
+	var selected_phenos = [];
+	$('.all_phenos > input[type=checkbox]').each(function () {
+		if($(this).prop('checked') == true){
+			selected_phenos[$(this).prop('name')] = $(this).prop('value');
+			// alert("CM26: " + $(this).prop('value'));
+			data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
+		}
+	});
+
+	alert("list_files function, data_string with phenos: " + data_string);
+}
+
+
+
+
+
+
+
+
+
 
 
 

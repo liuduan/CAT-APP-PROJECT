@@ -107,6 +107,17 @@
     <servlet-class>com.catapp.servlet.Download_Internal_B</servlet-class>
     <enabled>true</enabled>
   </servlet>
+  <servlet>
+    <display-name>Download_Internal_CServlet</display-name>
+    <servlet-name>Download_Internal_CServlet</servlet-name>
+    <servlet-class>com.catapp.servlet.Download_Internal_CServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Download_Internal_CServlet</servlet-name>
+    <url-pattern>/Download_Internal_C</url-pattern>
+  </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>Download_Internal_BServlet</servlet-name>
     <url-pattern>/Download_Internal_BServlet</url-pattern>
