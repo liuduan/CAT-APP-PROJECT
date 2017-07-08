@@ -23,8 +23,10 @@ $(document).ready(function(){
    	// alert("ready function B.");
 
 	$("#Assays").hide();
-	$("#Phenotypes").hide();
+	// $("#Phenotypes").hide();
 	$("#phenotype_title").show();
+	$("#file_button").show();
+	
 })		// end of the ready function
 
 </script>
@@ -68,6 +70,7 @@ $(document).ready(function(){
       </tr>
     </thead>
     <tbody>
+    	<c:set var="i" scope="session" value="${1}"/>
 		<c:forEach var="row" items="${result_C.rows}">  
 			<c:if test="${i > 6}">
    				<c:set var="i" scope="session" value="${1}"/>

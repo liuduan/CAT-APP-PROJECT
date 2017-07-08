@@ -40,8 +40,10 @@
 
 <jsp:include page="header.jsp" /> 
 
-<br><br><br><br>
-<div style="margin-left: 40px;">
+<br></br><br></br>
+<div class="container-fluid"><div class="row"></div><!-- end of div row -->
+<div class="col-lg-6  col-md-6" id ="left" >
+<div id ="cell line selection" style="margin-left: 40px;">
 
 	<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
     	url="jdbc:mysql://localhost:3306/catapp"
@@ -95,34 +97,42 @@
 
 
 <div id="Assays_A" style = "display:; margin-left: 40px;">
-	Download page, Assays div.
+	.
 	
 	
 </div>	<!-- end of div for assays. -->
 
 <div id="Phenotypes_A" style = "display:; margin-left: 40px;">
-	Download page, phenotypes div.
+	..
 	
 </div>	<!-- end of div for Phenotypes. -->
 
 
+</div>	<!-- end of div left -->
 
 
 
-<br>
-==========================================================================
-<form action="DownloadFileServlet">
-	<div id = "file_list">
-	<input type="checkbox" name ="optradio" id="pd" value="63">id = 63
-	<input type="checkbox" name ="optradio" id="pd" value="68">id = 68
-	</div>
-	<input type="submit" name="download" style="border-radius: 5px;" value="Download">
-	<input type="submit" name="json" style="border-radius: 5px;" value="Convert to JSON">
-</form>
+<div id="file_display" class="col-lg-6 col-md-6" >
+	<h1 style="text-align: center; text-indent: -350px; font-weight: bold; " class = "text-danger">
+    	File Download</h1>
+	<form action="DownloadFileServlet">
+		<div id = "file_list">
+			...
+		</div>
+		<div id = "file_button" style="margin-left: 80px; display: none; ">
+			<br></br>
+			<input type="submit" class="btn btn-info" name="download" style="border-radius: 5px;" value="Download">
+			<input type="submit" class="btn btn-info" name="json" style="border-radius: 5px;" value="Convert to JSON">
+		</div>
+	</form>
+</div><!-- end of div file_display -->
 
-===================================================================================<br>
+</div><!-- end of div row -->
+</div> <!-- end of the container-fluid -->
 
+<br></br><br></br><br></br><br></br>
 
+================================================================================
 
 <div id="wrapper">
         

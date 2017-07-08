@@ -151,7 +151,7 @@ function list_files(){
 		}
 	});
 
-	alert("list_files function, data_string with phenos: " + data_string);
+	// alert("list_files function, data_string with phenos: " + data_string);
 	
 	$.ajax({
 		  url: "http://localhost:8080/CAT-APP-PROJECT/Download_Internal_C",
@@ -160,6 +160,8 @@ function list_files(){
 		  success: function(data) {
 		    // alert(data);
 		    $("#file_list").replaceWith(data);
+		    $("#left").attr("class", "col-lg-4 col-md-4");
+		    $("#file_display").attr("class", "col-lg-8 col-md-8" );
 		  }
 		});		// end of ajax()
 	
