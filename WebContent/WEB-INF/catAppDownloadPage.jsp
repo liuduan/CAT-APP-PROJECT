@@ -117,7 +117,9 @@
     	File Download</h1>
 	<form action="DownloadFileServlet">
 		<div id = "file_list">
-			...
+			<br></br>
+			Link for phenotype list.<br>
+			Explain file name components.
 		</div>
 		<div id = "file_button" style="margin-left: 80px; display: none; ">
 			<br></br>
