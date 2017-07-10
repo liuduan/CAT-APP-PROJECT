@@ -68,7 +68,7 @@ $(document).ready(function(){
 		</a></h4>
 		
 <div id="Assays" style = "display:none; margin-left: 40px;">
-
+	<!-- "_" is used to seperate cell line tags and phenotype tags -->
 	<div id="CM_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCell cardiomyocyte assays:</span><br>
 		<input type="checkbox" disabled class="all_assays" id="CM_Ca2" name="CM_Ca2" value='CM_Ca2'>			

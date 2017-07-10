@@ -35,16 +35,15 @@ $(document).ready(function(){
     url="jdbc:mysql://localhost:3306/catapp"
     user="root"  password="vibscatapp"/>
 
-
 <sql:query dataSource="${snapshot_C}" var="result_C">
 	SELECT
   		entity_id, file_name, cell_line_id, assay_type, phenotype_id
 	FROM
   		file_info 
 	WHERE 
-	<c:forEach var="element" items="${selected_England_assays}" varStatus="status">
-		<c:set var = "England_assay" value = "${fn:split(element, '_')}" />	
-		(cell_line_id = "${England_assay[0]}" AND assay_type = "${England_assay[1]}") OR 
+	<c:forEach var="element" items="${selected_assay_pheno}" varStatus="status">
+		<c:set var = "assay_pheno" value = "${fn:split(element, '_')}" />	
+		(cell_line_id = "${assay_pheno[0]}" AND assay_type = "${assay_pheno[1]}") OR 
 	</c:forEach>
 	
 	<c:forEach var="element" items="${selected_phenos}" varStatus="status">
@@ -52,6 +51,7 @@ $(document).ready(function(){
 		(cell_line_id = "${current_pheno[0]}" AND phenotype_id = "${current_pheno[2]}") OR
 	</c:forEach>
 	(cell_line_id = "hello");
+
 </sql:query>
 
 

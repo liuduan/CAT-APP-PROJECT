@@ -39,7 +39,11 @@ $(document).ready(function(){
 <c:forEach var="element" items="${selected_assays}" varStatus="status">
 	<c:set var = "current_assay" value = "${fn:split(element, '_')}" />
 	<sql:query dataSource="${snapshot_B}" var="result_B">
-    	select distinct phenotype_id from file_info where assay_type = "${current_assay[1]}"; 
+    	select 
+    		distinct phenotype_id from file_info 
+    	where 
+    		(cell_line_id = "${current_assay[0]}") AND
+    		(assay_type = "${current_assay[1]}"); 
     </sql:query>
     <c:forEach var="row" items="${result_B.rows}">  
 		<c:set var = "pheno_id" value = "${element}_${row.phenotype_id}" />	
@@ -97,8 +101,8 @@ $(document).ready(function(){
 		<span style="color:black; font-weight: bold;" >iCardiomyocyte Mitochondrial Integrity phenotypes:</span><br>
 		<input type="checkbox" disabled class="all_phenos" id="CM_Mito_posMT" name="CM_Mito_posMT" value="CM_Mito_posMT">			
 			<span id="CM_Mito_posMT_B">Number of Cells with Intact Mitochondria<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="CM_Mito_MSA" name="CM_Mito_MSA" value="CM_Mito_MSA">			
-			<span id="CM_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
+		<input type="checkbox" disabled class="all_phenos" id="CM_Mito_MTmsa" name="CM_Mito_MTmsa" value="CM_Mito_MTmsa">			
+			<span id="CM_Mito_MTmsa_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="CM_Mito_ACMA" name="CM_Mito_ACMA" value="CM_Mito_ACMA">			
 			<span id="CM_Mito_ACMA_B">All Cells Mean Area<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="CM_Mito_SEQ" name="CM_Mito_SEQ" value="CM_Mito_SEQ">
@@ -124,8 +128,8 @@ $(document).ready(function(){
 		<span style="color:black; font-weight: bold;" >iHepatocyte Mitochondrial Integrity phenotypes:</span><br>
 		<input type="checkbox" disabled class="all_phenos" id="HEP_Mito_posMT" name="HEP_Mito_posMT" value="HEP_Mito_posMT">			
 			<span id="HEP_Mito_posMT_B">Number of Cells with Intact Mitochondria<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="HEP_Mito_MSA" name="HEP_Mito_MSA" value="HEP_Mito_MSA">			
-			<span id="HEP_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
+		<input type="checkbox" disabled class="all_phenos" id="HEP_Mito_MTmsa" name="HEP_Mito_MTmsa" value="HEP_Mito_MTmsa">			
+			<span id="HEP_Mito_MTmsa_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="HEP_Mito_ACMA" name="HEP_Mito_ACMA" value="HEP_Mito_ACMA">			
 			<span id="HEP_Mito_ACMA_B">All Cells Mean Area<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="HEP_Mito_SEQ" name="HEP_Mito_SEQ" value="HEP_Mito_SEQ">
@@ -151,8 +155,8 @@ $(document).ready(function(){
 		<span style="color:black; font-weight: bold;" >iEndothelial Cells Mitochondrial Integrity phenotypes:</span><br>
 		<input type="checkbox" disabled class="all_phenos" id="ENDO_Mito_posMT" name="ENDO_Mito_posMT" value="ENDO_Mito_posMT">			
 			<span id="ENDO_Mito_posMT_B">Number of Cells with Intact Mitochondria<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="ENDO_Mito_MSA" name="ENDO_Mito_MSA" value="ENDO_Mito_MSA">			
-			<span id="ENDO_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
+		<input type="checkbox" disabled class="all_phenos" id="ENDO_Mito_MTmsa" name="ENDO_Mito_MTmsa" value="ENDO_Mito_MTmsa">			
+			<span id="ENDO_Mito_MTmsa_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="ENDO_Mito_ACMA" name="ENDO_Mito_ACMA" value="ENDO_Mito_ACMA">			
 			<span id="ENDO_Mito_ACMA_B">All Cells Mean Area<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="ENDO_Hoechst_SEQ" name="ENDO_Hoechst_SEQ" value="ENDO_Hoechst_SEQ">
@@ -192,8 +196,8 @@ $(document).ready(function(){
 		<span style="color:black; font-weight: bold;" >HUVEC Mitochondrial Integrity phenotypes:</span><br>
 		<input type="checkbox" disabled class="all_phenos" id="HUV_Mito_posMT" name="HUV_Mito_posMT" value="HUV_Mito_posMT">			
 			<span id="HUV_Mito_posMT_B">Number of Cells with Intact Mitochondria<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="HUV_Mito_MSA" name="HUV_Mito_MSA" value="HUV_Mito_MSA">			
-			<span id="HUV_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
+		<input type="checkbox" disabled class="all_phenos" id="HUV_Mito_MTmsa" name="HUV_Mito_MTmsa" value="HUV_Mito_MTmsa">			
+			<span id="HUV_Mito_MTmsa_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="HUV_Mito_ACMA" name="HUV_Mito_ACMA" value="HUV_Mito_ACMA">			
 			<span id="HUV_Mito_ACMA_B">All Cells Mean Area<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="HUV_Mito_SEQ" name="HUV_Mito_SEQ" value="HUV_Mito_SEQ">
@@ -233,8 +237,8 @@ $(document).ready(function(){
 		<span style="color:black; font-weight: bold;" >iNeuron Mitochondrial Integrity phenotypes:</span><br>
 		<input type="checkbox" disabled class="all_phenos" id="Neur_Mito_posMT" name="Neur_Mito_posMT" value="Neur_Mito_posMT">			
 			<span id="Neur_Mito_posMT_B">Number of Cells with Intact Mitochondria<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Neur_Mito_MSA" name="Neur_Mito_MSA" value="Neur_Mito_MSA">			
-			<span id="Neur_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
+		<input type="checkbox" disabled class="all_phenos" id="Neur_Mito_MTmsa" name="Neur_Mito_MTmsa" value="Neur_Mito_MTmsa">			
+			<span id="Neur_Mito_MTmsa_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="Neur_Mito_ACMA" name="Neur_Mito_ACMA" value="Neur_Mito_ACMA">			
 			<span id="Neur_Mito_ACMA_B">All Cells Mean Area<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="Neur_Mito_SEQ" name="Neur_Mito_SEQ" value="Neur_Mito_SEQ">
@@ -274,8 +278,8 @@ $(document).ready(function(){
 		<span style="color:black; font-weight: bold;" >iMacrophage Mitochondrial Integrity phenotypes:</span><br>
 		<input type="checkbox" disabled class="all_phenos" id="Macr_Mito_posMT" name="Macr_Mito_posMT" value="Macr_Mito_posMT">			
 			<span id="Macr_Mito_posMT_B">Number of Cells with Intact Mitochondria<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Mito_MSA" name="Macr_Mito_MSA" value="Macr_Mito_MSA">			
-			<span id="Macr_Mito_MSA_B">Mitochondria Mean Stain Area<br></span>		
+		<input type="checkbox" disabled class="all_phenos" id="Macr_Mito_MTmsa" name="Macr_Mito_MTmsa" value="Macr_Mito_MTmsa">			
+			<span id="Macr_Mito_MTmsa_B">Mitochondria Mean Stain Area<br></span>		
 		<input type="checkbox" disabled class="all_phenos" id="Macr_Mito_ACMA" name="Macr_Mito_ACMA" value="Macr_Mito_ACMA">			
 			<span id="Macr_Mito_ACMA_B">All Cells Mean Area<br></span>
 		<input type="checkbox" disabled class="all_phenos" id="Macr_Mito_SEQ" name="Macr_Mito_SEQ" value="Macr_Mito_SEQ">

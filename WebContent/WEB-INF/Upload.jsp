@@ -273,8 +273,8 @@
 				        	<span class="text-primary"><b>Step 3 / 6. Please select a phenotype:</b></span>
 				            <select id="Mito_pheno_select" onchange="selectTimePoint()">
     							<option value="posMT">Number of Cells with Intact Mitochondria</option>
-    							<option value="MT_MSA">Mitochondria Mean Stain Area</option>
-    							<option value="MT_ACMA">All Cells Mean Area</option>
+    							<option value="MTmsa">Mitochondria Mean Stain Area</option>
+    							<option value="ACMA">All Cells Mean Area</option>
     							<option value="SEQ">TempOseq</option>
 							</select>
 							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>

@@ -30,7 +30,7 @@ public class Download_Internal_B extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Download_Internal_B servlet: ");
+		System.out.println("\n  Download_Internal_B servlet: ");
 		
 		ArrayList<String> all_assays = new ArrayList<>(Arrays.asList("CM_Ca2", "CM_Hoechst", "CM_Mito", 
 				"HEP_Hoechst", "HEP_Mito", "HEP_CalceinAM", "HEP_LipidTOX", 
