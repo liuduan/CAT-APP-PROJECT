@@ -67,14 +67,15 @@
 		
 	</script>
 
-	<h4 id ="cell_line_title" style="color: Blue ;"><b><u>Please select cell lines:</u></b>
-		<a href="#" onclick="show_hide_cell_lines()" id="next_to_assays" style="display: none;">
+	<h4 style="color: Blue ;">
+		<a href="#" id ="cell_line_title" onclick="click_cell_line_title()" ><b><u>Please select cell lines:</u></b></a>
+		<a href="#" id="cell_line_button" onclick="click_cell_line_button()" style="display: none;">
 			<button type="button" class="btn btn-xs btn-success"> Next
  				<span class="glyphicon glyphicon-chevron-right">
 				</button>
 		</a></h4>
 	
-	<div style="color:LightSteelBlue; margin:20px; " id = "cell_lines">
+	<div id = "cell_line_list" style="color:LightSteelBlue; margin:20px; " >
 		<input type="checkbox" disabled class="cell_lines" id="CM" name="CM" value="CM"><span id="CM_B">1. iCell Cardiomyocytes<br></span>
 		<input type="checkbox" disabled class="cell_lines" id="HEP" name="HEP" value="HEP"><span id="HEP_B">2. iCell Hepatocytes 2.0<br></span>
 		<input type="checkbox" disabled class="cell_lines" id="ENDO" name="ENDO" value="ENDO"><span id="ENDO_B">3. iCell Endothelial Cells<br></span>
@@ -116,7 +117,7 @@
 	<h1 style="text-align: center; text-indent: -350px; font-weight: bold; " class = "text-danger">
     	File Download</h1>
 	<form action="DownloadFileServlet">
-		<div id = "file_list">
+		<div id="file_list" style="display: ; ">
 			<br></br>
 			Link for phenotype list.<br>
 			Explain file name components.

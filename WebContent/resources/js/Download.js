@@ -3,21 +3,46 @@ function should_alert(){
 }
 
 
+function click_cell_line_title(){
+	$("#file_table").hide();
+	alert("click_cell_line_title()");
+	$('#cell_line_list').show();
+	$('#cell_line_button').hide();
+	alert("click_cell_line_title()-2");
+	$("#assay_head").hide();
+	$("#assay_list").hide();
+	$("#pheno_head").hide();
+	$("#pheno_list").hide();
+	
+	$("#file_button").hide();
+	$("#file_list").hide();
+	$("#file_list").replaceWith("...");
+	$("#file_list").append("...");
+	$("#file_list").replaceWith("data");
+	
+	
+	alert("click_cell_line_title()-3");
+}
+
+
+
 $(".cell_lines").change(function() {
     if(this.checked) {
         // alert("cell lines selected.");
-        $('#next_to_assays').show();
+        $('#cell_line_button').show();
     }
 });
 
 
-var i = 0;
-function show_hide_cell_lines(){
-	// alert("show_hide_cell_lines()");
+
+function click_cell_line_button(){
+	// alert("click_cell_line_button()");
+	$('#cell_line_list').hide();
+	
 	var selected_celllines = [];
 	var data_string = '';
 	var i = 0;
-	$('#cell_lines > input[type=checkbox]').each(function () {
+	$('#cell_line_list > input[type=checkbox]').each(function () {
 		if($(this).prop('checked') == true){
 			selected_celllines[$(this).prop('name')] = $(this).prop('value');
 		   	// alert("CM26: " + $(this).prop('value'));
@@ -34,40 +59,36 @@ function show_hide_cell_lines(){
 	  success: function(data) {
 	    // alert(data);
 	    $("#Assays_A").replaceWith(data);
+	    
+		$("#assay_head").show();
+		$("#assay_list").show();
 	  }
 	});
 	
-	
-	
-	
-	
-	$("#cell_lines2").find("checkbox").each(function(){
-		alert("CM2");
-	    if ($(this).prop('checked')==true){ 
-	    	alert("CM2");
-	    }
-	});
-	
-
-	if (i==0){
-		$("#cell_lines").hide();
-		i=1;
-	}else{
-		$("#cell_lines").show();
-		i=0;
-		}
+	// alert("click_cell_line_button()-2");
 }	// end of show_hide_cell_lines(){}
+
+
+function click_assay_title(){
+	$("#assay_list").show();
+	$("#assay_button").hide();
+	
+	$("#pheno_head").hide();
+	$("#pheno_list").hide();
+	$("#file_list").hide();
+	$("#file_button").hide();
+}
 
 
 $(".all_assays").change(function() {
     if(this.checked) {
         // alert("cell lines selected.");
-        $('#next_to_phenotypes').show();
+        $('#assay_button').show();
     }
 });
 
 
-function show_hide_assays(){
+function click_assay_button(){
 	// alert("show_hide_assays()");
 	var selected_assays = [];
 	var data_string = '';
@@ -89,6 +110,9 @@ function show_hide_assays(){
 	  success: function(data) {
 	    // alert(data);
 	    $("#Phenotypes_A").replaceWith(data);
+	    $("#assay_list").hide();
+	    $("#pheno_head").show();
+	    
 	  }
 	});		// end of ajax()
 	
@@ -101,34 +125,14 @@ function show_hide_assays(){
 $(".all_phenos").change(function() {
     if(this.checked) {
         // alert("cell lines selected.");
-        $('#after_phenotypes').show();
+        $('#pheno_button').show();
     }
 });
 
 
 
 
-
-
-
-
-
-
-
-
-function cell_lines_selected(){
-	
-}
-
-function assays(){
-	$("#cell_lines").hide();
-	$("#Assays").show();
-}
-
-
-
-
-function list_files(){
+function click_pheno_button(){
 	var selected_assays = [];
 	var data_string = '';
 
@@ -164,10 +168,6 @@ function list_files(){
 		    $("#file_display").attr("class", "col-lg-8 col-md-8" );
 		  }
 		});		// end of ajax()
-	
-	
-	
-	
 }
 
 

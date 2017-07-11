@@ -22,14 +22,22 @@
 $(document).ready(function(){
    	// alert("ready function B.");
 
-	$("#Assays").hide();
+	$("#assay_list").hide();
 	// $("#Phenotypes").hide();
-	$("#phenotype_title").show();
+	$("#pheno_title").show();
 	$("#file_button").show();
 	
 })		// end of the ready function
 
 </script>
+
+<br></br>
+selected_assay_pheno: ${selected_assay_pheno}<br></br>
+selected_assays:  ${selected_assays}<br></br>
+selected_multi_ph_assays:  ${selected_multi_ph_assays}<br></br>
+selected_assay_1_pheno:  ${selected_assay_1_pheno}<br></br>
+
+
 
 <sql:setDataSource var="snapshot_C" driver="com.mysql.jdbc.Driver"
     url="jdbc:mysql://localhost:3306/catapp"
@@ -57,7 +65,7 @@ $(document).ready(function(){
 
 
 
-<table class="table  table-bordered table-hover" id = "user-table"
+<table id = "file-table" class="table  table-bordered table-hover" 
 	style="width: auto; margin:auto; text-align: center;" >
     <thead>
       <tr>

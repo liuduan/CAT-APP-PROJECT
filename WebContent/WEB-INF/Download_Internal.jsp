@@ -20,24 +20,11 @@
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
     url="jdbc:mysql://localhost:3306/catapp"
     user="root"  password="vibscatapp"/>
-<%-- 
-<sql:query dataSource="${snapshot}" var="result">
-	select distinct assay_type from file_info where cell_line_id = 'HT29'; 
-</sql:query>
-
-
-<c:forEach var="row" items="${result.rows}">  
-	Assay found for HT29: <c:out value="${row.assay_type}"/>, 
-</c:forEach> 
---%>
 
 
 <script>
 $(document).ready(function(){
-   	// alert("ready function.");
-   	$("#assay_title").show();
-	$("#Assays").show();
-    // $(".all_assays").hide();
+
     var selected_cell_lines;
     // alert("still ready function.");
     <c:forEach var="element" items="${selected_cell_lines}" varStatus="status">
@@ -59,15 +46,15 @@ $(document).ready(function(){
 
 
 
-<h4 id ="assay_title" onclick="assays()" style="color: Blue; display: none; margin-left: 40px;">
-	<b><u>Please select assays:</u></b>
-		<a href="#" onclick="show_hide_assays()" id="next_to_phenotypes" style="display: none;">
+<h4 id ="assay_head" style="color: Blue; display: none; margin-left: 40px;">
+	<a href="#" id ="assay_title" onclick="click_assay_title()" ><b><u>Please select assays:</u></b></a>
+		<a href="#" id="assay_button" onclick="click_assay_button()" style="display: none;">
 			<button type="button" class="btn btn-xs btn-success"> Next
  				<span class="glyphicon glyphicon-chevron-right"></span>
 				</button>
 		</a></h4>
 		
-<div id="Assays" style = "display:none; margin-left: 40px;">
+<div id="assay_list" style = "display:none; margin-left: 40px;">
 	<!-- "_" is used to seperate cell line tags and phenotype tags -->
 	<div id="CM_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCell cardiomyocyte assays:</span><br>

@@ -22,11 +22,6 @@
 <script>
 $(document).ready(function(){
    	// alert("ready function B.");
-
-	$("#Assays").hide();
-//	$("#Assays_B").hide();
-	$("#phenotype_title").show();
-	$("#Phenotypes").show();
 	
 })		// end of the ready function
 
@@ -58,9 +53,10 @@ $(document).ready(function(){
 </c:forEach>
 
 
-<h4 id ="phenotype_title" style="color: Blue; margin-left: 40px;">
-	<b><u>Please select phenotypes:</u> </b> 
-		<a href="#" onclick="list_files()" id="after_phenotypes" style="display: none;">
+<h4 id ="pheno_head" style="color: Blue; margin-left: 40px;">
+	<a href="#" id ="pheno_title" onclick="click_pheno_title()" ><b><u>
+		Please select phenotypes:</u> </b> </a>
+		<a href="#" id="pheno_button" onclick="click_pheno_button()" style="display: none;">
 			<button type="button" class="btn btn-xs btn-success"> Next
  				<span class="glyphicon glyphicon-chevron-right"></span>
 				</button>
