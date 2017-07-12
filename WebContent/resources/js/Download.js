@@ -89,14 +89,23 @@ $(".all_assays").change(function() {
 
 
 function click_assay_button(){
-	// alert("show_hide_assays()");
-	var selected_assays = [];
+	// alert("click_assay_button()");
+	var selected_assay = "";
 	var data_string = '';
+	var multi_ph_assays = ["CM_Ca2", "CM_Hoechst", "CM_Mito", "HEP_Hoechst", "HEP_Mito", "ENDO_Hoechst", 
+		"ENDO_Mito", "ENDO_TubForm", "HUV_Hoechst", "HUV_Mito", "HUV_TubForm", "Neur_Hoechst", "Neur_Mito", 
+		"Neur_NeurOut", "Macro_Hoechst", "Macro_Phag", "Macro_Cyto", "Macro_MacroOut"];
+	var goto_pheno = 0;
 	
 	$('.all_assays > input[type=checkbox]').each(function () {
 		if($(this).prop('checked') == true){
-			selected_assays[$(this).prop('name')] = $(this).prop('value');
-		   	// alert("CM26: " + $(this).prop('value'));
+		   	selected_assay = $(this).prop('name');
+		   	if (goto_pheno == 0){
+		   		if (multi_ph_assays.indexOf(selected_assay) >= 0){
+		   			alert("found, goto_pheno");
+		   			goto_pheno = 1;
+		   		};
+		   	};
 		   	data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
 		}
 	});

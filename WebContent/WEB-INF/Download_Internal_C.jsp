@@ -35,9 +35,12 @@ $(document).ready(function(){
 selected_assay_pheno: ${selected_assay_pheno}<br></br>
 selected_assays:  ${selected_assays}<br></br>
 selected_multi_ph_assays:  ${selected_multi_ph_assays}<br></br>
+selected_multi_ph_assays[0]:  ${selected_multi_ph_assays[0]}<br></br>
 selected_assay_1_pheno:  ${selected_assay_1_pheno}<br></br>
 
-
+<c:if test = "${selected_multi_ph_assays[0] == null}">
+         <p>selected_multi_ph_assays is null:  ${selected_multi_ph_assays}<br></br><p>
+</c:if>
 
 <sql:setDataSource var="snapshot_C" driver="com.mysql.jdbc.Driver"
     url="jdbc:mysql://localhost:3306/catapp"
