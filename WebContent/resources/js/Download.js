@@ -96,6 +96,8 @@ function click_assay_button(){
 		"ENDO_Mito", "ENDO_TubForm", "HUV_Hoechst", "HUV_Mito", "HUV_TubForm", "Neur_Hoechst", "Neur_Mito", 
 		"Neur_NeurOut", "Macro_Hoechst", "Macro_Phag", "Macro_Cyto", "Macro_MacroOut"];
 	var goto_pheno = 0;
+	var url_string = "http://localhost:8080/CAT-APP-PROJECT/Download_Internal_CServlet";
+	var tartet_frame = "#file_list";
 	
 	$('.all_assays > input[type=checkbox]').each(function () {
 		if($(this).prop('checked') == true){
@@ -104,6 +106,8 @@ function click_assay_button(){
 		   		if (multi_ph_assays.indexOf(selected_assay) >= 0){
 		   			alert("found, goto_pheno");
 		   			goto_pheno = 1;
+		   			url_string = "http://localhost:8080/CAT-APP-PROJECT/Download_Internal_BServlet";
+		   			tartet_frame = "#Phenotypes_A";
 		   		};
 		   	};
 		   	data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
@@ -113,14 +117,17 @@ function click_assay_button(){
 	// alert("data_string: " + data_string);
 	// data_string = "CM=CM&HEP=HEP"
 	$.ajax({
-	  url: "http://localhost:8080/CAT-APP-PROJECT/Download_Internal_BServlet",
+	  url: url_string,
 	  data: data_string,
 	  type: 'post',
 	  success: function(data) {
 	    // alert(data);
-	    $("#Phenotypes_A").replaceWith(data);
-	    $("#assay_list").hide();
-	    $("#pheno_head").show();
+	    $(tartet_frame).replaceWith(data);
+	    if (goto_pheno == 1){
+	    	$("#assay_list").hide();
+	    	$("#pheno_head").show();
+	    	$("#pheno_list").show();
+	    };
 	    
 	  }
 	});		// end of ajax()

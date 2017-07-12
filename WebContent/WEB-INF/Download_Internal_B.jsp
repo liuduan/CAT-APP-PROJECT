@@ -30,27 +30,33 @@ $(document).ready(function(){
 <sql:setDataSource var="snapshot_B" driver="com.mysql.jdbc.Driver"
     url="jdbc:mysql://localhost:3306/catapp"
     user="root"  password="vibscatapp"/>
-    
-<c:forEach var="element" items="${selected_assays}" varStatus="status">
-	<c:set var = "current_assay" value = "${fn:split(element, '_')}" />
-	<sql:query dataSource="${snapshot_B}" var="result_B">
-    	select 
-    		distinct phenotype_id from file_info 
-    	where 
-    		(cell_line_id = "${current_assay[0]}") AND
-    		(assay_type = "${current_assay[1]}"); 
-    </sql:query>
-    <c:forEach var="row" items="${result_B.rows}">  
-		<c:set var = "pheno_id" value = "${element}_${row.phenotype_id}" />	
-		<script>
-			$("#${pheno_id}").removeAttr("disabled");
-    		$("#${pheno_id}_B").css({'color': 'DarkCyan ', 'font-size': '105%', 'font-weight': 'bold' });
-    	</script>
-    </c:forEach> 
+
+<div style="display: none;">
+<c:forEach var="element" items="${selected_assay_1_pheno}" varStatus="status">
+	<input type="checkbox" checked class="all_phenos" name="${element}" value="${element}"></input>
+</c:forEach> 
+</div>
+
+<sql:query dataSource="${snapshot_B}" var="result_B">
+	select 
+    	distinct cell_line_id, assay_type, phenotype_id from file_info 
+    where 
+	<c:forEach var="element" items="${selected_multi_ph_assays}" varStatus="status">
+		<c:set var = "current_assay" value = "${fn:split(element, '_')}" />
+		(cell_line_id = "${current_assay[0]}" AND assay_type = "${current_assay[1]}") OR
+	</c:forEach> 
+	(cell_line_id = "hello");
+
+</sql:query>
+
+<c:forEach var="row" items="${result_B.rows}">  
+	<c:set var = "pheno_id" value = "${row.cell_line_id}_${row.assay_type}_${row.phenotype_id}" />	
 	<script>
-	$("#${element}_phenos").show();
-	</script>
-</c:forEach>
+		$("#${pheno_id}").removeAttr("disabled");
+   		$("#${pheno_id}_B").css({'color': 'DarkCyan ', 'font-size': '105%', 'font-weight': 'bold' });
+   		$("#${row.cell_line_id}_${row.assay_type}_phenos").show();
+   	</script>
+</c:forEach> 
 
 
 <h4 id ="pheno_head" style="color: Blue; margin-left: 40px;">
@@ -62,7 +68,7 @@ $(document).ready(function(){
 				</button>
 		</a></h4>
 		
-<div id="Phenotypes" style = "display:; margin-left: 40px;">
+<div id="pheno_list" style = "display:; margin-left: 40px;">
 	<div id="CM_Ca2_phenos" class="all_phenos" style="display: none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCardiomyocyte Ca2+ flux phenotypes:</span><br>
 		<input type="checkbox" disabled class="all_phenos" id="CM_Ca2_PF" name="CM_Ca2_PF" value="CM_Ca2_PF"></input>			

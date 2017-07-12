@@ -31,16 +31,6 @@ $(document).ready(function(){
 
 </script>
 
-<br></br>
-selected_assay_pheno: ${selected_assay_pheno}<br></br>
-selected_assays:  ${selected_assays}<br></br>
-selected_multi_ph_assays:  ${selected_multi_ph_assays}<br></br>
-selected_multi_ph_assays[0]:  ${selected_multi_ph_assays[0]}<br></br>
-selected_assay_1_pheno:  ${selected_assay_1_pheno}<br></br>
-
-<c:if test = "${selected_multi_ph_assays[0] == null}">
-         <p>selected_multi_ph_assays is null:  ${selected_multi_ph_assays}<br></br><p>
-</c:if>
 
 <sql:setDataSource var="snapshot_C" driver="com.mysql.jdbc.Driver"
     url="jdbc:mysql://localhost:3306/catapp"
@@ -52,20 +42,19 @@ selected_assay_1_pheno:  ${selected_assay_1_pheno}<br></br>
 	FROM
   		file_info 
 	WHERE 
-	<c:forEach var="element" items="${selected_assay_pheno}" varStatus="status">
-		<c:set var = "assay_pheno" value = "${fn:split(element, '_')}" />	
-		(cell_line_id = "${assay_pheno[0]}" AND assay_type = "${assay_pheno[1]}") OR 
-	</c:forEach>
-	
+
 	<c:forEach var="element" items="${selected_phenos}" varStatus="status">
 		<c:set var = "current_pheno" value = "${fn:split(element, '_')}" />	
 		(cell_line_id = "${current_pheno[0]}" AND phenotype_id = "${current_pheno[2]}") OR
 	</c:forEach>
+	
+	<c:forEach var="element" items="${selected_assay_1_pheno}" varStatus="status">
+		<c:set var = "current_assay" value = "${fn:split(element, '_')}" />	
+		(cell_line_id = "${current_assay[0]}" AND assay_type = "${current_assay[1]}") OR 
+	</c:forEach>
 	(cell_line_id = "hello");
 
 </sql:query>
-
-
 
 
 <table id = "file-table" class="table  table-bordered table-hover" 
