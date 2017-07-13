@@ -445,6 +445,7 @@
 			</form>
 			
 			<br></br>
+		<div id="not shown" style="display: none;">
 			=====================================================================
 			
 			<form role="form" action="ToDatabaseServlet"  method="post" class="registration-form" enctype="multipart/form-data">
@@ -488,7 +489,7 @@
 			    </div>
 			                  
 			</form>
-			
+			</div><!-- end of div ""not shown -->
 			
 		</div>
      </div>

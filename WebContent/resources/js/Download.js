@@ -5,10 +5,10 @@ function should_alert(){
 
 function click_cell_line_title(){
 	$("#file_table").hide();
-	alert("click_cell_line_title()");
+	// alert("click_cell_line_title()");
 	$('#cell_line_list').show();
 	$('#cell_line_button').hide();
-	alert("click_cell_line_title()-2");
+	// alert("click_cell_line_title()-2");
 	$("#assay_head").hide();
 	$("#assay_list").hide();
 	$("#pheno_head").hide();
@@ -21,7 +21,7 @@ function click_cell_line_title(){
 	$("#file_list").replaceWith("data");
 	
 	
-	alert("click_cell_line_title()-3");
+	// alert("click_cell_line_title()-3");
 }
 
 
@@ -104,7 +104,7 @@ function click_assay_button(){
 		   	selected_assay = $(this).prop('name');
 		   	if (goto_pheno == 0){
 		   		if (multi_ph_assays.indexOf(selected_assay) >= 0){
-		   			alert("found, goto_pheno");
+		   			// alert("found, goto_pheno");
 		   			goto_pheno = 1;
 		   			url_string = "http://localhost:8080/CAT-APP-PROJECT/Download_Internal_BServlet";
 		   			tartet_frame = "#Phenotypes_A";
@@ -146,7 +146,9 @@ $(".all_phenos").change(function() {
 });
 
 
-
+function click_pheno_button(){
+	// do nothing.
+}
 
 function click_pheno_button(){
 	var selected_assays = [];

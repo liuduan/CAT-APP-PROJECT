@@ -272,6 +272,7 @@ function selectphenotypes(){		// step 2 to step 3){
 				$("#Hoechst_2_pheno").show();	
 			} else{
 				$(".all_phenotypes").hide();	
+				$('#Mito_pheno_select').attr('name', 'phenotype');
 				$("#Mito_pheno").show();	
 				}
 			$("#step3").show();
