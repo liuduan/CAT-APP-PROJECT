@@ -5,8 +5,10 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -140,7 +142,7 @@ public class DownloadFileServlet extends HttpServlet {
 						response.setHeader("Content-disposition","attachment; filename="+ file_name+"."+lFileType);
 						response.setContentType(lFileType);
 						
-						OutputStream out = response.getOutputStream();
+						OutputStream out = response.getOutputStream();			// This line send file.
 						File lMyFile = new File(lFileFromServer.get(0));
 						// FileReader lReader = new FileReader(lMyFile);
 						FileInputStream in = new FileInputStream(lMyFile);
@@ -152,9 +154,16 @@ public class DownloadFileServlet extends HttpServlet {
 						in.close();
 						out.flush();
 						
-					}else{
+					}else{				// clicked Json
 						if(lFileType.equals("xls") ||  lFileType.equals("xlsx")){
-							FileInputStream inp = new FileInputStream( lFileFromServer.get(0) );
+							
+							System.out.println("Json A, file type: " + lFileType);
+							
+							// File lMyFile2 = new File(lFileFromServer.get(0));						// added
+							// FileInputStream in = new FileInputStream(lMyFile2);						// added
+							
+							FileInputStream inp = new FileInputStream( lFileFromServer.get(0) );	// previous
+							// inp = new FileInputStream(lMyFile2);										// added
 							Workbook workbook =WorkbookFactory.create(inp);
 
 							// Get the first Sheet.
@@ -188,23 +197,31 @@ public class DownloadFileServlet extends HttpServlet {
 							    
 							    response.setHeader("Content-disposition","attachment; filename="+ lFileName+".json");
 								response.setContentType(lFileType);
-								File lJsonFile =new File ("C:/Users/CATAPP/serverfiles/NewJson.txt");
+								File lJsonFile =new File ("C:/Users/CATAPP/serverfiles/CM/1/NewJson.txt");
 								lJsonFile.createNewFile();
-								FileWriter lWriter = new FileWriter("C:/Users/CATAPP/serverfiles/NewJson.txt");
+								FileWriter lWriter = new FileWriter("C:/Users/CATAPP/serverfiles/CM/1/NewJson.txt");
 								lWriter.write(json.toJSONString());
+								lWriter.close();
+								
 								OutputStream out = response.getOutputStream();
-								File lMyFile = new File("C:/Users/CATAPP/serverfiles/NewJson.txt");
-								// FileReader lReader = new FileReader(lMyFile);
-								FileInputStream in = new FileInputStream(lMyFile);
+								
+								System.out.println("Json B,");
+								
+								FileInputStream in = new FileInputStream("C:/Users/CATAPP/serverfiles/CM/1/NewJson.txt");
+								int i=in.read();  
+								System.out.println("Json C, read lenth: " + i);
+					            System.out.println("Json D: first char: " + (char)i);    
+																
 								byte[] buffer = new byte[4096];
 								int length;
 								while ((length = in.read(buffer)) > 0){
+									System.out.println("Json E, file length: " + length);
 									out.write(buffer, 0, length);
 								}
 								in.close();
 								out.flush();
-								lWriter.close();
-								File lToDelete = new File("C:/Users/CATAPP/serverfiles/NewJson.txt");
+								
+								File lToDelete = new File("C:/Users/CATAPP/serverfiles/CM/1/NewJson.txt");
 								lToDelete.delete();
 								
 						}

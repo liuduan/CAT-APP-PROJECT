@@ -455,10 +455,8 @@
 					  &nbsp;
 					<div>
 					<h4><li style="float: left;">
-					<span class="text-primary"><b>Upload directly to a database: </b></span>
-				
-					<br></br>
-					
+						<span class="text-primary"><b>Upload directly to a database: </b></span>
+						<br></br>					
 					</li></h4>
 					<br>
 					</div>
