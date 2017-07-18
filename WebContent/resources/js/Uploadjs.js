@@ -254,9 +254,19 @@ function selectphenotypes(){		// step 2 to step 3){
 	// alert("assay: " + assay);
 	
 	if (Cellline == "A375" || Cellline == "A549" || Cellline == "HepG2" || Cellline == "HepaRG" || 
-			Cellline == "MCF7" || Cellline == "HT29" || Cellline == "LN229" || Cellline == "HEK10205f" || 
-			Cellline == "HLMVEC" || Cellline == "HMePC" || Cellline == "SH-SY5Y"){
-		$("#step3").hide();	
+		Cellline == "MCF7" || Cellline == "HT29" || Cellline == "LN229" || Cellline == "HEK10205f" || 
+		Cellline == "HLMVEC" || Cellline == "HMePC" || Cellline == "SH-SY5Y"){
+		// alert("England");
+		$("#step3").show();	
+		$(".all_phenotypes").hide();	
+		$("#No_pheno").show();	
+		
+		$("#step4").show();	
+		$(".all_time_div").hide();	
+		$("#timepoints_0").show();	
+		
+		
+		
 		$("#step6").show();
 	}else{
 		if (Cellline == "CM"){

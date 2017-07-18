@@ -122,7 +122,7 @@
 		<div class="col-lg-10" style="background-color: ;">
                         	
         	<form role="form" action="SaveFileFormServlet" method="post" class="registration-form" enctype="multipart/form-data">
-	
+				<ul>
             	<div id="step1" style = "background-color: ''; float: left ;">
 		            <div >
 		            
@@ -348,16 +348,26 @@
     							<option value="TNFa">TNF-a</option>
     							<option value="SEQ">TempOseq</option>
 							</select>
-							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+							<a href="#" onclick="selectTimePoint()">
+								<span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li></h4>			            
+				    </div>
+				    <div id="No_pheno" class="all_phenotypes" style="color:LightSteelBlue; ">
+				    	<h4 > <li>
+				        	<span class="text-primary"><b style="color:LightSteelBlue; ">
+				        		Step 3 / 6. Phenotype not applicable. </b></span>
+				        	<select><option>NA</option>	</select>
+							<a href="#" style="color:LightSteelBlue; ">
+								<span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>			            
 				    </div>
 				    
-			  	</div>
+			  	</div>		<!-- end of step3 -->
 	
 			                   
 			                    
 			        <br></br>            
-			    <div id="step4" style = "display:none; float: left; background-color: ;">
+			    <div id="step4" style = "display:none; background-color: ; float: left;">
 			    	<div id="timepoints_4" class="all_time_div" style="display:;">
 				         <h4><li>
 				            <span class="text-primary"><b>Step 4 / 6. Please select a time point:</b></span>
@@ -380,7 +390,18 @@
 							<a href="#" onclick="step4_to_5()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div> 
-			 	</div>
+					<div id="timepoints_0" class="all_time_div" style="color:LightSteelBlue; display:;">
+				         <h4><li>
+				            <span class="text-primary"><b style="color:LightSteelBlue; ">Step 4 / 6. Time point not applicable</b></span>
+				           	<select>
+								<option>N/A</option>
+								<option>N/A</option>
+							</select>
+							<a href="#"><span class="glyphicon glyphicon-chevron-right" 
+								style="color:LightSteelBlue; "></span></a>
+						</li></h4>
+					</div> 
+			 	</div>		<!-- end of step4 -->
 			 	
 			 	
 				<br></br>    
@@ -410,6 +431,7 @@
 					<br></br>
 					
 					</li></h4>
+					
 					<br>
 					</div>
 					<br>.</br>
@@ -441,7 +463,7 @@
 				    
 				   	
 			    </div>
-			                  
+			    </ul>      
 			</form>
 			
 			<br></br>

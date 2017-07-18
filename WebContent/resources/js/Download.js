@@ -63,6 +63,7 @@ function click_cell_line_button(){
 	    
 		$("#assay_head").show();
 		$("#assay_list").show();
+		$('#cell_line_button').hide();
 	  }
 	});
 	
@@ -128,6 +129,7 @@ function click_assay_button(){
 	    	$("#assay_list").hide();
 	    	$("#pheno_head").show();
 	    	$("#pheno_list").show();
+	    	$('#assay_button').hide();
 	    };
 	    
 	  }
