@@ -27,8 +27,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/resources/images/apple-touch-icon-57-precomposed.png"> 
         
-        
-        
+ 
  
 <script src="${pageContext.request.contextPath}/resources/js/Uploadjs.js"></script>
 
