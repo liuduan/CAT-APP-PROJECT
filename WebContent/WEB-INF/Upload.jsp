@@ -366,7 +366,8 @@
 			                   
 			                    
 			        <br></br>            
-			    <div id="step4" style = "display:none; background-color: ; float: left;">
+			    <div id="step4" style = "display:none; background-color: ; float: left; width: 700px; 
+			    	text-align: left;">
 			    	<div id="timepoints_4" class="all_time_div" style="display:;">
 				         <h4><li>
 				            <span class="text-primary"><b>Step 4 / 6. Please select a time point:</b></span>
@@ -405,8 +406,8 @@
 			 	
 				<br></br>    
 				<div id="step5" style = "display:none; float: left ;">
-					<div class="form-group"  onchange="step5_to_6()"><h4>
-				        <label class="sr-only" for="form-facebook">Select a Plate</label>
+					<div class="form-group" id = "dilution_1" onchange="step5_to_6()"><h4>
+				        <label class="sr-only" for="form-facebook">Select a dilution</label>
 				        <li>
 				        <span class="text-primary"><b>Step 5 / 6. Please select a plate: &nbsp;</b></span>
 						<input type="radio" name="dilution" id="11"  value="x1" /> 1x &nbsp;&nbsp;&nbsp;
@@ -414,6 +415,16 @@
 						<input type="radio" name="dilution" id="31"  value="x100" /> 100x &nbsp;&nbsp;&nbsp;
 						<input type="radio" name="dilution" id="41"  value="x1000" /> 1000x
 						<a href="#" onclick="step5_to_6()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li>
+						</h4>
+					</div>
+					<div class="form-group"  id ="dilution_0" style ="color:LightSteelBlue; display: none;" ><h4>
+				        <label class="sr-only" for="form-facebook">Dilution not applicable.</label>
+				        <li>
+				        <span class="text-primary"><b style="color:LightSteelBlue; ">
+				        	Step 5 / 6. Dilution not applicable: &nbsp;</b></span>
+						
+						<a href="#"><span class="glyphicon glyphicon-chevron-right" style="color:LightSteelBlue; "></span></a>
 						</li>
 						</h4>
 					</div>

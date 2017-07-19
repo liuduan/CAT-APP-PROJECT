@@ -265,7 +265,9 @@ function selectphenotypes(){		// step 2 to step 3){
 		$(".all_time_div").hide();	
 		$("#timepoints_0").show();	
 		
-		
+		$("#step5").show();	
+		$("#dilution_1").hide();	
+		$("#dilution_0").show();	
 		
 		$("#step6").show();
 	}else{
