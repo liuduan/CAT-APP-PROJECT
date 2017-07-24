@@ -33,6 +33,7 @@ $(document).ready(function(){
     		select distinct assay_type from file_info where cell_line_id = "${element}"; 
     	</sql:query>
     	<c:forEach var="row" items="${result.rows}">  
+    		// alert("assay: ${element}_${row.assay_type}");
 			$("#${element}_${row.assay_type}").removeAttr("disabled");
     		$("#${element}_${row.assay_type}_B").css({'color': 'DarkCyan ', 'font-size': '105%', 'font-weight': 'bold' });
     	</c:forEach> 
@@ -79,39 +80,31 @@ $(document).ready(function(){
 		<br>
 	</div>
 	<div id="ENDO_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >ENDO and HUVEC assays:</span><br>
-		<input type="checkbox" disabled class="all_assays" id="ENDO_Hoechst" name="ENDO_Hoechst" value='ENDO_Hoechst'>
-			<span id="ENDO_Hoechst_B">	Nuclei staining<br></span>
-		<input type="checkbox" disabled class="all_assays" id="ENDO_Mito" 	name="ENDO_Mito" value='ENDO_Mito'>
-			<span id="ENDO_Mito_B">		Mitochondrial Integrity<br></span>
-		<input type="checkbox" disabled class="all_assays" id="ENDO_CalceinAM" name="ENDO_CalceinAM" value='ENDO_CalceinAM'>
-			<span id="ENDO_CalceinAM_B">	Cell Viability<br></span>
-		<input type="checkbox" disabled class="all_assays" id="ENDO_TubForm" name="ENDO_TubForm" value='ENDO_TubForm'>
+		<span style="color:black; font-weight: bold;" >ENDO assays:</span><br>
+		<input type="checkbox" disabled class="all_assays" id="ENDO_Cyto" name="ENDO_Cyto" value='ENDO_Cyto'>	
+			<span id="ENDO_Cyto_B">	Cyto<br></span>
+		<input type="checkbox" disabled class="all_assays" id="ENDO_CTG" name="ENDO_CTG" value='ENDO_CTG'>
+			<span id="ENDO_CTG_B">	ATP Content<br></span>
+		<input type="checkbox" disabled class="all_assays" id="ENDO_TubForm" name="ENDO_TubForm" value='ENDO_TubForm'>	
 			<span id="ENDO_TubForm_B">	Tube Formation<br></span>
 		<br>
 	</div>
 	<div id="HUV_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >HUVEC assays:</span><br>
-		<input type="checkbox" disabled class="all_assays" id="HUV_Hoechst" name="HUV_Hoechst" value='HUV_Hoechst'>	
-			<span id="HUV_Hoechst_B">	Nuclei staining<br></span>
-		<input type="checkbox" disabled class="all_assays" id="HUV_Mito" 	name="HUV_Mito" value='HUV_Mito'>			
-			<span id="HUV_Mito_B">		Mitochondrial Integrity<br></span>
-		<input type="checkbox" disabled class="all_assays" id="HUV_CalceinAM" name="HUV_CalceinAM" value='HUV_CalceinAM'>
-			<span id="HUV_CalceinAM_B">	Cell Viability<br></span>
+		<input type="checkbox" disabled class="all_assays" id="HUV_Cyto" name="HUV_Cyto" value='HUV_Cyto'>	
+			<span id="HUV_Cyto_B">	Cyto<br></span>
+		<input type="checkbox" disabled class="all_assays" id="HUV_CTG" name="HUV_CTG" value='HUV_CTG'>
+			<span id="HUV_CTG_B">	ATP Content<br></span>
 		<input type="checkbox" disabled class="all_assays" id="HUV_TubForm" name="HUV_TubForm" value='HUV_TubForm'>	
 			<span id="HUV_TubForm_B">	Tube Formation<br></span>
 		<br>
 	</div>
 	<div id="Neur_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iCell neuron assays:</span><br>
-		<input type="checkbox" disabled class="all_assays" id="Neur_Hoechst" name="Neur_Hoechst" value='Neur_Hoechst'>
-			<span id="Neur_Hoechst_B">	Nuclei staining<br></span>
-		<input type="checkbox" disabled class="all_assays" id="Neur_Mito" 	name="Neur_Mito" value='Neur_Mito'>
-			<span id="Neur_Mito_B">		Mitochondrial Integrity<br></span>
-		<input type="checkbox" disabled class="all_assays" id="Neur_CalceinAM" name="Neur_Neur_CalceinAM" value='CalceinAM'>
-			<span id="Neur_CalceinAM_B">Cell Viability<br></span>
-		<input type="checkbox" disabled class="all_assays" id="Neur_NeurOut" name="Neur_NeurOut" value='Neur_NeurOut'>
-			<span id="Neur_NeurOut_B">	Neurite Outgrowth<br></span>
+		<input type="checkbox" disabled class="all_assays" id="Neur_Neur" name="Neur_Neur" value='Neur_Neur'>	
+			<span id="Neur_Neur_B">	Neurons<br></span>
+		<input type="checkbox" disabled class="all_assays" id="Neur_CTG" name="Neur_CTG" value='Neur_CTG'>
+			<span id="Neur_CTG_B">	ATP Content<br></span>
 		<br>
 	</div>
 	<div id="Macro_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">

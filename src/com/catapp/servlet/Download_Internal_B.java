@@ -46,11 +46,12 @@ public class Download_Internal_B extends HttpServlet {
 				"HMePC_CMFDA", 	"HMePC_ROS", 	"HMePC_CASP", 	"HMePC_PROT", 	"HMePC_ATP",  
 				"SH-SY5Y_CMFDA", "SH-SY5Y_ROS", "SH-SY5Y_CASP", "SH-SY5Y_PROT", "SH-SY5Y_ATP",
 		
-				"HEP_CalceinAM", "HEP_LipidTOX", "ENDO_CalceinAM", "HUV_CalceinAM", "Neur_CalceinAM", 
+				"HEP_CalceinAM", "HEP_LipidTOX", "ENDO_CalceinAM", "HUV_Cyto", "HUV_CTG", "HUV_TubForm", 
+				"Neur_CalceinAM", 
 				"Macro_CalceinAM", "Macro_Mito" ));
 
 		ArrayList<String> selected_assay_1_pheno = new ArrayList<String>();
-		for(int x = 0; x < 62; x = x + 1) {
+		for(int x = 0; x < 64; x = x + 1) {
 	         // System.out.println("cell lines: "+ cell_lines.get(x));
 	         String received_value = request.getParameter(assay_1_pheno.get(x));	// receiving the post value
 	         if (received_value != null){
@@ -67,12 +68,12 @@ public class Download_Internal_B extends HttpServlet {
 // =================== assays with multiple phenotypes: 
 		ArrayList<String> multi_ph_assays = new ArrayList<>(Arrays.asList("CM_Ca2", "CM_Hoechst", "CM_Mito", 
 				"HEP_Hoechst", "HEP_Mito", "ENDO_Hoechst", "ENDO_Mito", "ENDO_TubForm", "HUV_Hoechst", 
-				"HUV_Mito", "HUV_TubForm", "Neur_Hoechst", "Neur_Mito", "Neur_NeurOut", "Macro_Hoechst", 
+				"Neur_Hoechst", "Neur_Mito", "Neur_NeurOut", "Macro_Hoechst", 
 				"Macro_Phag", "Macro_Cyto", "Macro_MacroOut"));
 		
 		ArrayList<String> selected_multi_ph_assays = new ArrayList<String>();
 		
-		for(int x = 0; x < 18; x = x + 1) {
+		for(int x = 0; x < 16; x = x + 1) {
 	         // System.out.println("cell lines: "+ cell_lines.get(x));
 	         String received_value = request.getParameter(multi_ph_assays.get(x));	// receiving the post value
 	         if (received_value != null){

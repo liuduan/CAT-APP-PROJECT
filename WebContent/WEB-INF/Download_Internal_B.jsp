@@ -114,32 +114,6 @@ $(document).ready(function(){
 	
 	
 	
-	<div id="HEP_Hoechst_phenos" class="all_phenos" style="display: none; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >iHepatocyte Nuclei Staining phenotypes:</span><br>
-		<input type="checkbox" disabled class="all_phenos" id="HEP_Hoechst_TC" name="HEP_Hoechst_TC" value="HEP_Hoechst_TC">			
-			<span id="HEP_Hoechst_TC_B">Total cell number<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="HEP_Hoechst_NI" name="HEP_Hoechst_NI" value="HEP_Hoechst_NI">			
-			<span id="HEP_Hoechst_NI_B">Nuclei Intensity<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="HEP_Hoechst_NMA" name="HEP_Hoechst_NMA" value="HEP_Hoechst_NMA">			
-			<span id="HEP_Hoechst_NMA_B">Nuclei Mean Area<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="HEP_Hoechst_SEQ" name="HEP_Hoechst_SEQ" value="HEP_Hoechst_SEQ">
-			<span id="HEP_Hoechst_SEQ_B">TempOseq<br></span>
-		<br>
-	</div>
-	<div id="HEP_Mito_phenos" class="all_phenos" style="display: none; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >iHepatocyte Mitochondrial Integrity phenotypes:</span><br>
-		<input type="checkbox" disabled class="all_phenos" id="HEP_Mito_posMT" name="HEP_Mito_posMT" value="HEP_Mito_posMT">			
-			<span id="HEP_Mito_posMT_B">Number of Cells with Intact Mitochondria<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="HEP_Mito_MTmsa" name="HEP_Mito_MTmsa" value="HEP_Mito_MTmsa">			
-			<span id="HEP_Mito_MTmsa_B">Mitochondria Mean Stain Area<br></span>		
-		<input type="checkbox" disabled class="all_phenos" id="HEP_Mito_ACMA" name="HEP_Mito_ACMA" value="HEP_Mito_ACMA">			
-			<span id="HEP_Mito_ACMA_B">All Cells Mean Area<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="HEP_Mito_SEQ" name="HEP_Mito_SEQ" value="HEP_Mito_SEQ">
-			<span id="HEP_Mito_SEQ_B">TempOseq<br></span>
-		<br>
-	</div>
-	
-	
 	
 	<div id="ENDO_Hoechst_phenos" class="all_phenos" style="display: none; color:LightSteelBlue; margin-left: 20px;">
 		<span style="color:black; font-weight: bold;" >iEndothelial Cells Nuclei Staining phenotypes:</span><br>
@@ -262,62 +236,7 @@ $(document).ready(function(){
 		<br>
 	</div>
 
-	
-	
-	<div id="Macr_Hoechst_phenos" class="all_phenos" style="display: none; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >iMacrophage Nuclei Staining phenotypes:</span><br>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Hoechst_TC" name="Macr_Hoechst_TC" value="Macr_Hoechst_TC">			
-			<span id="Macr_Hoechst_TC_B">Total cell number<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Hoechst_NI" name="Macr_Hoechst_NI" value="Macr_Hoechst_NI">			
-			<span id="Macr_Hoechst_NI_B">Nuclei Intensity<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Hoechst_NMA" name="Macr_Hoechst_NMA" value="Macr_Hoechst_NMA">			
-			<span id="Macr_Hoechst_NMA_B">Nuclei Mean Area<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Hoechst_SEQ" name="Macr_Hoechst_SEQ" value="Macr_Hoechst_SEQ">
-			<span id="Macr_Hoechst_SEQ_B">TempOseq<br></span>
-		<br>
-	</div>
-	<div id="Macr_Mito_phenos" class="all_phenos" style="display: none; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >iMacrophage Mitochondrial Integrity phenotypes:</span><br>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Mito_posMT" name="Macr_Mito_posMT" value="Macr_Mito_posMT">			
-			<span id="Macr_Mito_posMT_B">Number of Cells with Intact Mitochondria<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Mito_MTmsa" name="Macr_Mito_MTmsa" value="Macr_Mito_MTmsa">			
-			<span id="Macr_Mito_MTmsa_B">Mitochondria Mean Stain Area<br></span>		
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Mito_ACMA" name="Macr_Mito_ACMA" value="Macr_Mito_ACMA">			
-			<span id="Macr_Mito_ACMA_B">All Cells Mean Area<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Mito_SEQ" name="Macr_Mito_SEQ" value="Macr_Mito_SEQ">
-			<span id="Macr_Mito_SEQ_B">TempOseq<br></span>
-		<br>
-	</div>
-	<div id="Macr_Phag_phenos" class="all_phenos" style="display: none; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >iMacrophage Phagocytosis Phenotypes:</span><br>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Phag_PhagCe" name="Macr_Phag_PhagCe" value="Macr_Phag_PhagCe">			
-			<span id="Macr_Phag_PhagCe_B">Total Outgrowth<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Phag_PhagAr" name="Macr_Phag_PhagAr" value="Macr_Phag_PhagAr">			
-			<span id="Macr_Phag_PhagAr_B">Mean Outgrowth per Cell<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Phag_SEQ" name="Macr_Phag_SEQ" value="Macr_Phag_SEQ">
-			<span id="Macr_Phag_SEQ_B">TempOseq<br></span>
-		<br>
-	</div>
-	<div id="Macr_Cyto_phenos" class="all_phenos" style="display: none; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >iMacrophage Cytokine Phenotypes:</span><br>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Cyto_Il6" name="Macr_Cyto_Il6" value="Macr_Cyto_Il6">			
-			<span id="Macr_Cyto_Il6_B">Il-6<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Cyto_Macr_Il1a" name="Macr_Cyto_Il1a" value="Macr_Cyto_Il1a">			
-			<span id="Macr_Cyto_Il1a_B">Il-1a<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_Cyto_SEQ" name="Macr_Cyto_SEQ" value="Macr_Cyto_SEQ">
-			<span id="Macr_Cyto_SEQ_B">TempOseq<br></span>
-		<br>
-	</div>
-	<div id="Macr_MacroOut_phenos" class="all_phenos" style="display: none; color:LightSteelBlue; margin-left: 20px;">
-		<span style="color:black; font-weight: bold;" >iMacrophage Cytokine Phenotypes:</span><br>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_MacroOut_MIP1a" name="Macr_MacroOut_MIP1a" value="Macr_MacroOut_MIP1a">			
-			<span id="Macr_MacroOut_MIP1a_B">MIP-1a<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_MacroOut_TNFa" name="Macr_MacroOut_TNFa" value="Macr_MacroOut_TNFa">			
-			<span id="Macr_MacroOut_TNFa_B">TNF-1a<br></span>
-		<input type="checkbox" disabled class="all_phenos" id="Macr_MacroOut_SEQ" name="Macr_MacroOut_SEQ" value="Macr_MacroOut_SEQ">
-			<span id="Macr_MacroOut_SEQ_B">TempOseq<br></span>
-		<br>
-	</div>
+
 
 </div>	<!-- end of div for phenotypes. -->
 

@@ -42,7 +42,7 @@
 
 <br></br><br></br>
 <div class="container-fluid"><div class="row"></div><!-- end of div row -->
-<div class="col-lg-6  col-md-6" id ="left" >
+<div class="col-lg-5  col-md-5" id ="left" >
 <div id ="cell line selection" style="margin-left: 40px;">
 
 	<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
@@ -113,7 +113,7 @@
 
 
 
-<div id="file_display" class="col-lg-6 col-md-6" >
+<div id="file_display" class="col-lg-7 col-md-7" >
 	<h1 style="text-align: center; text-indent: -350px; font-weight: bold; " class = "text-danger">
     	File Download</h1>
 	<form action="DownloadFileServlet">

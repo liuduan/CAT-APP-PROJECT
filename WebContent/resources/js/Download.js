@@ -94,24 +94,10 @@ function click_assay_button(){
 	// alert("click_assay_button()");
 	var selected_assay = "";
 	var data_string = '';
-	var multi_ph_assays = ["CM_Ca2", "CM_Hoechst", "CM_Mito", "HEP_Hoechst", "HEP_Mito", "ENDO_Hoechst", 
-		"ENDO_Mito", "ENDO_TubForm", "HUV_Hoechst", "HUV_Mito", "HUV_TubForm", "Neur_Hoechst", "Neur_Mito", 
-		"Neur_NeurOut", "Macro_Hoechst", "Macro_Phag", "Macro_Cyto", "Macro_MacroOut"];
-	var goto_pheno = 0;
-	var url_string = "Download_Internal_CServlet";
-	var tartet_frame = "#file_list";
 	
 	$('.all_assays > input[type=checkbox]').each(function () {
 		if($(this).prop('checked') == true){
 		   	selected_assay = $(this).prop('name');
-		   	if (goto_pheno == 0){
-		   		if (multi_ph_assays.indexOf(selected_assay) >= 0){
-		   			// alert("found, goto_pheno");
-		   			goto_pheno = 1;
-		   			url_string = "Download_Internal_BServlet";
-		   			tartet_frame = "#Phenotypes_A";
-		   		};
-		   	};
 		   	data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
 		}
 	});
@@ -119,16 +105,13 @@ function click_assay_button(){
 	// alert("data_string: " + data_string);
 	// data_string = "CM=CM&HEP=HEP"
 	$.ajax({
-	  url: url_string,
+	  url: "Download_Internal_CServlet",
 	  data: data_string,
 	  type: 'post',
 	  success: function(data) {
 	    // alert(data);
-	    $(tartet_frame).replaceWith(data);
+	    $("#file_list").replaceWith(data);
 	    if (goto_pheno == 1){
-	    	$("#assay_list").hide();
-	    	$("#pheno_head").show();
-	    	$("#pheno_list").show();
 	    	$('#assay_button').hide();
 	    };
 	    

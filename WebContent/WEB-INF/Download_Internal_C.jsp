@@ -21,10 +21,6 @@
 <script>
 $(document).ready(function(){
    	// alert("ready function B.");
-
-	$("#assay_list").hide();
-	// $("#Phenotypes").hide();
-	$("#pheno_title").show();
 	$("#file_button").show();
 	
 })		// end of the ready function
@@ -42,11 +38,6 @@ $(document).ready(function(){
 	FROM
   		file_info 
 	WHERE 
-
-	<c:forEach var="element" items="${selected_phenos}" varStatus="status">
-		<c:set var = "current_pheno" value = "${fn:split(element, '_')}" />	
-		(cell_line_id = "${current_pheno[0]}" AND phenotype_id = "${current_pheno[2]}") OR
-	</c:forEach>
 	
 	<c:forEach var="element" items="${selected_assay_1_pheno}" varStatus="status">
 		<c:set var = "current_assay" value = "${fn:split(element, '_')}" />	
