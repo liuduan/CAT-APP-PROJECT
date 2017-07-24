@@ -12,8 +12,6 @@ function click_cell_line_title(){
 	// alert("click_cell_line_title()-2");
 	$("#assay_head").hide();
 	$("#assay_list").hide();
-	$("#pheno_head").hide();
-	$("#pheno_list").hide();
 	
 	$("#file_button").hide();
 	$("#file_list").hide();
@@ -111,10 +109,7 @@ function click_assay_button(){
 	  success: function(data) {
 	    // alert(data);
 	    $("#file_list").replaceWith(data);
-	    if (goto_pheno == 1){
-	    	$('#assay_button').hide();
-	    };
-	    
+	    $('#assay_button').hide();	    
 	  }
 	});		// end of ajax()
 	
@@ -122,57 +117,6 @@ function click_assay_button(){
 	
 }
 
-
-
-$(".all_phenos").change(function() {
-    if(this.checked) {
-        // alert("cell lines selected.");
-        $('#pheno_button').show();
-    }
-});
-
-
-function click_pheno_button(){
-	// do nothing.
-}
-
-function click_pheno_button(){
-	var selected_assays = [];
-	var data_string = '';
-
-	$('.all_assays > input[type=checkbox]').each(function () {
-		if($(this).prop('checked') == true){
-			selected_assays[$(this).prop('name')] = $(this).prop('value');
-			// alert("CM26: " + $(this).prop('value'));
-			data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
-		}
-	});
-
-	// alert("list_files function, data_string: " + data_string);
-	
-	var selected_phenos = [];
-	$('.all_phenos > input[type=checkbox]').each(function () {
-		if($(this).prop('checked') == true){
-			selected_phenos[$(this).prop('name')] = $(this).prop('value');
-			// alert("CM26: " + $(this).prop('value'));
-			data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
-		}
-	});
-
-	// alert("list_files function, data_string with phenos: " + data_string);
-	
-	$.ajax({
-		  url: "Download_Internal_C",
-		  data: data_string,
-		  type: 'post',
-		  success: function(data) {
-		    // alert(data);
-		    $("#file_list").replaceWith(data);
-		    $("#left").attr("class", "col-lg-4 col-md-4");
-		    $("#file_display").attr("class", "col-lg-8 col-md-8" );
-		  }
-		});		// end of ajax()
-}
 
 
 

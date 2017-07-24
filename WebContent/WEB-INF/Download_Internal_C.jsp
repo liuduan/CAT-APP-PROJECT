@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 <sql:query dataSource="${snapshot_C}" var="result_C">
 	SELECT
-  		entity_id, file_name, cell_line_id, assay_type, phenotype_id
+  		entity_id, file_name, cell_line_id, assay_type, Dilution  
 	FROM
   		file_info 
 	WHERE 
@@ -53,10 +53,10 @@ $(document).ready(function(){
     <thead>
       <tr>
         <th></th>
-        <th>File Name</th> 
         <th>Cell Line</th>       
         <th>Assay</th>
-        <th>Phenotype</th>
+        <th>Dilution</th>
+        <th>File Name</th> 
 
       </tr>
     </thead>
@@ -78,10 +78,10 @@ $(document).ready(function(){
 				<td>
 					<input type="checkbox" name ="optradio" value="${row.entity_id}">
 				</td>
-				<td>${row.file_name}</td>
 				<td>${row.cell_line_id}</td>
 				<td>${row.assay_type}</td>
-				<td>${row.phenotype_id}</td>
+				<td>${row.Dilution}</td>
+				<td>${row.file_name}</td>
 			</tr>
 			<c:set var="i" scope="session" value="${i +1}"/>
 		</c:forEach> 
