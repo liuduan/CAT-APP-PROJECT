@@ -119,7 +119,7 @@
 	<form action="DownloadFileServlet">
 		<div id="file_list" style="display: ; ">
 			<br></br>
-			Link for phenotype list.<br>
+			<a href="${pageContext.request.contextPath}/resources/Notes/Notes.html">Assay group notes.</a><br>
 			Explain file name components.
 		</div>
 		<div id = "file_button" style="margin-left: 80px; display: none; ">

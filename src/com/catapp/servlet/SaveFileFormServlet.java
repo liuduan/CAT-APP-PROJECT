@@ -72,7 +72,6 @@ public class SaveFileFormServlet extends HttpServlet {
 		
 		String lCellLine  = request.getParameter("cellline");		// not getting data.
 		String lAssay = request.getParameter("assay");
-		String lPhenoType = request.getParameter("phenotype");
 		String lTimePoint = request.getParameter("timepoint");
 		String lDilution  = request.getParameter("dilution");
 		String lDescription = "";
@@ -101,9 +100,6 @@ public class SaveFileFormServlet extends HttpServlet {
 						}else if(item.getFieldName().equals("assay")){
 							lAssay=item.getString();
 							System.out.println("assay: " + lAssay);
-						}else if(item.getFieldName().equals("phenotype")){
-							lPhenoType=item.getString();
-							System.out.println("PhenoType: " + lPhenoType);
 						}else if(item.getFieldName().equals("timepoint")){
 							lTimePoint=item.getString();
 							System.out.println("TimePoint: " + lTimePoint);
@@ -169,8 +165,8 @@ public class SaveFileFormServlet extends HttpServlet {
 						System.out.println("File.separator: " + File.separator);
 						
 						
-						lFileName = lCellLine + "_" + lAssay + "_" + lPhenoType + "_" + 
-								lTimePoint + "_" + lDilution + "_" + modified_file_name;
+						lFileName = lCellLine + "_" + lAssay + "_" + lTimePoint + "_" + 
+								lDilution + "_" + modified_file_name;
 						
 						// write file here.
 						item.write( new File(lUploadPath + File.separator + lFileName));
@@ -196,11 +192,11 @@ public class SaveFileFormServlet extends HttpServlet {
 			// Save_file_info2DB(String pFileName,Connection pConnection);
 			String Path_for_SQL = "C:/Users/CATAPP/serverfiles/CM/1/" + lCellLine;	
 			
-			String insert_record_str = "INSERT INTO file_info (cell_line_id, assay_type, phenotype_id, " +
+			String insert_record_str = "INSERT INTO file_info (cell_line_id, assay_type, " +
 					"timepoint, Dilution, description, Original_name, file_name, file_type, file_path) " + 
-					"VALUES ('" + lCellLine + "', '" + lAssay + "', '" + lPhenoType + "', '" + 
-					lTimePoint + "', '" + lDilution + "', '" + lDescription  + "', '" + original_name + 
-					"', '" + lFileName + "', '" + lFileExtension + "', '" + Path_for_SQL + "')";
+					"VALUES ('" + lCellLine + "', '" + lAssay + "', '" + lTimePoint + "', '" + 
+					lDilution + "', '" + lDescription  + "', '" + original_name + "', '" + lFileName + "', '" +
+					lFileExtension + "', '" + Path_for_SQL + "')";
 			Save_file_info2DB(insert_record_str, lConn);
 			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload?success=1");
@@ -332,6 +328,8 @@ public class SaveFileFormServlet extends HttpServlet {
 		try{
 						
 			java.sql.Statement statement = pConnection.createStatement();
+			// System.out.println("SaveFileFormServlet before D2 in save, insert string: ");
+			// System.out.println(insert_record_str);
 			statement.executeUpdate(insert_record_str);
 	
 		}catch(Exception e){

@@ -287,7 +287,6 @@ function selectphenotypes(){		// step 2 to step 3){
 				$('#Mito_pheno_select').attr('name', 'phenotype');
 				$("#Mito_pheno").show();	
 				}
-			$("#step3").show();
 			}
 		if (Cellline == "HEP"){
 			// alert("selectphenotypes 1-2.");
@@ -308,47 +307,36 @@ function selectphenotypes(){		// step 2 to step 3){
 			}
 		if (Cellline == "ENDO" || Cellline == "HUV"){
 			assay = $("#ENDO_HUV_assay_select option:selected").val();
-			if(assay =="Hoechst"){
-				$(".all_phenotypes").hide();	
-				$('#Hoechst_3_pheno_select').attr('name', 'phenotype');
-				$("#Hoechst_3_pheno").show();	
-				$("#step3").show();
-			}else if(assay =="Mito"){
-				$(".all_phenotypes").hide();	
-				$('#Mito_pheno_select').attr('name', 'phenotype');
-				$("#Mito_pheno").show();
-				$("#step3").show();
-			}else if(assay =="TubForm"){
-				$(".all_phenotypes").hide();	
-				$('#TubForm_pheno_select').attr('name', 'phenotype');
-				$("#TubForm_pheno").show();
-				$("#step3").show();
-			}else{selectTimePoint();
-				}
+			if(assay =="Cyto" || assay =="CTG" ){			
+				$("#step4").show();	
+				$(".all_time_div").hide();	
+				$("#timepoints_24").show();	
+				$("#timepoints_24").append("<input type='hidden' name='timepoint' value='24hr'>");
+				$("#step5").show();	
+
+			}else if(assay =="TubForm"){			
+				$("#step4").show();	
+				$(".all_time_div").hide();	
+				$("#timepoints_18").show();	
+				$("#timepoints_18").append("<input type='hidden' name='timepoint' value='18hr'>");
+				$("#step5").show();	
 			}
+		}
 		if (Cellline == "Neur"){
 			assay = $("#Neur_assay_select option:selected").val();
-			if(assay =="Hoechst"){
-				$(".all_phenotypes").hide();	
-				$('#Hoechst_3_pheno_select').attr('name', 'phenotype');
-				$("#Hoechst_3_pheno").show();	
-				$("#step3").show();
-			}else if(assay =="Mito"){
-				$(".all_phenotypes").hide();	
-				$('#Mito_pheno_select').attr('name', 'phenotype');
-				$("#Mito_pheno").show();
-				$("#step3").show();
-			}else if(assay =="NeurOut"){
-				$(".all_phenotypes").hide();	
-				$('#NeurOut_pheno_select').attr('name', 'phenotype');
-				$("#NeurOut_pheno").show();
-				$("#step3").show();
-			}else{
-				// alert("else");
-				$("#step3").hide();
-				selectTimePoint();
-				// alert("else 2.0");
-			}
+			if(assay =="Neur"){
+				$("#step4").show();	
+				$(".all_time_div").hide();	
+				$("#timepoints_72").show();	
+				$("#timepoints_72").append("<input type='hidden' name='timepoint' value='72hr'>");
+				$("#step5").show();	
+			}else if(assay =="CTG" ){			
+				$("#step4").show();	
+				$(".all_time_div").hide();	
+				$("#timepoints_24").show();	
+				$("#timepoints_24").append("<input type='hidden' name='timepoint' value='24hr'>");
+				$("#step5").show();	
+			}	
 		}
 		if (Cellline == "Macro"){
 			assay = $("#Macro_assay_select option:selected").val();
