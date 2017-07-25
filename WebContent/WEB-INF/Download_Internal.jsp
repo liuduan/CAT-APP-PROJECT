@@ -65,6 +65,8 @@ $(document).ready(function(){
 			<span id="CM_Hoechst_B">Nuclei staining<br></span>
 		<input type="checkbox" disabled class="all_assays" id="CM_Mito" name="CM_Mito" value='CM_Mito'>		
 			<span id="CM_Mito_B">Mitochondrial Integrity<br></span>
+		<input type="checkbox" disabled class="all_assays" id="CM_Seq" name="CM_Seq" value='CM_Seq'>	
+			<span id="CM_Seq_B">	TompOseq<br></span>
 		<br>
 	</div>
 	<div id="HEP_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
@@ -77,6 +79,8 @@ $(document).ready(function(){
 			<span id="HEP_CalceinAM_B">	Cell Viability<br></span>
 		<input type="checkbox" disabled class="all_assays" id="HEP_LipidTOX" name="HEP_LipidTOX" value='HEP_LipidTOX'>
 			<span id="HEP_LipidTOX_B">	Lipid Accumulation<br></span>
+		<input type="checkbox" disabled class="all_assays" id="HEP_Seq" name="HEP_Seq" value='HEP_Seq'>	
+			<span id="HEP_Seq_B">	TompOseq<br></span>
 		<br>
 	</div>
 	<div id="ENDO_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
@@ -87,6 +91,8 @@ $(document).ready(function(){
 			<span id="ENDO_CTG_B">	ATP Content<br></span>
 		<input type="checkbox" disabled class="all_assays" id="ENDO_TubForm" name="ENDO_TubForm" value='ENDO_TubForm'>	
 			<span id="ENDO_TubForm_B">	Tube Formation<br></span>
+		<input type="checkbox" disabled class="all_assays" id="ENDO_Seq" name="ENDO_Seq" value='ENDO_Seq'>	
+			<span id="ENDO_Seq_B">	TompOseq<br></span>
 		<br>
 	</div>
 	<div id="HUV_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
@@ -97,6 +103,8 @@ $(document).ready(function(){
 			<span id="HUV_CTG_B">	ATP Content<br></span>
 		<input type="checkbox" disabled class="all_assays" id="HUV_TubForm" name="HUV_TubForm" value='HUV_TubForm'>	
 			<span id="HUV_TubForm_B">	Tube Formation<br></span>
+		<input type="checkbox" disabled class="all_assays" id="HUV_Seq" name="HUV_Seq" value='HUV_Seq'>	
+			<span id="HUV_Seq_B">	TompOseq<br></span>
 		<br>
 	</div>
 	<div id="Neur_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
@@ -105,6 +113,8 @@ $(document).ready(function(){
 			<span id="Neur_Neur_B">	Neurons<br></span>
 		<input type="checkbox" disabled class="all_assays" id="Neur_CTG" name="Neur_CTG" value='Neur_CTG'>
 			<span id="Neur_CTG_B">	ATP Content<br></span>
+		<input type="checkbox" disabled class="all_assays" id="Neur_Seq" name="Neur_Seq" value='Neur_Seq'>	
+			<span id="Neur_Seq_B">	TompOseq<br></span>
 		<br>
 	</div>
 	<div id="Macro_assays" class="all_assays" style="display:none; color:LightSteelBlue; margin-left: 20px;">
@@ -121,6 +131,8 @@ $(document).ready(function(){
 			<span id="Macro_Cyto_B">	Cytokines<br></span>
 		<input type="checkbox" disabled class="all_assays" id="Macro_MacroOut" name="Macro_MacroOut" value='Macro_MacroOut'>
 			<span id="Macro_MacroOut_B">Macroite Outgrowth<br></span>
+		<input type="checkbox" disabled class="all_assays" id="Macro_Seq" name="Macro_Seq" value='Macro_Seq'>	
+			<span id="Macro_Seq_B">	TompOseq<br></span>
 		<br>
 	</div>
 	<c:forEach var="element" items="${England_cell_lines}" varStatus="status">

@@ -160,72 +160,77 @@
 			   		<div id="CM_assays" class="all_assays" style="display: none;">
 				      	<h4><li>
 				        	<span class="text-primary"><b>Step 2 / 5. Please select an assay name: </b></span>
-				        	<select id='CM_assay_select' onchange='selectphenotypes()'>
+				        	<select id='CM_assay_select' onchange='selectTimePoint()'>
 								<option value='Ca2'>Ca2+ flux</option>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
+								<option value='Seq'>TempOseq</option>
 							</select>
-							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>
 					<div id="HEP_assays" class="all_assays" style="display: none;">
 						<h4><li>
 							<span class="text-primary"><b>Step 2 / 5. Please select an assay name: </b></span>
-				        	<select id='HEP_assay_select' onchange='selectphenotypes()'>
+				        	<select id='HEP_assay_select' onchange='selectTimePoint()'>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 								<option value='CalceinAM'>Cell Viability</option>
 								<option value='LipidTOX'>Lipid Accumulation</option>
+								<option value='Seq'>TempOseq</option>
 							</select>
-							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>	
 					<div id="ENDO_HUV_assays" class="all_assays" style="display: none; float: left;">
 						<h4><li>
 					    <span class="text-primary"><b>Step 2 / 5. Please select an assay or an assay group: </b></span>
-				        	<select id='ENDO_HUV_assay_select' onchange='selectphenotypes()'>
+				        	<select id='ENDO_HUV_assay_select' onchange='selectTimePoint()'>
 								<option value='Cyto'>Cyto</option>
 								<option value='CTG'>ATP Content</option>
 								<option value='TubForm'>Tube Formation</option>
+								<option value='Seq'>TempOseq</option>
 							</select>
-							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>	
 					<div id="Neur_assays" class="all_assays" style="display: none; float: left;">
 					    <h4><li>
 					    <span class="text-primary"><b>Step 2 / 5. Please select an assay name: </b></span>
-				        	<select id='Neur_assay_select' onchange='selectphenotypes()'>
+				        	<select id='Neur_assay_select' onchange='selectTimePoint()'>
 								<option value='Neur'>Neurons</option>
 								<option value='CTG'>ATP Content</option>
+								<option value='Seq'>TempOseq</option>
 							</select>
-							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>	
 					<div id="Macro_assays" class="all_assays" style="display: none; float: left;">
 					    <h4><li>
 					    <span class="text-primary"><b>Step 2 / 5. Please select an assay name: </b></span>
-				        	<select id='Macro_assay_select' onchange='selectphenotypes()'>
+				        	<select id='Macro_assay_select' onchange='selectTimePoint()'>
 								<option value='Hoechst'>Nuclei staining</option>
 								<option value='Mito'>Mitochondrial Integrity</option>
 								<option value='CalceinAM'>Cell Viability</option>
 								<option value='Phag'>Phagocytosis</option>
 								<option value='Cyto'>Cytokines</option>
 								<option value='MacroOut'>Macroite Outgrowth</option>
+								<option value='Seq'>TempOseq</option>
 							</select>
-							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>
 					<div id="England_assays" class="all_assays" style="display: none; float: left;">
 					    <h4><li>
 					    	<span class="text-primary"><b>Step 2 / 5. Please select an assay name: </b></span>
-				        	<select id='England_assay_select' onchange='selectphenotypes()'>
+				        	<select id='England_assay_select' onchange='selectTimePoint()'>
 								<option value='CMFDA'>Cell membrane integrity</option>
 								<option value='ROS'>Reactive Oxygen Species</option>
 								<option value='CASP'>Apoptosis</option>
 								<option value='PROT'>Protein synthesis inhibition</option>
 								<option value='ATP'>ATP Quantitation Assay</option>
 							</select>
-							<a href="#" onclick="selectphenotypes()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+							<a href="#" onclick="selectTimePoint()"><span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li></h4>
 					</div>
 			    </div>
@@ -305,7 +310,8 @@
 						<input type="radio" name="dilution" id="21"  value="x10" /> 10x &nbsp;&nbsp;&nbsp;
 						<input type="radio" name="dilution" id="31"  value="x100" /> 100x &nbsp;&nbsp;&nbsp;
 						<input type="radio" name="dilution" id="41"  value="x1000" /> 1000x
-						<a href="#" onclick="step5_to_6()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a href="#" onclick="step5_to_6()" id = "dilution_button" style="display: ">
+							<span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li>
 						</h4>
 					</div>

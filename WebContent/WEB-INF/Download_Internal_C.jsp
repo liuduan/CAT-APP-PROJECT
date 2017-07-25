@@ -43,8 +43,9 @@ $(document).ready(function(){
 		<c:set var = "current_assay" value = "${fn:split(element, '_')}" />	
 		(cell_line_id = "${current_assay[0]}" AND assay_type = "${current_assay[1]}") OR 
 	</c:forEach>
-	(cell_line_id = "hello");
-
+	(cell_line_id = "hello")
+	
+	ORDER BY file_name;
 </sql:query>
 
 
