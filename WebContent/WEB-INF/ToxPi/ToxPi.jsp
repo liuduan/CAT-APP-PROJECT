@@ -87,9 +87,7 @@ a:active {
 .c-invis {
     display: none;
 }
-.row_number {
-    display: none;
-}
+
 /*font colours*/
 Papaya{	color: PapayaWhip; }
 Gray{	color: #9c9d9d; }
@@ -148,6 +146,7 @@ SELECT * from chemicals;
 
 <table id = "table_1" style="display: block;  height: 90%;  ">
   <tr>
+  	<th></th>
   	<th style="width:90px;">CAS</th>
     <th>Substance Name</th>
   </tr>
@@ -159,7 +158,8 @@ SELECT * from chemicals;
   	<!-- "result" is the object name from search results. -->
   	
  	<tr>
- 		<td class="row_number"><%=i %></td>
+ 		<td style="display: none;"><%=i %></td>
+ 		<td><input type="checkbox" id="CM_Seq" name="CM_Seq" value='CM_Seq'></td>
  		<td>${Chemicals.CAS}</td>
  		<td>${fn:substring(Chemicals.substance_name, 0, 20)}</td>
  	
