@@ -28,6 +28,7 @@ $("menue_property").click(
 		// jQuery('#menu1').html('');
 		jQuery('#menu1').html("${chemical_properties}");
 		
-		})
+		}
+	)
 
 

@@ -10,7 +10,7 @@ function Search_name() {
   table = document.getElementById("table_1");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];		// here indicate which column to search.
+    td = tr[i].getElementsByTagName("td")[3];		// here indicate which column to search.
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
@@ -29,7 +29,7 @@ function Search_cas() {
 	  table = document.getElementById("table_1");
 	  tr = table.getElementsByTagName("tr");
 	  for (i = 0; i < tr.length; i++) {
-	    td = tr[i].getElementsByTagName("td")[1];		// here indicate which column to search.
+	    td = tr[i].getElementsByTagName("td")[2];		// here indicate which column to search.
 	    if (td) {
 	      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
 	        tr[i].style.display = "";
@@ -123,7 +123,7 @@ $(document).ready(function(){
 			// alert("" + column3_data[2]);
 			chemical_selected = true;
 			if (!endpoint_selected){
-		    	$("#table_1 tr").removeClass("Highlighted_rows");
+		    	// $("#table_1 tr").removeClass("Highlighted_rows");
 				$(this).addClass("Highlighted_rows");
 				chem_row_n = $(this).index()-2;	//$(this).find(".row_number").text();
 				// alert(chem_row_n);
@@ -144,8 +144,6 @@ $(document).ready(function(){
 	
 
 
-
-	
 	$("#table_1 tr").not(':first-child').hover(
 	  function () {								// mouse on function
 		if (chemical_selected == false){
@@ -216,7 +214,7 @@ $(document).ready(function(){
 		function () {
 			endpoint_selected = true;
 			if (!chemical_selected){
-				$("#table_2 tr").removeClass("Highlighted_rows");
+				// $("#table_2 tr").removeClass("Highlighted_rows");
 				$(this).addClass("Highlighted_rows");
 	    		endpoint_row_n = $(this).index();
 				// alert(endpoint_row_n);
@@ -256,6 +254,23 @@ $(document).ready(function(){
 			  }
 			);			// end of the $("#chem_properties").hover()
 });		//end of $(document).ready(function(){}
+
+
+function ToxPi(){
+	
+	var selected_endpoints = [];
+	var data_string = '';
+	$('.phenotypes:checkbox:checked').each(function (){
+		selected_endpoints[$(this).prop('name')] = $(this).prop('value');
+		data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
+	});
+	$('.chemicals:checkbox:checked').each(function (){
+		selected_endpoints[$(this).prop('name')] = $(this).prop('value');
+		data_string += $(this).prop('name') + "=" + $(this).prop('value') + "&";
+	});
+	
+	alert(data_string);
+}
 
 function column_3_curve(chem_row_n, endpoint_row_n){
 	// alert(chem_row_n + "===================================" + column3_data[chem_row_n-1]);
@@ -298,15 +313,13 @@ endpoint_data[3] = "<br><br><br><papaya>" +
 	"concentrations." +
 	"<br><br><br><br><br>"; 
 	
-
-
 endpoint_data[4] = "<br><br><br><papaya>" + 
 	' <p  style="text-align: center;">HUVEC total cells </p><br>' + 
 	'<p style ="text-indent: 50px; text-align: justify;">' +
 	"Human umbilical vein endothelical cells (HUVEC) are derived from the endothelium of veins from the " +
 	"umbillical cord. HUVEC used in this assay is pooled Human Umbilical Vein endothelial cells, purchased from Lonza" + 
 	"Cat# C2519A, Lot# 0000433795. " +
-	"In this assay, 24 hours after chemical treatment, " + 
+	"In this assay, 18 hours after chemical treatment, " + 
 	"cell culture images were captured, and the total viable cell numbers were calculated" +
 	"by a trained computer software."+
 	"<br><br><br><br><br>";
@@ -317,7 +330,7 @@ endpoint_data[5] = "<br><br><br><papaya>" +
 	"Human umbilical vein endothelical cells (HUVEC) are derived from the endothelium of veins from the " +
 	"umbillical cord. HUVEC used in this assay is pooled Human Umbilical Vein endothelial cells, purchased from Lonza" + 
 	"Cat# C2519A, Lot# 0000433795. " +
-	"In this assay, 18 hours after chemical treatment, " + 
+	"In this assay, 24 hours after chemical treatment, " + 
 	"cell culture images were captured, and the tube area were calculated" +
 	"by a trained computer software."+
 	"<br><br><br><br><br>";

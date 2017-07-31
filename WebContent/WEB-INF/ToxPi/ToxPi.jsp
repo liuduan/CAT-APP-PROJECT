@@ -30,9 +30,7 @@
 
 
 
-
-
-<script src="${pageContext.request.contextPath}/resources/js/Response/Response.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/ToxPi/ToxPi.js"></script>
 
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 
@@ -95,7 +93,7 @@ Gray{	color: #9c9d9d; }
 data{color: LightGreen;  }
 data2{color: DarkGreen; font-size: 20px;  }
 </style>
-<title>Response Curves</title>
+<title>ToxPi</title>
 
 </head>
 <body style="background-color: SeaGreen">
@@ -158,8 +156,8 @@ SELECT * from chemicals;
   	<!-- "result" is the object name from search results. -->
   	
  	<tr>
- 		<td style="display: none;"><%=i %></td>
- 		<td><input type="checkbox" id="CM_Seq" name="CM_Seq" value='CM_Seq'></td>
+ 		<td style="display: none;" class="row_number"><%=i %></td>
+ 		<td><input type="checkbox" class="chemicals" id="" name="chm_<%=i %>" value='chm_<%=i %>'></td>
  		<td>${Chemicals.CAS}</td>
  		<td>${fn:substring(Chemicals.substance_name, 0, 20)}</td>
  	
@@ -201,10 +199,24 @@ SELECT * from chemicals;
 			<table id = "table_2" >
 			<tr><td><div id = "chem_properties">Chemical & physic properties<br></div></td></tr>
 			
-			<tr><td><div id = "cardio90">iCardio. 90 min Peak Frequency <br></div></td></tr>
-			<tr><td><div id = "cardio24">iCardio. 24 hr Peak Frequency<br></div></td></tr>
-			<tr><td><div id = "HUVEC_TC">HUVEC total cells <br></div></td></tr>
-			<tr><td><div id = "HUVEC_TA">HUVEC Tube Area<br></div></td></tr>
+			<tr><td><div id = "cardio90">
+				<input type="checkbox" class="phenotypes" name="CM_PF_90m" value='CM_PF_90m'>
+				iCardio. 90 min Peak Frequency <br></div></td></tr>
+			<tr><td><div id = "cardio24">
+				<input type="checkbox" class="phenotypes" name="CM_PF_24h" value='CM_PF_24h'>
+				iCardio. 24 hr Peak Frequency<br></div></td></tr>
+			<tr><td><div id = "cardio_Total_Cell_24h">
+				<input type="checkbox" class="phenotypes" name="CM_TC_24h" value='CM_TC_24h'>
+				iCardio. 24 hr total cells<br></div></td></tr>
+			<tr><td><div id = "HUVEC_TC">
+				<input type="checkbox" class="phenotypes" name="HUVEC_Cyto_TC" value='HUVEC_Cyto_TC'>
+				HUVEC total cells <br></div></td></tr>
+			<tr><td><div id = "HUVEC_TA">
+				<input type="checkbox" class="phenotypes" name="HUV_TubForm_TTA" value='HUV_TubForm_TTA'>
+				HUVEC Tube Area<br></div></td></tr>
+			<tr><td><div id = "HUVEC_Mito_24h">
+				<input type="checkbox" class="phenotypes" name="HUVEC_Mito" value='HUVEC_Mito'>
+				HUVEC 24 hr mitochondria<br></div></td></tr>
 			</table>
 			<span style = "color: #909191;">
 			iMacrophages test<br>
@@ -244,6 +256,12 @@ SELECT * from chemicals;
   	<button class="btn btn-info btn-sm" id="button-close-left"
   		onclick="closeLeftMenu()" style="background-color: OliveDrab; position: relative; z-index: 1;">
   		<span class="glyphicon glyphicon-chevron-left"></span> Close</button>
+  		
+  		&nbsp; &nbsp; &nbsp; 
+  	<button class="btn btn-info btn-sm" id="ToxPi"
+  		onclick="ToxPi()" style="background-color: OliveDrab; position: relative; z-index: 1;">
+  		Run ToxPi</button>
+  		
   		
   	<button class="btn btn-info btn-sm pull-right" id="button-open-right"  	
   		onclick="openRightMenu()" style="background-color: OliveDrab; display: none; position: relative; z-index: 1;">
@@ -290,32 +308,7 @@ SELECT * from chemicals;
 
 
 
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
-
-
-                
-
-
-
-
-
-
-
-
-
-
+           
  
 
 
