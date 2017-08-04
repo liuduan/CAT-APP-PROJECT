@@ -201,7 +201,7 @@ SELECT * from chemicals;
 			<tr><td><div id = "cardio_Total_Cell_24h">iCardio. 24 hr total cells<br></div></td></tr>
 			<tr><td><div id = "HUVEC_TC">HUVEC total cells <br></div></td></tr>
 			<tr><td><div id = "HUVEC_TA">HUVEC tube area<br></div></td></tr>
-			<tr><td><div id = "HUVEC_Mito_24h">HUVEC 24 hr mitochondria<br></div></td></tr>
+			<tr><td><div id = "HUVEC_Mito_24h">HUVEC 24hr mitochondria<br></div></td></tr>
 			<tr><td><div id = "cardio90_Fly">Fly & Fly iCardio. 90 min pk fr <br></div></td></tr>
 			
 			</table>

@@ -329,7 +329,7 @@ endpoint_data[6] = "<br><br><br><papaya>" +
 	"umbillical cord. HUVEC used in this assay is pooled Human Umbilical Vein endothelial cells, purchased from Lonza" + 
 	"Cat# C2519A, Lot# 0000433795. " +
 	"In this assay, 18 hours after chemical treatment, " + 
-	"cell culture images were captured, and the mitochondria were stained. Total cell area is calculated by" +
+	"cell culture images were captured, and the mitochondria were stained. Total cells with intact mitochondria are numerated by" +
 	"by a trained computer software."+
 	"<br><br><br><br><br>";
 

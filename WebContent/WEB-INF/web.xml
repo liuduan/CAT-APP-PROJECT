@@ -107,12 +107,26 @@
     <servlet-class>com.catapp.servlet.Download_Internal_CServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+    <servlet>
+    <display-name>CentralServlet</display-name>
+    <servlet-name>CentralServlet</servlet-name>
+    <servlet-class>cat.ToxPi.CentralServlet</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CentralServlet</servlet-name>
+    <url-pattern>/ToxPi/Central</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
   <servlet-mapping>
     <servlet-name>Download_Internal_CServlet</servlet-name>
     <url-pattern>/Download_Internal_C</url-pattern>
   </servlet-mapping>
-  
-
   <servlet-mapping>
     <servlet-name>Download_InternalServlet</servlet-name>
     <url-pattern>/Download_InternalServlet</url-pattern>

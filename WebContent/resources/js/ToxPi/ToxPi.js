@@ -270,6 +270,23 @@ function ToxPi(){
 	});
 	
 	alert(data_string);
+	
+	
+	
+	///////////////////////////////////////////////
+	$.ajax({
+		  url: "Central",
+		  data: data_string,
+		  type: 'post',
+		  success: function(data) {
+		    // alert(data);
+			jQuery('#inside-C').html('');
+			jQuery('#inside-C').html(data);
+		    
+			
+		  }
+		});
+		
 }
 
 function column_3_curve(chem_row_n, endpoint_row_n){
@@ -341,8 +358,8 @@ endpoint_data[6] = "<br><br><br><papaya>" +
 	"Human umbilical vein endothelical cells (HUVEC) are derived from the endothelium of veins from the " +
 	"umbillical cord. HUVEC used in this assay is pooled Human Umbilical Vein endothelial cells, purchased from Lonza" + 
 	"Cat# C2519A, Lot# 0000433795. " +
-	"In this assay, 18 hours after chemical treatment, " + 
-	"cell culture images were captured, and the mitochondria were stained. Total cell area is calculated by" +
+	"In this assay, 24 hours after chemical treatment, " + 
+	"cell culture images were captured, and the mitochondria were stained. Total cells with intact mitochondira are numerated by" +
 	"by a trained computer software."+
 	"<br><br><br><br><br>";
 

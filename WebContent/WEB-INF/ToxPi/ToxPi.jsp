@@ -200,23 +200,23 @@ SELECT * from chemicals;
 			<tr><td><div id = "chem_properties">Chemical & physic properties<br></div></td></tr>
 			
 			<tr><td><div id = "cardio90">
-				<input type="checkbox" class="phenotypes" name="CM_PF_90m" value='CM_PF_90m'>
+				<input type="checkbox" class="phenotypes" name='Cardio_peak_freq_90min' value='Cardio_peak_freq_90min'>
 				iCardio. 90 min Peak Frequency <br></div></td></tr>
 			<tr><td><div id = "cardio24">
-				<input type="checkbox" class="phenotypes" name="CM_PF_24h" value='CM_PF_24h'>
+				<input type="checkbox" class="phenotypes" name="Cardio_peak_freq_24hr" value='Cardio_peak_freq_24hr'>
 				iCardio. 24 hr Peak Frequency<br></div></td></tr>
 			<tr><td><div id = "cardio_Total_Cell_24h">
-				<input type="checkbox" class="phenotypes" name="CM_TC_24h" value='CM_TC_24h'>
+				<input type="checkbox" class="phenotypes" name='Cardio_Total_Cell_24h' value='Cardio_Total_Cell_24h'>
 				iCardio. 24 hr total cells<br></div></td></tr>
 			<tr><td><div id = "HUVEC_TC">
-				<input type="checkbox" class="phenotypes" name="HUVEC_Cyto_TC" value='HUVEC_Cyto_TC'>
+				<input type="checkbox" class="phenotypes" name='HUVEC_total_cell' value='HUVEC_total_cell'>
 				HUVEC total cells <br></div></td></tr>
 			<tr><td><div id = "HUVEC_TA">
-				<input type="checkbox" class="phenotypes" name="HUV_TubForm_TTA" value='HUV_TubForm_TTA'>
+				<input type="checkbox" class="phenotypes" name='HUVEC_tube_area' value='HUVEC_tube_area'>
 				HUVEC Tube Area<br></div></td></tr>
 			<tr><td><div id = "HUVEC_Mito_24h">
-				<input type="checkbox" class="phenotypes" name="HUVEC_Mito" value='HUVEC_Mito'>
-				HUVEC 24 hr mitochondria<br></div></td></tr>
+				<input type="checkbox" class="phenotypes" name='HUVEC_Mito_24h' value='HUVEC_Mito_24h'>
+				HUVEC number of cells with intact mitochondria<br></div></td></tr>
 			</table>
 			<span style = "color: #909191;">
 			iMacrophages test<br>
