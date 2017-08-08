@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -81,10 +82,8 @@ public class CentralServlet extends HttpServlet {
 		
 		System.out.println("\nToxPi/CentralServlet C paramValue: " + All_Phenotypes.get(3));  
 		
-		ArrayList<String> selected_cell_lines = new ArrayList<String>();
-		selected_cell_lines.add("received_value");
 		
-		System.out.println("ToxPi/CentralServlet C"); 
+		System.out.println("ToxPi/CentralServlet D, chemical: " + chemical); 
 		
 		///////////////// Access database ///////////////////////////////////////////////////////
 		java.sql.PreparedStatement lPstmt = null;
@@ -92,7 +91,7 @@ public class CentralServlet extends HttpServlet {
 		Connection lConn  = null;
 		lConn = new DBConnection().getConnection();
 		
-		String lQuery= "select pod_sd1 from response.assay_data where catapp_id = '55'";
+		String lQuery= "select pod_sd1 from response.assay_data where catapp_id = '" + chemical + "';";
 		try {
 			lPstmt=lConn.prepareStatement(lQuery);
 			lRst= lPstmt.executeQuery();
@@ -101,15 +100,16 @@ public class CentralServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		ArrayList<String> All_pods = new ArrayList<String>();
+
 		String pod_sd1 = "";
-		 try {
+		try {	
 			while(lRst.next()){
 				//Retrieve by column name
 			    pod_sd1 = lRst.getString("pod_sd1");
+			    All_pods.add(pod_sd1);
 			    System.out.println("ToxPi/CentralServlet point of departure: " + pod_sd1); 
-
-			    //Display values
-
 			    }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -123,8 +123,22 @@ public class CentralServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		String pod_0 = All_pods.get(0);
+		String pod_1 = All_pods.get(1);
+		String pod_2 = All_pods.get(2);
+		String pod_3 = All_pods.get(3);
+		String pod_4 = All_pods.get(4);
+		String pod_5 = All_pods.get(5);
 		
+		Random rand = new Random();
+
+		int  n = rand.nextInt(100);
+		System.out.println("ToxPi/CentralServlet random: " + n); 
 		
+		PrintWriter out = 
+			new PrintWriter("C:\\Users\\CATAPP\\serverfiles\\CM\\1\\Temp_files\\ToxPi_input_"+ n +".txt");
+		out.println(pod_0 + ", " + pod_1 + ", " + pod_2 + ", " + pod_3 + ", " + pod_4 + ", " + pod_5);
+		out.close();
 		
 		///////////////////////// Run R command ///////////////////////////////
 		
