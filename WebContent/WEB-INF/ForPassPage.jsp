@@ -45,6 +45,7 @@
  <c:if test="${param.page eq 1}">
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    
 		<form action="ForgotPasswordServlet" method="post">
 			<fieldset>
 				<h2 align="center">Security Questions</h2>
