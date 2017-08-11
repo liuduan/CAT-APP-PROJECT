@@ -20,11 +20,25 @@
     <!-- Custom CSS -->
     <link href="/CAT-APP-PROJECT/resources/css/full-width-pics.css" rel="stylesheet">
 	<link href="/CAT-APP-PROJECT/resources/css/login.css" rel="stylesheet">
+	
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+	
+	<link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+	
+	
     
 </head>
 
 <body>
-<jsp:directive.include file="header.jsp" />
+<jsp:directive.include file="HeaderCover.jsp" />
+<br>
 
     <!-- Navigation -->
    <div class="container" id="registration">
