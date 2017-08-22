@@ -33,8 +33,13 @@ public class RequestAccessServlet extends HttpServlet {
 	                    throws ServletException, IOException {  
 			Connection lConn=null;
 			
+			System.out.println("RequestAccessServlet A \n");
+			
 	        try{
 	        	String forgotEmail=request.getParameter("forgotEmail").toString();   
+	        	
+	        	System.out.println("RequestAccessServlet B: " + forgotEmail);
+	        	
 	        	HttpSession session=request.getSession();  
 	        	session.setAttribute("forgotEmail",forgotEmail);
 	        	 lConn = new DBConnection().getConnection();
@@ -44,13 +49,17 @@ public class RequestAccessServlet extends HttpServlet {
 	        		request.setAttribute("secqu", pSQMap);
 	        		User lUser =new LoginServlet().fetchUserDetails(forgotEmail, lConn);
 	        		request.getSession().setAttribute("user", lUser);
+	        		System.out.println("RequestAccessServlet C: " + forgotEmail);
+	        		
+	        		request.setAttribute("forgotEmail", forgotEmail);	// submit value to the jsp page:
+	        		
 	        		request.getRequestDispatcher("/WEB-INF/ForPassPage.jsp?page=1").include(request, response);
 	        		
 	        	}else{
-	        		response.setContentType("text/html");  
-	        		PrintWriter out=response.getWriter(); 
-	        		response.sendError(1, "Email id is not registered with us. To register click on request access link on our home page.");
-	        		out.close();  
+	        		
+	        		System.out.println("RequestAccessServlet C2 " + forgotEmail);
+	        		request.getRequestDispatcher("/WEB-INF/ForPassPage.jsp?page=3").include(request, response);
+	        		
 	        	}
 	        	
 	        }catch(Exception e){

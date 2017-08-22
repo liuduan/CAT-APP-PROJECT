@@ -11,7 +11,7 @@ import javax.mail.internet.MimeMessage;
 
 public class SendEmail {
 	// take input of email id,subject,content//
-	public static Boolean sendEmail() {  
+	public static Boolean sendEmail(String content) {  
 		final String senderEmail= "fake.email.2017.00@gmail.com";
 		final String password = "Texas-A&M-2017";
 		
@@ -35,7 +35,7 @@ public class SendEmail {
 		message.setFrom(new InternetAddress("liuduan8@gmail.com"));
 		message.setRecipients(MimeMessage.RecipientType.TO,InternetAddress.parse("liuduan8@gmail.com"));
 		message.setSubject("catappdata.com new user");
-		message.setText("catappdata.com new user");
+		message.setText("catappdata.com new or old user: " + content);
 		
 		Transport.send(message);
 		
@@ -48,6 +48,6 @@ public class SendEmail {
 	
 	}
 	public static void main (String [] args){
-		sendEmail();
+		sendEmail("");
 	}
 }

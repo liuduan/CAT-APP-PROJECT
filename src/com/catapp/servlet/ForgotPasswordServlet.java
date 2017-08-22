@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.catapp.action.Login;
+import com.catapp.action.SendEmail;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;  
 @WebServlet(value="/ForgotPasswordServlet")
@@ -29,16 +30,24 @@ public class ForgotPasswordServlet extends HttpServlet {
 		protected void doPost(HttpServletRequest request, HttpServletResponse response)  
                                 throws ServletException, IOException {  
 			
+			System.out.println("ForgotPasswordServlet A： "  + "forgotEmail");
+			SendEmail.sendEmail("old");
+		    request.getRequestDispatcher("/WEB-INF/requestSubmitted.jsp").include(request, response);
+			
+		    /*
 			Connection lConn 				= null;
 			String lAns1					= null;
 			String lAns2					= null;
 			String lAns3					= null;
 			
+
 			try{
 				User lUser = (User) request.getSession().getAttribute("user");
 				lConn = new DBConnection().getConnection();
 				String lSQ = request.getParameter("pwd");
 				if(lSQ.equals("Validate")){
+					
+					System.out.println("ForgotPasswordServlet B");
 					
 					if(request.getParameter("ans1")!=null){
 						lAns1 = request.getParameter("ans1");

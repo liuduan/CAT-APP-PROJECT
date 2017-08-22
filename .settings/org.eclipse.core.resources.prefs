@@ -4,3 +4,4 @@ encoding//WebContent/WEB-INF/Response/Response.jsp=UTF-8
 encoding//WebContent/WEB-INF/UserManagement.jsp=UTF-8
 encoding//WebContent/WEB-INF/index.jsp=UTF-8
 encoding//WebContent/WEB-INF/welcomeUserHome.jsp=UTF-8
+encoding//src/com/catapp/servlet/ForgotPasswordServlet.java=UTF-8

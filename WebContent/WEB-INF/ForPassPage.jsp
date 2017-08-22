@@ -38,7 +38,7 @@
 
 <body>
 <jsp:directive.include file="HeaderCover.jsp" />
-<br>
+<br><br><br><br>
 
     <!-- Navigation -->
    <div class="container" id="registration">
@@ -47,6 +47,7 @@
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
     
 		<form action="ForgotPasswordServlet" method="post">
+			<input type="hidden" name ="forgotEmail" value ="${forgotEmail}">
 			<fieldset>
 				<h2 align="center">Security Questions</h2>
 				<hr class="colorgraph">		
@@ -138,6 +139,11 @@
 		</form>
 	</div>
 </div>
+</c:if>
+
+<c:if test="${param.page eq 3}">
+<br><br><br><br><br><br>
+This e-mail address is not authorized to access.
 </c:if>
 </div>
  

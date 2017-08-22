@@ -29,11 +29,14 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-	
-	<link rel="stylesheet" 
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
 
 <style type="text/css">	
 		<!-- Bootstrap core CSS -->
@@ -267,8 +270,7 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 					<a href="#" class="btn btn-link pull-right">Forgot Password?</a>
 					 -->
 					<button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#exampleModal" 
-						data-whatever="">Forgot Password?</button>
-					
+						data-whatever="">Forgot Password?.</button>
 					
 				<hr class="colorgraph">
 				<div class="row">
