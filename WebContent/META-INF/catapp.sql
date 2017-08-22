@@ -23,6 +23,7 @@ DROP TABLE IF EXISTS `file_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `file_info` (
+<<<<<<< HEAD
   `entity_id` bigint(19) NOT NULL AUTO_INCREMENT,
   `file_name` varchar(200) DEFAULT NULL,
   `file_path` varchar(300) DEFAULT NULL,
@@ -39,6 +40,18 @@ CREATE TABLE `file_info` (
   `plate_id` bigint(19) DEFAULT NULL,
   PRIMARY KEY (`entity_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+=======
+  `File_name` varchar(200) DEFAULT NULL,
+  `File_path` varchar(300) DEFAULT NULL,
+  `Cell_line` varchar(50) DEFAULT NULL,
+  `Phenotype` varchar(100) DEFAULT NULL,
+  `File_type` varchar(100) DEFAULT NULL,
+  `File_owner_ID` varchar(20) DEFAULT NULL,
+  `Supervisor_owner_ID` varchar(20) DEFAULT NULL,
+  `Row_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`Row_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+>>>>>>> SS-Master/master
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,11 +60,15 @@ CREATE TABLE `file_info` (
 
 LOCK TABLES `file_info` WRITE;
 /*!40000 ALTER TABLE `file_info` DISABLE KEYS */;
+<<<<<<< HEAD
 INSERT INTO `file_info` VALUES (1,'2_CM_Ca2+_15 min_PF','C:/7-5-Database_project-data/Semi-Temp-Storage-2017',2,1,1,'pdf','2017-02-23 17:22:06',NULL,NULL,'Y',1,1,1),(2,'2_CM_Hoechst_30 min_PF','C:/7-5-Database_project-data/Semi-Temp-Storage-2017',2,1,2,'pdf','2017-02-23 17:29:22',NULL,NULL,'Y',1,1,1),(3,'2_CM_Ca2+_30 min_PA','C:/7-5-Database_project-data/Semi-Temp-Storage-2017',2,4,1,'pdf','2017-02-23 17:30:12',NULL,NULL,'Y',1,1,2),(4,'2_CM_Ca2+_15 min_PF','C:/7-5-Database_project-data/Semi-Temp-Storage-2017',2,1,1,'pdf','2017-02-24 08:22:57',NULL,NULL,'Y',1,1,1),(5,'2_CM_Ca2+_90 min_posMT','C:/7-5-Database_project-data/Semi-Temp-Storage-2017',2,9,1,'pdf','2017-02-24 08:29:25',NULL,NULL,'Y',1,1,3),(6,'2_CM_MitoTracker_30 min_PF','C:/7-5-Database_project-data/Semi-Temp-Storage-2017',2,1,3,'pdf','2017-02-24 08:40:18',NULL,NULL,'Y',1,1,1),(7,'2_CM_Hoechst_15 min_PF','C:/7-5-Database_project-data/Semi-Temp-Storage-2017',2,1,2,'pdf','2017-02-27 12:25:24',NULL,NULL,'Y',1,1,2);
+=======
+>>>>>>> SS-Master/master
 /*!40000 ALTER TABLE `file_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
+<<<<<<< HEAD
 -- Table structure for table `security_questions`
 --
 
@@ -114,6 +131,8 @@ INSERT INTO `security_questions_answers` VALUES (1,1,'BBS',7,'2017-02-22 00:00:0
 UNLOCK TABLES;
 
 --
+=======
+>>>>>>> SS-Master/master
 -- Table structure for table `users`
 --
 
@@ -121,13 +140,18 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
+<<<<<<< HEAD
   `user_name` varchar(20) DEFAULT NULL,
+=======
+  `User_ID` varchar(20) DEFAULT NULL,
+>>>>>>> SS-Master/master
   `First_Name` varchar(20) DEFAULT NULL,
   `Last_Name` varchar(20) DEFAULT NULL,
   `Institution` varchar(100) DEFAULT NULL,
   `Phone_Number` varchar(40) DEFAULT NULL,
   `Email` varchar(50) DEFAULT NULL,
   `Supervisor_ID` varchar(20) DEFAULT NULL,
+<<<<<<< HEAD
   `supervisor_name` varchar(50) DEFAULT NULL,
   `supervisor_phone` varchar(50) DEFAULT NULL,
   `Supervisor_Email` varchar(50) DEFAULT NULL,
@@ -145,6 +169,18 @@ CREATE TABLE `users` (
   `rowstate` int(11) DEFAULT NULL,
   PRIMARY KEY (`entity_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+=======
+  `Supervisor_First_Name` varchar(20) DEFAULT NULL,
+  `Supervisor_Last_Name` varchar(20) DEFAULT NULL,
+  `Supervisor_Phone_Number` varchar(40) DEFAULT NULL,
+  `Supervisor_Email` varchar(50) DEFAULT NULL,
+  `Last_login_time` datetime DEFAULT NULL,
+  `Admin_or_not` varchar(3) DEFAULT NULL,
+  `Row_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Password` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`Row_ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+>>>>>>> SS-Master/master
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +189,11 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+<<<<<<< HEAD
 INSERT INTO `users` VALUES ('Test-ID-1','John','Williams','Texas A&M University','979-845-1234','test_user1@tamu.edu','Supervisor-1','Ivan Rusyn','979-845-super','Supervisor_Email@tamu.edu',NULL,NULL,1,'882c57dbdb6cf3c9223ed9a31c087f99ddda0a16','Y',NULL,NULL,NULL,NULL,NULL,'Y',1),('Test-ID-2','Isabella ','Jones	','Texas A&M University','979-845-5678','test_user2@tamu.edu','Supervisor-1','Ivan Rusyn','979-845-super','Supervisor_Email@tamu.edu',NULL,NULL,2,'450e291724efc9476cea3f695a0198b3b8aaad80','Yes',NULL,NULL,NULL,NULL,NULL,'Y',1),('Supervisor-1','Super','Leader','Texas A&M University','979-845-super','Supervisor_Email@tamu.edu','Supervisor-1','Ivan Rusyn','979-845-super','Supervisor_Email@tamu.edu',NULL,NULL,3,'SuperVisor_Email','Yes',NULL,NULL,NULL,NULL,NULL,'Y',1),('Test-ID-3','Divaid','Wilson','Public Health England','+44 (0) 1235-123456','Test_user3@phe.gov.uk','Supervisor-2','Isaac Newton','+44 (0) 1235 825139','supervisor-2@he.gov.uk',NULL,NULL,4,'Test-ID-3','No',NULL,NULL,NULL,NULL,NULL,'Y',1),('supervisor-2','Supervisor-2','Boss-2','Public Health England','+44 (0) 1235 825139','supervisor-2@he.gov.uk','Supervisor-2','Isaac Newton','+44 (0) 1235 825139','supervisor-2@he.gov.uk',NULL,NULL,5,'supervisor-2','Yes',NULL,NULL,NULL,NULL,NULL,'Y',1),('admin','Robert','Taylor (Admin)','Texas A&M University','979-123-4567','admin@test.com','Supervisor-1','Ivan Rusyn','979-845-super','Supervisor_Email@tamu.edu',NULL,'Y',6,'882c57dbdb6cf3c9223ed9a31c087f99ddda0a16','Yes',NULL,NULL,NULL,NULL,NULL,'Y',1),('Test-ID-4','Emily','White','Public Health England','+44 (0) 1235 7890','Test_user4@phe.gov.uk','Supervisor-2','Isaac Newton','+44 (0) 1235 825139','supervisor-2@he.gov.uk',NULL,NULL,7,'Test-ID-4','Yes',NULL,NULL,NULL,NULL,NULL,'Y',1),(NULL,'Duan',NULL,'Texas A&M University','9796918525','test2@tamu.edu',NULL,'Ivan Rusyn','9796918525','1234@yahoo.com',NULL,NULL,13,'31d01e58afdaae8bfabc0156c0ba64cc590b37a6','Yes',NULL,'2017-03-05 01:10:24',1,NULL,NULL,'Y',1),(NULL,'Duan',NULL,'Texas A&M University','9796918525','test_user2@tamu.edu',NULL,'Ivan Rusyn','9796918525','liuduan77843@aliyun.com',NULL,NULL,11,'31d01e58afdaae8bfabc0156c0ba64cc590b37a6',NULL,NULL,'2017-03-04 16:39:25',1,NULL,NULL,'Y',1);
+=======
+INSERT INTO `users` VALUES ('test-user-1','User-1','test','TAMU','979-123-4567','test_user1@test.com','Supervisor-1','Supervisor-1','Boss-1','979-123-super','Supervisor_Email@test.com',NULL,'no',1,'test-user-1'),('test-user-2','User-2','test','TAMU','979-123-4567','test_user2@test.com','Supervisor-1','Supervisor-1','Boss-1','979-123-super','Supervisor_Email@test.com',NULL,'no',2,'test-user-2'),('test-user-3','User-3','test','TAMU','979-123-4567','test_user2@test.com','supervisor-2','Supervisor-1','Boss-1','979-123-super','Supervisor_Email@test.com',NULL,'no',3,'test-user-3'),('supervisor-1','Supervisor-1','Boss-1','TAMU','979-123-4567','supervisor-1@test.com','Supervisor-1','Supervisor-1','Boss-1','979-123-super','Supervisor_Email@test.com',NULL,'no',4,'supervisor-1'),('supervisor-2','Supervisor-2','Boss-2','TAMU','979-123-4567','supervisor-2@test.com','Supervisor-2','Supervisor-2','Boss-2','979-123-super','Supervisor2_Email@test.com',NULL,'no',5,'supervisor-2'),('admin','admin','admin','TAMU','979-123-4567','admin@test.com','admin','admin','admin','979-123-admin','admin_Email@test.com',NULL,'yes',6,'admin');
+>>>>>>> SS-Master/master
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -166,4 +206,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2017-03-06 14:17:34
+=======
+-- Dump completed on 2017-01-24 12:39:49
+>>>>>>> SS-Master/master

@@ -46,7 +46,11 @@ public class Download_Internal extends HttpServlet {
 	         }
 	      }
 		 
+<<<<<<< HEAD
 		 request.setAttribute("selected_cell_lines", selected_cell_lines);	// submit value to the jsp page:
+=======
+		 request.setAttribute("selected_cell_lines", selected_cell_lines);	// submit value to jsp page:
+>>>>>>> SS-Master/master
 		 
 		 ArrayList<String> England_cell_lines = new ArrayList<>(Arrays.asList("A375", "A549", "HepG2", "HepaRG", 
 				 "MCF7", "HT29", "LN229", "HEK10205f", "HLMVEC", "HMePC", "SH-SY5Y"));
@@ -61,4 +65,8 @@ public class Download_Internal extends HttpServlet {
 		getServletContext().getRequestDispatcher("/WEB-INF/Download_Internal.jsp").forward(request, response);
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> SS-Master/master

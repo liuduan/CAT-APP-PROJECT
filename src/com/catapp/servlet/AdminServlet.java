@@ -1,15 +1,20 @@
 package com.catapp.servlet;
 
 import java.io.IOException;
+<<<<<<< HEAD
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+=======
+import java.io.PrintWriter;
+>>>>>>> SS-Master/master
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -17,12 +22,15 @@ import org.apache.log4j.Logger;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;;
 
+=======
+>>>>>>> SS-Master/master
 
 /**
  * Servlet implementation class AdminServlet
  */
 @WebServlet("/AdminServlet")
 public class AdminServlet extends HttpServlet {
+<<<<<<< HEAD
 	
 	private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
 	public User fetchUserDetails(String pEmail, Connection pConnection){
@@ -64,6 +72,8 @@ public class AdminServlet extends HttpServlet {
 	}
 
 
+=======
+>>>>>>> SS-Master/master
 	private static final long serialVersionUID = 1L;
 
     /**
@@ -79,6 +89,7 @@ public class AdminServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+<<<<<<< HEAD
 		System.out.println("Hello World.. 5");
 		
 		Connection lConn = new DBConnection().getConnection();
@@ -127,17 +138,28 @@ public class AdminServlet extends HttpServlet {
 		
 		
 		// This line is go to "/WEB-INF/Adminpage.jsp" with all the parameters.
+=======
+		//PrintWriter out = response.getWriter();
+		//out.println("Administration Page<br> From AdminServlet.java: Hello Java!");
+
+		getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
+		// This line is go to "/WEB-INF/Adminpage.jsp" with all the parameters.
+		
+>>>>>>> SS-Master/master
 	}
 
 	
 	
 	
 	
+<<<<<<< HEAD
 	private void shellCommands(String string) {
 		// TODO Auto-generated method stub
 		
 	}
 
+=======
+>>>>>>> SS-Master/master
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */

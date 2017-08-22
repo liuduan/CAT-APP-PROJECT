@@ -911,7 +911,11 @@ public abstract class BaseEntity implements IBaseEntity
 		try{
 		if(this.getEntityId()!=null){
 			this.setRowstate(new Long(this.getRowstate().longValue() + 1));
+<<<<<<< HEAD
 			this.setInsertValues(pPreparedStatement);
+=======
+			//this.setInsertValues(pPreparedStatement);
+>>>>>>> SS-Master/master
 			this.setUpdateValues(pPreparedStatement);
 		}else{
 			fillAuditColumns(pUser);

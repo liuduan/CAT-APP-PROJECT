@@ -8,7 +8,12 @@ function showExcelFiles() {
 
 function getAssayNames(){					// step 1 to 2 (L.D. function)
 	// alert("");
+<<<<<<< HEAD
 
+=======
+	if (document.getElementById('raw').checked) 
+	{
+>>>>>>> SS-Master/master
 	var Cellline = $('#cellline option:selected').val();
 	// alert("cellline: " + Cellline);
 
@@ -50,7 +55,20 @@ function getAssayNames(){					// step 1 to 2 (L.D. function)
 	$("#step4").hide();
 	$("#step5").hide();
 	$("#step6").hide();
+<<<<<<< HEAD
 	 }	
+=======
+	 }
+
+else if(document.getElementById('processed').checked)
+	{
+	$("#step2").show();
+	$("#step4").hide();
+	$("#step5").hide();
+	$("#step6").hide();
+	}
+}
+>>>>>>> SS-Master/master
 
 
 function selectTimePoint(){							// step 3 to 4
@@ -91,8 +109,19 @@ function selectTimePoint(){							// step 3 to 4
 			$("#step4").append("<input type='hidden' name='timepoint' value='24hr'>");
 		}
 		$("#step4").show();
+<<<<<<< HEAD
 		$("#step5").show();
 		$("#step6").hide();
+=======
+		if (document.getElementById('raw').checked){
+			$("#step5").show();
+			$("#step6").hide();
+			
+		}else{
+			$("#step5").hide();
+			$("#step6").show();
+		}
+>>>>>>> SS-Master/master
 	}else if (Cellline == "Neur"){
 		assay = $("#Neur_assay_select option:selected").val();
 		if(assay =="Neur"){
@@ -110,7 +139,16 @@ function selectTimePoint(){							// step 3 to 4
 			$("#step4").append("<input type='hidden' name='timepoint' value='72hr'>");
 		}
 		$("#step4").show();
+<<<<<<< HEAD
 		$("#step5").show();
+=======
+		if (document.getElementById('raw').checked) {
+			$("#step5").show();
+			
+		}else{
+			$("#step5").hide();
+		}
+>>>>>>> SS-Master/master
 		$("#step6").hide();
 	} else if (Cellline == "HEP" || Cellline == "Macro"){
 		step4_to_5();
@@ -121,6 +159,7 @@ function selectTimePoint(){							// step 3 to 4
 
 
 function step4_to_5(){		// step 4 to step 5
+<<<<<<< HEAD
 	$("#step5").show();
 	$("#step6").hide();
 }
@@ -128,6 +167,32 @@ function step4_to_5(){		// step 4 to step 5
 function step5_to_6(){		// step 5 to step 6
 	$("#dilution_button").show();
 	$("#step6").show();
+=======
+	if (document.getElementById('raw').checked) 
+	{
+	
+	$("#step5").show();
+	$("#step6").hide();
+	
+	}
+	else if (document.getElementById('processed').checked) 
+	{
+		
+		$("#step5").hide();
+		$("#step6").show();
+	}	
+}
+
+function step5_to_6(){		// step 5 to step 6
+	if (document.getElementById('raw').checked){
+		
+		$("#dilution_button").show();
+		$("#step6").show();
+	}else{
+		$("#step6").show();
+		$("#step5").hide();
+	}
+>>>>>>> SS-Master/master
 }
 
 

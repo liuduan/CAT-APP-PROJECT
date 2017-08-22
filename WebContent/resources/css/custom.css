@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> SS-Master/master
 /*=============================================================
     Authour URI: www.binarycart.com
     License: Commons Attribution 3.0
@@ -13,6 +16,7 @@
     GENERAL  STYLES    
     =============================================*/
 body {
+<<<<<<< HEAD
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -46,12 +50,52 @@ h5,.h5 {
 font-weight: 900;
 text-transform: uppercase;
 padding-bottom:20px;
+=======
+	font-family: 'Open Sans', sans-serif;
+}
+
+#wrapper {
+	width: 100%;
+	margin-top: 50px;
+}
+
+#page-wrapper {
+	padding: 15px 15px;
+	min-height: 600px;
+	background: #F3F3F3;
+}
+
+#page-inner {
+	width: 100%;
+	margin: 0px 20px 10px 0px;
+	background-color: #fff !important;
+	padding: 10px;
+	min-height: 750px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.user-image-back {
+	background-color: #8B7BFF;
+}
+
+h5, .h5 {
+	font-size: 14px;
+	font-weight: 900;
+	text-transform: uppercase;
+	padding-bottom: 20px;
+>>>>>>> SS-Master/master
 }
 /*==============================================
     MENU STYLES    
     =============================================*/
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> SS-Master/master
 /* .navbar-inverse .navbar-nav > li > a {
 color: #06F;
 }
@@ -169,6 +213,7 @@ background-color: #8B7BFF;
 /*==============================================
     DASHBOARD STYLES     
     =============================================*/
+<<<<<<< HEAD
 
 .bg-color-blue {
 background-color: #9A86EB;
@@ -181,11 +226,26 @@ border: 1px solid #f3f3f3;
 .back-footer-blue {
 background-color: #7479E6;
 border-top: 0px solid #fff;
+=======
+.bg-color-blue {
+	background-color: #9A86EB;
+	color: #fff;
+}
+
+.no-boder {
+	border: 1px solid #f3f3f3;
+}
+
+.back-footer-blue {
+	background-color: #7479E6;
+	border-top: 0px solid #fff;
+>>>>>>> SS-Master/master
 }
 
 /*==============================================
     BOOTSTRAP STYLE CHANGES     
     =============================================*/
+<<<<<<< HEAD
 .nav-tabs > li > a {
      -webkit-border-radius: 0px 0px 0px 0px;
 -moz-border-radius: 0px 0px 0px 0px;
@@ -215,10 +275,46 @@ border-radius: 0px;
      border-radius: 0px;
   -webkit-border-radius:  0px;
 -moz-border-radius: 0px;
+=======
+.nav-tabs>li>a {
+	-webkit-border-radius: 0px 0px 0px 0px;
+	-moz-border-radius: 0px 0px 0px 0px;
+	border-radius: 0px 0px 0px 0px;
+}
+
+.panel-group .panel {
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+}
+
+.panel {
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+}
+
+.panel-heading {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.btn {
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+}
+
+.progress {
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+>>>>>>> SS-Master/master
 }
 /*==============================================
     MEDIA QUERIES     
     =============================================*/
+<<<<<<< HEAD
  
  @media(min-width:768px) {
      #page-wrapper{
@@ -242,3 +338,20 @@ border-radius: 0px;
 }
 
 
+=======
+@media ( min-width :768px) {
+	#page-wrapper {
+		margin: 0 0 0 260px;
+		padding: 10px 30px;
+		min-height: 800px;
+	}
+	.navbar-side {
+		z-index: 1;
+		position: absolute;
+		width: 260px;
+	}
+	.navbar {
+		border-radius: 0px;
+	}
+}
+>>>>>>> SS-Master/master

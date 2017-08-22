@@ -14,10 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.catapp.action.Login;
+<<<<<<< HEAD
 import com.catapp.action.SendEmail;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;  
 
+=======
+import com.catapp.connection.DBConnection;
+import com.catapp.entity.User;  
+>>>>>>> SS-Master/master
 @WebServlet(value="/SubmittedRequestServlet")
 public class SubmittedRequestServlet extends HttpServlet{
 	private static final Logger LOGGER = Logger.getLogger(SubmittedRequestServlet	.class);
@@ -31,7 +36,10 @@ public class SubmittedRequestServlet extends HttpServlet{
 	response.setContentType("text/html");  
     //PrintWriter out=response.getWriter();
     saveUserToDB(request);
+<<<<<<< HEAD
     SendEmail.sendEmail("new");
+=======
+>>>>>>> SS-Master/master
     request.getRequestDispatcher("/WEB-INF/requestSubmitted.jsp").include(request, response);
 	}
 	

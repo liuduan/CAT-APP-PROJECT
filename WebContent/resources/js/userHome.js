@@ -14,14 +14,22 @@ $( document ).ready(function() {
     });
 	
 	
+<<<<<<< HEAD
 	/*$('#show_paginator').bootpag({
+=======
+	$('#show_paginator').bootpag({
+>>>>>>> SS-Master/master
 	      total: 10,
 	      page: 3,
 	      maxVisible: 10
 	}).on('page', function(event, num)
 	{
 	     $("#flatFiles").html("Page " + num); 
+<<<<<<< HEAD
 	});*/
+=======
+	});
+>>>>>>> SS-Master/master
 
 	$("li").click(function(){
 		  // If this isn't already active

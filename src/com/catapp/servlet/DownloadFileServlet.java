@@ -2,6 +2,7 @@ package com.catapp.servlet;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+<<<<<<< HEAD
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,11 +10,23 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+=======
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+>>>>>>> SS-Master/master
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+<<<<<<< HEAD
+=======
+import java.util.HashMap;
+>>>>>>> SS-Master/master
 import java.util.Iterator;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -24,22 +37,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
+=======
+import org.apache.log4j.Logger;
+>>>>>>> SS-Master/master
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+<<<<<<< HEAD
+=======
+import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+>>>>>>> SS-Master/master
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.catapp.action.ChemData;
 import com.catapp.connection.DBConnection;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> SS-Master/master
 /**
  * Servlet implementation class DownloadFileServlet
  */
 @WebServlet("/DownloadFileServlet")
 public class DownloadFileServlet extends HttpServlet {
+<<<<<<< HEAD
+=======
+	public static final Logger logger = Logger.getLogger(DownloadFileServlet.class.toString());
+>>>>>>> SS-Master/master
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -58,6 +89,7 @@ public class DownloadFileServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String [] lFiles					= request.getParameterValues("optradio");
 		
+<<<<<<< HEAD
 		System.out.println("DownloadFileServlet A, lFiles: " + lFiles[0]);
 		
 		String lButtonClick					= null;
@@ -75,12 +107,40 @@ public class DownloadFileServlet extends HttpServlet {
 		String file_name 					= "";
 		if(lLocalFile.exists()){
 			lFolderLoc ="C:\\Users\\CATAPP\\serverfiles\\CM\\1";
+=======
+		String lButtonClick					= null;
+		PreparedStatement lPstmt 			= null;
+		ResultSet lRst					    = null;
+		Connection lConn 					= null;
+		File lLocalFile 					= new File("C:\\Users\\ssingh\\serverfiles\\");
+		String lFolderLoc 					= null;
+		lConn=new DBConnection().getConnection();
+		if(request.getParameter("download")!=null){
+			lButtonClick="Download";
+		}else if(request.getParameter("json")!=null){
+			lButtonClick="json";
+		}
+		/*if(lButtonClick!=null && lButtonClick=="raw"){
+			
+		}else{
+			String lFrontEndParameters = request.getParameter("cellline");
+			Long lCellLine = Long.valueOf(lFrontEndParameters.split("-")[0]);
+			Long lAssayType= Long.valueOf(lFrontEndParameters.split("-")[1]);
+			Integer lTimePoint =4;
+			Long lPhenotype= Long.valueOf(lFrontEndParameters.split("-")[2]);
+			startCustomCode(response,lCellLine,lAssayType,lTimePoint,lPhenotype,lConn);
+			return;
+		}*/
+		if(lLocalFile.exists()){
+			lFolderLoc ="C:\\Users\\ssingh\\serverfiles\\";
+>>>>>>> SS-Master/master
 		}else{
 			// Write code as per the server //
 		}
 		try{
 			if(lFiles.length>0){
 				
+<<<<<<< HEAD
 				System.out.println("DownloadFileServlet B, how many files: " + lFiles.length);
 				
 				ArrayList<Long>lParameter = new ArrayList<Long>() ;
@@ -98,14 +158,30 @@ public class DownloadFileServlet extends HttpServlet {
 									   
 				System.out.println("DownloadFileServlet D, in the query, to_be_file_id: " + to_be_file_id);
 									   
+=======
+				ArrayList<Long>lParameter = new ArrayList<Long>() ;
+				for(int i=0;i<lFiles.length;i++){
+						lParameter.add(Long.parseLong(lFiles[i]));
+					
+				}
+				
+				
+				StringBuilder lBuild = new StringBuilder("select * From file_info where entity_id in (");
+									   lBuild.append(new ChemData().generateQForparameter(lParameter.size()));
+									   lBuild.append(")");
+									   
+>>>>>>> SS-Master/master
 				lPstmt = lConn.prepareStatement(lBuild.toString());
 				
 				for(int i=0;i<lParameter.size();i++){
 					
 					lPstmt.setLong(i+1, lParameter.get(i));
 					
+<<<<<<< HEAD
 					System.out.println("DownloadFileServlet E, entity_id: " + lParameter.get(i));
 					
+=======
+>>>>>>> SS-Master/master
 				}
 				
 				lRst=lPstmt.executeQuery();
@@ -113,6 +189,7 @@ public class DownloadFileServlet extends HttpServlet {
 				String lFileName ="";
 				String lFileType ="";
 				while(lRst.next()){
+<<<<<<< HEAD
 					lFileName = lRst.getString("file_name");
 					System.out.println("DownloadFileServlet F, File Name: " + lFileName);
 					//lFileName ="test";
@@ -134,15 +211,30 @@ public class DownloadFileServlet extends HttpServlet {
 					
 					System.out.println("DownloadFileServlet H, File: " + 
 							lFolderLoc + "\\" + lCellLine + "\\" + file_name + "." +lFileType);
+=======
+					 lFileName = lRst.getString("file_name");
+					//lFileName ="test";
+					lFileType = lRst.getString("file_type");
+					String lCellLine = lRst.getString("cell_line_id");
+					//String lPlate =lRst.getString("plate_id");
+					lFileFromServer.add(lFolderLoc+lCellLine+"\\"+lFileName);
+>>>>>>> SS-Master/master
 				}
 				
 				if(lFileFromServer.size()>0 && lFileFromServer.size()==1){
 					
 					if(lButtonClick!=null && lButtonClick=="Download"){
+<<<<<<< HEAD
 						response.setHeader("Content-disposition","attachment; filename="+ file_name+"."+lFileType);
 						response.setContentType(lFileType);
 						
 						OutputStream out = response.getOutputStream();			// This line send file.
+=======
+						response.setHeader("Content-disposition","attachment; filename="+ lFileName);
+						response.setContentType(lFileType);
+						
+						OutputStream out = response.getOutputStream();
+>>>>>>> SS-Master/master
 						File lMyFile = new File(lFileFromServer.get(0));
 						// FileReader lReader = new FileReader(lMyFile);
 						FileInputStream in = new FileInputStream(lMyFile);
@@ -154,6 +246,7 @@ public class DownloadFileServlet extends HttpServlet {
 						in.close();
 						out.flush();
 						
+<<<<<<< HEAD
 					}else{				// clicked Json
 						if(lFileType.equals("xls") ||  lFileType.equals("xlsx")){
 							
@@ -164,6 +257,11 @@ public class DownloadFileServlet extends HttpServlet {
 							
 							FileInputStream inp = new FileInputStream( lFileFromServer.get(0) );	// previous
 							// inp = new FileInputStream(lMyFile2);										// added
+=======
+					}else{
+						if(lFileType.equals("xls") ||  lFileType.equals("xlsx")){
+							FileInputStream inp = new FileInputStream( lFileFromServer.get(0) );
+>>>>>>> SS-Master/master
 							Workbook workbook =WorkbookFactory.create(inp);
 
 							// Get the first Sheet.
@@ -197,6 +295,7 @@ public class DownloadFileServlet extends HttpServlet {
 							    
 							    response.setHeader("Content-disposition","attachment; filename="+ lFileName+".json");
 								response.setContentType(lFileType);
+<<<<<<< HEAD
 								File lJsonFile =new File ("C:/Users/CATAPP/serverfiles/CM/1/NewJson.txt");
 								lJsonFile.createNewFile();
 								FileWriter lWriter = new FileWriter("C:/Users/CATAPP/serverfiles/CM/1/NewJson.txt");
@@ -216,12 +315,30 @@ public class DownloadFileServlet extends HttpServlet {
 								int length;
 								while ((length = in.read(buffer)) > 0){
 									System.out.println("Json E, file length: " + length);
+=======
+								File lJsonFile =new File ("C:/Users/CATAPP/serverfiles/NewJson.txt");
+								lJsonFile.createNewFile();
+								FileWriter lWriter = new FileWriter("C:/Users/CATAPP/serverfiles/NewJson.txt");
+								lWriter.write(json.toJSONString());
+								OutputStream out = response.getOutputStream();
+								File lMyFile = new File("C:/Users/CATAPP/serverfiles/NewJson.txt");
+								// FileReader lReader = new FileReader(lMyFile);
+								FileInputStream in = new FileInputStream(lMyFile);
+								byte[] buffer = new byte[4096];
+								int length;
+								while ((length = in.read(buffer)) > 0){
+>>>>>>> SS-Master/master
 									out.write(buffer, 0, length);
 								}
 								in.close();
 								out.flush();
+<<<<<<< HEAD
 								
 								File lToDelete = new File("C:/Users/CATAPP/serverfiles/CM/1/NewJson.txt");
+=======
+								lWriter.close();
+								File lToDelete = new File("C:/Users/CATAPP/serverfiles/NewJson.txt");
+>>>>>>> SS-Master/master
 								lToDelete.delete();
 								
 						}
@@ -277,7 +394,11 @@ public class DownloadFileServlet extends HttpServlet {
 					
 		}
 		catch(Exception e){	
+<<<<<<< HEAD
 			
+=======
+			logger.error("Error Occured While downloading existing file------>downloadfileforservlet.",e);
+>>>>>>> SS-Master/master
 			
 		}finally{
 			if(lConn!=null){
@@ -305,4 +426,138 @@ public class DownloadFileServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
+<<<<<<< HEAD
 }
+=======
+	
+	protected void startCustomCode(HttpServletResponse response,Long pCellLine,Long pAssay,Integer pTimePoint, Long pPhenotype, Connection pConn){
+		
+		PreparedStatement lPstmt         = null;
+		ResultSet         lRst		     = null;
+		//HashMap<Integer, HashMap<Integer,Double>>pValueAddressMap = new HashMap<Integer, HashMap<Integer,Double>>();
+		
+		try{
+			StringBuilder lQuery = new StringBuilder("select * from plate_chemical_denormalized_value_mapping where ")
+								   .append("cellline_id=? and assay=? and timepoint=? and phenotype=? and rowstate!=-1");
+			lPstmt= pConn.prepareStatement(lQuery.toString());
+			lPstmt.setLong(1, pCellLine);
+			lPstmt.setLong(2, pAssay);
+			lPstmt.setInt(3, pTimePoint);
+			lPstmt.setLong(4, pPhenotype);
+			
+			lRst = lPstmt.executeQuery();
+			HashMap<Integer,HashMap<Integer, HashMap<Integer,Double>>> lConcMap = new HashMap<Integer,HashMap<Integer, HashMap<Integer,Double>>>();
+			while(lRst.next()){
+				
+				if(lConcMap.containsKey(lRst.getInt("plateconc"))){
+					HashMap<Integer, HashMap<Integer,Double>>pValueAddressMap= lConcMap.get(lRst.getInt("plateconc"));
+					HashMap<Integer,Double>lEndValueMap = new HashMap<Integer,Double>();
+					if(pValueAddressMap.containsKey(lRst.getInt("rowno"))){
+						lEndValueMap = pValueAddressMap.get(lRst.getInt("rowno"));
+						lEndValueMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+					}else{
+						lEndValueMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+						pValueAddressMap.put(lRst.getInt("rowno"), lEndValueMap);
+						
+					}
+				}else{
+					HashMap<Integer,Double> lNewEndValMap = new HashMap<Integer,Double>();
+					lNewEndValMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+					HashMap<Integer, HashMap<Integer,Double>>lRowValueMap = new HashMap<Integer, HashMap<Integer,Double>>();
+					lRowValueMap.put(lRst.getInt("rowno"),lNewEndValMap);
+					lConcMap.put(lRst.getInt("plateconc"), lRowValueMap);
+				}
+				
+				/*
+				if (pValueAddressMap.containsKey(lRst.getInt("rowno"))){
+					HashMap<Integer,Double> lExistingMap=pValueAddressMap.get(lRst.getInt("rowno"));
+					lExistingMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+				}else{
+					HashMap<Integer,Double>lRelativeMap = new HashMap<Integer,Double>();
+					lRelativeMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+					pValueAddressMap.put(lRst.getInt("rowno"), lRelativeMap);
+				}
+				if(lConcMap.containsKey(lRst.getInt("plateconc"))){
+					HashMap<Integer, HashMap<Integer,Double>> lExt =lConcMap.get(lRst.getInt("plateconc"));
+					HashMap<Integer,Double> lValueMap = new HashMap<Integer,Double>();
+					lValueMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+					lExt.put(lRst.getInt("rowno"), lValueMap);
+					
+					
+				}else{
+					lConcMap.put(lRst.getInt("plateconc"), pValueAddressMap);
+				}
+			*/}
+			
+			//////////////////////// Template Read Start //////////////////////////////////
+			
+			XSSFWorkbook lWorkBook = new XSSFWorkbook(new FileInputStream("C:\\Users\\ssingh\\serverfiles\\templates\\Cardiomyocytes.xlsx"));       
+			XSSFFormulaEvaluator.evaluateAllFormulaCells(lWorkBook);
+			lWorkBook.setForceFormulaRecalculation(true);
+	       
+	        XSSFSheet lWorkingSheet = lWorkBook.getSheetAt(0);
+	        
+	        ////////////////////////Template Read End ////////////////////////////////////
+	        
+	        //////////////////////////////// Iteration of HashMap Starts ///////////////////////////////
+	        
+	        for (Integer lPlateConc : lConcMap.keySet()){
+	        	HashMap<Integer, HashMap<Integer,Double>>lInnerMap=lConcMap.get(lPlateConc);
+	        	Integer lStartRow =0;
+	        	Integer lStartColumn =2;
+	        	for(Integer row : lInnerMap.keySet()){
+	        		if(lPlateConc==4){
+	        			lStartRow =23;
+	        		}else if (lPlateConc==3){
+	        			lStartRow =49;
+	        		}else if (lPlateConc==2){
+	        			lStartRow =75;
+	        		}else if (lPlateConc==1){
+	        			lStartRow =101;
+	        		}
+	        		
+	        		HashMap <Integer, Double>lFinalValue = lInnerMap.get(row) ;
+	        		 for(Integer pos: lFinalValue.keySet()){
+	        			 if(row<15){
+	        				 Row iRow = lWorkingSheet.getRow(lStartRow+row);
+	        				 if(pos<23){
+	        					 Cell iCell = iRow.createCell(lStartColumn+pos);
+	        					 iCell.setCellValue(lFinalValue.get(pos));
+	        				 }
+	        			}
+	        		 }
+	        	}
+	        	
+	        	
+	        }
+	        
+	         /////////////////////////////// Iteration of HashMap Ends /////////////////////////////////
+	        ByteArrayOutputStream outByteStream = new ByteArrayOutputStream();
+	        lWorkBook.write(outByteStream);
+	        byte [] outArray = outByteStream.toByteArray();
+	        response.setContentType("application/ms-excel");
+	        response.setContentLength(outArray.length);
+	        response.setHeader("Expires:", "0"); // eliminates browser caching
+	        response.setHeader("Content-Disposition", "attachment; filename=Cardio.xls");
+	        OutputStream outStream = response.getOutputStream();
+	        outStream.write(outArray);
+	        outStream.flush();
+	        outByteStream.close();
+	        lWorkBook.close();
+	       
+		}catch (Exception e){
+			logger.error("Error Occured While downloading custom file------>startCustomCode.",e);
+		}
+		finally{
+			try{
+				if(pConn!=null){
+					pConn.close();
+				}
+				
+			}catch(Exception e){
+				logger.error("Error Occured While closing connection------>startCustomCode.",e);
+			}
+		}
+	 }
+}
+>>>>>>> SS-Master/master

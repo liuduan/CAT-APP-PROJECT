@@ -7,7 +7,10 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+<<<<<<< HEAD
 import java.util.HashMap;
+=======
+>>>>>>> SS-Master/master
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,11 +26,18 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+<<<<<<< HEAD
 import com.catapp.action.ChemData;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.ChemFile;
 import com.catapp.entity.User;
 import com.mysql.jdbc.Statement;
+=======
+import com.catapp.action.SaveExceltoDB;
+import com.catapp.connection.DBConnection;
+import com.catapp.entity.User;
+
+>>>>>>> SS-Master/master
 
 /**
  * Servlet implementation class SaveFileFormServlet
@@ -37,7 +47,11 @@ public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
+<<<<<<< HEAD
 	private final String UPLOAD_DIRECTORY = "C:/Users/CATAPP/serverfiles";
+=======
+	private final String UPLOAD_DIRECTORY = "C:/Users/ssingh/serverfiles";
+>>>>>>> SS-Master/master
 
 	public static final Logger logger = Logger.getLogger(SaveFileFormServlet.class.toString());
 
@@ -63,6 +77,7 @@ public class SaveFileFormServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
@@ -74,10 +89,20 @@ public class SaveFileFormServlet extends HttpServlet {
 		String lAssay = request.getParameter("assay");
 		String lTimePoint = request.getParameter("timepoint");
 		String lDilution  = request.getParameter("dilution");
+=======
+		
+
+		String lCellLine  = request.getParameter("cellline");		
+		String lAssay = request.getParameter("assay");
+		String lTimePoint = request.getParameter("timepoint");
+		String lDilution  = request.getParameter("dilution");
+		// request.getParameter("raw")
+>>>>>>> SS-Master/master
 		String lDescription = "";
 		String original_name = "";
 		String lFileExtension = "";
 		String lFileName  = "";
+<<<<<<< HEAD
 		String lUploadPath = "C:/Users/CATAPP/serverfiles/CM/1/a";
 		Connection lConn  = null;
 		User lUser =(User)request.getSession().getAttribute("user");
@@ -90,12 +115,26 @@ public class SaveFileFormServlet extends HttpServlet {
 			if(ServletFileUpload.isMultipartContent(request)){		
 				
 				System.out.println("SaveFileFormServlet C \n");
+=======
+		String lUploadPath = "";
+		String lFileSaveParamter =  "";
+		Connection lConn  = null;
+		User lUser =(User)request.getSession().getAttribute("user");
+		File lFiletoDelete =null;
+		
+		//String lDilutionInfo = request.getParameter("form-Plate1");
+		try{
+			lConn = new DBConnection().getConnection();
+			 
+			if(ServletFileUpload.isMultipartContent(request)){		
+>>>>>>> SS-Master/master
 				List<FileItem> multiparts = new ServletFileUpload( new DiskFileItemFactory()).parseRequest(request);
 				for(FileItem item : multiparts){
 					logger.info("Inside For Loop");
 					if(item.isFormField()){
 						if(item.getFieldName().equals("cellline")){
 							lCellLine=item.getString();
+<<<<<<< HEAD
 							System.out.println("Cell Line 3: " + lCellLine);
 						}else if(item.getFieldName().equals("assay")){
 							lAssay=item.getString();
@@ -143,11 +182,34 @@ public class SaveFileFormServlet extends HttpServlet {
 						// }
 						*/
 						
+=======
+						}else if(item.getFieldName().equals("assay")){
+							lAssay=item.getString();
+						}else if(item.getFieldName().equals("timepoint")){
+							lTimePoint=item.getString();
+						}else if(item.getFieldName().equals("dilution")){
+							lDilution=item.getString();
+							lDilution=null;
+						}else if(item.getFieldName().equals("desc")){
+							lDescription=item.getString();
+						}
+						else if(item.getFieldName().equals("fileRadio")){
+							lFileSaveParamter=item.getString();
+							
+						}
+						/*else if(item.getFieldName().equals("processed")){
+							lFileSaveParamter=item.getString();
+						}*/
+					}
+					
+					if(!item.isFormField()){
+>>>>>>> SS-Master/master
 						original_name = new File(item.getName()).getName();		// file name
 						if(original_name!=null){
 							if(original_name.indexOf(".")!=-1){
 								lFileExtension =original_name.split("\\.")[1];			// file extension
 							}
+<<<<<<< HEAD
 						}
 						
 						
@@ -198,11 +260,48 @@ public class SaveFileFormServlet extends HttpServlet {
 					lDilution + "', '" + lDescription  + "', '" + original_name + "', '" + lFileName + "', '" +
 					lFileExtension + "', '" + Path_for_SQL + "')";
 			Save_file_info2DB(insert_record_str, lConn);
+=======
+						}	
+						if(lDilution==null){
+							lDilution="00";
+						}
+						
+						String modified_file_name = original_name.replaceAll(" ", "-");
+						lUploadPath = "C:\\Users\\ssingh\\serverfiles\\" + lCellLine;	
+						lFileName = lCellLine + "_" + lAssay + "_" + lTimePoint + "_" + 
+								lDilution + "_" + modified_file_name;
+						item.write( new File(lUploadPath + File.separator + lFileName));
+						File lFile1 = new File(lUploadPath + File.separator + modified_file_name);
+						lFile1.renameTo(new File(lUploadPath + File.separator + lFileName+"."+lFileExtension));
+						lFiletoDelete=new File(lUploadPath + File.separator + lFileName);
+					
+					}
+				}
+			}	
+			//lFileSaveParamter="Y";
+			if(lFileSaveParamter!=null && lFileSaveParamter.equals("processed")){
+				
+				new SaveExceltoDB().saveExcelDataToDb(lCellLine,lAssay,lTimePoint,lFiletoDelete, lConn);
+				
+			}else{
+				String Path_for_SQL = "C:\\Users\\ssingh\\serverfiles\\" + lCellLine;	
+				String insert_record_str = "INSERT INTO file_info (cell_line_id, assay_type, " +
+						"timepoint, Dilution, description, Original_name, file_name, file_type, file_path) " + 
+						"VALUES ('" + lCellLine + "', '" + lAssay + "', '" + lTimePoint + "', '" + 
+						lDilution + "', '" + lDescription  + "', '" + original_name + "', '" + lFileName + "', '" +
+						lFileExtension + "', '" + Path_for_SQL + "')";
+				Save_file_info2DB(insert_record_str, lConn);
+				
+			}
+			
+			
+>>>>>>> SS-Master/master
 			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload?success=1");
 		    rd.forward(request, response);
 			
 			///// *************************** Data save started ************************************/////
+<<<<<<< HEAD
 		    /*
 			System.out.println("SaveFileFormServlet D \n");
 			
@@ -278,6 +377,9 @@ public class SaveFileFormServlet extends HttpServlet {
 			}
 			*/
 			///// *************************** Data save ended ************************************ ////
+=======
+		   
+>>>>>>> SS-Master/master
 		}catch(Exception e){
 			System.out.println("SaveFileFormServlet Zz" + " \n");
 			  PrintWriter out = response.getWriter();
@@ -338,5 +440,9 @@ public class SaveFileFormServlet extends HttpServlet {
 		
 		return lExistsFlag;
 	}
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> SS-Master/master

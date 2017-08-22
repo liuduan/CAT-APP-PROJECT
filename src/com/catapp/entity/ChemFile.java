@@ -205,4 +205,8 @@ public class ChemFile extends BaseEntity{
 		
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> SS-Master/master

@@ -169,4 +169,8 @@ public class ChemData {
 		return lChemicalMap;
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> SS-Master/master

@@ -112,4 +112,8 @@ public class Download_Internal_CServlet extends HttpServlet {
 		getServletContext().getRequestDispatcher("/WEB-INF/Download_Internal_C.jsp").forward(request, response);
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> SS-Master/master
