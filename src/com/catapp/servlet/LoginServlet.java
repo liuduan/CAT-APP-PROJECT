@@ -1,10 +1,7 @@
 package com.catapp.servlet;
 
 import java.io.IOException;
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,19 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-<<<<<<< HEAD
+
 import org.apache.log4j.BasicConfigurator;
-=======
->>>>>>> SS-Master/master
+
 import org.apache.log4j.Logger;
 
 import com.catapp.action.Login;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;  
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
 @WebServlet(value="/LoginServlet")
 public class LoginServlet extends HttpServlet {  
 	/**

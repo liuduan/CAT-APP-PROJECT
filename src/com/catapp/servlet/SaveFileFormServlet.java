@@ -7,10 +7,9 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-<<<<<<< HEAD
+
 import java.util.HashMap;
-=======
->>>>>>> SS-Master/master
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,18 +25,13 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-<<<<<<< HEAD
+
 import com.catapp.action.ChemData;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.ChemFile;
 import com.catapp.entity.User;
 import com.mysql.jdbc.Statement;
-=======
-import com.catapp.action.SaveExceltoDB;
-import com.catapp.connection.DBConnection;
-import com.catapp.entity.User;
 
->>>>>>> SS-Master/master
 
 /**
  * Servlet implementation class SaveFileFormServlet
@@ -47,11 +41,7 @@ public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-<<<<<<< HEAD
 	private final String UPLOAD_DIRECTORY = "C:/Users/CATAPP/serverfiles";
-=======
-	private final String UPLOAD_DIRECTORY = "C:/Users/ssingh/serverfiles";
->>>>>>> SS-Master/master
 
 	public static final Logger logger = Logger.getLogger(SaveFileFormServlet.class.toString());
 
@@ -77,7 +67,7 @@ public class SaveFileFormServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-<<<<<<< HEAD
+
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
@@ -89,20 +79,12 @@ public class SaveFileFormServlet extends HttpServlet {
 		String lAssay = request.getParameter("assay");
 		String lTimePoint = request.getParameter("timepoint");
 		String lDilution  = request.getParameter("dilution");
-=======
-		
 
-		String lCellLine  = request.getParameter("cellline");		
-		String lAssay = request.getParameter("assay");
-		String lTimePoint = request.getParameter("timepoint");
-		String lDilution  = request.getParameter("dilution");
-		// request.getParameter("raw")
->>>>>>> SS-Master/master
 		String lDescription = "";
 		String original_name = "";
 		String lFileExtension = "";
 		String lFileName  = "";
-<<<<<<< HEAD
+
 		String lUploadPath = "C:/Users/CATAPP/serverfiles/CM/1/a";
 		Connection lConn  = null;
 		User lUser =(User)request.getSession().getAttribute("user");
@@ -115,19 +97,7 @@ public class SaveFileFormServlet extends HttpServlet {
 			if(ServletFileUpload.isMultipartContent(request)){		
 				
 				System.out.println("SaveFileFormServlet C \n");
-=======
-		String lUploadPath = "";
-		String lFileSaveParamter =  "";
-		Connection lConn  = null;
-		User lUser =(User)request.getSession().getAttribute("user");
-		File lFiletoDelete =null;
-		
-		//String lDilutionInfo = request.getParameter("form-Plate1");
-		try{
-			lConn = new DBConnection().getConnection();
-			 
-			if(ServletFileUpload.isMultipartContent(request)){		
->>>>>>> SS-Master/master
+
 				List<FileItem> multiparts = new ServletFileUpload( new DiskFileItemFactory()).parseRequest(request);
 				for(FileItem item : multiparts){
 					logger.info("Inside For Loop");

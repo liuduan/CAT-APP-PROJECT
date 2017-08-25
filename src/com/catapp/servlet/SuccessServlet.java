@@ -30,10 +30,6 @@ public class SuccessServlet extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/Success.jsp").include(request, response);
 	}
 
-<<<<<<< HEAD
-
 }
 
-=======
-}
->>>>>>> SS-Master/master
+

@@ -67,7 +67,7 @@ public class UploadServlet extends HttpServlet {
 			request.setAttribute("assay", lAssayMap);
 			request.setAttribute("cell", lCellMap);
 			request.setAttribute("time", lTimMap);
-<<<<<<< HEAD
+
 
 			System.out.println("UploadServlet \n");
 			
@@ -75,10 +75,7 @@ public class UploadServlet extends HttpServlet {
 			HttpSession session=request.getSession(false);
 			if(session!=null){
 
-=======
-			HttpSession session=request.getSession(false);
-			if(session!=null){
->>>>>>> SS-Master/master
+
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp");
 			rd.forward(request, response);
 			}
@@ -87,10 +84,7 @@ public class UploadServlet extends HttpServlet {
 				request.getRequestDispatcher("/LoadDataForHome").include(request, response);  
 				}
 			
-<<<<<<< HEAD
-			
-=======
->>>>>>> SS-Master/master
+
 		}catch(Exception e){
 			logger.error("Error Occured while dispatching the request",e);
 		}finally{

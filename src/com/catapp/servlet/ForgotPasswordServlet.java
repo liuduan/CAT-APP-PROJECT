@@ -16,19 +16,16 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.catapp.action.Login;
-<<<<<<< HEAD
+
 import com.catapp.action.SendEmail;
-=======
->>>>>>> SS-Master/master
+
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;  
 @WebServlet(value="/ForgotPasswordServlet")
 public class ForgotPasswordServlet extends HttpServlet {  
-<<<<<<< HEAD
+
 	private static final Logger LOGGER = Logger.getLogger(RequestAccessServlet.class);
-=======
-	private static final Logger LOGGER = Logger.getLogger(ForgotPasswordServlet.class);
->>>>>>> SS-Master/master
+
         /**
 	 * 
 	 */
@@ -161,30 +158,14 @@ public class ForgotPasswordServlet extends HttpServlet {
 						lConn.close();
 					}
 				}catch(Exception c){
-<<<<<<< HEAD
-					
-				}
-			}
-			
-            /*response.setContentType("text/html");  
-            PrintWriter out=response.getWriter();  
-            
-            request.getRequestDispatcher("/WEB-INF/ForPassPage.jsp").include(request, response);  
-              
-            HttpSession session=request.getSession();  
-            session.invalidate();  
-              
-            //out.print("You are successfully logged out!");  
-              
-            out.close();  */
-=======
+
 					c.printStackTrace();
 
 				}
 			}
 			
            
->>>>>>> SS-Master/master
+
     }  
 		/*@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -219,10 +200,8 @@ public class ForgotPasswordServlet extends HttpServlet {
 		}
 		public static boolean pAuthenticateAnswers(HashMap<Long,String> pAnswers,Long pUserId,Connection pConn){
 			
-<<<<<<< HEAD
-=======
 			LOGGER.debug("Start of pAuthenticateAnswers::"+ pUserId);
->>>>>>> SS-Master/master
+
 			PreparedStatement lPstmnt = null;
 			ResultSet		  lRst	  = null;
 			boolean lFlag			  = false;
@@ -234,13 +213,11 @@ public class ForgotPasswordServlet extends HttpServlet {
 				int lAnsCount=0;
 				while(lRst.next()){
 					lFlag=true;
-<<<<<<< HEAD
-					if(pAnswers.get(lRst.getLong(1)).equals(lRst.getString(2))){
-=======
+
 					LOGGER.debug(" answer from user::"+pAnswers.get(lRst.getLong(1))+"ans in db::"+lRst.getString(2));
 					if(pAnswers.get(lRst.getLong(1)).equals(lRst.getString(2))){
 						LOGGER.info("match");
->>>>>>> SS-Master/master
+
 						lAnsCount++;
 					}
 				}
@@ -260,11 +237,10 @@ public class ForgotPasswordServlet extends HttpServlet {
 					LOGGER.error("Error Occured while closing pstmnt",p);
 				}
 			}
-<<<<<<< HEAD
-=======
+
 			LOGGER.info("End of method pAuthenticateAnswers:: iFlag::"+lFlag);
 
->>>>>>> SS-Master/master
+
 			return lFlag;
 		}
 }  

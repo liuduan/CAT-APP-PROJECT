@@ -198,8 +198,5 @@ public class ViewFiles extends HttpServlet {
 		doGet(request, response);
 	}*/
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> SS-Master/master
+
