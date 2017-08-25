@@ -30,5 +30,4 @@ public class CatAppConstants {
 	public static final String HOME="home";
 	public static final String ABOUT="about";
 	public static final String CONTACT="contact";
-
 }
