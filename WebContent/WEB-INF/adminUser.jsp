@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-<<<<<<< HEAD
-    pageEncoding="ISO-8859-1"%>
-=======
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="com.catapp.entity.User"%>
->>>>>>> SS-Master/master
+<%@ page import="com.catapp.*"%>
+
 <!DOCTYPE html>
 <html lang="en">
 

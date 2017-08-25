@@ -7,22 +7,14 @@ import java.sql.SQLException;
 import com.catapp.entity.User;
 
 public class DBConnection{
-<<<<<<< HEAD
+
 	private static String url = "jdbc:mysql://localhost:3306/catapp";    
     private static String driverName = "com.mysql.jdbc.Driver";   
     private static String username = "root";   
     private static String password = "vibscatapp";
     private static Connection con;
    // private static String urlstring;
-=======
-	private static String url = "jdbc:sqlserver://IRUSYN1LAP\\SQLEXPRESS;databaseName=CATAPP;integratedSecurity=true";    
-    private static String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";   
-    ////private static String username = "root";   
-   // private static String password = "root";
-    private static Connection con;
-   // private static String urlstring;
 
->>>>>>> SS-Master/master
     public  Connection getConnection() {
     	
            try {
@@ -33,18 +25,13 @@ public class DBConnection{
 		}
             
             try {
-<<<<<<< HEAD
+
                con = DriverManager.getConnection(url, username, password);
             	//con=DriverManager.getConnection(url);
                if(!con.isClosed() || con!=null){
             	   System.out.println("------Successful database connection.------------------------\n\n");}
 
-=======
-               // con = DriverManager.getConnection(urlstring, username, password);
-            	con=DriverManager.getConnection(url);
-            	
-            	
->>>>>>> SS-Master/master
+
             } catch (SQLException ex) {
                 // log an exception. fro example:
                 System.out.println("Failed to create the database connection."); 
@@ -55,25 +42,10 @@ public class DBConnection{
         }*/
     	return con;
     }
-<<<<<<< HEAD
-}
-
-=======
-    /*public static void main(String[] args){
-    	try {
-		   // con = DriverManager.getConnection(urlstring, username, password);
-			con=DriverManager.getConnection(url);
-			User lUser =new User();
-			lUser.setEntityId(1l);
-			lUser.find(con, lUser);
-			
-		} catch (SQLException ex) {
-		    // log an exception. fro example:
-		    System.out.println("Failed to create the database connection."); 
-		}
-    }*/
 
 }
+
+
 
 
 /*package com.catapp.connection;
@@ -136,4 +108,4 @@ public class DBConnection{
     }
 */
 //}
->>>>>>> SS-Master/master
+

@@ -11,11 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-<<<<<<< HEAD
-=======
-import org.apache.tomcat.dbcp.dbcp.DbcpException;
-
->>>>>>> SS-Master/master
 import com.catapp.action.ChemData;
 import com.catapp.connection.DBConnection;
 

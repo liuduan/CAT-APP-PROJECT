@@ -4,7 +4,11 @@ jQuery(document).ready(function() {
     /*
         Fullscreen background
     */
+<<<<<<< HEAD
     $.backstretch("assets/img/backgrounds/1.jpg");
+=======
+   /* $.backstretch("/CAT-APP-PROJECT/resources/images/1.jpg");*/
+>>>>>>> SS-Master/master
     
     $('#top-navbar-1').on('shown.bs.collapse', function(){
     	$.backstretch("resize");
