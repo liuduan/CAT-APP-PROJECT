@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import com.catapp.entity.User;
 
 public class DBConnection{
-	private static String url = "jdbc:sqlserver://IRUSYN1LAP\\SQLEXPRESS;databaseName=CATAPP;integratedSecurity=true";    
-    private static String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";   
-    ////private static String username = "root";   
-   // private static String password = "root";
+	private static String url = "jdbc:mysql://localhost:3306/CATAPP?autoReconnect=true&useSSL=false";    
+    private static String driverName = "com.mysql.jdbc.Driver";   
+    private static String username = "root";   
+   private static String password = "ashima";
     private static Connection con;
    // private static String urlstring;
 
@@ -24,8 +24,8 @@ public class DBConnection{
 		}
             
             try {
-               // con = DriverManager.getConnection(urlstring, username, password);
-            	con=DriverManager.getConnection(url);
+                con = DriverManager.getConnection(url, username, password);
+            	//con=DriverManager.getConnection(url);
             	
             	
             } catch (SQLException ex) {

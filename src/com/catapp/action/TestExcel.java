@@ -18,8 +18,8 @@ public class TestExcel {
 	public static void getExcel(){
 		try{
 			HashMap<Double,String>lConfigMap =new HashMap<Double,String>();
-			File myConfigFile = new File("C://Users/ssingh/Desktop/Config Ids_System_information_report.xlsx");
-			File myReportFile = new File("C://Users/ssingh/Desktop/report.system_information.csv");
+			File myConfigFile = new File("C://Users/sharm/Desktop/Config Ids_System_information_report.xlsx");
+			File myReportFile = new File("C://Users/sharm/Desktop/report.system_information.csv");
 			BufferedReader br = new BufferedReader(new FileReader(myReportFile));
 			FileInputStream fis1 = new FileInputStream(myConfigFile);
 			XSSFWorkbook myConfigWorkBook = new XSSFWorkbook (fis1);

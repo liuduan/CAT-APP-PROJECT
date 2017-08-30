@@ -39,8 +39,8 @@
 %>
 
 	<sql:setDataSource var="snapshot"
-		driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-		url="jdbc:sqlserver://IRUSYN1LAP\\SQLEXPRESS;databaseName=CATAPP;integratedSecurity=true" />
+		driver="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/CATAPP?autoReconnect=true&useSSL=false" />
 
 	<sql:query dataSource="${snapshot}" var="result">
 SELECT * from users where Email = '<%=Email%>';

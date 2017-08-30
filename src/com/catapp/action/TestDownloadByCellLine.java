@@ -29,7 +29,7 @@ public class TestDownloadByCellLine {
 			String lCellLine ="CM";
 			String lPhenotype ="PF";
 			
-		File lFile = new File ("C:/Users/ssingh/serverfiles/templates/Excel By CellLine.xlsx");
+		File lFile = new File ("C:/Users/sharm/serverfiles/templates/Excel By CellLine.xlsx");
 		lConn=new DBConnection().getConnection(); 
 		FileInputStream fis = new FileInputStream(lFile);
 		XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
@@ -88,7 +88,7 @@ public class TestDownloadByCellLine {
 		XSSFCell lCell2 =lRow3.getCell(1);
 		lCell2.setCellValue(lTimePoint);
 		
-		FileOutputStream fop = new FileOutputStream("C:/Users/ssingh/serverfiles/templates/Test1.xlsx");  
+		FileOutputStream fop = new FileOutputStream("C:/Users/sharm/serverfiles/templates/Test1.xlsx");  
 		myWorkBook.write(fop);
 		myWorkBook.close();
 		fop.close();

@@ -32,7 +32,7 @@ public class TestDownloadByCompound {
 			String lCellLine ="CM";
 			String lPhenotype ="PF";
 			
-		File lFile = new File ("C:/Users/ssingh/serverfiles/templates/Excel By Compound.xlsx");
+		File lFile = new File ("C:/Users/sharma/serverfiles/templates/Excel By Compound.xlsx");
 		lConn=new DBConnection().getConnection(); 
 		FileInputStream fis = new FileInputStream(lFile);
 		XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
@@ -92,7 +92,7 @@ public class TestDownloadByCompound {
 		XSSFRow lRow5 =mySheet.getRow(5);
 		XSSFCell lCell4 =lRow5.getCell(1);
 		lCell4.setCellValue(lPhenoTypeName);
-		FileOutputStream fop = new FileOutputStream("C:/Users/ssingh/serverfiles/templates/Test.xlsx");  
+		FileOutputStream fop = new FileOutputStream("C:/Users/sharm/serverfiles/templates/Test.xlsx");  
 		myWorkBook.write(fop);
 		myWorkBook.close();
 		fop.close();

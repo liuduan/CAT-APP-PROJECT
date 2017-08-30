@@ -29,9 +29,9 @@ $(document).ready(function(){
 </script>
 
 
-	<sql:setDataSource var="snapshot_C"
-		driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-		url="jdbc:sqlserver://IRUSYN1LAP\\SQLEXPRESS;databaseName=CATAPP;integratedSecurity=true" />
+	<sql:setDataSource var="snapshot_C" 
+		driver="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/CATAPP?autoReconnect=true&useSSL=false" user="root" password="ashima" />
 
 	<sql:query dataSource="${snapshot_C}" var="result_C">
 	SELECT
