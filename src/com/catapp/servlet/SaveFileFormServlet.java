@@ -82,6 +82,7 @@ public class SaveFileFormServlet extends HttpServlet {
 		String original_name = "";
 		String lFileExtension = "";
 		String lFileName  = "";
+		String lFileSaveParamter = "";
 
 		String lUploadPath = "C:/Users/CATAPP/serverfiles/CM/1/a";
 		Connection lConn  = null;
@@ -128,7 +129,7 @@ public class SaveFileFormServlet extends HttpServlet {
 							if(original_name.indexOf(".")!=-1){
 								lFileExtension =original_name.split("\\.")[1];			// file extension
 							}
-<<<<<<< HEAD
+
 						}
 						
 						
@@ -179,43 +180,6 @@ public class SaveFileFormServlet extends HttpServlet {
 					lDilution + "', '" + lDescription  + "', '" + original_name + "', '" + lFileName + "', '" +
 					lFileExtension + "', '" + Path_for_SQL + "')";
 			Save_file_info2DB(insert_record_str, lConn);
-=======
-						}	
-						if(lDilution==null){
-							lDilution="00";
-						}
-						
-						String modified_file_name = original_name.replaceAll(" ", "-");
-						lUploadPath = "C:\\Users\\ssingh\\serverfiles\\" + lCellLine;	
-						lFileName = lCellLine + "_" + lAssay + "_" + lTimePoint + "_" + 
-								lDilution + "_" + modified_file_name;
-						item.write( new File(lUploadPath + File.separator + lFileName));
-						File lFile1 = new File(lUploadPath + File.separator + modified_file_name);
-						lFile1.renameTo(new File(lUploadPath + File.separator + lFileName+"."+lFileExtension));
-						lFiletoDelete=new File(lUploadPath + File.separator + lFileName);
-					
-					}
-				}
-			}	
-			//lFileSaveParamter="Y";
-			if(lFileSaveParamter!=null && lFileSaveParamter.equals("processed")){
-				
-				new SaveExceltoDB().saveExcelDataToDb(lCellLine,lAssay,lTimePoint,lFiletoDelete, lConn);
-				
-			}else{
-				String Path_for_SQL = "C:\\Users\\ssingh\\serverfiles\\" + lCellLine;	
-				String insert_record_str = "INSERT INTO file_info (cell_line_id, assay_type, " +
-						"timepoint, Dilution, description, Original_name, file_name, file_type, file_path) " + 
-						"VALUES ('" + lCellLine + "', '" + lAssay + "', '" + lTimePoint + "', '" + 
-						lDilution + "', '" + lDescription  + "', '" + original_name + "', '" + lFileName + "', '" +
-						lFileExtension + "', '" + Path_for_SQL + "')";
-				Save_file_info2DB(insert_record_str, lConn);
-				
-			}
-			
-			
->>>>>>> SS-Master/master
-			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload?success=1");
 		    rd.forward(request, response);
 			
