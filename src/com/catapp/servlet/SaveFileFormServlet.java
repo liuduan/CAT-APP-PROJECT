@@ -1,6 +1,4 @@
 package com.catapp.servlet;
-
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -104,55 +102,6 @@ public class SaveFileFormServlet extends HttpServlet {
 					if(item.isFormField()){
 						if(item.getFieldName().equals("cellline")){
 							lCellLine=item.getString();
-<<<<<<< HEAD
-							System.out.println("Cell Line 3: " + lCellLine);
-						}else if(item.getFieldName().equals("assay")){
-							lAssay=item.getString();
-							System.out.println("assay: " + lAssay);
-						}else if(item.getFieldName().equals("timepoint")){
-							lTimePoint=item.getString();
-							System.out.println("TimePoint: " + lTimePoint);
-						}else if(item.getFieldName().equals("dilution")){
-							lDilution=item.getString();
-							System.out.println("Dilution: " + lDilution);
-						}else if(item.getFieldName().equals("desc")){
-							lDescription=item.getString();
-							System.out.println("Description: " + lDescription);
-						}
-						
-					}
-					
-					
-					//====================================================
-					
-					if(!item.isFormField()){
-						/*
-						lFileName = new ChemData().getTagNamesofInputs("celllines",lConn).get(Long.valueOf(lCellLine))+"_"+
-								new ChemData().getTagNamesofInputs("assaynames",lConn).get(Long.valueOf(lAssay))+"_"+
-								new ChemData().getTimePoints().get(Long.valueOf(lTimePoint))+"_"+
-								new ChemData().getTagNamesofInputs("phenotypes",lConn).get(Long.valueOf(lPhenoType));
-						
-						boolean lExists =cmsCheckFileInDB(lFileName, lConn);
-						if(lExists){
-							System.out.println("SaveFileFormServlet C \n");
-							//RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/Upload.jsp?failure=2");
-						    //rd.forward(request, response);
-						}
-						
-						
-						//
-						// String name = "";
-						
-						String lUploadPath = UPLOAD_DIRECTORY+File.separator+
-								new ChemData().getTagNames(Long.valueOf(lCellLine))+File.separator+lDilution;
-						File lFile = new File(lUploadPath);
-						
-						// if(!lFile.exists()){
-						// 	lFile.mkdirs();
-						// }
-						*/
-						
-=======
 						}else if(item.getFieldName().equals("assay")){
 							lAssay=item.getString();
 						}else if(item.getFieldName().equals("timepoint")){
@@ -173,7 +122,7 @@ public class SaveFileFormServlet extends HttpServlet {
 					}
 					
 					if(!item.isFormField()){
->>>>>>> SS-Master/master
+
 						original_name = new File(item.getName()).getName();		// file name
 						if(original_name!=null){
 							if(original_name.indexOf(".")!=-1){
@@ -271,85 +220,7 @@ public class SaveFileFormServlet extends HttpServlet {
 		    rd.forward(request, response);
 			
 			///// *************************** Data save started ************************************/////
-<<<<<<< HEAD
-		    /*
-			System.out.println("SaveFileFormServlet D \n");
-			
-			ChemFile lFile = new ChemFile();
-			lFile.setCell_line_id(Long.valueOf(lCellLine));
-			lFile.setPhenotype_id(Long.valueOf(lPhenoType));
-			lFile.setAssay_type(Long.valueOf(lAssay));
-			lFile.setPlate_id(Long.valueOf(lDilution));
-			System.out.println("SaveFileFormServlet D2 Time Point: " + lTimePoint);
-			lFile.setTimepoint(Integer.valueOf(lTimePoint));
-			lFile.setFile_name(lFileName);
-			lFile.setFile_path(UPLOAD_DIRECTORY);
-			if(lDescription!=null){
-				lFile.setDescription(lDescription);
-			}
-			if(lFileExtension!=null){
-				lFile.setFile_type(lFileExtension);
-			}
-			//User lUser =new User();
-			//lUser.setEntityId(1l);
-			lFile.save(lConn, lUser);
 
-
-			System.out.println("SaveFileFormServlet E \n");
-			*/
-			///// ************************* Excel Save in DB *************************************//////
-			
-			/*String lReturnResponse=new SaveExceltoDB().saveExcelDataToDb(lFile, lConn);
-			if(lReturnResponse=="success"){
-				
-			}else{
-
-				lConn.rollback();
-			}*/
-
-			
-		   ///// ************************* Excel Save in DB *************************************//////
-		    /*
-			System.out.println("SaveFileFormServlet X" + " \n");
-			
-
-			if(lFile.getEntityId()!=null){
-				HashMap<Long,String>lPhenoMap =  new ChemData().getNamesofInputs("phenotype",lConn);
-				HashMap<Long,String>lAssayMap =  new ChemData().getNamesofInputs("assaynames",lConn);
-				HashMap<Long,String>lCellMap  =  new ChemData().getNamesofInputs("celllines",lConn);
-				HashMap<Long,String>lTimMap   =  new ChemData().getTimePoints();
-			    request.setAttribute("pheno", lPhenoMap);
-			    request.setAttribute("assay", lAssayMap);
-			    request.setAttribute("cell", lCellMap);
-			    request.setAttribute("time", lTimMap);
-			    
-			    System.out.println("SaveFileFormServlet Y \n");
-			    
-			    // getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
-			 	rd = getServletContext().getRequestDispatcher("/Upload?success=1");
-			    rd.forward(request, response);
-			    // return;
-			}else{
-				HashMap<Long,String>lPhenoMap =  new ChemData().getNamesofInputs("phenotypes",lConn);
-				HashMap<Long,String>lAssayMap =  new ChemData().getNamesofInputs("assaynames",lConn);
-				HashMap<Long,String>lCellMap  =  new ChemData().getNamesofInputs("celllines",lConn);
-				HashMap<Long,String>lTimMap   =  new ChemData().getTimePoints();
-			    request.setAttribute("pheno", lPhenoMap);
-			    request.setAttribute("assay", lAssayMap);
-			    request.setAttribute("cell", lCellMap);
-			    request.setAttribute("time", lTimMap);
-			    
-			    System.out.println("SaveFileFormServlet Z" + " \n");
-			    
-				rd = getServletContext().getRequestDispatcher("/Upload?success=2");
-				// RequestDispatcher rd = getServletContext().getRequestDispatcher("/Upload");
-			    rd.forward(request, response);
-			}
-			*/
-			///// *************************** Data save ended ************************************ ////
-=======
-		   
->>>>>>> SS-Master/master
 		}catch(Exception e){
 			System.out.println("SaveFileFormServlet Zz" + " \n");
 			  PrintWriter out = response.getWriter();
@@ -410,9 +281,7 @@ public class SaveFileFormServlet extends HttpServlet {
 		
 		return lExistsFlag;
 	}
-<<<<<<< HEAD
+
 }
 
-=======
-}
->>>>>>> SS-Master/master
+
