@@ -139,10 +139,16 @@
 							</div>
 							<a href="#">
 								<div class="panel-footer">
-									<span class="pull-left"><button type="button"
-											class="btn btn-success btn-xs">Download</button></span> <span
-										class="pull-right"><button type="button"
-											class="btn btn-success btn-xs">Upload</button></span>
+									<span class="pull-left">
+										<form action="downloadAnalytical" method="post">
+											<button type="submit" class="btn btn-success btn-xs">Download</button>
+										</form>
+									</span> <span class="pull-right">
+										<form action="uploadAnalytical" method="post">
+											<input type="submit" class="btn btn-success btn-xs"
+												value="Upload">
+										</form>
+									</span>
 									<div class="clearfix"></div>
 								</div>
 							</a>
