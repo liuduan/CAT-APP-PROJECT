@@ -1,28 +1,17 @@
 
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-<<<<<<< HEAD
     pageEncoding="ISO-8859-1"%>
     
-=======
-	pageEncoding="ISO-8859-1"%>
-
->>>>>>> SS-Master/master
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
-<<<<<<< HEAD
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ page import="com.catapp.action.Login" %>
 
 <%@ page import="com.catapp.entity.User" %>
 <%@ page import="com.catapp.action.smallTools" %>
-
-=======
-<%@ page import="javax.servlet.http.*,javax.servlet.*"%>
-<%@ page import="com.catapp.action.Login"%>
->>>>>>> SS-Master/master
 
 
 
@@ -84,7 +73,6 @@ String Supervisoremail = smallTools.safeString(((User)request.getSession().getAt
 		
 %>
 
-<<<<<<< HEAD
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"
@@ -99,21 +87,7 @@ SELECT * from security_questions_answers where user_id = "${result.rows[0].entit
 </sql:query>
 
 <sql:query dataSource="${snapshot}" var="questions_result">
-=======
-	<sql:setDataSource var="snapshot"
-		driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-		url="jdbc:sqlserver://IRUSYN1LAP\\SQLEXPRESS;databaseName=CATAPP;integratedSecurity=true" />
 
-	<sql:query dataSource="${snapshot}" var="result">
-SELECT * from users where Email = '<%=Email%>';
-</sql:query>
-
-	<sql:query dataSource="${snapshot}" var="answers_result">
-SELECT * from security_questions_answers where user_id = '${result.rows[0].entity_id}';
-</sql:query>
-
-	<sql:query dataSource="${snapshot}" var="questions_result">
->>>>>>> SS-Master/master
 SELECT * from security_questions;
 </sql:query>
 

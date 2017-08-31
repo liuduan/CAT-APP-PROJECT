@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-<<<<<<< HEAD
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page import="java.io.*,java.util.*"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
-=======
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page import="java.io.*,java.util.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
->>>>>>> SS-Master/master
+
 <%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<<<<<<< HEAD
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Insert title here</title>
 
@@ -27,27 +20,12 @@
 </head>
 <body>
 <script>
-=======
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
 
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" /> -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<script src="/CAT-APP-PROJECT/resources/js/Download.js"></script>
-</head>
-<body>
-	<script>
->>>>>>> SS-Master/master
 $(document).ready(function(){
    	// alert("ready function B.");
 	$("#file_button").show();
 	
 })		// end of the ready function
-<<<<<<< HEAD
 
 </script>
 
@@ -57,36 +35,18 @@ $(document).ready(function(){
     user="root"  password="vibscatapp"/>
 
 <sql:query dataSource="${snapshot_C}" var="result_C">
-=======
-</script>
 
-
-	<sql:setDataSource var="snapshot_C"
-		driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-		url="jdbc:sqlserver://IRUSYN1LAP\\SQLEXPRESS;databaseName=CATAPP;integratedSecurity=true" />
-
-	<sql:query dataSource="${snapshot_C}" var="result_C">
->>>>>>> SS-Master/master
 	SELECT
   		entity_id, file_name, cell_line_id, assay_type, Dilution  
 	FROM
   		file_info 
 	WHERE 
 	
-<<<<<<< HEAD
 	<c:forEach var="element" items="${selected_assay_1_pheno}" varStatus="status">
 		<c:set var = "current_assay" value = "${fn:split(element, '_')}" />	
 		(cell_line_id = "${current_assay[0]}" AND assay_type = "${current_assay[1]}") OR 
 	</c:forEach>
 	(cell_line_id = "hello")
-=======
-	<c:forEach var="element" items="${selected_assay_1_pheno}"
-			varStatus="status">
-			<c:set var="current_assay" value="${fn:split(element, '_')}" />	
-		(cell_line_id = '${current_assay[0]}' AND assay_type = '${current_assay[1]}') OR 
-	</c:forEach>
-	(cell_line_id = 'hello')
->>>>>>> SS-Master/master
 	
 	ORDER BY file_name;
 </sql:query>

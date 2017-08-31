@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-<<<<<<< HEAD
     pageEncoding="ISO-8859-1"%>
  <%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
  <%@ page import="com.catapp.entity.User" %>
-=======
-	pageEncoding="ISO-8859-1"%>
-<%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
-<%@ page import="com.catapp.entity.User"%>
->>>>>>> SS-Master/master
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -172,13 +167,9 @@
 	
 	
 </script> -->
-<<<<<<< HEAD
 <script src="/CAT-APP-PROJECT/resources/js/jquery.js"></script>
 <script type="text/javascript">
-=======
-	<script src="/CAT-APP-PROJECT/resources/js/jquery.js"></script>
-	<script type="text/javascript">
->>>>>>> SS-Master/master
+
 $(document).ready(function() {
     $("#subPassChng").click(function() {
         var password = $("#repassword").val();
