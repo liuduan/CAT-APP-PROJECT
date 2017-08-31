@@ -1,13 +1,8 @@
 eclipse.preferences.version=1
-<<<<<<< HEAD
 encoding//WebContent/WEB-INF/Admin.jsp=UTF-8
 encoding//WebContent/WEB-INF/Response/Response.jsp=UTF-8
 encoding//WebContent/WEB-INF/UserManagement.jsp=UTF-8
 encoding//WebContent/WEB-INF/index.jsp=UTF-8
 encoding//WebContent/WEB-INF/welcomeUserHome.jsp=UTF-8
 encoding//src/com/catapp/servlet/ForgotPasswordServlet.java=UTF-8
-=======
-encoding//WebContent/WEB-INF/about.jsp=UTF-8
-encoding//WebContent/WEB-INF/contact.jsp=UTF-8
-encoding//WebContent/WEB-INF/index.jsp=UTF-8
->>>>>>> SS-Master/master
+
