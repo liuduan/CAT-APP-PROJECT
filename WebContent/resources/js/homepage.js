@@ -43,11 +43,9 @@ $( document ).ready(function() {
 		})
 		
 		
-<<<<<<< HEAD
-		$('#password').keyup(function() {
-=======
+
 		$('#password').onblur(function() {
->>>>>>> SS-Master/master
+
 			var pswd = $(this).val();
 			
 			if ( pswd.length < 8 ) {

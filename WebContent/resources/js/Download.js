@@ -37,11 +37,10 @@ $(".cell_lines").change(function() {
 function click_cell_line_button(){
 	// alert("click_cell_line_button()");
 	$('#cell_line_list').hide();
-<<<<<<< HEAD
-=======
+
 	$('#cell_line_title').hide;
 
->>>>>>> SS-Master/master
+
 	
 	var selected_celllines = [];
 	var data_string = '';
