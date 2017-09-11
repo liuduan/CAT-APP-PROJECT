@@ -14,9 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 import org.apache.log4j.BasicConfigurator;
-
 import org.apache.log4j.Logger;
 
 import com.catapp.action.Login;
@@ -31,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
 	//private static final long serialVersionUID = 1L;
-
+	
 	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)  
@@ -50,30 +48,26 @@ public class LoginServlet extends HttpServlet {
 	      	System.out.println(email + ", email. \n\n");
 	      	
 	       	boolean lFlag =validateUsers(password, lUser.getPassword());
-	        
+	        	
+	       	if(lFlag){
+	       		System.out.println("lFlag is true.");
+	       		if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
+	        			
 
+	       			System.out.println("It is approved.");
 
 	        	
-	        	if(lFlag){
-	        		if(lUser.getIs_admin()!=null && lUser.getIs_admin().equals("Y")){
-	        			HttpSession session=request.getSession();  
-	        			session.setAttribute("email",email);
-	        			request.getRequestDispatcher("/WEB-INF/adminUser.jsp").include(request, response);
-	        			
-	        		}else{
-	        			if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
 	        				
-	        				HttpSession session=request.getSession();  
-	        				session.setAttribute("email",email);
-	        				session.setAttribute("user", lUser);
-
+	        		HttpSession session=request.getSession();  
+	        		session.setAttribute("email",email);
+	        		session.setAttribute("user", lUser);
+	        		System.out.println("After Session set..");
 	        				/*User lUserToSave = new User();
 	        				lUserToSave.setEntityId(lUser.getEntityId());
 	        				lUserToSave.find(lConn, lUserToSave);
 	        				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	        				lUserToSave.setLast_login_time(timestamp);
 	        				lUserToSave.save(lConn, lUserToSave);*/
-
 	        		request.getRequestDispatcher("/WEB-INF/welcomeUserHome.jsp").include(request, response);
 	        				
 	        		}else{
@@ -82,8 +76,7 @@ public class LoginServlet extends HttpServlet {
 		       			request.setAttribute("error","Your request is not approved yet.");
 	    	        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);          			
 	        			}		// end of if-else if(lUser.getApproved()...){}
-	        }
-	        	}else{
+	        }else{
 	        	System.out.println("Invalid Username or Password");
 	        	request.setAttribute("error","Invalid Username or Password");
 		       	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
@@ -165,5 +158,4 @@ public class LoginServlet extends HttpServlet {
 			}
 		return lUser;
 		}
-	}  
-
+} 
