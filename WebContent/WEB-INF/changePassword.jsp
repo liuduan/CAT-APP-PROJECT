@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-<<<<<<< HEAD
-    pageEncoding="ISO-8859-1"%>
-    <%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
-=======
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
->>>>>>> SS-Master/master
 <!DOCTYPE html>
 <html lang="en">
 
