@@ -7,11 +7,18 @@ import java.sql.SQLException;
 import com.catapp.entity.User;
 
 public class DBConnection{
+<<<<<<< HEAD
 
 	private static String url = "jdbc:mysql://localhost:3306/catapp";    
     private static String driverName = "com.mysql.jdbc.Driver";   
     private static String username = "root";   
     private static String password = "vibscatapp";
+=======
+	private static String url = "jdbc:mysql://localhost:3306/CATAPP?autoReconnect=true&useSSL=false";    
+    private static String driverName = "com.mysql.jdbc.Driver";   
+    private static String username = "root";   
+   private static String password = "ashima";
+>>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
     private static Connection con;
    // private static String urlstring;
 
@@ -25,6 +32,7 @@ public class DBConnection{
 		}
             
             try {
+<<<<<<< HEAD
 
                con = DriverManager.getConnection(url, username, password);
             	//con=DriverManager.getConnection(url);
@@ -32,6 +40,12 @@ public class DBConnection{
             	   System.out.println("------Successful database connection.------------------------\n\n");}
 
 
+=======
+                con = DriverManager.getConnection(url, username, password);
+            	//con=DriverManager.getConnection(url);
+            	
+            	
+>>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
             } catch (SQLException ex) {
                 // log an exception. fro example:
                 System.out.println("Failed to create the database connection."); 

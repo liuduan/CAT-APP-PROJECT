@@ -90,12 +90,20 @@ public class DownloadFileServlet extends HttpServlet {
 		PreparedStatement lPstmt 			= null;
 		ResultSet lRst					    = null;
 		Connection lConn 					= null;
+<<<<<<< HEAD
 		File lLocalFile 					= new File("C:\\Users\\CATAPP\\serverfiles\\CM\\1");
+=======
+		File lLocalFile 					= new File("C:\\Users\\sharm\\serverfiles\\");
+>>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
 		String lFolderLoc 					= null;
 		String file_name 					= "";
 		if(lLocalFile.exists()){
+<<<<<<< HEAD
 			lFolderLoc ="C:\\Users\\CATAPP\\serverfiles\\CM\\1";
 
+=======
+			lFolderLoc ="C:\\Users\\sharm\\serverfiles\\";
+>>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
 		}else{
 			// Write code as per the server //
 		}
@@ -342,6 +350,139 @@ public class DownloadFileServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
+<<<<<<< HEAD
 
+=======
+	
+	protected void startCustomCode(HttpServletResponse response,Long pCellLine,Long pAssay,Integer pTimePoint, Long pPhenotype, Connection pConn){
+		
+		PreparedStatement lPstmt         = null;
+		ResultSet         lRst		     = null;
+		//HashMap<Integer, HashMap<Integer,Double>>pValueAddressMap = new HashMap<Integer, HashMap<Integer,Double>>();
+		
+		try{
+			StringBuilder lQuery = new StringBuilder("select * from plate_chemical_denormalized_value_mapping where ")
+								   .append("cellline_id=? and assay=? and timepoint=? and phenotype=? and rowstate!=-1");
+			lPstmt= pConn.prepareStatement(lQuery.toString());
+			lPstmt.setLong(1, pCellLine);
+			lPstmt.setLong(2, pAssay);
+			lPstmt.setInt(3, pTimePoint);
+			lPstmt.setLong(4, pPhenotype);
+			
+			lRst = lPstmt.executeQuery();
+			HashMap<Integer,HashMap<Integer, HashMap<Integer,Double>>> lConcMap = new HashMap<Integer,HashMap<Integer, HashMap<Integer,Double>>>();
+			while(lRst.next()){
+				
+				if(lConcMap.containsKey(lRst.getInt("plateconc"))){
+					HashMap<Integer, HashMap<Integer,Double>>pValueAddressMap= lConcMap.get(lRst.getInt("plateconc"));
+					HashMap<Integer,Double>lEndValueMap = new HashMap<Integer,Double>();
+					if(pValueAddressMap.containsKey(lRst.getInt("rowno"))){
+						lEndValueMap = pValueAddressMap.get(lRst.getInt("rowno"));
+						lEndValueMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+					}else{
+						lEndValueMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+						pValueAddressMap.put(lRst.getInt("rowno"), lEndValueMap);
+						
+					}
+				}else{
+					HashMap<Integer,Double> lNewEndValMap = new HashMap<Integer,Double>();
+					lNewEndValMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+					HashMap<Integer, HashMap<Integer,Double>>lRowValueMap = new HashMap<Integer, HashMap<Integer,Double>>();
+					lRowValueMap.put(lRst.getInt("rowno"),lNewEndValMap);
+					lConcMap.put(lRst.getInt("plateconc"), lRowValueMap);
+				}
+				
+				/*
+				if (pValueAddressMap.containsKey(lRst.getInt("rowno"))){
+					HashMap<Integer,Double> lExistingMap=pValueAddressMap.get(lRst.getInt("rowno"));
+					lExistingMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+				}else{
+					HashMap<Integer,Double>lRelativeMap = new HashMap<Integer,Double>();
+					lRelativeMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+					pValueAddressMap.put(lRst.getInt("rowno"), lRelativeMap);
+				}
+				if(lConcMap.containsKey(lRst.getInt("plateconc"))){
+					HashMap<Integer, HashMap<Integer,Double>> lExt =lConcMap.get(lRst.getInt("plateconc"));
+					HashMap<Integer,Double> lValueMap = new HashMap<Integer,Double>();
+					lValueMap.put(lRst.getInt("relative_pos_in_row"), lRst.getDouble("value"));
+					lExt.put(lRst.getInt("rowno"), lValueMap);
+					
+					
+				}else{
+					lConcMap.put(lRst.getInt("plateconc"), pValueAddressMap);
+				}
+			*/}
+			
+			//////////////////////// Template Read Start //////////////////////////////////
+			
+			XSSFWorkbook lWorkBook = new XSSFWorkbook(new FileInputStream("C:\\Users\\sharm\\serverfiles\\templates\\Cardiomyocytes.xlsx"));       
+			XSSFFormulaEvaluator.evaluateAllFormulaCells(lWorkBook);
+			lWorkBook.setForceFormulaRecalculation(true);
+	       
+	        XSSFSheet lWorkingSheet = lWorkBook.getSheetAt(0);
+	        
+	        ////////////////////////Template Read End ////////////////////////////////////
+	        
+	        //////////////////////////////// Iteration of HashMap Starts ///////////////////////////////
+	        
+	        for (Integer lPlateConc : lConcMap.keySet()){
+	        	HashMap<Integer, HashMap<Integer,Double>>lInnerMap=lConcMap.get(lPlateConc);
+	        	Integer lStartRow =0;
+	        	Integer lStartColumn =2;
+	        	for(Integer row : lInnerMap.keySet()){
+	        		if(lPlateConc==4){
+	        			lStartRow =23;
+	        		}else if (lPlateConc==3){
+	        			lStartRow =49;
+	        		}else if (lPlateConc==2){
+	        			lStartRow =75;
+	        		}else if (lPlateConc==1){
+	        			lStartRow =101;
+	        		}
+	        		
+	        		HashMap <Integer, Double>lFinalValue = lInnerMap.get(row) ;
+	        		 for(Integer pos: lFinalValue.keySet()){
+	        			 if(row<15){
+	        				 Row iRow = lWorkingSheet.getRow(lStartRow+row);
+	        				 if(pos<23){
+	        					 Cell iCell = iRow.createCell(lStartColumn+pos);
+	        					 iCell.setCellValue(lFinalValue.get(pos));
+	        				 }
+	        			}
+	        		 }
+	        	}
+	        	
+	        	
+	        }
+	        
+	         /////////////////////////////// Iteration of HashMap Ends /////////////////////////////////
+	        ByteArrayOutputStream outByteStream = new ByteArrayOutputStream();
+	        lWorkBook.write(outByteStream);
+	        byte [] outArray = outByteStream.toByteArray();
+	        response.setContentType("application/ms-excel");
+	        response.setContentLength(outArray.length);
+	        response.setHeader("Expires:", "0"); // eliminates browser caching
+	        response.setHeader("Content-Disposition", "attachment; filename=Cardio.xls");
+	        OutputStream outStream = response.getOutputStream();
+	        outStream.write(outArray);
+	        outStream.flush();
+	        outByteStream.close();
+	        lWorkBook.close();
+	       
+		}catch (Exception e){
+			logger.error("Error Occured While downloading custom file------>startCustomCode.",e);
+		}
+		finally{
+			try{
+				if(pConn!=null){
+					pConn.close();
+				}
+				
+			}catch(Exception e){
+				logger.error("Error Occured While closing connection------>startCustomCode.",e);
+			}
+		}
+	 }
+>>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
 }
 

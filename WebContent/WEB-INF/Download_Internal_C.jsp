@@ -30,11 +30,17 @@ $(document).ready(function(){
 </script>
 
 
+<<<<<<< HEAD
 <sql:setDataSource var="snapshot_C" driver="com.mysql.jdbc.Driver"
     url="jdbc:mysql://localhost:3306/catapp"
     user="root"  password="vibscatapp"/>
 
 <sql:query dataSource="${snapshot_C}" var="result_C">
+=======
+	<sql:setDataSource var="snapshot_C" 
+		driver="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/CATAPP?autoReconnect=true&useSSL=false" user="root" password="ashima" />
+>>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
 
 	SELECT
   		entity_id, file_name, cell_line_id, assay_type, Dilution  

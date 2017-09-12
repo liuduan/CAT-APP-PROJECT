@@ -54,6 +54,12 @@ String Supervisoremail = smallTools.safeString(((User)request.getSession().getAt
 		
 %>
 
+<<<<<<< HEAD
+=======
+	<sql:setDataSource var="snapshot"
+		driver="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/CATAPP?autoReconnect=true&useSSL=false" />
+>>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
 
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/catapp"
