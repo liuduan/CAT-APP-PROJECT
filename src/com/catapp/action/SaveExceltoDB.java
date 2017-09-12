@@ -21,12 +21,8 @@ import com.catapp.entity.ChemFile;
 public class SaveExceltoDB {
 	public static final Logger logger = Logger.getLogger(SaveExceltoDB.class.toString());
 	
-<<<<<<< HEAD
 
 	public String saveExcelDataToDb (String pCellLine, String pAssay, String pTimePoint,File pFile,Connection pConnection){
-=======
-	public String saveExcelDataToDb (String pCellLine, String pAssay, String pTimePoint,String pPheno,File pFile,Connection pConnection){
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
 		String lReturnResponse	     =       "failure";
 		String lInsertQuery		     =       null;
 		PreparedStatement lPstmt     =       null;
@@ -63,7 +59,7 @@ public class SaveExceltoDB {
 			lPstmttoClose.setNull(7, java.sql.Types.BIGINT);
 			lPstmttoClose.setString(8, "Y");
 			lPstmttoClose.setInt(9, 1);
-			lPstmttoClose.setString(10, pPheno);
+			// lPstmttoClose.setString(10, pPheno);
 			lPstmttoClose.executeUpdate();
 			ResultSet lRs = lPstmttoClose.getGeneratedKeys();
 			if(lRs.next()){

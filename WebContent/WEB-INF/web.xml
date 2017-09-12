@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns="http://java.sun.com/xml/ns/javaee" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
 	id="WebApp_ID" version="3.0">
- 
 
-=======
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="3.0">
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
   <display-name>CAT-APP-PROJECT</display-name>
   <servlet>
     <servlet-name>AdminServlet</servlet-name>
@@ -57,37 +52,35 @@
     <enabled>true</enabled>
   </servlet>
   <servlet>
-<<<<<<< HEAD
+
     <display-name>catAppDownloadPageServlet</display-name>
     <servlet-name>catAppDownloadPageServlet</servlet-name>
     <servlet-class>com.catapp.servlet.CatAppDownloadPageServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
   <servlet>
-=======
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
+
     <display-name>UserManagementServlet</display-name>
     <servlet-name>UserManagementServlet</servlet-name>
     <servlet-class>com.catapp.servlet.UserManagementServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
   <servlet>
-<<<<<<< HEAD
+
     <display-name>ManageActionServlet</display-name>
     <servlet-name>ManageActionServlet</servlet-name>
     <servlet-class>com.catapp.servlet.ManageActionServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
   <servlet>
-=======
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
+
     <display-name>SuccessServlet</display-name>
     <servlet-name>SuccessServlet</servlet-name>
     <servlet-class>com.catapp.servlet.SuccessServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
   <servlet>
-<<<<<<< HEAD
+
     <display-name>responseServlet</display-name>
     <servlet-name>responseServlet</servlet-name>
     <servlet-class>cat.response.responseServlet</servlet-class>
@@ -112,8 +105,7 @@
     <enabled>true</enabled>
   </servlet>
   <servlet>
-=======
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
+
     <display-name>Download_InternalServlet</display-name>
     <servlet-name>Download_InternalServlet</servlet-name>
     <servlet-class>com.catapp.servlet.Download_Internal</servlet-class>
@@ -125,7 +117,6 @@
     <servlet-class>com.catapp.servlet.Download_Internal_CServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-<<<<<<< HEAD
     <servlet>
     <display-name>CentralServlet</display-name>
     <servlet-name>CentralServlet</servlet-name>
@@ -178,8 +169,6 @@
     <servlet-name>UserManagementServlet</servlet-name>
     <url-pattern>/UserManagement</url-pattern>
   </servlet-mapping>
-=======
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
   <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/Admin</url-pattern>
@@ -209,7 +198,7 @@
     <url-pattern>/ViewDownload</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-<<<<<<< HEAD
+
     <servlet-name>catAppDownloadPageServlet</servlet-name>
     <url-pattern>/catAppDownloadPageServlet</url-pattern>
   </servlet-mapping>
@@ -217,35 +206,12 @@
     <servlet-name>DownloadFileServlet</servlet-name>
     <url-pattern>/Downloads</url-pattern>
   </servlet-mapping>
-=======
-    <servlet-name>DownloadFileServlet</servlet-name>
-    <url-pattern>/Downloads</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>SuccessServlet</servlet-name>
-    <url-pattern>/Success</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UserManagementServlet</servlet-name>
-    <url-pattern>/UserManagement</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Download_Internal_CServlet</servlet-name>
-    <url-pattern>/Download_Internal_C</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Download_InternalServlet</servlet-name>
-    <url-pattern>/Download_InternalServlet</url-pattern>
-  </servlet-mapping>
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
+
   <welcome-file-list>
     <welcome-file>Home</welcome-file>
   </welcome-file-list>
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
-<<<<<<< HEAD
 
-=======
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
 </web-app>

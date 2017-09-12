@@ -38,12 +38,8 @@ import com.mysql.jdbc.Statement;
 public class SaveFileFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
-<<<<<<< HEAD
 	private final String UPLOAD_DIRECTORY = "C:/Users/CATAPP/serverfiles";
-=======
-	private final String UPLOAD_DIRECTORY = "C:/Users/sharm/serverfiles";
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
+
 
 	public static final Logger logger = Logger.getLogger(SaveFileFormServlet.class.toString());
 
@@ -86,15 +82,12 @@ public class SaveFileFormServlet extends HttpServlet {
 		String original_name = "";
 		String lFileExtension = "";
 		String lFileName  = "";
-<<<<<<< HEAD
+
 		String lFileSaveParamter = "";
+		String lPhenotype = "";
 
 		String lUploadPath = "C:/Users/CATAPP/serverfiles/CM/1/a";
-=======
-		String lUploadPath = "";
-		String lFileSaveParamter =  "";
-		String lPhenotype ="";
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
+
 		Connection lConn  = null;
 		User lUser =(User)request.getSession().getAttribute("user");
 		//String lDilutionInfo = request.getParameter("form-Plate1");
@@ -148,7 +141,6 @@ public class SaveFileFormServlet extends HttpServlet {
 						
 						
 						String modified_file_name = original_name.replaceAll(" ", "-");
-<<<<<<< HEAD
 						System.out.println("SaveFileFormServlet C1 modified file name: " + modified_file_name );
 						
 						
@@ -162,9 +154,7 @@ public class SaveFileFormServlet extends HttpServlet {
 						System.out.println("File.separator: " + File.separator);
 						
 						
-=======
-						lUploadPath = "C:\\Users\\sharm\\serverfiles\\" + lCellLine;	
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
+
 						lFileName = lCellLine + "_" + lAssay + "_" + lTimePoint + "_" + 
 								lDilution + "_" + modified_file_name;
 						
@@ -185,24 +175,10 @@ public class SaveFileFormServlet extends HttpServlet {
 					}
 				}
 				
-<<<<<<< HEAD
+
 				
 			}		
-=======
-				new SaveExceltoDB().saveExcelDataToDb(lCellLine,lAssay,lTimePoint,lPhenotype,lFiletoDelete, lConn);
-				
-			}else{
-				String Path_for_SQL = "C:\\Users\\sharm\\serverfiles\\" + lCellLine;	
-				String insert_record_str = "INSERT INTO file_info (cell_line_id, assay_type, " +
-						"timepoint, Dilution, description, Original_name, file_name, file_type, file_path) " + 
-						"VALUES ('" + lCellLine + "', '" + lAssay + "', '" + lTimePoint + "', '" + 
-						lDilution + "', '" + lDescription  + "', '" + original_name + "', '" + lFileName + "', '" +
-						lFileExtension + "', '" + Path_for_SQL + "')";
-				Save_file_info2DB(insert_record_str, lConn);
-				
-			}
-			
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
+
 			
 		///// *************************** save file info ************************************/////
 			// Save_file_info2DB(String pFileName,Connection pConnection);

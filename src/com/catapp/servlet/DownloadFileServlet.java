@@ -90,20 +90,14 @@ public class DownloadFileServlet extends HttpServlet {
 		PreparedStatement lPstmt 			= null;
 		ResultSet lRst					    = null;
 		Connection lConn 					= null;
-<<<<<<< HEAD
 		File lLocalFile 					= new File("C:\\Users\\CATAPP\\serverfiles\\CM\\1");
-=======
-		File lLocalFile 					= new File("C:\\Users\\sharm\\serverfiles\\");
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
+
 		String lFolderLoc 					= null;
 		String file_name 					= "";
 		if(lLocalFile.exists()){
-<<<<<<< HEAD
+
 			lFolderLoc ="C:\\Users\\CATAPP\\serverfiles\\CM\\1";
 
-=======
-			lFolderLoc ="C:\\Users\\sharm\\serverfiles\\";
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
 		}else{
 			// Write code as per the server //
 		}
@@ -350,10 +344,7 @@ public class DownloadFileServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-<<<<<<< HEAD
 
-=======
-	
 	protected void startCustomCode(HttpServletResponse response,Long pCellLine,Long pAssay,Integer pTimePoint, Long pPhenotype, Connection pConn){
 		
 		PreparedStatement lPstmt         = null;
@@ -483,6 +474,6 @@ public class DownloadFileServlet extends HttpServlet {
 			}
 		}
 	 }
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
+
 }
 
