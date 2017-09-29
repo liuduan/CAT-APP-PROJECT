@@ -81,7 +81,10 @@ public class AdminServlet extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+		/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+<<<<<<< HEAD
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -152,6 +155,37 @@ public class AdminServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+=======
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		
+		Connection lConn = new DBConnection().getConnection();
+    	HttpSession session = request.getSession(false);
+    	
+    	
+		if(session != null){
+			String email="";
+			if(((User)request.getSession().getAttribute("user")).getEmail() != null){
+				email=((User)request.getSession().getAttribute("user")).getEmail().toString();
+			}
+			else{getServletContext().getRequestDispatcher("/home").forward(request, response);
+			}
+			//"test_user1@tamu.edu";  
+	
+				User lUser =new User();
+    
+				lUser =fetchUserDetails(email, lConn);
+			System.out.println("ping 2"); 
+			getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
+		}
+		else{
+			System.out.println("ping 3");
+			request.setAttribute("error","Current session is lost. Please log in");
+			request.getRequestDispatcher("/LogoutServlet").include(request, response);  
+			}
+
+		
+>>>>>>> SS-Master/master
 	}
 
 	/**
@@ -161,5 +195,4 @@ public class AdminServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

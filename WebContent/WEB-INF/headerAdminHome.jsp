@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -55,8 +56,12 @@
 </html>
 =======
 
+=======
+<%@page pageEncoding="UTF-8" %>
+>>>>>>> SS-Master/master
 <!-- Navigation -->
 <%@ page import="com.catapp.entity.User"%>
+<meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
 
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation"
 	style="margin-bottom: 0">
@@ -66,7 +71,7 @@
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="BackToHomeServlet">CAT APP</a>
+		<a class="navbar-brand" href="BackToHomeServlet">Cat-App Database</a>
 	</div>
 	<!-- /.navbar-header -->
 
@@ -77,8 +82,8 @@
 				<span>Welcome <%=fName %><span /> <i class="fa fa-caret-down"></i></a>
 			<ul class="dropdown-menu dropdown-user">
 				<li><a href="UserDisplayController"><i
-						class="fa fa-user fa-fw"></i>Admin Profile</a></li>
-				<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
+						class="fa fa-user fa-fw"></i>User Profile</a></li>
+
 				<li class="divider"></li>
 				<li><a href="LogoutServlet"><i class="fa fa-sign-out fa-fw"></i>
 						Logout</a></li>
@@ -110,7 +115,7 @@
                         <img src="/CAT-APP-PROJECT/resources/images/find_user.png" class="img-responsive" />
                      
                     </li> -->
-				<li class="sidebar-search">
+				<!-- <li class="sidebar-search">
 					<div class="input-group custom-search-form">
 						<input type="text" class="form-control" placeholder="Search...">
 						<span class="input-group-btn">
@@ -118,25 +123,25 @@
 								<i class="fa fa-search"></i>
 							</button>
 						</span>
-					</div> <!-- /input-group -->
+					</div> /input-group
 				</li>
+ -->
 
-
-				<li><a href="#">CAT-APP <span class="fa arrow"></span></a>
+				<li><a href="#">Cat-App<span class="fa arrow"></span></a>
 					<ul class="nav nav-third-level">
 						<li><a href="#">Download</a></li>
 						<li><a href="#">Upload</a></li>
 
 					</ul> <!-- /.nav-third-level --></li>
 
-				<li><a href="#">ANALYTICAL <span class="fa arrow"></span></a>
+				<li><a href="#">Analytical <span class="fa arrow"></span></a>
 					<ul class="nav nav-third-level">
 						<li><a href="#">Download</a></li>
 						<li><a href="#">Upload</a></li>
 
 					</ul> <!-- /.nav-third-level --></li>
 
-				<li><a href="#">ECO-TOX <span class="fa arrow"></span></a>
+				<li><a href="#">Eco-Tox<span class="fa arrow"></span></a>
 					<ul class="nav nav-third-level">
 
 					</ul> <!-- /.nav-third-level --></li>

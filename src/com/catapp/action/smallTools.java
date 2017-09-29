@@ -11,4 +11,8 @@ public class smallTools {
 		}
 		return resultString;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> SS-Master/master

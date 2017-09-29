@@ -60,17 +60,29 @@ public class UserManagementServlet extends HttpServlet {
 		
 		String received_Email = request.getParameter("Email");	// receiving the post value
 		request.setAttribute("Email", received_Email);			// submit vlue to following page:
+<<<<<<< HEAD
 		
 		String email= received_Email; 
 	    Connection lConn = new DBConnection().getConnection();
 		
 		
+=======
+		
+		String email= received_Email; 
+	    Connection lConn = new DBConnection().getConnection();
+		
+		
+>>>>>>> SS-Master/master
 		User lUser =new User();
       	lUser =fetchUserDetails(email, lConn);
 		
       	HttpSession session=request.getSession();  
 			session.setAttribute("email",email);
+<<<<<<< HEAD
 			session.setAttribute("user", lUser);
+=======
+			session.setAttribute("edituser", lUser);
+>>>>>>> SS-Master/master
 
 		
 		// request.getRequestDispatcher("/WEB-INF/UserManagement.jsp").include(request, response);
@@ -145,5 +157,8 @@ public class UserManagementServlet extends HttpServlet {
 
 
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> SS-Master/master

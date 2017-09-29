@@ -50,11 +50,41 @@
 	height: 300px; /* or any value */
 	overflow-y: auto;
 }
+<<<<<<< HEAD
+=======
+
+
+.scrollerdiv {
+  height: 150px; 
+  overflow-y: scroll; 
+}
+
+>>>>>>> SS-Master/master
 </style>
 
 
 
 <script type="text/javascript">
+<<<<<<< HEAD
+=======
+
+function filterchem() {
+
+	var input = jQuery("#chemsearch").val();
+	var lListSize = jQuery(".chemical").length
+	for (var i = 0; i < lListSize; i++) {
+		if (jQuery(".chemical")[i].innerHTML.indexOf(input) > -1) {
+			document.getElementsByClassName("chemical")[i].style.display = "";
+		} else {
+			document.getElementsByClassName("chemical")[i].style.display = "none";
+		}
+	}
+	/* var input, listsize, i;
+	input =jQuery("#chemsearch").val();
+	listsize=jQuery("#li").size(); */
+
+}
+>>>>>>> SS-Master/master
 	
 </script>
 </head>
@@ -82,6 +112,7 @@
 
 		<div id="page-wrapper">
 			<c:if test="${param.success eq 1}">
+<<<<<<< HEAD
 				<script type="text/javascript">
 					window.location = "/CAT-APP-PROJECT//Success?redirect=uploadAnalytical"
 				</script>
@@ -112,13 +143,67 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">Upload Files in Analytical</h1>
+=======
+                <div id="messagebox" class="page-alerts">
+     			<div class="alert alert-success">
+      			<button  type="button" class="close"></button>
+      			<h4>Success</h4>
+      			<p>The file was uploaded successfully</p>
+    			</div>
+    			</div>
+				</c:if>
+				<c:if test="${param.failure eq 2}">
+				 <div class="alert alert-danger">
+      			<button  href="#" type="button"  class="close"></button>
+      			<h4>Validation Failed</h4>
+      			<p>The uploaded file has some issues. Additional information <a class="alert-link" href="#myModal" data-toggle="modal">Click Here</a> to read</p>
+   				 </div>
+				</c:if>
+				
+				
+				<div id="myModal" class="modal fade" role="dialog">
+					  <div class="modal-dialog">
+					
+					    <!-- Modal content-->
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal">&times;</button>
+					        <h4 class="modal-title">Errors & Warnings</h4>
+					      </div>
+					      <div class="modal-body">
+					        	<c:forEach var="errorkey" items="${errormap}">
+											 
+    							<c:forEach var="errorarray" items="${errorkey.value}">
+    							
+    							<div>${errorarray}</div>
+    							
+    							</c:forEach>	 
+								</c:forEach>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closemessageheader()">Close</button>
+					      </div>
+					    </div>
+					
+					  </div>
+					</div>
+
+
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 class="page-header">Upload files in Analytical</h1>
+>>>>>>> SS-Master/master
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
 			<!-- /.row -->
 			<div class="row">
 				<div class="col-lg-12">
+<<<<<<< HEAD
 					<form role="form" action="saveAnalyticalFile" method="post"
+=======
+					<form role="form" action="SaveAndValidateConcaweData" method="post"
+>>>>>>> SS-Master/master
 						class="registration-form" enctype="multipart/form-data">
 						<div class="panel panel-default">
 
@@ -126,6 +211,7 @@
 								<div class="row">
 									<div class="col-lg-6">
 
+<<<<<<< HEAD
 										<div class="form-group" id="casNumber">
 											<label> Please select a CAS number</label> <select
 												name="cas">
@@ -138,6 +224,38 @@
 										<div class="form-group" id="sampleNumber">
 										<label> Please enter a sample value</label>
 											<input type="text" name="10" id="sample"></input>
+=======
+							<div class="input-group custom-search-form" >
+							<label> Please select a cas number:</label><input type="text" class="form-control" id="chemsearch"
+								onkeyup="filterchem()" placeholder="Search Cas Number...">
+
+						</div> <!-- /input-group -->
+					</li>
+							&nbsp;
+							<div class=" scrollerdiv pre-scrollable" >
+							<table class="table table-hover,table-fixed">
+							<thead style="display:block; border-color:#e67e22;">
+							<tr>
+							<th> Cas Number    ||  Name    || Category
+							</th>
+							</tr>
+							</thead>
+							<c:forEach var="item" items="${casnumber}">
+								<tr class="chemical"><td><input
+									type="radio" name="cas" id="cas"
+									value=<c:out value="${item.key}"/>> &nbsp;<c:out
+										value="${item.value}" /> </td></tr>
+		
+								</li>
+							</c:forEach>
+							</table>
+							</div>
+							&nbsp;
+
+										<div class="form-group" id="sampleNumber">
+										<label> Please enter a sample value</label>
+											<input type="text" name="sample" id="sample"></input>
+>>>>>>> SS-Master/master
 										</div>
 
 

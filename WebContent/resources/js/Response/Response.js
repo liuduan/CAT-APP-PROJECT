@@ -47,6 +47,10 @@ var leftMenu_on = true;
 var rightMenu_on = true;
 
 function openLeftMenu() {
+<<<<<<< HEAD
+=======
+	
+>>>>>>> SS-Master/master
 	leftMenu_on = true;
 	if(rightMenu_on == true){
 		$("#central_area").css("width", "58%");
@@ -62,6 +66,10 @@ function openLeftMenu() {
     
 }
 function closeLeftMenu() {
+<<<<<<< HEAD
+=======
+	
+>>>>>>> SS-Master/master
 	leftMenu_on = false;
 	if(rightMenu_on == true){
 		$("#central_area").css("width", "80%");
@@ -75,6 +83,10 @@ function closeLeftMenu() {
 }
 
 function openRightMenu() {
+<<<<<<< HEAD
+=======
+	
+>>>>>>> SS-Master/master
 	// document.getElementById("central_area").style.marginRight = "25%";
 	rightMenu_on = true;
 	if(leftMenu_on == true){
@@ -90,6 +102,10 @@ function openRightMenu() {
 	
 }
 function closeRightMenu() {
+<<<<<<< HEAD
+=======
+	
+>>>>>>> SS-Master/master
 	rightMenu_on = false;
 	if(leftMenu_on == true){
 		$("#central_area").css("width", "78%");
@@ -109,8 +125,13 @@ var chem_row_n = 0;
 var chem_row_n2 = 0;
 var endpoint_row_n;
 var source_div ="";
+<<<<<<< HEAD
 var background_A = "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))";
 var background_B = "-webkit-gradient(linear, left top, left bottom, from(DarkCyan), to(DarkBlue))";
+=======
+var background_A = "-webkit-gradient(linear, left top, left bottom, from(#033771), to(#18a1c4))";
+var background_B = "-webkit-gradient(linear, left top, left bottom, from(#033771), to(#18a1c4))";
+>>>>>>> SS-Master/master
 var background = background_A;
 var chemical_selected = false;
 var endpoint_selected = false;
@@ -161,11 +182,19 @@ $(document).ready(function(){
 			// alert("remainder: " + chem_row_n%3);
 		
 			if (chem_row_n%3 == 0) {
+<<<<<<< HEAD
 				background = "-webkit-gradient(linear, left top, left bottom, from(DarkSlateBlue), to(DarkBlue))";} 
 			if (chem_row_n%3 == 1) {
 				background = "-webkit-gradient(linear, right top, left bottom, from(DarkSlateGray), to(MidnightBlue))";} 
 			if (chem_row_n%3 == 2) {
 				background = "-webkit-gradient(linear, left top, right bottom, from(Black), to(DarkGrey))";} 
+=======
+				background = "-webkit-gradient(linear, left top, left bottom, from(#033771), to(#18a1c4))";} 
+			if (chem_row_n%3 == 1) {
+				background = "-webkit-gradient(linear, right top, left bottom, from(#033771), to(#18a1c4))";} 
+			if (chem_row_n%3 == 2) {
+				background = "-webkit-gradient(linear, left top, right bottom, from(#033771), to(#18a1c4))";} 
+>>>>>>> SS-Master/master
 		
 			$('#Column-C').css({
 		    	background: background });
@@ -246,7 +275,11 @@ $(document).ready(function(){
 			if (!chemical_selected || !endpoint_selected){
 				//alert("yes");
 				$('#Column-C').css({
+<<<<<<< HEAD
     				background: "-webkit-gradient(linear, left top, left bottom, from(DarkGrey), to(Black))" 
+=======
+    				background: "-webkit-gradient(linear, left top, left bottom, from(#033771), to(#18a1c4))" 
+>>>>>>> SS-Master/master
 					});
 				jQuery('#inside-C').html('');
 				jQuery('#inside-C').html(column3_data[chem_row_n]);
@@ -259,7 +292,11 @@ $(document).ready(function(){
 
 function column_3_curve(chem_row_n, endpoint_row_n){
 	// alert(chem_row_n + "===================================" + column3_data[chem_row_n-1]);
+<<<<<<< HEAD
     $.post("Column_3",{				// "Column_3" is the url
+=======
+    $.post("column_3",{				// "Column_3" is the url
+>>>>>>> SS-Master/master
    		chemical: chem_row_n + 1,
     	endpoint: endpoint_row_n,
     	chemical_properties: column3_data[chem_row_n],
@@ -342,7 +379,10 @@ endpoint_data[7] = "<br><br><br><papaya>" +
 	"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
 	"<br><br><br><br><br>";
 
+<<<<<<< HEAD
 
 	
 
 
+=======
+>>>>>>> SS-Master/master

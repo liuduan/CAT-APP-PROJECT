@@ -95,6 +95,7 @@ a:active {
 
 <jsp:directive.include file="header.jsp" />
 
+<<<<<<< HEAD
 <div class="container-2" style = "min-height: 200px; width: 80%; 
     margin: auto; margin-top: 100px; padding: 40px; padding-top: 25px;  
 -webkit-box-shadow: 0 0 6px 4px black;
@@ -103,6 +104,22 @@ a:active {
 <br><br>
 <h1 style="text-align:center;" class="text-primary">The file has been uploaded successfully<br></h1>
 <br><br><br>
+=======
+		<div style="text-align: center;">
+		<c:if test="${param.success eq 1}">
+			<a href="${pageContext.request.contextPath}/UploadServlet">
+			
+				<button type="button" class="btn btn-primary">Upload more
+					files</button>
+			</a>
+		
+			 <a href="${pageContext.request.contextPath}/BackToHomeServlet">
+				<button type="button" class="btn btn-success">Back to user
+					home</button>
+			</a> <a href="${pageContext.request.contextPath}">
+				<button type="button" class="btn btn-info">Logout</button>
+			</a>
+>>>>>>> SS-Master/master
 
 <div style="text-align:center;">
 <a href="${pageContext.request.contextPath}/UploadServlet">

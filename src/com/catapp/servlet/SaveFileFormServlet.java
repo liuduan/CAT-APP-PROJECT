@@ -102,6 +102,7 @@ public class SaveFileFormServlet extends HttpServlet {
 
 				List<FileItem> multiparts = new ServletFileUpload( new DiskFileItemFactory()).parseRequest(request);
 				for(FileItem item : multiparts){
+					
 					logger.info("Inside For Loop");
 					if(item.isFormField()){
 						if(item.getFieldName().equals("cellline")){
@@ -112,7 +113,7 @@ public class SaveFileFormServlet extends HttpServlet {
 							lTimePoint=item.getString();
 						}else if(item.getFieldName().equals("dilution")){
 							lDilution=item.getString();
-							lDilution=null;
+							//lDilution=null;
 						}else if(item.getFieldName().equals("desc")){
 							lDescription=item.getString();
 						}
@@ -175,7 +176,18 @@ public class SaveFileFormServlet extends HttpServlet {
 					}
 				}
 				
+<<<<<<< HEAD
 
+=======
+			}else{
+				String Path_for_SQL =  "C:/Users/ssingh/serverfiles/" + lCellLine;	
+				String insert_record_str = "INSERT INTO file_info (cell_line_id, assay_type, " +
+						"timepoint, Dilution, description, Original_name, file_name, file_type, file_path) " + 
+						"VALUES ('" + lCellLine + "', '" + lAssay + "', '" + lTimePoint + "', '" + 
+						lDilution + "', '" + lDescription  + "', '" + original_name + "', '" + lFileName + "', '" +
+						lFileExtension + "', '" + Path_for_SQL + "')";
+				Save_file_info2DB(insert_record_str, lConn);
+>>>>>>> SS-Master/master
 				
 			}		
 

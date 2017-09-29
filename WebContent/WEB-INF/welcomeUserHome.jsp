@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@page pageEncoding="UTF-8" %>
 <%@ page import="com.catapp.entity.User"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +87,7 @@
 
 
 				<div class="row">
-					<div class="col-lg-3 col-md-6">
+					<div class="col-lg-4 col-md-6">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
 								<div class="row">
@@ -97,7 +96,7 @@
 									</div>
 									<div class="col-xs-9 text-right">
 										<div class="huge"></div>
-										<div>CAT-APP</div>
+										<div>Cat-App</div>
 									</div>
 								</div>
 							</div>
@@ -115,6 +114,12 @@
 										<form action="UploadServlet" method="post">
 											<input type="submit" class="btn btn-primary btn-xs"
 												value="Upload">
+										</form>
+									</span>
+									<span class="text-center">
+										<form action="responseServlet" method="post">
+											<input type="submit" class="btn btn-primary btn-xs"
+												value="Response Curves">
 										</form>
 									</span>
 									<div class="clearfix"></div>

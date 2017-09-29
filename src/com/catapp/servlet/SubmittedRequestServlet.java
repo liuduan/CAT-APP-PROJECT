@@ -1,8 +1,8 @@
 package com.catapp.servlet;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
@@ -14,7 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.catapp.action.Login;
+<<<<<<< HEAD
 
+=======
+>>>>>>> SS-Master/master
 import com.catapp.action.SendEmail;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;  
@@ -32,14 +35,25 @@ public class SubmittedRequestServlet extends HttpServlet{
             throws ServletException, IOException {  
 	response.setContentType("text/html");  
     //PrintWriter out=response.getWriter();
+<<<<<<< HEAD
     saveUserToDB(request);
 
     SendEmail.sendEmail("new");
 
     request.getRequestDispatcher("/WEB-INF/requestSubmitted.jsp").include(request, response);
+=======
+    String lExisting=saveUserToDB(request);
+    if(lExisting=="1"){
+    	request.getRequestDispatcher("/WEB-INF/index.jsp?exists=1").include(request, response);
+    	
+    }else{
+    	
+    	request.getRequestDispatcher("/WEB-INF/requestSubmitted.jsp").include(request, response);
+    }
+>>>>>>> SS-Master/master
 	}
 	
-	public void saveUserToDB(HttpServletRequest request){
+	public String saveUserToDB(HttpServletRequest request){
 		
 		String lFirstName 				= null;
 		String lLastName  				= null;
@@ -58,6 +72,9 @@ public class SubmittedRequestServlet extends HttpServlet{
 		String lAns3					= null;
 		Connection lConn				= null;
 		PreparedStatement lPst			= null;
+		PreparedStatement lSPst			= null;
+		ResultSet lRst					= null;
+		String lReturn					= "0";
 		try{
 			if(request.getParameter("first_name")!=null){
 				lFirstName = request.getParameter("first_name");
@@ -106,6 +123,15 @@ public class SubmittedRequestServlet extends HttpServlet{
 			}
 			lConn= new DBConnection().getConnection();
 			LOGGER.error("This is Connection------>  "+lConn);
+			
+			String lQuery= "select * From users where email=?";
+			lSPst=lConn.prepareStatement(lQuery);
+			lSPst.setString(1, lEmail);
+			lRst =lSPst.executeQuery();
+			if(lRst.next()){
+				lReturn="1";
+				return lReturn;
+			}
 			User lUser = new User();
 			lUser.setPassword(Login.generateHash("PWD"+lPassword));
 			lUser.setFirst_name(lFirstName);
@@ -151,10 +177,15 @@ public class SubmittedRequestServlet extends HttpServlet{
 					
 				}
 			}
+			String lAdminEmailAddress="ssumit61@gmail.com";
+			String lSubject="New User Request for Cat-App";
+			String lBody= "Dear Admin, A new user "+ lFirstName +" "+ lLastName+" has requested the access for Cat-App Database.";
+			SendEmail.sendEmail(lAdminEmailAddress,lSubject,lBody);
 			
 		}catch(Exception e){
 			LOGGER.error("Error Occured while saving user details.",e);
 		}
+		
 		finally{
 			try{
 				if(lConn!=null){
@@ -163,10 +194,17 @@ public class SubmittedRequestServlet extends HttpServlet{
 				if(lPst!=null){
 					lPst.close();
 				}
+				if(lSPst!=null){
+					lPst.close();
+				}
+				if(lRst!=null){
+					lRst.close();
+				}
 			}catch(Exception e1){
 				LOGGER.error("Error Occured while closing connection.",e1);
 			}
 		}
+		return lReturn;
 		
 	}
 }

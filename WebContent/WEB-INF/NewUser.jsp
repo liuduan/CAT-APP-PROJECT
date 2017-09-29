@@ -14,7 +14,10 @@
 </head>
 <body>
 <jsp:directive.include file="header.jsp" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> SS-Master/master
 This is in NewUser.jsp
 </body>
 </html>

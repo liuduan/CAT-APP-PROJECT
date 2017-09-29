@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+=======
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+>>>>>>> SS-Master/master
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +30,7 @@
 </head>
 
 <body>
-	<%-- <jsp:include page="header.jsp" /> --%>
+	<jsp:include page="header.jsp" />
 	<!-- Navigation -->
 	<%
 String login_msg=(String)request.getAttribute("error");  
@@ -146,3 +151,4 @@ out.println("<font color=red size=4px>"+login_msg+"</font>");
 </body>
 
 </html>
+ --%>

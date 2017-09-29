@@ -14,7 +14,10 @@
 </head>
 <body>
 <jsp:directive.include file="header.jsp" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> SS-Master/master
 View and Download Files<br></br>
 Here is ViewDownload.jsp
 </body>

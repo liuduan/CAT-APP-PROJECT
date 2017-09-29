@@ -49,9 +49,18 @@ public class LoginServlet extends HttpServlet {
 	      	
 	       	boolean lFlag =validateUsers(password, lUser.getPassword());
 	        	
+<<<<<<< HEAD
 	       	if(lFlag){
 	       		System.out.println("lFlag is true.");
 	       		if(lUser.getApproved()!=null && lUser.getApproved().equals("Y")){
+=======
+	        	if(lFlag){
+	        		if(lUser.getIs_admin()!=null && lUser.getIs_admin().equals("Y")){
+	        			HttpSession session=request.getSession();  
+	        			session.setAttribute("email",email);
+	        			session.setAttribute("user", lUser);
+	        			request.getRequestDispatcher("/WEB-INF/adminUser.jsp").include(request, response);
+>>>>>>> SS-Master/master
 	        			
 
 	       			System.out.println("It is approved.");
@@ -72,6 +81,7 @@ public class LoginServlet extends HttpServlet {
 	        				
 	        		}else{
 	        				
+<<<<<<< HEAD
 	        			System.out.println("not approved yet.");
 		       			request.setAttribute("error","Your request is not approved yet.");
 	    	        	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);          			
@@ -80,6 +90,16 @@ public class LoginServlet extends HttpServlet {
 	        	System.out.println("Invalid Username or Password");
 	        	request.setAttribute("error","Invalid Username or Password");
 		       	request.getRequestDispatcher("/WEB-INF/credentialMismatch.jsp").include(request, response);  
+=======
+	        				//request.setAttribute("error","Your request is not approved yet.");
+	    		        	request.getRequestDispatcher("/WEB-INF/index.jsp").include(request, response);  
+	        			}
+	        			
+	        		}
+	        	}else{
+	        		//request.setAttribute("error","Invalid Username or Password");
+		        	request.getRequestDispatcher("/WEB-INF/index.jsp?failure=2").include(request, response);  
+>>>>>>> SS-Master/master
 	        	}
 	        
 	        	

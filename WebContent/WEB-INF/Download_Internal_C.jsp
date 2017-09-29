@@ -50,6 +50,7 @@ $(document).ready(function(){
 	ORDER BY file_name;
 </sql:query>
 
+<<<<<<< HEAD
 <table id = "file-table" class="table  table-bordered table-hover" 
 	style="width: auto; margin:auto; text-align: center;" >
     <thead>
@@ -84,6 +85,19 @@ $(document).ready(function(){
 				<td>${row.assay_type}</td>
 				<td>${row.Dilution}</td>
 				<td>${row.file_name}</td>
+=======
+<br></br>
+	<table id="file-table" class="table  table-bordered table-hover"
+		style="width: 20px; margin-left: -20px; text-align: center;">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Cell Line</th>
+				<th>Assay</th>
+				<th>Dilution</th>
+				<th>File Name</th>
+
+>>>>>>> SS-Master/master
 			</tr>
 			<c:set var="i" scope="session" value="${i +1}"/>
 		</c:forEach> 

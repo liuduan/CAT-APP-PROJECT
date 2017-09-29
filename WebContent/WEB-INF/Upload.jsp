@@ -257,7 +257,7 @@
 													<option value='Mito'>Mitochondrial Integrity</option>
 													<option value='CalceinAM'>Cell Viability</option>
 													<option value='LipidTOX'>Lipid Accumulation</option>
-													<option value='Seq'>TempOseq</option>
+													<!-- <option value='Seq'>TempOseq</option> -->
 												</select> <a href="#" onclick="selectTimePoint()"><span
 													class="fa fa-chevron-right"></span></a>
 
@@ -323,8 +323,6 @@
 
 												<label>Please select a time point:</label> <select
 													id="timepoints_4_select" onchange="step4_to_5()">
-													<option value="30min">30 minutes</option>
-													<option value="60min">60 minutes</option>
 													<option value="90min">90 minutes</option>
 													<option value="24hr">24 hours</option>
 												</select> <a href="#" onclick="step4_to_5()"><span
@@ -371,6 +369,13 @@
 													style="color: LightSteelBlue;"></span></a>
 
 											</div>
+											<div id="timepoints_48" class="all_time_div"
+												style="color: LightSteelBlue; display:;">
+												<label style="color: LightSteelBlue;">Time point: 48
+													hours</label> <a href="#"><span class="fa fa-chevron-right"
+													style="color: LightSteelBlue;"></span></a>
+
+											</div>
 										</div>
 										<!-- end of step4 -->
 										<!-- end of step4 -->
@@ -408,9 +413,9 @@
 										<div id="step6" class="form-group" style="display: none;">
 											<div>
 												<label id="desc">Description:</label>
-												<textarea id="ta" class="form-control" rows="3"></textarea>
+												<textarea id="ta" class="form-control" name="desc" rows="3"></textarea>
 												<select
-													id='phenotypes' name ='phenotypes' onchange='selectphenotypes()'>
+													id='phenotypes' name ='phenotypes'>
 													<option value='0'>---Select One---</option>
 													
 												</select> 
@@ -492,23 +497,6 @@
 
 
 	<script src="/CAT-APP-PROJECT/resources/js/Uploadjs.js"></script>
-	<!--  
-	<script src="/CAT-APP-PROJECT/resources/js/jquery-1.11.1.min.js"></script>
-	<script src="/CAT-APP-PROJECT/resources/js/bootstrap.min.js"></script>
-
-	<script src="/CAT-APP-PROJECT/resources/js/retina-1.1.0.min.js"></script>
-	<script src="/CAT-APP-PROJECT/resources/js/scripts.js"></script>
-
-	jQuery
-	<script src="/CAT-APP-PROJECT/resources/js/jquery.min.js"></script>
-
-	<script src="/CAT-APP-PROJECT/resources/js/metisMenu.min.js"></script>
-	METISMENU SCRIPTS
-	<script src="/CAT-APP-PROJECT/resources/js/jquery.metisMenu.js"></script>
-	CUSTOM SCRIPTS
-	<script src="/CAT-APP-PROJECT/resources/js/sb-admin-2.js"></script> -->
-
-
 	<!-- jQuery -->
 	<script src="/CAT-APP-PROJECT/resources/js/jquery.min.js"></script>
 

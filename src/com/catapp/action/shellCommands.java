@@ -37,4 +37,8 @@ public class shellCommands {
 			}
 			return output.toString();
 		}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> SS-Master/master

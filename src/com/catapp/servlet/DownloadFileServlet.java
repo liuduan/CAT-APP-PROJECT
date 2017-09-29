@@ -90,14 +90,22 @@ public class DownloadFileServlet extends HttpServlet {
 		PreparedStatement lPstmt 			= null;
 		ResultSet lRst					    = null;
 		Connection lConn 					= null;
+<<<<<<< HEAD
 		File lLocalFile 					= new File("C:\\Users\\CATAPP\\serverfiles\\CM\\1");
 
+=======
+		File lLocalFile 					= new File("C:\\Users\\CATAPP\\serverfiles\\");
+>>>>>>> SS-Master/master
 		String lFolderLoc 					= null;
 		String file_name 					= "";
 		if(lLocalFile.exists()){
+<<<<<<< HEAD
 
 			lFolderLoc ="C:\\Users\\CATAPP\\serverfiles\\CM\\1";
 
+=======
+			lFolderLoc ="C:\\Users\\CATAPP\\serverfiles\\";
+>>>>>>> SS-Master/master
 		}else{
 			// Write code as per the server //
 		}
@@ -229,6 +237,7 @@ public class DownloadFileServlet extends HttpServlet {
 							// Get the JSON text.
 							    
 							    response.setHeader("Content-disposition","attachment; filename="+ lFileName+".json");
+<<<<<<< HEAD
 								response.setContentType(lFileType);
 
 								File lJsonFile =new File ("C:/Users/CATAPP/serverfiles/CM/1/NewJson.txt");
@@ -261,6 +270,11 @@ public class DownloadFileServlet extends HttpServlet {
 
 								lToDelete.delete();
 								
+=======
+							    response.setContentType("text/x-json;charset=UTF-8");
+								String json1 = json.toJSONString();
+								response.getWriter().write(json1);
+>>>>>>> SS-Master/master
 						}
 					}
 					 
@@ -406,7 +420,11 @@ public class DownloadFileServlet extends HttpServlet {
 			
 			//////////////////////// Template Read Start //////////////////////////////////
 			
+<<<<<<< HEAD
 			XSSFWorkbook lWorkBook = new XSSFWorkbook(new FileInputStream("C:\\Users\\sharm\\serverfiles\\templates\\Cardiomyocytes.xlsx"));       
+=======
+			XSSFWorkbook lWorkBook = new XSSFWorkbook(new FileInputStream("C:\\Users\\CATAPP\\serverfiles\\templates\\Cardiomyocytes.xlsx"));       
+>>>>>>> SS-Master/master
 			XSSFFormulaEvaluator.evaluateAllFormulaCells(lWorkBook);
 			lWorkBook.setForceFormulaRecalculation(true);
 	       

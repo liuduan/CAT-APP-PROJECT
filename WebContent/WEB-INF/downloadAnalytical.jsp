@@ -50,11 +50,65 @@
 	height: 300px; /* or any value */
 	overflow-y: auto;
 }
+<<<<<<< HEAD
+=======
+
+
+.scrollerdiv {
+  height: 150px; 
+  overflow-y: scroll; 
+}
+>>>>>>> SS-Master/master
 </style>
 
 
 
 <script type="text/javascript">
+<<<<<<< HEAD
+=======
+	function displayForm() {
+		if (document.getElementById('asIsFiles').checked) {
+			document.getElementById('downloadByAsIsFiles').style.display = "block";
+		
+			/* //alert("Hello");
+			
+			document.getElementById('downloadByComp').style.display = "none";
+			document.getElementById('downloadByCellLine').style.display = "none";
+ */
+		} else if (document.getElementById('byMC').checked) {
+			/* //alert("Hii");
+			document.getElementById('downloadByAsIsFiles').style.display = "none";
+			document.getElementById('downloadByComp').style.display = "block";
+			document.getElementById('downloadByCellLine').style.display = "none";
+			
+			//reset */
+
+
+		} else if (document.getElementById('byCN').checked) {
+			/* //alert("heyy");
+			document.getElementById('downloadByAsIsFiles').style.display = "none";
+			document.getElementById('downloadByComp').style.display = "none";
+			document.getElementById('downloadByCellLine').style.display = "block";
+			
+			//reset
+ */
+		}
+	}
+	function filterchem() {
+
+		var input = jQuery("#chemsearch").val();
+		var lListSize = jQuery(".chemical").length
+		for (var i = 0; i < lListSize; i++) {
+			if (jQuery(".chemical")[i].innerHTML.indexOf(input) > -1) {
+				document.getElementsByClassName("chemical")[i].style.display = "";
+			} else {
+				document.getElementsByClassName("chemical")[i].style.display = "none";
+			}
+		}
+
+	}
+
+>>>>>>> SS-Master/master
 	
 </script>
 </head>
@@ -112,6 +166,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">Download Files in Analytical</h1>
+<<<<<<< HEAD
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -120,12 +175,41 @@
 				<div class="col-lg-12">
 					<form role="form" action="SaveFileFormServlet" method="post"
 						class="registration-form" enctype="multipart/form-data">
+=======
+					
+				</div>
+				<!-- /.col-lg-12 -->
+			</div> 
+			<!-- /.row -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+
+						<div class="panel-heading" id="selectDownloadTypeDiv">
+							<label class="radio-inline"> <input type="radio"
+								name="fileRadio" id="asIsFiles" value="asIsFiles"
+								onchange="displayForm()">Download uploaded files
+							</label> <label class="radio-inline"> <input type="radio"
+								name="fileRadio" id="byMC" value="byMC"
+								onchange="displayForm()">Download by molecular class
+							</label>
+							 <label class="radio-inline"> <input type="radio"
+								name="fileRadio" id="byCN" value="byCN"
+								onchange="displayForm()">Download by carbon number
+							</label>
+						</div>
+					<div class="row">	
+					<div class="col-lg-12" id="downloadByAsIsFiles" class="form-group"
+							style="display: none;">
+					<form action="DownloadConcaweAsIs" method="post">
+>>>>>>> SS-Master/master
 						<div class="panel panel-default">
 
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-lg-6">
 
+<<<<<<< HEAD
 										<div class="form-group" id="casNumber">
 											<label> Please select a CAS number</label> <select name="cas">
 												<c:forEach var="item" items="${casnumber}">
@@ -138,6 +222,38 @@
 											<label> Please enter a sample value</label> <input
 												type="text" name="10" id="sample"></input>
 										</div>
+=======
+							<div class="input-group custom-search-form" >
+							<label> Please select a cas number:</label><input type="text" class="form-control" id="chemsearch"
+								onkeyup="filterchem()" placeholder="Search Cas Number...">
+
+						</div> <!-- /input-group -->
+					</li>
+							&nbsp;
+							<div class=" scrollerdiv pre-scrollable" >
+							<table class="table table-hover,table-fixed">
+							<thead style="display:block; border-color:#e67e22;">
+							<tr>
+							<th> Cas Number    ||  Name    || Category
+							</th>
+							</tr>
+							</thead>
+							<c:forEach var="item" items="${casnumber}">
+								<tr class="chemical"><td><input
+									type="radio" name="cas" id="cas"
+									value=<c:out value="${item.key}"/>> &nbsp;<c:out
+										value="${item.value}" /> </td></tr>
+		
+								</li>
+							</c:forEach>
+							</table>
+							</div>
+
+										<!-- <div class="form-group" id="sampleNumber">
+											<label> Please enter a sample value</label> <input
+												type="text" name="10" id="sample"></input>
+										</div> -->
+>>>>>>> SS-Master/master
 
 
 
@@ -160,6 +276,10 @@
 									</div>
 					</form>
 				</div>
+<<<<<<< HEAD
+=======
+				</div>
+>>>>>>> SS-Master/master
 			</div>
 		</div>
 	</div>

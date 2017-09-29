@@ -59,4 +59,8 @@ public class ToxPiServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> SS-Master/master

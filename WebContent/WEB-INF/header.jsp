@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
  
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -32,41 +33,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+=======
+<%@page pageEncoding="UTF-8" %>
+<!-- Navigation -->
+<%@ page import="com.catapp.entity.User"%>
+>>>>>>> SS-Master/master
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container">
-		<a class="navbar-brand" href="#" style="float: left"></a>
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<form action="" method="get">
-				<a href="BackToMainServlet" class="navbar-brand">CAT-APP</a>
-			</form>
-		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1" style="float: right">
+<meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation"
+	style="margin-bottom: 0">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse"
+			data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+			<span class="icon-bar"></span> <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="BackToHomeServlet">Cat-App Database</a>
+	</div>
+	<!-- /.navbar-header -->
 
-			<ul class="nav navbar-nav">
+	<ul class="nav navbar-top-links navbar-right">
+		<li class="dropdown"><a class="dropdown-toggle"
+			data-toggle="dropdown" href="#"> <% String fName=((User)request.getSession().getAttribute("user")).getFirst_name().toString();%>
 
-				<li><a href="#about">About us</a></li>
-				<li><a href="#contact"> Contact</a></li>
+				<span>Welcome <%=fName %><span /> <i class="fa fa-caret-down"></i></a>
+			<ul class="dropdown-menu dropdown-user">
+				<li><a href="UserDisplayController"><i
+						class="fa fa-user fa-fw"></i> User Profile</a></li>
 
+				<li class="divider"></li>
+				<li><a href="LogoutServlet"><i class="fa fa-sign-out fa-fw"></i>
+						Logout</a></li>
 			</ul>
+		<li><a href="BackToHomeServlet"> Home</a></li>
+		<li><a href="redirect?destination=contact"> Contact us</a></li>
+		<li><a href="redirect?destination=about"> About us</a></li>
+		</li>
+	</ul>
+</nav>
 
+<<<<<<< HEAD
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container --> </nav>
 </body>
 </html>
+>>>>>>> SS-Master/master
+=======
+<script src="/CAT-APP-PROJECT/resources/js/jquery.min.js"></script>
 >>>>>>> SS-Master/master
