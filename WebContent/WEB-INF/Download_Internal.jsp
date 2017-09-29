@@ -39,12 +39,9 @@
     url="jdbc:mysql://localhost:3306/catapp"
     user="root"  password="vibscatapp"/>
 
-<<<<<<< HEAD
-=======
 	<sql:setDataSource var="snapshot_C" 
 		driver="com.mysql.jdbc.Driver"
 		url="jdbc:mysql://localhost:3306/CATAPP?autoReconnect=true&useSSL=false" user="root" password="ashima" />
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
 
 <script>
 $(document).ready(function(){

@@ -29,18 +29,11 @@ $(document).ready(function(){
 
 </script>
 
-
-<<<<<<< HEAD
 <sql:setDataSource var="snapshot_C" driver="com.mysql.jdbc.Driver"
     url="jdbc:mysql://localhost:3306/catapp"
     user="root"  password="vibscatapp"/>
 
 <sql:query dataSource="${snapshot_C}" var="result_C">
-=======
-	<sql:setDataSource var="snapshot_C" 
-		driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/CATAPP?autoReconnect=true&useSSL=false" user="root" password="ashima" />
->>>>>>> 180f8eca364d8ed4b57417a630d104ad2dc6cd2d
 
 	SELECT
   		entity_id, file_name, cell_line_id, assay_type, Dilution  
@@ -57,8 +50,6 @@ $(document).ready(function(){
 	ORDER BY file_name;
 </sql:query>
 
-
-<<<<<<< HEAD
 <table id = "file-table" class="table  table-bordered table-hover" 
 	style="width: auto; margin:auto; text-align: center;" >
     <thead>
@@ -98,58 +89,6 @@ $(document).ready(function(){
 		</c:forEach> 
     </tbody>
 </table>
-=======
-	<table id="file-table" class="table  table-bordered table-hover"
-		style="width: auto; margin: auto; text-align: center;">
-		<thead>
-			<tr>
-				<th></th>
-				<th>Cell Line</th>
-				<th>Assay</th>
-				<th>Dilution</th>
-				<th>File Name</th>
-
-			</tr>
-		</thead>
-		<tbody>
-			<c:set var="i" scope="session" value="${1}" />
-			<c:forEach var="row" items="${result_C.rows}">
-				<c:if test="${i > 6}">
-					<c:set var="i" scope="session" value="${1}" />
-				</c:if>
-				<c:choose>
-					<c:when test="${i == '1'}">
-						<c:set var="tr_color" scope="application" value="" />
-					</c:when>
-					<c:when test="${i == '2'}">
-						<c:set var="tr_color" scope="application" value="success" />
-					</c:when>
-					<c:when test="${i == '3'}">
-						<c:set var="tr_color" scope="application" value="danger" />
-					</c:when>
-					<c:when test="${i == '4'}">
-						<c:set var="tr_color" scope="application" value="info" />
-					</c:when>
-					<c:when test="${i == '5'}">
-						<c:set var="tr_color" scope="application" value="warning" />
-					</c:when>
-					<c:when test="${i == '6'}">
-						<c:set var="tr_color" scope="application" value="active" />
-					</c:when>
-				</c:choose>
-				<tr class='<c:out value="${tr_color}" />'>
-					<td><input type="checkbox" name="optradio"
-						value="${row.entity_id}"></td>
-					<td>${row.cell_line_id}</td>
-					<td>${row.assay_type}</td>
-					<td>${row.Dilution}</td>
-					<td>${row.file_name}</td>
-				</tr>
-				<c:set var="i" scope="session" value="${i +1}" />
-			</c:forEach>
-		</tbody>
-	</table>
->>>>>>> SS-Master/master
 
 
 </body>
