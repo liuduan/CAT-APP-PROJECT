@@ -35,6 +35,7 @@ public class DownloadAnalyticalServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost( request,  response) ;
 	}
 
 	/**
@@ -48,11 +49,19 @@ public class DownloadAnalyticalServlet extends HttpServlet {
 		try{
 			if(session!=null){
 				lConn=new DBConnection().getConnection();
+<<<<<<< HEAD
 
 				HashMap<String,String> casNumberMap=new ChemData().getCasNames(lConn, 3L);
+=======
+				
+				HashMap<String,String> casNumberMap=new ChemData().getCasNames(lConn, 3L);
+				HashMap<String,String> molecularMap=new ChemData().getMolecularClasses(lConn);
+>>>>>>> SS-Master/master
 
 				request.setAttribute("casnumber", casNumberMap);
-				System.out.println("casNumberMap::"+casNumberMap.size());
+				request.setAttribute("molecular", molecularMap);
+				System.out.println("casNumberMap::"+casNumberMap.size()+"molecularMap::"+
+						molecularMap.size());
 				request.getServletContext().getRequestDispatcher("/WEB-INF/downloadAnalytical.jsp").forward(request, response);
 			}
 		
@@ -73,5 +82,7 @@ public class DownloadAnalyticalServlet extends HttpServlet {
 			}
 		}
 	}
+	
+	
 
 }

@@ -40,8 +40,12 @@ import com.catapp.entity.User;
 @WebServlet("/SaveAndValidateConcaweData")
 public class SaveAndValidateConcaweData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+<<<<<<< HEAD
 	private final String UPLOAD_DIRECTORY = "C:/Users/sharm/serverfiles";
 
+=======
+	private final String UPLOAD_DIRECTORY = "C:/Users/ssingh/serverfiles";
+>>>>>>> SS-Master/master
 	public static final Logger logger = Logger.getLogger(SaveAndValidateConcaweData.class.toString());
 	HashMap<String,Long> lAttributes	 		  = new HashMap<String,Long>();
        
@@ -391,7 +395,7 @@ public class SaveAndValidateConcaweData extends HttpServlet {
 							 lPstmt.setLong(1, 0l);
 							 lPstmt.setInt(6, 2);
 						 }else if(i==lSheet.getLastRowNum()-1){
-							 lPstmt.setLong(1, 0l);
+							
 							 lPstmt.setInt(6, 3);
 						 }else{
 							

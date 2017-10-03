@@ -123,6 +123,13 @@
 							}
 
 						}
+						function openFile(strFilePath)
+				        {
+						var objExcel;
+						objExcel = new ActiveXObject("Excel.Application");
+						objExcel.Visible = true;
+						objExcel.Workbooks.Open(strLocation, false, false);
+						}
 					</script>
 </head>
 

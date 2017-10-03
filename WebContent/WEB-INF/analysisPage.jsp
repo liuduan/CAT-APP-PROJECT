@@ -18,7 +18,7 @@ td, th {
 
 tr:nth-child(even) {
 	background-color: #dddddd;
-}
+} 
 </style>
 <head>
 
@@ -76,6 +76,7 @@ tr:nth-child(even) {
 
 </head>
 
+<<<<<<< HEAD
 <body>
 
 	<jsp:include page="headerUserHome.jsp" />
@@ -84,8 +85,14 @@ tr:nth-child(even) {
 		<!-- Navigation -->
 		<nav class="navbar navbar-default navbar-static-top" role="navigation"
 			style="margin-bottom: 0"> <!-- /.navbar-header --> <!-- /.navbar-top-links -->
+=======
+>>>>>>> SS-Master/master
 
-		<div class="navbar-default sidebar pre scrollable pre-scrollable"
+	
+	<body><div class="container-fluid">
+  <div class="row">
+  
+  <div class="pre-scrollable"
 			role="navigation">
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
@@ -104,6 +111,7 @@ tr:nth-child(even) {
 
 						</li>
 					</c:forEach>
+<<<<<<< HEAD
 
 					<%-- <table class= "table table-hover">
                         <tr>
@@ -396,6 +404,16 @@ tr:nth-child(even) {
 
 
 	</div>
+=======
+    
+  </div>
+    <div class="col-sm-9 col-md-6 col-lg-8" style="background-color:pink;">
+      <p>Sed ut perspiciatis...</p>
+    </div>
+  </div>
+</div>
+	
+>>>>>>> SS-Master/master
 	<!-- /#wrapper -->
 
 	<!-- jQuery -->

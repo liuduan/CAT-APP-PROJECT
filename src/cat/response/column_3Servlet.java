@@ -32,7 +32,7 @@ public class column_3Servlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("column_3Servlet"); 
 		
@@ -71,9 +71,13 @@ public class column_3Servlet extends HttpServlet {
 		
 		System.out.println("endpoint_string: " + endpoint_string); 
 		
+<<<<<<< HEAD
 
 		String R_command = "cmd.exe /c C:\\\"Program Files\"\\R\\R-3.3.3\\bin\\Rscript C:\\4_R\\Demonstration\\";
 
+=======
+		String R_command = "cmd.exe /c C:\\\"Program Files\"\\R\\R-2.15.1\\bin\\Rscript C:\\4_R\\Demonstration\\";
+>>>>>>> SS-Master/master
 		R_command +=  endpoint_string + "\\Script_Data.R";
 		
 		
