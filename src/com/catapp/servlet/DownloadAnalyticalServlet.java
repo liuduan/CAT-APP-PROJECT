@@ -48,11 +48,9 @@ public class DownloadAnalyticalServlet extends HttpServlet {
 		try{
 			if(session!=null){
 				lConn=new DBConnection().getConnection();
-<<<<<<< HEAD
-				HashMap<String,String> casNumberMap=new ChemData().getCasNames(lConn, 1L);
-=======
+
 				HashMap<String,String> casNumberMap=new ChemData().getCasNames(lConn, 3L);
->>>>>>> SS-Master/master
+
 				request.setAttribute("casnumber", casNumberMap);
 				System.out.println("casNumberMap::"+casNumberMap.size());
 				request.getServletContext().getRequestDispatcher("/WEB-INF/downloadAnalytical.jsp").forward(request, response);

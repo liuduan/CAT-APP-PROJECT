@@ -50,8 +50,7 @@
 	height: 300px; /* or any value */
 	overflow-y: auto;
 }
-<<<<<<< HEAD
-=======
+
 
 
 .scrollerdiv {
@@ -59,14 +58,11 @@
   overflow-y: scroll; 
 }
 
->>>>>>> SS-Master/master
 </style>
 
 
 
 <script type="text/javascript">
-<<<<<<< HEAD
-=======
 
 function filterchem() {
 
@@ -84,7 +80,6 @@ function filterchem() {
 	listsize=jQuery("#li").size(); */
 
 }
->>>>>>> SS-Master/master
 	
 </script>
 </head>
@@ -112,38 +107,7 @@ function filterchem() {
 
 		<div id="page-wrapper">
 			<c:if test="${param.success eq 1}">
-<<<<<<< HEAD
-				<script type="text/javascript">
-					window.location = "/CAT-APP-PROJECT//Success?redirect=uploadAnalytical"
-				</script>
-				<div class="page-alerts">
-					<div class="alert alert-success">
-						<button type="button" class="close">
-							<i class="glyphicon glyphicon-remove-circle text-success"></i>
-						</button>
-						<h4>Success</h4>
-						<p>The file was uploaded successfully</p>
-					</div>
-				</div>
-			</c:if>
-			<c:if test="${param.failure eq 2}">
-				<div class="alert alert-danger">
-					<button href="#" type="button" class="close">
-						<i class="glyphicon glyphicon-remove-circle text-danger"></i>
-					</button>
-					<h4>Danger Alert</h4>
-					<p>
-						Action has caused an error. Additional information <a
-							class="alert-link" href="">Click Here</a> to read
-					</p>
-				</div>
-				<div>failure</div>
-			</c:if>
 
-			<div class="row">
-				<div class="col-lg-12">
-					<h1 class="page-header">Upload Files in Analytical</h1>
-=======
                 <div id="messagebox" class="page-alerts">
      			<div class="alert alert-success">
       			<button  type="button" class="close"></button>
@@ -151,7 +115,7 @@ function filterchem() {
       			<p>The file was uploaded successfully</p>
     			</div>
     			</div>
-				</c:if>
+			</c:if>
 				<c:if test="${param.failure eq 2}">
 				 <div class="alert alert-danger">
       			<button  href="#" type="button"  class="close"></button>
@@ -192,18 +156,16 @@ function filterchem() {
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">Upload files in Analytical</h1>
->>>>>>> SS-Master/master
+
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
 			<!-- /.row -->
 			<div class="row">
 				<div class="col-lg-12">
-<<<<<<< HEAD
-					<form role="form" action="saveAnalyticalFile" method="post"
-=======
+
 					<form role="form" action="SaveAndValidateConcaweData" method="post"
->>>>>>> SS-Master/master
+
 						class="registration-form" enctype="multipart/form-data">
 						<div class="panel panel-default">
 
@@ -211,20 +173,7 @@ function filterchem() {
 								<div class="row">
 									<div class="col-lg-6">
 
-<<<<<<< HEAD
-										<div class="form-group" id="casNumber">
-											<label> Please select a CAS number</label> <select
-												name="cas">
-												<c:forEach var="item" items="${casnumber}">
-													<option value="${item.value}">${item.value}</option>
-												</c:forEach>
-											</select>
-										</div>
 
-										<div class="form-group" id="sampleNumber">
-										<label> Please enter a sample value</label>
-											<input type="text" name="10" id="sample"></input>
-=======
 							<div class="input-group custom-search-form" >
 							<label> Please select a cas number:</label><input type="text" class="form-control" id="chemsearch"
 								onkeyup="filterchem()" placeholder="Search Cas Number...">
@@ -255,7 +204,6 @@ function filterchem() {
 										<div class="form-group" id="sampleNumber">
 										<label> Please enter a sample value</label>
 											<input type="text" name="sample" id="sample"></input>
->>>>>>> SS-Master/master
 										</div>
 
 

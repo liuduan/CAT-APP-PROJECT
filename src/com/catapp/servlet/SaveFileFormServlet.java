@@ -176,9 +176,7 @@ public class SaveFileFormServlet extends HttpServlet {
 					}
 				}
 				
-<<<<<<< HEAD
 
-=======
 			}else{
 				String Path_for_SQL =  "C:/Users/ssingh/serverfiles/" + lCellLine;	
 				String insert_record_str = "INSERT INTO file_info (cell_line_id, assay_type, " +
@@ -187,7 +185,7 @@ public class SaveFileFormServlet extends HttpServlet {
 						lDilution + "', '" + lDescription  + "', '" + original_name + "', '" + lFileName + "', '" +
 						lFileExtension + "', '" + Path_for_SQL + "')";
 				Save_file_info2DB(insert_record_str, lConn);
->>>>>>> SS-Master/master
+
 				
 			}		
 

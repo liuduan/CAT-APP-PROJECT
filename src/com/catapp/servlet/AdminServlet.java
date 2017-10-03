@@ -84,78 +84,7 @@ public class AdminServlet extends HttpServlet {
 		/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-<<<<<<< HEAD
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		System.out.println("Hello World.. 5");
-		
-		Connection lConn = new DBConnection().getConnection();
-		
-      	
-      	
-      	
 
-    	// shellCommands.main("copy C:\\2-Installers\\Clock\\Clock-image.ico C:\\2-Installers\\Clock\\Clock-image2.ico ");
-    	System.out.println("ping");
-    	
-      	// back to normal
-    	HttpSession session = request.getSession(false);
-    	
-    	
-		if(session != null){
-			String email="";
-			try{
-				if((User)request == null){
-					System.out.println("null (User)request");}	
-			}catch(Exception e){
-				LOGGER.error("Error Occured while fetching user details", e);
-			}
-
-			if(((User)request.getSession().getAttribute("user")).getEmail() != null){
-				email=((User)request.getSession().getAttribute("user")).getEmail().toString();
-			}
-			else{getServletContext().getRequestDispatcher("/home").forward(request, response);
-			}
-			//"test_user1@tamu.edu";  
-	
-				User lUser =new User();
-    
-				lUser =fetchUserDetails(email, lConn);
-			System.out.println("ping 2"); 
-			getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
-		}
-		else{
-			System.out.println("ping 3");
-			request.setAttribute("error","Current session is lost. Please log in");
-			request.getRequestDispatcher("/LogoutServlet").include(request, response);  
-			}
-
-		
-		
-		
-		
-		// This line is go to "/WEB-INF/Adminpage.jsp" with all the parameters.
-
-	}
-
-	
-	
-	
-	
-	private void shellCommands(String string) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-=======
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
@@ -184,8 +113,6 @@ public class AdminServlet extends HttpServlet {
 			request.getRequestDispatcher("/LogoutServlet").include(request, response);  
 			}
 
-		
->>>>>>> SS-Master/master
 	}
 
 	/**

@@ -71,11 +71,9 @@ public class column_3Servlet extends HttpServlet {
 		
 		System.out.println("endpoint_string: " + endpoint_string); 
 		
-<<<<<<< HEAD
+
 		String R_command = "cmd.exe /c C:\\\"Program Files\"\\R\\R-3.3.3\\bin\\Rscript C:\\4_R\\Demonstration\\";
-=======
-		String R_command = "cmd.exe /c C:\\\"Program Files\"\\R\\R-2.15.1\\bin\\Rscript C:\\Users\\ssingh\\Desktop\\4_R\\Demonstration\\";
->>>>>>> SS-Master/master
+
 		R_command +=  endpoint_string + "\\Script_Data.R";
 		
 		
@@ -91,8 +89,5 @@ public class column_3Servlet extends HttpServlet {
 		getServletContext().getRequestDispatcher("/WEB-INF/Response/Column_3.jsp").forward(request, response);
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> SS-Master/master
+

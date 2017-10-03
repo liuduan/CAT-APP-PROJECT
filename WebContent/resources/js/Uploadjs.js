@@ -7,16 +7,9 @@ function showExcelFiles() {
  }
 
 function getAssayNames(){					// step 1 to 2 (L.D. function)
-<<<<<<< HEAD
-	// alert("");
 
-	if (document.getElementById('raw').checked) 
-	{
-
-	var Cellline = $('#cellline option:selected').val();
-=======
 		var Cellline = $('#cellline option:selected').val();
->>>>>>> SS-Master/master
+
 	// alert("cellline: " + Cellline);
 
 	if(Cellline == "CM"){
@@ -59,14 +52,9 @@ function getAssayNames(){					// step 1 to 2 (L.D. function)
 	$("#step4").hide();
 	$("#step5").hide();
 	$("#step6").hide();
-<<<<<<< HEAD
 
-	 }
-
-else if(document.getElementById('processed').checked)
-=======
 /*else if(document.getElementById('processed').checked)
->>>>>>> SS-Master/master
+
 	{
 	
 	$("#step4").hide();

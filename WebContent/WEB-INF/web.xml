@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns="http://java.sun.com/xml/ns/javaee" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
 	id="WebApp_ID" version="3.0">
 
-=======
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
->>>>>>> SS-Master/master
+
   <display-name>CAT-APP-PROJECT</display-name>
   <servlet>
     <servlet-name>AdminServlet</servlet-name>
@@ -70,20 +67,15 @@
     <enabled>true</enabled>
   </servlet>
   <servlet>
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
     <display-name>ManageActionServlet</display-name>
     <servlet-name>ManageActionServlet</servlet-name>
     <servlet-class>com.catapp.servlet.ManageActionServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
   <servlet>
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
+
     <display-name>SuccessServlet</display-name>
     <servlet-name>SuccessServlet</servlet-name>
     <servlet-class>com.catapp.servlet.SuccessServlet</servlet-class>
@@ -135,7 +127,6 @@
     <servlet-class>com.catapp.servlet.Download_Internal_CServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-<<<<<<< HEAD
     <servlet>
     <display-name>CentralServlet</display-name>
     <servlet-name>CentralServlet</servlet-name>
@@ -188,20 +179,8 @@
     <servlet-name>UserManagementServlet</servlet-name>
     <url-pattern>/UserManagement</url-pattern>
   </servlet-mapping>
-=======
-  <servlet>
-    <display-name>responseServlet</display-name>
-    <servlet-name>responseServlet</servlet-name>
-    <servlet-class>cat.response.responseServlet</servlet-class>
-    <enabled>true</enabled>
-  </servlet>
-  <servlet>
-    <display-name>column_3Servlet</display-name>
-    <servlet-name>column_3Servlet</servlet-name>
-    <servlet-class>cat.response.column_3Servlet</servlet-class>
-    <enabled>true</enabled>
-  </servlet>
->>>>>>> SS-Master/master
+
+
   <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/Admin</url-pattern>
@@ -236,44 +215,18 @@
     <url-pattern>/catAppDownloadPageServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-<<<<<<< HEAD
+
     <servlet-name>DownloadFileServlet</servlet-name>
     <url-pattern>/Downloads</url-pattern>
   </servlet-mapping>
 
-=======
-    <servlet-name>SuccessServlet</servlet-name>
-    <url-pattern>/Success</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UserManagementServlet</servlet-name>
-    <url-pattern>/UserManagement</url-pattern>
-  </servlet-mapping>
+
+
   <servlet-mapping>
     <servlet-name>DownloadConcaweAsIs</servlet-name>
     <url-pattern>/DownloadConcawe</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Download_Internal_CServlet</servlet-name>
-    <url-pattern>/Download_Internal_C</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Download_InternalServlet</servlet-name>
-    <url-pattern>/Download_InternalServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>column_3Servlet</servlet-name>
-    <url-pattern>/Response/column_3</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>responseServlet</servlet-name>
-    <url-pattern>/Response/Response</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ManageActionServlet</servlet-name>
-    <url-pattern>/ManageAction</url-pattern>
-  </servlet-mapping>
->>>>>>> SS-Master/master
+
   <welcome-file-list>
     <welcome-file>Home</welcome-file>
   </welcome-file-list>

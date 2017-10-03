@@ -193,8 +193,7 @@ select#secqu, select#soflow-color {
 		<p
 			style="font family: Open Sans, Arial, sans-serif; font-size: 20px; color: #FFF;">Category
 			Approaches and Read-across in Regulatory Programmes(Cat-App)</p>
-<<<<<<< HEAD
-=======
+
 	</div>
 	
 	<div id="messagebox"> 
@@ -220,7 +219,7 @@ select#secqu, select#soflow-color {
 					</p>
 				</div>
 			</c:if>
->>>>>>> SS-Master/master
+
 	</div>
 	<!--
     <div class="address-bar" style="width: 100%;
@@ -422,11 +421,8 @@ select#secqu, select#soflow-color {
 								</div>
 								<div class="form-group">
 									<input type="text" id="last_Name" name="last_Name"
-<<<<<<< HEAD
-										class="form-control input-lg" placeholder="Last Name *">
-=======
+
 										class="form-control input-lg" placeholder="Last Name *" required="required">
->>>>>>> SS-Master/master
 								</div>
 
 
@@ -438,11 +434,8 @@ select#secqu, select#soflow-color {
 								<div class="form-group">
 									<input type="text" id="phone_number" name="phone_number"
 										maxlength="10" class="form-control input-lg"
-<<<<<<< HEAD
-										placeholder="Contact Phone">
-=======
+
 										placeholder="Contact Phone *" required="required">
->>>>>>> SS-Master/master
 								</div>
 
 								<div class="form-group">

@@ -31,7 +31,7 @@ public class ForgotPasswordServlet extends HttpServlet {
                                 throws ServletException, IOException {  
 			
 			System.out.println("ForgotPasswordServlet A： "  + "forgotEmail");
-			SendEmail.sendEmail("old");
+			SendEmail.sendEmail("old", "old-account", "old-account");
 		    request.getRequestDispatcher("/WEB-INF/requestSubmitted.jsp").include(request, response);
 			
 		    /*

@@ -16,7 +16,7 @@
     <%@page import="java.awt.image.BufferedImage"%>
     <%@page import="sun.misc.BASE64Decoder"%>
     <%@page import="java.awt.image.BufferedImage"%>
-<<<<<<< HEAD
+
 
 <head>
 <script src="${pageContext.request.contextPath}/resources/js/Response/Column_3.js"></script>
@@ -24,26 +24,13 @@
 	
 	
 	
-	</script>	
 <style>
-=======
-	
-<head>
-<script type="text/javascript">
-<script src="/CAT-APP-PROJECT/resources/js/Response/Column_3.js"/>
-<script src="/CAT-APP-PROJECT/resources/js/Response/customScript_download.js"/>
-</script>
 
-<style type="text/css">
->>>>>>> SS-Master/master
 .nav.nav-tabs  {
     border-bottom: 6px solid #add2ed; 
     zIndex: 1;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
 .nav.nav-tabs>li>a {
 	height: 30px;
 	margin-top: 0px;
@@ -52,10 +39,7 @@
 	font-weight: bold;
 	background-color: #3892d3;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
 .nav.nav-tabs>li.active>a, .nav.nav-tabs>li.active>a:hover, 
 	nav.nav-tabs>li.active>a:focus, .nav.nav-tabs>li>a:hover {
     color: #157fcc;
@@ -109,13 +93,9 @@
        <c:set var="endpoint_name" scope="page" value="HUVEC viable cell 24 hours" />
     </c:when>
     <c:when test="${endpoint == '5'}">
-<<<<<<< HEAD
        <c:set var="endpoint_string" scope="page" value="HUVEC_tube_area" />
        <c:set var="endpoint_string2" scope="page" value="HUVEC_tube_area" />
-=======
-       <c:set var="endpoint_string" scope="page" value='HUVEC_tube_area' />
-       <c:set var="endpoint_string2" scope="page" value='HUVEC_tube_area' />
->>>>>>> SS-Master/master
+
        <c:set var="endpoint_name" scope="page" value="HUVEC tube area 18 hours" />
     </c:when>
     <c:when test="${endpoint == '6'}">
@@ -135,12 +115,9 @@
 <%
 String endpoint_string = (String)pageContext.getAttribute("endpoint_string");
 String chemical_string = (String)request.getAttribute("chemical");
-<<<<<<< HEAD
 
 String image_path = "C:\\4_R\\Demonstration\\" + endpoint_string;
-=======
-String image_path = "C:\\Users\\ssingh\\Desktop\\4_R\\Demonstration\\" + endpoint_string;
->>>>>>> SS-Master/master
+
 image_path = image_path + "\\Figs\\" + endpoint_string + chemical_string + ".png";
 System.out.println("String: " + image_path);
 %>
@@ -161,10 +138,7 @@ System.out.println("String: " + image_path);
       baos.flush();
       byte[] imageInByteArray = baos.toByteArray();
       byte[] imageByte;
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
       String b64 = DatatypeConverter.printBase64Binary(imageInByteArray);
       
   
@@ -173,10 +147,6 @@ System.out.println("String: " + image_path);
       
       
       baos.close();                                   
-<<<<<<< HEAD
-
-=======
->>>>>>> SS-Master/master
      
       
         
@@ -229,21 +199,12 @@ System.out.println("String: " + image_path);
   <div id="menu3" class="tab-pane fade" style="padding: 15px;">
   																					<!-- Assay data div -->
 	<papaya>
-<<<<<<< HEAD
 	<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/response"
      user="root"  password="vibscatapp"/>
 	
 	<sql:query dataSource="${snapshot}" var="Assay_data_result">
 		SELECT * from assay_data where (phenotype = "${endpoint_string2}" AND catapp_id = "${chemical}");
-=======
-	<sql:setDataSource var="snapshot"
-	driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-	url="jdbc:sqlserver://IRUSYN1LAP\\SQLEXPRESS;databaseName=CATAPP;integratedSecurity=true" />
-	
-	<sql:query dataSource="${snapshot}" var="Assay_data_result">
-		SELECT * from assay_data where (phenotype = '${endpoint_string2}' AND catapp_id = '${chemical}');
->>>>>>> SS-Master/master
 	</sql:query>
 	<br>
 	
@@ -266,14 +227,10 @@ System.out.println("String: " + image_path);
 	
 	</table>
 	
-<<<<<<< HEAD
 	
 <sql:query dataSource="${snapshot}" var="Control_data_result">
 SELECT * from assay_controls where phenotype = "${endpoint_string2}";
-=======
-<sql:query dataSource="${snapshot}" var="Control_data_result">
-SELECT * from assay_controls where phenotype = '${endpoint_string2}';
->>>>>>> SS-Master/master
+
 </sql:query>
 	<br>
 	

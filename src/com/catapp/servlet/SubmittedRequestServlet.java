@@ -14,10 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.catapp.action.Login;
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
 import com.catapp.action.SendEmail;
 import com.catapp.connection.DBConnection;
 import com.catapp.entity.User;  
@@ -35,13 +32,7 @@ public class SubmittedRequestServlet extends HttpServlet{
             throws ServletException, IOException {  
 	response.setContentType("text/html");  
     //PrintWriter out=response.getWriter();
-<<<<<<< HEAD
-    saveUserToDB(request);
 
-    SendEmail.sendEmail("new");
-
-    request.getRequestDispatcher("/WEB-INF/requestSubmitted.jsp").include(request, response);
-=======
     String lExisting=saveUserToDB(request);
     if(lExisting=="1"){
     	request.getRequestDispatcher("/WEB-INF/index.jsp?exists=1").include(request, response);
@@ -50,7 +41,7 @@ public class SubmittedRequestServlet extends HttpServlet{
     	
     	request.getRequestDispatcher("/WEB-INF/requestSubmitted.jsp").include(request, response);
     }
->>>>>>> SS-Master/master
+
 	}
 	
 	public String saveUserToDB(HttpServletRequest request){

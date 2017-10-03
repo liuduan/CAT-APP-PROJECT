@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> SS-Master/master
 var fig_width = 500;
 function magnify() {
 	// alert("hello");
@@ -33,8 +30,4 @@ $("menue_property").click(
 		
 		}
 	)
-<<<<<<< HEAD
 
-
-=======
->>>>>>> SS-Master/master

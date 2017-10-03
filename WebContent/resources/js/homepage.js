@@ -43,13 +43,13 @@ $( document ).ready(function() {
 		})
 		
 		
-<<<<<<< HEAD
 
-		$('#password').onblur(function() {
 
-=======
+		// $('#password').onblur(function() {
+
+
 		/*$('#password').onblur(function() {
->>>>>>> SS-Master/master
+
 			var pswd = $(this).val();
 			
 			if ( pswd.length < 8 ) {

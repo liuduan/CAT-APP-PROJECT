@@ -43,8 +43,5 @@ public class responseServlet extends HttpServlet {
 		
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> SS-Master/master
+

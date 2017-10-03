@@ -3,7 +3,6 @@
 	<name>CAT-APP-PROJECT</name>
 	<comment></comment>
 	<projects>
-		<project>Servers</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

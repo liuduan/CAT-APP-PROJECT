@@ -154,8 +154,5 @@ public class CentralServlet extends HttpServlet {
 		getServletContext().getRequestDispatcher("/WEB-INF/ToxPi/Central.jsp").forward(request, response);
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> SS-Master/master
+
