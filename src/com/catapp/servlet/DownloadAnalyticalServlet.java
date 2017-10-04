@@ -49,14 +49,9 @@ public class DownloadAnalyticalServlet extends HttpServlet {
 		try{
 			if(session!=null){
 				lConn=new DBConnection().getConnection();
-<<<<<<< HEAD
-
-				HashMap<String,String> casNumberMap=new ChemData().getCasNames(lConn, 3L);
-=======
 				
 				HashMap<String,String> casNumberMap=new ChemData().getCasNames(lConn, 3L);
 				HashMap<String,String> molecularMap=new ChemData().getMolecularClasses(lConn);
->>>>>>> SS-Master/master
 
 				request.setAttribute("casnumber", casNumberMap);
 				request.setAttribute("molecular", molecularMap);
