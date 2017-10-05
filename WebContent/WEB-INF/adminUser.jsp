@@ -121,6 +121,7 @@
 										<form action="AnalysisPageAction" method="post">
 											<input type="submit" class="btn btn-primary btn-xs"
 												value="Response Curves">
+												
 										</form>
 									</span>
 									<div class="clearfix"></div>
