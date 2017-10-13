@@ -59,7 +59,6 @@
 			document.getElementById('downloadByAsIsFiles').style.display = "block";
 			document.getElementById('downloadByComp').style.display = "none";
 			document.getElementById('downloadByCellLine').style.display = "none";
-
 		} else if (document.getElementById('byComp').checked) {
 			//alert("Hii");
 			document.getElementById('downloadByAsIsFiles').style.display = "none";
@@ -67,8 +66,6 @@
 			document.getElementById('downloadByCellLine').style.display = "none";
 			
 			//reset
-
-
 		} else if (document.getElementById('byCell').checked) {
 			//alert("heyy");
 			document.getElementById('downloadByAsIsFiles').style.display = "none";
@@ -76,13 +73,9 @@
 			document.getElementById('downloadByCellLine').style.display = "block";
 			
 			//reset
-
 		}
-
 	}
-
 	function filterchem() {
-
 		var input = jQuery("#chemsearch").val();
 		var lListSize = jQuery(".chemical").length
 		for (var i = 0; i < lListSize; i++) {
@@ -95,7 +88,6 @@
 		/* var input, listsize, i;
 		input =jQuery("#chemsearch").val();
 		listsize=jQuery("#li").size(); */
-
 	}
 </script>
 </head>
@@ -103,6 +95,8 @@
 <body onload="enalbe_cell_lines()">
 	<div id="wrapper">
 
+Hello.
+<%-- ===================================================================commented out
 		<%
 			String isAdmin = ((User) request.getSession().getAttribute("user")).getIs_admin();
 			if (null == isAdmin || "" == isAdmin.trim()) {
@@ -116,6 +110,9 @@
 		<%
 			}
 		%>
+		
+		
+Commented out ===================	=================================================== --%>
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
@@ -124,21 +121,7 @@
 				<!-- /.col-lg-12 -->
 			</div>
 			<div class="row">
-<<<<<<< HEAD
-				<div class="col-md-6" id="left">
-					<div id="cell line selection" style="margin-left: 40px;">
-
-						<sql:setDataSource var="snapshot"
-							driver="com.mysql.jdbc.Driver"
-							url="jdbc:mysql://localhost:3306/CATAPP?autoReconnect=true&useSSL=false" user="root" password="ashima"/>
-
-
-						<sql:query dataSource="${snapshot}" var="result">
-		select distinct cell_line_id from file_info; 
-	</sql:query>
-=======
 				<div class="col-lg-12">
->>>>>>> SS-Master/master
 
 					<div class="panel panel-default">
 
@@ -160,14 +143,19 @@
 							<div class="col-md-6" id="left">
 								<div id="cell line selection" style="margin-left: 40px;">
 
-									<sql:setDataSource var="snapshot"
-										driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-										url="jdbc:sqlserver://IRUSYN1LAP\\SQLEXPRESS;databaseName=CATAPP;integratedSecurity=true" />
 
+						<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+    						url="jdbc:mysql://localhost:3306/catapp"
+    						user="root"  password="vibscatapp"/>
 
-									<sql:query dataSource="${snapshot}" var="result">
-		select distinct cell_line_id from file_info; 
-	</sql:query>
+						<sql:query dataSource="${snapshot}" var="result">
+							select distinct cell_line_id from file_info; 
+						</sql:query>
+
+	
+	
+	
+	
 
 									<script type="text/javascript">
 										function enalbe_cell_lines() { ////////////////////////// enable_cell_lines()

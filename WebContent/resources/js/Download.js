@@ -13,14 +13,18 @@ function click_cell_line_title(){
 	$("#assay_head").hide();
 	$("#assay_list").hide();
 	
+	alert("hide file_list");
 	$("#file_button").hide();
-	$("#file_list").hide();
-	$("#file_list").replaceWith("...");
-	$("#file_list").append("...");
-	$("#file_list").replaceWith("data");
+	if($("#file_list").is(":visible")){
+		$("#file_list").hide();
+	}
+	
+	// $("#file_list").replaceWith(".....");
+	// $("#file_list").append("...");
+	// $("#file_list").replaceWith("data");
 	
 	
-	// alert("click_cell_line_title()-3");
+	alert("click_cell_line_title()-3");
 }
 
 
@@ -93,7 +97,7 @@ $(".all_assays").change(function() {
 
 
 function click_assay_button(){
-	// alert("click_assay_button()");
+	alert("click_assay_button()");
 	
 	var selected_assay = "";
 	var data_string = '';
@@ -113,10 +117,13 @@ function click_assay_button(){
 	  data: data_string,
 	  type: 'post',
 	  success: function(data) {
-	    // alert(data);
-		  $("#file_list").html(""); 
+	    alert(data);
+		$("#file_list").html(""); 
 	    $("#file_list").html(data);
-	    $('#assay_button').hide();	    
+	    // $("#file_list").replaceWith(data);
+	    $("#file_list").show();
+	    $('#assay_button').hide();	  
+	    alert("after");
 	  }
 	});		// end of ajax()
 	
