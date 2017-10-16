@@ -29,8 +29,8 @@ public class AnalysisPageAction extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		//session.getAttribute("user");
-        //PrintWriter out=response.getWriter();
-		System.out.println("Session is"+session);*/
+        //PrintWriter out=response.getWriter();*/
+		System.out.println("AnalysisPageAction A");
 		
 		HttpSession session=request.getSession(false);
 		Connection lConn   = null;
