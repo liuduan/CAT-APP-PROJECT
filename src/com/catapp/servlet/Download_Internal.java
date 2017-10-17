@@ -131,9 +131,4 @@ public class Download_Internal extends HttpServlet {
 	}
 	}
 
-<<<<<<< HEAD
 
-}
-
-=======
->>>>>>> SS-Master/master

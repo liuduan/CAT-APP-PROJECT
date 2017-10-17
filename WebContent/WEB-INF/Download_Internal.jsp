@@ -12,7 +12,8 @@
 
 
 
-<html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -41,7 +42,7 @@
 
 	<sql:setDataSource var="snapshot_C" 
 		driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/CATAPP?autoReconnect=true&useSSL=false" user="root" password="ashima" />
+		url="jdbc:mysql://localhost:3306/CATAPP?autoReconnect=true&useSSL=false" user="root" password="vibscatapp" />
 
 <script>
 $(document).ready(function(){
@@ -60,12 +61,8 @@ $(document).ready(function(){
 
     		$("#${element}_${row.assay_type}_B").css({'color': 'DarkCyan ', 'font-size': '105%', 'font-weight': 'bold' });
     	</c:forEach> 
-<<<<<<< HEAD
 
-    	$("#${element}_assays").show();
-=======
-    	
->>>>>>> SS-Master/master
+
    	</c:forEach>
 });
 

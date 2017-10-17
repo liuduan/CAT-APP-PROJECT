@@ -46,6 +46,7 @@ public class ChemProperties extends HttpServlet {
 			ResultSet lRst 						= null;
 			Connection lConn 					= null;
 			String lSelectedCasNumber			= null;
+			System.out.println("ChemProperties A ");
 			try {
 				lConn=new DBConnection().getConnection();
 				lSelectedCasNumber=request.getParameter("cas");

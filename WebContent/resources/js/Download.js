@@ -12,7 +12,6 @@ function click_cell_line_title(){
 	// alert("click_cell_line_title()-2");
 	$("#assay_head").hide();
 	$("#assay_list").hide();
-<<<<<<< HEAD
 	
 	alert("hide file_list");
 	$("#file_button").hide();
@@ -23,19 +22,7 @@ function click_cell_line_title(){
 	// $("#file_list").replaceWith(".....");
 	// $("#file_list").append("...");
 	// $("#file_list").replaceWith("data");
-=======
-	if(jQuery("#Assays_A").html()=="."){
-		
-	}else{
-		
-		$("#Assays_A").html(".");
-	}
-	/*$("#file_button").hide();
-	$("#file_list").hide();
-	$("#file_list").replaceWith("...");
-	$("#file_list").append("...");
-	$("#file_list").replaceWith("data");*/
->>>>>>> SS-Master/master
+
 	
 	
 	alert("click_cell_line_title()-3");
@@ -57,16 +44,7 @@ function click_cell_line_button(){
 	
 	$('#cell_line_list').hide();
 
-	$('#cell_line_title').hide;
-<<<<<<< HEAD
-
-
-=======
-	
-	
-	$("#assay_head").hide();
-	$("#assay_list").hide();
->>>>>>> SS-Master/master
+	$('#cell_line_title').hide();
 	
 	var selected_celllines = [];
 	var data_string = '';

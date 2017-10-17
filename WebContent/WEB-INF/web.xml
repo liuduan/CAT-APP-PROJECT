@@ -125,12 +125,32 @@
     <servlet-class>com.catapp.servlet.Download_Internal_CServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
-    <servlet>
+  <servlet>
     <display-name>CentralServlet</display-name>
     <servlet-name>CentralServlet</servlet-name>
     <servlet-class>cat.ToxPi.CentralServlet</servlet-class>
     <enabled>true</enabled>
   </servlet>
+  <servlet>
+    <display-name>ChemProperties</display-name>
+    <servlet-name>ChemProperties</servlet-name>
+    <servlet-class>com.catapp.servlet.ChemProperties</servlet-class>
+    <enabled>true</enabled>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChemProperties</servlet-name>
+    <url-pattern>/ChemProperties</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <servlet-mapping>
     <servlet-name>CentralServlet</servlet-name>
     <url-pattern>/ToxPi/Central</url-pattern>

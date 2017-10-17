@@ -8,253 +8,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<<<<<<< HEAD
-
-
-
-<head>
-<title>Response Curves</title>
-
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
- -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
- -->
-<!-- <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet" />
- -->
-<link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet" />
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
-    <%@page import="java.io.File"%>
-    <%@page import="java.io.IOException"%>
-    <%@page import="java.awt.image.BufferedImage"%>
-    <%@page import="javax.imageio.ImageIO"%>
-    <%@page import="java.io.ByteArrayOutputStream"%>
-
-    <%@page import="java.math.BigInteger"%>
-    <%@page import="javax.xml.bind.DatatypeConverter"%>
-    <%@page import="java.awt.image.BufferedImage"%>
-    <%@page import="sun.misc.BASE64Decoder"%>
-    <%@page import="java.awt.image.BufferedImage"%>
-<link href="${pageContext.request.contextPath}/resources/css/metisMenu.min.css"
-	rel="stylesheet" />
-<!-- Custom CSS -->
-<link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.css"
-	rel="stylesheet" />
-<link href="${pageContext.request.contextPath}/resources/css/font-awesome.css"
-	rel="stylesheet" />
-<!-- Custom Fonts -->
-<link
-	href="${pageContext.request.contextPath}/resources/css/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css" />
-<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/favicon.png" />
-<style type="text/css">
-#wrapper {
-	/* background: RGBA(24, 161, 196, 0.2); */
-	background: url('${pageContext.request.contextPath}/resources/images/bgLight.jpg') repeat
-		center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
-}
-</style>
-<script type="text/javascript">
-	function filterchem() {
-
-		var input = jQuery("#chemsearch").val();
-		var lListSize = jQuery(".chemical").length
-		for (var i = 0; i < lListSize; i++) {
-			if (jQuery(".chemical")[i].innerHTML.indexOf(input) > -1) {
-				document.getElementsByClassName("chemical")[i].style.display = "";
-			} else {
-				document.getElementsByClassName("chemical")[i].style.display = "none";
-			}
-		}
-		/* var input, listsize, i;
-		input =jQuery("#chemsearch").val();
-		listsize=jQuery("#li").size(); */
-
-	}
-
-	
-</script>
-</head>
-<body>
-
-
-
-
-	<!-- Left Menu -->
-	<div id="wrapper">
-		<%
-			String isAdmin = ((User) request.getSession().getAttribute("user")).getIs_admin();
-			if (null == isAdmin || "" == isAdmin.trim()) {
-		%>
-		<jsp:include page="header.jsp" />
-		<%
-			}
-			if ("Y".equalsIgnoreCase(isAdmin)) {
-		%>
-		<jsp:include page="header.jsp" />
-		<%
-			}
-		%>
-
-		
-
-			<!-- <div class="panel panel-default">
-				<div class="panel-heading">Response Curves</div>
-				.panel-heading
-				<div class="panel-body"> -->
-
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="panel panel-primary">
-								<div class="panel-heading">Select Data</div>
-								<!-- .panel-heading -->
-								<div class="panel-body">
-									<div class="panel-group" id="accordion">
-										<div class="panel panel-primary">
-											<div class="panel-heading">
-												<h4 class="panel-title">
-
-													<a data-toggle="collapse" data-parent="#accordion"
-														href="#collapseOne" id="sac">Select a chemical</a>
-
-												</h4>
-											</div>
-											<div id="collapseOne" class="panel-collapse collapse in">
-												<div class="panel-body">
-													<div class="input-group custom-search-form">
-														<input type="text" class="form-control" id="chemsearch"
-															onkeyup="filterchem()" placeholder="Search Cas Number...">
-													</div>
-													<div class=" scrollerdiv pre-scrollable">
-														<table class="table table-hover,table-fixed">
-															<thead style="display: block; border-color: #e67e22;">
-																<tr>
-																	<th>Cas Number || Name || Category</th>
-																</tr>
-															</thead>
-															<c:forEach var="item" items="${chemicals}">
-																<tr class="chemical">
-																	<td><input type="radio" name="cas" id="cas"
-																		onclick="displayChemicalData()"
-																		value=<c:out value="${item.key}"/>> &nbsp;<c:out
-																				value="${item.value}" /></td>
-																</tr>
-
-																</li>
-															</c:forEach>
-														</table>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="panel panel-primary">
-											<div class="panel-heading">
-												<h4 class="panel-title">
-													<a data-toggle="collapse" data-parent="#accordion"
-														href="#collapseTwo" id="sacl">Select a cell line</a>
-
-												</h4>
-											</div>
-											<div id="collapseTwo" class="panel-collapse collapse">
-												<div class="panel-body">
-													<div class=" scrollerdiv pre-scrollable">
-														<table class="table table-hover,table-fixed">
-
-															<c:forEach var="item" items="${cell}">
-																<tr class="cell">
-																	<td><input type="radio" name="cell" id="cell"
-																	onclick="displayPhenoData()"	value=<c:out value="${item.key}"/>> &nbsp; 
-																	<c:out value="${item.value}" /></td>
-																</tr>
-
-																</li>
-															</c:forEach>
-														</table>
-													</div>
-												</div>
-											</div>
-										</div>
-
-
-										<div class="panel panel-primary">
-											<div class="panel-heading">
-												<h4 class="panel-title">
-													<a data-toggle="collapse" data-parent="#accordion"
-														href="#collapseThree">Select a phenotype</a>
-
-												</h4>
-											</div>
-											<div id="collapseThree" class="panel-collapse collapse">
-												<div class="panel-body">
-													<div class=" scrollerdiv pre-scrollable">
-
-														<table class="table table-hover,table-fixed">
-
-															<c:forEach var="item" items="${pheno}">
-																<tr class="cell">
-																	<td><input type="radio" name="pheno" id="pheno"
-																		onclick="displayTimeData()" value=<c:out value="${item.key}"/>> &nbsp; <c:out
-																				value="${item.value}" /></td>
-																</tr>
-
-																</li>
-															</c:forEach>
-														</table>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="panel panel-primary">
-											<div class="panel-heading">
-												<h4 class="panel-title">
-													<a data-toggle="collapse" data-parent="#accordion"
-														href="#collapseFour">Select a time point</a>
-												</h4>
-											</div>
-											<div id="collapseFour" class="panel-collapse collapse">
-												<div class="panel-body">
-													<div class=" scrollerdiv pre-scrollable">
-														<table class="table table-hover,table-fixed">
-
-															<c:forEach var="item" items="${time}">
-																<tr class="cell">
-																	<td><input type="radio" name="tp" id="tp"
-																	onclick="displayGraph()"	value=<c:out value="${item.key}"/>> &nbsp; <c:out
-																				value="${item.value}" /></td>
-																</tr>
-
-																</li>
-															</c:forEach>
-														</table>
-													</div>
-												</div>
-											</div>
-										</div>
-
-
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-8">
-
-=======
-
 
 
 <head>
@@ -498,7 +251,6 @@
 
 						<div class="col-lg-8">
 
->>>>>>> SS-Master/master
 
 							<div class="panel panel-primary">
 								<div class="panel-heading">Analysis</div>
@@ -525,17 +277,11 @@
 										
 										</div>
 										<div class="tab-pane fade" id="messages-pills">
-<<<<<<< HEAD
-											<br> <p><center>!! Coming Soon !!</center></p>
-										</div>
-										<div class="tab-pane fade" id="settings-pills">
-										
-=======
+
 											
 										</div>
 										<div class="tab-pane fade" id="settings-pills">
 											<br> <p>Coming Soon!!</p>
->>>>>>> SS-Master/master
 										</div>
 										<div class="tab-pane fade" id="credits-pills">
 										<br>
@@ -558,22 +304,17 @@ The R program for dose-response curves was written by Dr. Fred Wright at the Nor
 	<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		METISMENU SCRIPTS
-<<<<<<< HEAD
-		<script src="${pageContext.request.contextPath}/resources/js/jquery.metisMenu.js"></script>
 
-		</script>
-		<script src="${pageContext.request.contextPath}/resources/js/Response/Response.js"></script>
-=======
 		<script src="/CAT-APP-PROJECT/resources/js/jquery.metisMenu.js"></script>
 
 		</script>
 		<script src="/CAT-APP-PROJECT/resources/js/Response/Response.js"></script>
->>>>>>> SS-Master/master
+
 		<script
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
 	<!--  -->
-<<<<<<< HEAD
+
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/metisMenu.min.js"></script>
 	<!-- Bootstrap Core JavaScript -->
@@ -582,16 +323,7 @@ The R program for dose-response curves was written by Dr. Fred Wright at the Nor
 	<!-- CUSTOM SCRIPTS -->
 	<script src="${pageContext.request.contextPath}/resources/js/sb-admin-2.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/Response/Response.js"></script>
-=======
-	<script src="/CAT-APP-PROJECT/resources/js/jquery.min.js"></script>
-	<script src="/CAT-APP-PROJECT/resources/js/metisMenu.min.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="/CAT-APP-PROJECT/resources/js/bootstrap.min.js"></script>
 
-	<!-- CUSTOM SCRIPTS -->
-	<script src="/CAT-APP-PROJECT/resources/js/sb-admin-2.js"></script>
-	<script src="/CAT-APP-PROJECT/resources/js/Response/Response.js"></script>
->>>>>>> SS-Master/master
 </body>
 
 
