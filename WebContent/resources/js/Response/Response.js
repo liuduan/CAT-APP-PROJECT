@@ -351,6 +351,7 @@ function displayChemicalData() {
 	$('input[name=cell]').prop('checked', false);
 	$('input[name=pheno]').prop('checked', false);
 	$('input[name=tp]').prop('checked', false);
+<<<<<<< HEAD
 	
 	alert("displayChemicalData A");
 
@@ -422,6 +423,77 @@ function displayChemicalData() {
     });
 	
 
+=======
+
+	$.ajax({
+        type: "GET",
+        url: "ChemProperties",
+        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        data: { 
+            'cas': lSelectedCas
+          },
+          	 success: function (responseText) {
+          		
+          		/* alert("Test");*/
+        	 var lChem = responseText.getElementsByTagName("chem");
+          		var lHTML="<br><table class='table'><tbody><tr>"+
+                "<td>CatApp ID</td>"+
+       		 "<td>"+lChem[0].childNodes[0].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr class='success'><td>Cas Number</td>"+
+       		 "<td>"+lChem[0].childNodes[1].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr class='danger'><td>Concawe ID</td>"+
+       		 "<td>"+lChem[0].childNodes[2].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr class='info' ><td>Chemical Name</td>"+
+       		 "<td>"+lChem[0].childNodes[3].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr class='warning'><td>Category</td>"+
+       		 "<td>"+lChem[0].childNodes[4].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr><td>EC Number</td>"+
+       		 "<td>"+lChem[0].childNodes[5].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr class='success'><td>Source</td>"+
+       		 "<td>"+lChem[0].childNodes[6].firstChild.nodeValue+"</td></tr></tbody></table>";
+  
+          		
+          		$("#hp").attr("aria-expanded","false");
+          		$("#home-pills").removeClass("tab-pane fade active in");
+          		$("#home").removeClass("active");
+        		$("#home-pills").addClass("tab-pane fade");
+        		var lCellLine = $('input[name=cell]:checked').val();
+        		if(lCellLine==1){
+        			
+        		} else if(lCellLine==2){
+        			
+        		} else if (lCellLine==3){
+        			
+        		}else if (lCellLine==4){
+        			
+        			$("#messages-pills").html(endpoint_data[4])	;
+        		}
+        		$("#profile-pills").html(lHTML);
+        		$("#chem").attr("aria-expanded","true");
+        		$("#profile-pills").removeClass("tab-pane fade");
+        		$("#profile-pills").addClass("tab-pane fade active in");
+        		$("#chempr").addClass("active");
+        		$("#sacl").removeClass("collapsed");
+        		$("#sac").addClass("collapsed");
+        		$("#sac").attr("aria-expanded","false");
+        		$("#sacl").attr("aria-expanded","true");
+        		$("#collapseOne").removeClass("panel-collapse collapse in");
+        		$("#collapseOne").addClass("panel-collapse collapse");
+        		$("#collapseOne").attr("aria-expanded","false");
+        		$("#collapseTwo").removeClass("panel-collapse collapse");
+        		$("#collapseTwo").addClass("panel-collapse collapse in");
+        		$("#collapseTwo").attr("aria-expanded","true");
+        		$("#collapseTwo").attr("style","height: 405px;");
+        		
+        		
+
+        }
+          
+          
+    });
+	
+
+>>>>>>> SS-Master/master
 }
 function displayPhenoData(){
 	$("#collapseTwo").removeClass("panel-collapse collapse in");

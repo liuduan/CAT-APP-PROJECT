@@ -47,6 +47,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import com.catapp.action.CatAppConstants;
 import com.catapp.action.ChemData;
 import com.catapp.connection.DBConnection;
 
@@ -280,7 +281,7 @@ public class DownloadFileServlet extends HttpServlet {
 					}
 					response.setContentType("Content-type: text/zip");
 					response.setHeader("Content-Disposition",
-							"attachment; filename=mytest.zip");
+							"attachment; filename="+CatAppConstants.fileNameCatAppDownload+System.currentTimeMillis()+".zip");
 
 					
 
@@ -460,7 +461,7 @@ public class DownloadFileServlet extends HttpServlet {
 	        response.setContentType("application/ms-excel");
 	        response.setContentLength(outArray.length);
 	        response.setHeader("Expires:", "0"); // eliminates browser caching
-	        response.setHeader("Content-Disposition", "attachment; filename=Cardio.xls");
+	        response.setHeader("Content-Disposition", "attachment; filename=Cardio_"+System.currentTimeMillis()+".xls");
 	        OutputStream outStream = response.getOutputStream();
 	        outStream.write(outArray);
 	        outStream.flush();
