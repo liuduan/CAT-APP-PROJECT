@@ -47,6 +47,7 @@ var leftMenu_on = true;
 var rightMenu_on = true;
 
 function openLeftMenu() {
+	
 	leftMenu_on = true;
 	if(rightMenu_on == true){
 		$("#central_area").css("width", "58%");
@@ -62,7 +63,7 @@ function openLeftMenu() {
     
 }
 function closeLeftMenu() {
-
+	
 	leftMenu_on = false;
 	if(rightMenu_on == true){
 		$("#central_area").css("width", "80%");
@@ -76,6 +77,7 @@ function closeLeftMenu() {
 }
 
 function openRightMenu() {
+	
 	// document.getElementById("central_area").style.marginRight = "25%";
 	rightMenu_on = true;
 	if(leftMenu_on == true){
@@ -91,6 +93,7 @@ function openRightMenu() {
 	
 }
 function closeRightMenu() {
+	
 	rightMenu_on = false;
 	if(leftMenu_on == true){
 		$("#central_area").css("width", "78%");
@@ -110,13 +113,8 @@ var chem_row_n = 0;
 var chem_row_n2 = 0;
 var endpoint_row_n;
 var source_div ="";
-
-// var background_A = "-webkit-gradient(linear, left top, left bottom, from(Purple), to(RebeccaPurple))";
-// var background_B = "-webkit-gradient(linear, left top, left bottom, from(DarkCyan), to(DarkBlue))";
-
 var background_A = "-webkit-gradient(linear, left top, left bottom, from(#033771), to(#18a1c4))";
 var background_B = "-webkit-gradient(linear, left top, left bottom, from(#033771), to(#18a1c4))";
-
 var background = background_A;
 var chemical_selected = false;
 var endpoint_selected = false;
@@ -167,19 +165,11 @@ $(document).ready(function(){
 			// alert("remainder: " + chem_row_n%3);
 		
 			if (chem_row_n%3 == 0) {
-
-			//	background = "-webkit-gradient(linear, left top, left bottom, from(DarkSlateBlue), to(DarkBlue))";} 
-			//if (chem_row_n%3 == 1) {
-			//	background = "-webkit-gradient(linear, right top, left bottom, from(DarkSlateGray), to(MidnightBlue))";} 
-			//if (chem_row_n%3 == 2) {
-			//	background = "-webkit-gradient(linear, left top, right bottom, from(Black), to(DarkGrey))";} 
-
 				background = "-webkit-gradient(linear, left top, left bottom, from(#033771), to(#18a1c4))";} 
 			if (chem_row_n%3 == 1) {
 				background = "-webkit-gradient(linear, right top, left bottom, from(#033771), to(#18a1c4))";} 
 			if (chem_row_n%3 == 2) {
 				background = "-webkit-gradient(linear, left top, right bottom, from(#033771), to(#18a1c4))";} 
-
 		
 			$('#Column-C').css({
 		    	background: background });
@@ -260,7 +250,6 @@ $(document).ready(function(){
 			if (!chemical_selected || !endpoint_selected){
 				//alert("yes");
 				$('#Column-C').css({
-    				//background: "-webkit-gradient(linear, left top, left bottom, from(DarkGrey), to(Black))" 
     				background: "-webkit-gradient(linear, left top, left bottom, from(#033771), to(#18a1c4))" 
 					});
 				jQuery('#inside-C').html('');
@@ -274,8 +263,7 @@ $(document).ready(function(){
 
 function column_3_curve(chem_row_n, endpoint_row_n){
 	// alert(chem_row_n + "===================================" + column3_data[chem_row_n-1]);
-
-    $.post("Column_3",{				// "Column_3" is the url
+    $.post("column_3",{				// "Column_3" is the url
    		chemical: chem_row_n + 1,
     	endpoint: endpoint_row_n,
     	chemical_properties: column3_data[chem_row_n],
@@ -357,5 +345,220 @@ endpoint_data[7] = "<br><br><br><papaya>" +
 	"and maintenance media were obtained from Cellular Dynamics International (Madison, WI). " +
 	"EarlyTox Cardiotoxicity kits were purchased from Molecular Devices LLC (Sunnyvale, CA). </p>"+
 	"<br><br><br><br><br>";
+function displayChemicalData() {
+	var lSelectedCas=$('input[name=cas]:checked').val();
+	jQuery("#profile-pills").html("");
+	$('input[name=cell]').prop('checked', false);
+	$('input[name=pheno]').prop('checked', false);
+	$('input[name=tp]').prop('checked', false);
+	
+	alert("displayChemicalData A");
 
+	$.ajax({
+        type: "GET",
+        url: "ChemProperties",
+        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        data: { 
+            'cas': lSelectedCas
+          },
+          	 success: function (responseText) {
+          		
+          		alert("displayChemicalData B");
+        	 var lChem = responseText.getElementsByTagName("chem");
+          		var lHTML="<br><table class='table'><tbody><tr>"+
+                "<td>CatApp ID</td>"+
+       		 "<td>"+lChem[0].childNodes[0].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr class='success'><td>Cas Number</td>"+
+       		 "<td>"+lChem[0].childNodes[1].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr class='danger'><td>Concawe ID</td>"+
+       		 "<td>"+lChem[0].childNodes[2].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr class='info' ><td>Chemical Name</td>"+
+       		 "<td>"+lChem[0].childNodes[3].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr class='warning'><td>Category</td>"+
+       		 "<td>"+lChem[0].childNodes[4].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr><td>EC Number</td>"+
+       		 "<td>"+lChem[0].childNodes[5].firstChild.nodeValue+"</td></tr>"+
+       		 "<tr class='success'><td>Source</td>"+
+       		 "<td>"+lChem[0].childNodes[6].firstChild.nodeValue+"</td></tr></tbody></table>";
+  
+          		
+          		$("#hp").attr("aria-expanded","false");
+          		$("#home-pills").removeClass("tab-pane fade active in");
+          		$("#home").removeClass("active");
+        		$("#home-pills").addClass("tab-pane fade");
+        		var lCellLine = $('input[name=cell]:checked').val();
+        		if(lCellLine==1){
+        			
+        		} else if(lCellLine==2){
+        			
+        		} else if (lCellLine==3){
+        			
+        		}else if (lCellLine==4){
+        			
+        			$("#messages-pills").html(endpoint_data[4])	;
+        		}
+        		$("#profile-pills").html(lHTML);
+        		$("#chem").attr("aria-expanded","true");
+        		$("#profile-pills").removeClass("tab-pane fade");
+        		$("#profile-pills").addClass("tab-pane fade active in");
+        		$("#chempr").addClass("active");
+        		$("#sacl").removeClass("collapsed");
+        		$("#sac").addClass("collapsed");
+        		$("#sac").attr("aria-expanded","false");
+        		$("#sacl").attr("aria-expanded","true");
+        		$("#collapseOne").removeClass("panel-collapse collapse in");
+        		$("#collapseOne").addClass("panel-collapse collapse");
+        		$("#collapseOne").attr("aria-expanded","false");
+        		$("#collapseTwo").removeClass("panel-collapse collapse");
+        		$("#collapseTwo").addClass("panel-collapse collapse in");
+        		$("#collapseTwo").attr("aria-expanded","true");
+        		$("#collapseTwo").attr("style","height: 405px;");
+        		
+        		
 
+        }
+          
+          
+    });
+	
+
+}
+function displayPhenoData(){
+	$("#collapseTwo").removeClass("panel-collapse collapse in");
+	$("#collapseTwo").addClass("panel-collapse collapse");
+	$("#collapseTwo").attr("aria-expanded","false");
+	$("#collapseTwo").attr("style","height: 0px;");
+	$("#collapseThree").removeClass("panel-collapse collapse");
+	$("#collapseThree").addClass("panel-collapse collapse in");
+	$("#collapseThree").attr("aria-expanded","true");
+	$("#collapseThree").attr("style","height: 405px;");
+	
+	
+}
+function displayTimeData(){
+	$("#collapseThree").removeClass("panel-collapse collapse in");
+	$("#collapseThree").addClass("panel-collapse collapse");
+	$("#collapseThree").attr("aria-expanded","false");
+	$("#collapseThree").attr("style","height: 0px;");
+	$("#collapseFour").removeClass("panel-collapse collapse");
+	$("#collapseFour").addClass("panel-collapse collapse in");
+	$("#collapseFour").attr("aria-expanded","true");
+	$("#collapseFour").attr("style","height: 405px;");
+	
+}
+function displayGraph(){
+
+ var lChemical = $('input[name=cas]:checked').val();
+ var lCellLine = $('input[name=cell]:checked').val();
+ var lPhenotype= $('input[name=pheno]:checked').val();
+ var lTimePoint= $('input[name=tp]:checked').val();
+ 
+ $.ajax({
+     type: "GET",
+     url: "GenerateGraph",
+     contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+     data: { 
+         'ch': lChemical,
+         'cl': lCellLine,
+         'ph': lPhenotype,
+         'tp': lTimePoint
+       },
+       	 success: function (responseText) {
+       		
+       		var base64_string = responseText;
+       		var img = document.createElement("img");
+       		// added `width` , `height` properties to `img` attributes
+       		img.width = "250px";
+       		img.height = "250px";
+       		img.src = "data:image/png;base64," + base64_string;
+       		$("#home-pills").html(img);
+       		jQuery("#home-pills").children('img').removeAttr('height');
+       		jQuery("#home-pills").children('img').removeAttr('width');
+       		
+       		jQuery("#home-pills").children('img').attr('width','400px');
+       		jQuery("#home-pills").children('img').attr('height','400px');
+       		
+       		$("#hp").attr("aria-expanded","true");
+      		$("#profile-pills").removeClass("tab-pane fade active in");
+      		$("#chempr").removeClass("active");
+    		$("#profile-pills").addClass("tab-pane fade");
+      					
+    	
+    		$("#chem").attr("aria-expanded","false");
+    		$("#home-pills").removeClass("tab-pane fade");
+    		$("#home-pills").addClass("tab-pane fade active in");
+    		$("#home").addClass("active");
+     		
+
+     }
+       
+       
+ });
+	
+}
+function finddoseresponse(){
+	 var lChemical = $('input[name=cas]:checked').val();
+	 var lCellLine = $('input[name=cell]:checked').val();
+	 var lPhenotype= $('input[name=pheno]:checked').val();
+	 var lTimePoint= $('input[name=tp]:checked').val();
+	 
+	 if(lChemical!=undefined && lCellLine!= undefined && lPhenotype!=undefined && lTimePoint!=undefined){
+		 
+		 $.ajax({
+		     type: "GET",
+		     url: "GetAssayData",
+		     contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		     data: { 
+		         'ch': lChemical,
+		         'cl': lCellLine,
+		         'ph': lPhenotype,
+		         'tp': lTimePoint
+		       },
+		       	 success: function (responseText) {
+		       		
+		       	 	 var lChem = responseText.getElementsByTagName("dose");
+		          		var lHTML="<br><table class='table'><tbody><tr>"+
+		                "<td>1000x:</td>"+
+		       		 "<td>"+lChem[0].childNodes[0].firstChild.nodeValue+"</td></tr>"+
+		       		 "<tr class='success'><td>100x:</td>"+
+		       		 "<td>"+lChem[0].childNodes[1].firstChild.nodeValue+"</td></tr>"+
+		       		 "<tr class='danger'><td>10x:</td>"+
+		       		 "<td>"+lChem[0].childNodes[2].firstChild.nodeValue+"</td></tr>"+
+		       		 "<tr class='info' ><td>1x:</td>"+
+		       		 "<td>"+lChem[0].childNodes[3].firstChild.nodeValue+"</td></tr>"+
+		       		 "<tr class='warning'><td>Point of Departure:</td>"+
+		       		 "<td>"+lChem[0].childNodes[4].firstChild.nodeValue+"</td></tr></tbody></table>";
+		         
+		          		var lCV = responseText.getElementsByTagName("control");
+		          		
+		          		var lValue= lCV[0].childNodes[0].firstChild.nodeValue;
+		          		var lCommaLength=lValue.split(",").length
+		          		var lHTML1 ="<b>Control Values:</b><br> <table><tbody><tr><td>";
+		          		var counter=0;
+		          		for(var i=0;i<lCommaLength;i++){
+		          			if(counter>6){
+		          				counter=0;
+		          				lHTML1=lHTML1+"</tr>";
+		          			}
+		          			if(i==0){
+		          				lHTML1=lHTML1+lValue.split(",")[i]+ ",</td>"
+		          			}else if(i==lCommaLength-1){
+		          				lHTML1=lHTML1+"<td>"+lValue.split(",")[i]+"</td>";
+		          			}
+		          			else{
+		          				lHTML1=lHTML1+"<td>"+lValue.split(",")[i]+ ",</td>";
+		          				counter++;
+		          				
+		          			}
+		          		}
+		          		lHTML1=lHTML1+"<tbody></table>";
+		          		jQuery("#settings-pills").html(lHTML+lHTML1);
+
+		     }
+		       
+		       
+		 });
+		 
+	 }
+	
+}

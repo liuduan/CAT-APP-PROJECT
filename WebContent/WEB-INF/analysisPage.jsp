@@ -24,7 +24,7 @@
  -->
 <!-- <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet" />
  -->
-<link href="/CAT-APP-PROJECT/resources/css/bootstrap.min.css"
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet" />
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -44,22 +44,22 @@
     <%@page import="java.awt.image.BufferedImage"%>
     <%@page import="sun.misc.BASE64Decoder"%>
     <%@page import="java.awt.image.BufferedImage"%>
-<link href="/CAT-APP-PROJECT/resources/css/metisMenu.min.css"
+<link href="${pageContext.request.contextPath}/resources/css/metisMenu.min.css"
 	rel="stylesheet" />
 <!-- Custom CSS -->
-<link href="/CAT-APP-PROJECT/resources/css/sb-admin-2.css"
+<link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.css"
 	rel="stylesheet" />
-<link href="/CAT-APP-PROJECT/resources/css/font-awesome.css"
+<link href="${pageContext.request.contextPath}/resources/css/font-awesome.css"
 	rel="stylesheet" />
 <!-- Custom Fonts -->
 <link
-	href="/CAT-APP-PROJECT/resources/css/font-awesome/css/font-awesome.min.css"
+	href="${pageContext.request.contextPath}/resources/css/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
-<link rel="shortcut icon" href="resources/images/favicon.png" />
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/favicon.png" />
 <style type="text/css">
 #wrapper {
 	/* background: RGBA(24, 161, 196, 0.2); */
-	background: url('/CAT-APP-PROJECT/resources/images/bgLight.jpg') repeat
+	background: url('${pageContext.request.contextPath}/resources/images/bgLight.jpg') repeat
 		center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -304,22 +304,22 @@ The R program for dose-response curves was written by Dr. Fred Wright at the Nor
 	<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		METISMENU SCRIPTS
-		<script src="/CAT-APP-PROJECT/resources/js/jquery.metisMenu.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/jquery.metisMenu.js"></script>
 
 		</script>
-		<script src="/CAT-APP-PROJECT/resources/js/Response/Response.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/Response/Response.js"></script>
 		<script
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
 	<!--  -->
-	<script src="/CAT-APP-PROJECT/resources/js/jquery.min.js"></script>
-	<script src="/CAT-APP-PROJECT/resources/js/metisMenu.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/metisMenu.min.js"></script>
 	<!-- Bootstrap Core JavaScript -->
-	<script src="/CAT-APP-PROJECT/resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 
 	<!-- CUSTOM SCRIPTS -->
-	<script src="/CAT-APP-PROJECT/resources/js/sb-admin-2.js"></script>
-	<script src="/CAT-APP-PROJECT/resources/js/Response/Response.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/sb-admin-2.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/Response/Response.js"></script>
 </body>
 
 
