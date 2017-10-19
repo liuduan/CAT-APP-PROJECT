@@ -246,7 +246,8 @@
   </servlet-mapping>
 
   <welcome-file-list>
-    <welcome-file>Home</welcome-file>
+
+    <welcome-file>/WEB-INF/index.jsp</welcome-file>
   </welcome-file-list>
   <session-config>
     <session-timeout>30</session-timeout>
